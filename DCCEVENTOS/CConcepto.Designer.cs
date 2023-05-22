@@ -145,7 +145,7 @@
             conceptosexistentes.Location = new Point(407, 7);
             conceptosexistentes.Name = "conceptosexistentes";
             conceptosexistentes.RowTemplate.Height = 25;
-            conceptosexistentes.Size = new Size(360, 437);
+            conceptosexistentes.Size = new Size(725, 437);
             conceptosexistentes.TabIndex = 44;
             // 
             // BTNAgre
@@ -260,7 +260,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1134, 450);
             Controls.Add(TBCostosprecio);
             Controls.Add(controlTextoEtiqueta4);
             Controls.Add(controlTextoEtiqueta3);

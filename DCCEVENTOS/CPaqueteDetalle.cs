@@ -16,5 +16,10 @@ namespace DCCEVENTOS
         {
             InitializeComponent();
         }
+
+        private void CPaqueteDetalle_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
