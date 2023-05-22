@@ -18,6 +18,42 @@ namespace DatosManejo
         {
             this.contexto = contexto;
         }
+        public List<SaEveConcepto> Obtener2(string DesConcepto = "", decimal CostosCoceptos = 0, decimal CostoPrecio = 0, string CodEstado = "", int Codporcentaje = 0, decimal porciento = 0)
+        {
+           
+            List<SaEveConcepto> conceptos = contexto.SaEveConceptos.AsTracking().ToList();
+            
+            if (conceptos.Count > 1 && !String.IsNullOrEmpty(DesConcepto))
+            {
+                conceptos = conceptos.Where(a => a.DesConceptos == DesConcepto || a.DesConceptos.Contains(DesConcepto)).ToList();
+                if (conceptos.Count > 1 && ((CostosCoceptos) != 0))
+                {
+                    conceptos = conceptos.Where(a => a.CostosConceptos == CostosCoceptos).ToList();
+                    if (conceptos.Count > 1 && ((CostoPrecio) != 0))
+                    {
+                        conceptos = conceptos.Where(a => a.Costoprecio == CostoPrecio).ToList();
+                        if (conceptos.Count > 1 && !String.IsNullOrEmpty(CodEstado))
+                        {
+                            conceptos = conceptos.Where(a => a.CodEstado.Contains(CodEstado)).ToList();
+                            if (conceptos.Count > 1 && ((Codporcentaje) != 0))
+                            {
+                                conceptos = conceptos.Where(a => a.CodPorcentaje == Codporcentaje).ToList();
+                                if (conceptos.Count > 1 && (porciento != 0))
+                                {
+                                    conceptos = conceptos.Where(a => a.Porciento == porciento).ToList();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+               return contexto.SaEveConceptos.AsNoTracking().ToList();
+            }
+            
+            return conceptos;
+        }
         public List<SaEveConcepto> Obtener(int CodConcepto = 0, int CodCategoria = 0, string DesConcepto = "",decimal CostosCoceptos =0,decimal CostoPrecio=0, string CodEstado = "",int Codporcentaje=0,decimal porciento=0)
         {
             List<SaEveConcepto> conceptos = new List<SaEveConcepto>();

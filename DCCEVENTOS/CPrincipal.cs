@@ -43,5 +43,11 @@ namespace DCCEVENTOS
             CPaquete form = new CPaquete();
             form.Show();
         }
+
+        private void paqueteDetalleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CPaqueteDetalle form = new CPaqueteDetalle();
+            form.Show();
+        }
     }
 }

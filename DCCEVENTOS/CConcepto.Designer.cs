@@ -156,6 +156,7 @@
             BTNAgre.TabIndex = 43;
             BTNAgre.Text = "Agregar";
             BTNAgre.UseVisualStyleBackColor = true;
+            BTNAgre.Click += BTNAgre_Click_1;
             // 
             // BTNAct
             // 

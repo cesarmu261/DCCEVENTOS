@@ -25,12 +25,34 @@ namespace Negocio
         {
             EventosContext contexto = new EventosContext();
             conceptos = ToolsDBContext.ToDataTable<SaEveConcepto>(new DMConceptos(contexto).Obtener());
-
             conceptos.Columns.Remove(conceptos.Columns[conceptos.Columns.Count - 1]);
             conceptos.Columns.Remove(conceptos.Columns[conceptos.Columns.Count - 1]);
-
             return conceptos;
         }
+        public DataTable ObtenerConceptos2( string descripcion)
+        {
+            EventosContext contexto = new EventosContext();
+            List<SaEveConcepto> conceptosList = new DMConceptos(contexto).Obtener2(descripcion);
+
+            DataTable conceptosTable = new DataTable();
+            conceptosTable.Columns.Add("CodConceptos");  // Reemplaza "Columna1" con el nombre de la columna real que deseas incluir
+            conceptosTable.Columns.Add("DesConceptos");
+            conceptosTable.Columns.Add("CostosConceptos");
+            conceptosTable.Columns.Add("Costoprecio");
+            foreach (SaEveConcepto concepto in conceptosList)
+            {
+                DataRow row = conceptosTable.NewRow();
+                row["CodConceptos"] = concepto.CodConceptos;  // Reemplaza "Columna1" y "Propiedad1" con los nombres reales de la columna y propiedad que deseas incluir
+                row["DesConceptos"] = concepto.DesConceptos;  // Reemplaza "Columna2" y "Propiedad2" con los nombres reales de la columna y propiedad que deseas incluir
+                row["CostosConceptos"] = concepto.CostosConceptos;                                        // Asigna los valores de más columnas según tus necesidades
+                row["Costoprecio"] = concepto.Costoprecio;
+                conceptosTable.Rows.Add(row);
+            }
+
+            return conceptosTable;
+            return conceptos;
+        }
+
         public InfoCompartidaCapas Guardar(SaEveConcepto concepto)
         {
 

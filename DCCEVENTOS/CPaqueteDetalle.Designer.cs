@@ -34,7 +34,6 @@
             CBPaquete = new ComboBox();
             label3 = new Label();
             label1 = new Label();
-            controlTextoEtiqueta1 = new TextLabel.ControlTextoEtiqueta();
             ((System.ComponentModel.ISupportInitialize)PaqueteExistencia).BeginInit();
             SuspendLayout();
             // 
@@ -49,12 +48,13 @@
             // 
             // button1
             // 
-            button1.Location = new Point(310, 79);
+            button1.Location = new Point(109, 79);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 44;
-            button1.Text = "Agregar";
+            button1.Text = "Buscar";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // BTNAct
             // 
@@ -91,23 +91,11 @@
             label1.TabIndex = 39;
             label1.Text = "Paquete";
             // 
-            // controlTextoEtiqueta1
-            // 
-            controlTextoEtiqueta1.AlturaControl = 26;
-            controlTextoEtiqueta1.Location = new Point(98, 76);
-            controlTextoEtiqueta1.MinLength = 0;
-            controlTextoEtiqueta1.Name = "controlTextoEtiqueta1";
-            controlTextoEtiqueta1.Nombre = null;
-            controlTextoEtiqueta1.Size = new Size(186, 26);
-            controlTextoEtiqueta1.TabIndex = 46;
-            controlTextoEtiqueta1.Tipo = null;
-            // 
             // CPaqueteDetalle
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(872, 531);
-            Controls.Add(controlTextoEtiqueta1);
             Controls.Add(PaqueteExistencia);
             Controls.Add(button1);
             Controls.Add(BTNAct);
@@ -129,6 +117,5 @@
         private ComboBox CBPaquete;
         private Label label3;
         private Label label1;
-        private TextLabel.ControlTextoEtiqueta controlTextoEtiqueta1;
     }
 }

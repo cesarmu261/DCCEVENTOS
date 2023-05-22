@@ -75,10 +75,7 @@ namespace DCCEVENTOS
             }
             CargarInformacion();
         }
-        private void BTNAgre_Click(object sender, EventArgs e)
-        {
-            AgregarRegistro();
-        }
+        
 
         private void BTNGuardar_Click(object sender, EventArgs e)
         {
@@ -93,6 +90,11 @@ namespace DCCEVENTOS
         private void CBCodPor_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBox1.Text = Convert.ToString(nporcentaje.Obtenerporciento(CBCodPor.SelectedItem.ToString()));
+        }
+
+        private void BTNAgre_Click_1(object sender, EventArgs e)
+        {
+            AgregarRegistro();
         }
     }
 }

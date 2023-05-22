@@ -8,18 +8,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace DCCEVENTOS
 {
     public partial class CPaqueteDetalle : Form
     {
         public CPaqueteDetalle()
         {
+            
             InitializeComponent();
         }
 
         private void CPaqueteDetalle_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CBusqueda.ConsultadeConceptos form = new CBusqueda.ConsultadeConceptos();
+            form.Show();
         }
     }
 }
