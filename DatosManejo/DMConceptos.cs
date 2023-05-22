@@ -18,11 +18,11 @@ namespace DatosManejo
         {
             this.contexto = contexto;
         }
+
+        
         public List<SaEveConcepto> Obtener2(string DesConcepto = "", decimal CostosCoceptos = 0, decimal CostoPrecio = 0, string CodEstado = "", int Codporcentaje = 0, decimal porciento = 0)
         {
-           
             List<SaEveConcepto> conceptos = contexto.SaEveConceptos.AsTracking().ToList();
-            
             if (conceptos.Count > 1 && !String.IsNullOrEmpty(DesConcepto))
             {
                 conceptos = conceptos.Where(a => a.DesConceptos == DesConcepto || a.DesConceptos.Contains(DesConcepto)).ToList();

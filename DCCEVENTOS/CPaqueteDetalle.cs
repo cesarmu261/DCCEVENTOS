@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DatosManejo;
+using Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,12 +16,19 @@ namespace DCCEVENTOS
 {
     public partial class CPaqueteDetalle : Form
     {
+        private DataTable tablaconceptos = new DataTable();
+        private NConceptos nconceptos;
         public CPaqueteDetalle()
         {
-            
-            InitializeComponent();
-        }
 
+            InitializeComponent();
+            nconceptos = new NConceptos();
+        }
+        private void CargarInformacion(string ss)
+        {
+            tablaconceptos = nconceptos.ObtenerConceptos2(ss);
+            PaqueteExistencia.DataSource = tablaconceptos;
+        }
         private void CPaqueteDetalle_Load(object sender, EventArgs e)
         {
 
@@ -28,7 +37,12 @@ namespace DCCEVENTOS
         private void button1_Click(object sender, EventArgs e)
         {
             CBusqueda.ConsultadeConceptos form = new CBusqueda.ConsultadeConceptos();
-            form.Show();
+            form.ShowDialog();
+            string ssCodcon = NConceptos.SSCodcon;
+            textBox1.Text = ssCodcon;
+            string t = textBox1.Text;
+            
+
         }
     }
 }

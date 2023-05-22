@@ -27,10 +27,20 @@ namespace DCCEVENTOS.CBusqueda
             dataGridView1.DataSource = tablaconceptos;
             dataGridView1.Refresh();
         }
-
         private void BTNBus_Click(object sender, EventArgs e)
         {
             CargarInformacion();
+        }
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            string SSCodcon;
+            DataSet dataSet = new DataSet();
+            if (dataGridView1.CurrentRow.Index >= 0)
+            {
+                SSCodcon = dataGridView1.SelectedRows[0].Cells["DesConceptos"].Value.ToString();
+                NConceptos.SSCodcon = SSCodcon;
+                base.Close();
+            }
         }
     }
 }

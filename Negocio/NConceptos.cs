@@ -17,6 +17,7 @@ namespace Negocio
     public class NConceptos
     {
         DataTable conceptos;
+        public static string SSCodcon;
         public NConceptos()
         {
             conceptos = new DataTable();
@@ -50,7 +51,7 @@ namespace Negocio
             }
 
             return conceptosTable;
-            return conceptos;
+            
         }
 
         public InfoCompartidaCapas Guardar(SaEveConcepto concepto)

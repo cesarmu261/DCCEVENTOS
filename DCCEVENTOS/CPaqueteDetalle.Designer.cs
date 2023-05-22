@@ -34,6 +34,7 @@
             CBPaquete = new ComboBox();
             label3 = new Label();
             label1 = new Label();
+            textBox1 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)PaqueteExistencia).BeginInit();
             SuspendLayout();
             // 
@@ -48,7 +49,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(109, 79);
+            button1.Location = new Point(109, 75);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 44;
@@ -91,11 +92,19 @@
             label1.TabIndex = 39;
             label1.Text = "Paquete";
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(114, 102);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(100, 23);
+            textBox1.TabIndex = 46;
+            // 
             // CPaqueteDetalle
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(872, 531);
+            ClientSize = new Size(609, 531);
+            Controls.Add(textBox1);
             Controls.Add(PaqueteExistencia);
             Controls.Add(button1);
             Controls.Add(BTNAct);
@@ -117,5 +126,6 @@
         private ComboBox CBPaquete;
         private Label label3;
         private Label label1;
+        private TextBox textBox1;
     }
 }
