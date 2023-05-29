@@ -9,7 +9,7 @@ public partial class SaEventoDetalle
 
     public int? CodEvento { get; set; }
 
-    public int? CodDetallepaq { get; set; }
+    public int? CodDp { get; set; }
 
     public int? CodConceptos { get; set; }
 
@@ -23,7 +23,7 @@ public partial class SaEventoDetalle
 
     public decimal? Costoprecio { get; set; }
 
-    public virtual SaEvePaqueteDetalle? CodDetallepaqNavigation { get; set; }
+    public virtual SaEvePaqueteDetalle? CodDpNavigation { get; set; }
 
     public virtual SaEvento? CodEventoNavigation { get; set; }
 }

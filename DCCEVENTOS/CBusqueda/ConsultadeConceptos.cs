@@ -1,4 +1,5 @@
 ﻿using DatosManejo;
+using Entidades;
 using Negocio;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,7 @@ namespace DCCEVENTOS.CBusqueda
         {
             string SSCodcon;
             DataSet dataSet = new DataSet();
+
             if (dataGridView1.CurrentRow.Index >= 0)
             {
                 SSCodcon = dataGridView1.SelectedRows[0].Cells["DesConceptos"].Value.ToString();

@@ -60,12 +60,12 @@ namespace DCCEVENTOS
         private void AgregarRegistro()
         {
             SaEveConcepto concepto = new SaEveConcepto();
-            concepto.CodCategoria = ncategoria.ObtenerDescripcionesCod(CBCodCat.SelectedItem.ToString());
+            concepto.CodCategoria = (int?)ncategoria.ObtenerDescripcionesCod(CBCodCat.SelectedItem.ToString());
             concepto.DesConceptos = TBDesCon.GetTextBox().Text;
             concepto.CostosConceptos = Convert.ToDecimal(TBCostosCon.GetTextBox().Text);
             concepto.Costoprecio = Convert.ToDecimal(TBCostosprecio.GetTextBox().Text);
             concepto.CodEstado = nestado.ObtenerDescripcionesCod(CBEstado.SelectedItem.ToString());
-            concepto.CodPorcentaje = nporcentaje.ObtenerDescripcionesCod(CBCodPor.SelectedItem.ToString());
+            concepto.CodPorcentaje = (int?)nporcentaje.ObtenerDescripcionesCod(CBCodPor.SelectedItem.ToString());
             concepto.Porciento = Convert.ToDecimal(textBox1.Text);
 
             InfoCompartidaCapas rGuardar = nconceptos.Guardar(concepto);

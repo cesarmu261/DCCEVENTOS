@@ -41,7 +41,7 @@ namespace DCCEVENTOS
             string ssCodcon = NConceptos.SSCodcon;
             textBox1.Text = ssCodcon;
             string t = textBox1.Text;
-            
+
 
         }
     }

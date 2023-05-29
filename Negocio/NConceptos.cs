@@ -54,6 +54,7 @@ namespace Negocio
             
         }
 
+
         public InfoCompartidaCapas Guardar(SaEveConcepto concepto)
         {
 

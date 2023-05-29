@@ -37,9 +37,9 @@ public partial class SaEveCliente
 
     public string CodRegimenfiscal { get; set; } = null!;
 
-    public string CodEstado { get; set; } = null!;
+    public string? CodEstado { get; set; }
 
-    public virtual SaCodEstado CodEstadoNavigation { get; set; } = null!;
+    public virtual SaCodEstado? CodEstadoNavigation { get; set; }
 
     public virtual ICollection<SaEvento> SaEventos { get; set; } = new List<SaEvento>();
 }

@@ -7,7 +7,7 @@ public partial class SaEveConcepto
 {
     public int CodConceptos { get; set; }
 
-    public decimal? CodCategoria { get; set; }
+    public int? CodCategoria { get; set; }
 
     public string DesConceptos { get; set; } = null!;
 
@@ -15,15 +15,15 @@ public partial class SaEveConcepto
 
     public decimal? Costoprecio { get; set; }
 
-    public string CodEstado { get; set; } = null!;
+    public string? CodEstado { get; set; }
 
-    public decimal? CodPorcentaje { get; set; }
+    public int? CodPorcentaje { get; set; }
 
     public decimal? Porciento { get; set; }
 
     public virtual SaEveCategoriaimp? CodCategoriaNavigation { get; set; }
 
-    public virtual SaCodEstado CodEstadoNavigation { get; set; } = null!;
+    public virtual SaCodEstado? CodEstadoNavigation { get; set; }
 
     public virtual SaEvePorcentaje? CodPorcentajeNavigation { get; set; }
 
