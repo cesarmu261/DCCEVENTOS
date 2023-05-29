@@ -76,7 +76,6 @@ namespace DCCEVENTOS
             CargarInformacion();
         }
         
-
         private void BTNGuardar_Click(object sender, EventArgs e)
         {
 

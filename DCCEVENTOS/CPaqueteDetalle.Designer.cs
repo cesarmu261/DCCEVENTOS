@@ -41,7 +41,7 @@
             // PaqueteExistencia
             // 
             PaqueteExistencia.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            PaqueteExistencia.Location = new Point(22, 128);
+            PaqueteExistencia.Location = new Point(22, 123);
             PaqueteExistencia.Name = "PaqueteExistencia";
             PaqueteExistencia.RowTemplate.Height = 25;
             PaqueteExistencia.Size = new Size(538, 251);
@@ -59,7 +59,7 @@
             // 
             // BTNAct
             // 
-            BTNAct.Location = new Point(40, 449);
+            BTNAct.Location = new Point(39, 494);
             BTNAct.Name = "BTNAct";
             BTNAct.Size = new Size(144, 23);
             BTNAct.TabIndex = 43;
@@ -94,7 +94,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(249, 79);
+            textBox1.Location = new Point(208, 75);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(100, 23);
             textBox1.TabIndex = 46;
