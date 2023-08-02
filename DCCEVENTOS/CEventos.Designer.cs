@@ -76,6 +76,8 @@
             DTCostosC = new DataGridViewTextBoxColumn();
             Paquete = new DataGridViewTextBoxColumn();
             Codigoc = new DataGridViewTextBoxColumn();
+            comboBox1 = new ComboBox();
+            Salon = new Label();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ConceptosPaquetes).BeginInit();
             toolStrip1.SuspendLayout();
@@ -95,14 +97,14 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(93, 83);
+            textBox1.Location = new Point(102, 83);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(200, 23);
             textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(93, 125);
+            textBox2.Location = new Point(102, 125);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(200, 23);
             textBox2.TabIndex = 3;
@@ -118,7 +120,7 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(93, 217);
+            textBox3.Location = new Point(102, 250);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(200, 23);
             textBox3.TabIndex = 5;
@@ -126,7 +128,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(12, 171);
+            label3.Location = new Point(12, 210);
             label3.Name = "label3";
             label3.Size = new Size(38, 15);
             label3.TabIndex = 4;
@@ -134,7 +136,7 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(93, 171);
+            dateTimePicker1.Location = new Point(102, 204);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(200, 23);
             dateTimePicker1.TabIndex = 6;
@@ -142,7 +144,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(12, 220);
+            label4.Location = new Point(12, 253);
             label4.Name = "label4";
             label4.Size = new Size(84, 15);
             label4.TabIndex = 7;
@@ -151,7 +153,7 @@
             // CBEstado
             // 
             CBEstado.FormattingEnabled = true;
-            CBEstado.Location = new Point(93, 258);
+            CBEstado.Location = new Point(102, 291);
             CBEstado.Name = "CBEstado";
             CBEstado.Size = new Size(200, 23);
             CBEstado.TabIndex = 63;
@@ -159,7 +161,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(19, 266);
+            label5.Location = new Point(12, 294);
             label5.Name = "label5";
             label5.Size = new Size(42, 15);
             label5.TabIndex = 62;
@@ -167,7 +169,7 @@
             // 
             // BtnAgregar
             // 
-            BtnAgregar.Location = new Point(12, 315);
+            BtnAgregar.Location = new Point(12, 347);
             BtnAgregar.Name = "BtnAgregar";
             BtnAgregar.Size = new Size(75, 23);
             BtnAgregar.TabIndex = 64;
@@ -452,11 +454,30 @@
             Codigoc.HeaderText = "Codigo";
             Codigoc.Name = "Codigoc";
             // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(102, 166);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(200, 23);
+            comboBox1.TabIndex = 76;
+            // 
+            // Salon
+            // 
+            Salon.AutoSize = true;
+            Salon.Location = new Point(12, 174);
+            Salon.Name = "Salon";
+            Salon.Size = new Size(36, 15);
+            Salon.TabIndex = 77;
+            Salon.Text = "Salon";
+            // 
             // CEventos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1055, 686);
+            Controls.Add(Salon);
+            Controls.Add(comboBox1);
             Controls.Add(flowLayoutPanel3);
             Controls.Add(toolStrip1);
             Controls.Add(menuStrip1);
@@ -547,5 +568,7 @@
         private DataGridViewTextBoxColumn DTCantida;
         private DataGridViewTextBoxColumn DTCostosC;
         private DataGridViewTextBoxColumn Paquete;
+        private ComboBox comboBox1;
+        private Label Salon;
     }
 }

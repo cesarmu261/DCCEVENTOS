@@ -120,11 +120,11 @@ namespace DCCEVENTOS
                     //bool existeRegistro = neventod.ExisteRegistro(ev);
                     //if (!existeRegistro)
                     //{
-                        InfoCompartidaCapas rGuardar = neventod.Guardar(ev);
-                        if (!String.IsNullOrEmpty(rGuardar.error))
-                        {
-                            MessageBox.Show(rGuardar.error);
-                        }
+                    InfoCompartidaCapas rGuardar = neventod.Guardar(ev);
+                    if (!String.IsNullOrEmpty(rGuardar.error))
+                    {
+                        MessageBox.Show(rGuardar.error);
+                    }
                     //}
                 }
             }
