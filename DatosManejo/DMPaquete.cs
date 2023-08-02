@@ -1,11 +1,6 @@
 ﻿using Datos;
 using Entidades;
 using InfoCompartidaCaps;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 namespace DatosManejo
@@ -17,6 +12,7 @@ namespace DatosManejo
         {
             this.contexto = contexto;
         }
+        
         public List<SaEvePaquete> Obtener(int CodPaquete = 0, string DesPaquete = "", string CodEstado = "")
         {
             List<SaEvePaquete> categoria = new List<SaEvePaquete>();
@@ -120,6 +116,10 @@ namespace DatosManejo
         public void Dispose()
         {
             contexto.Database.CloseConnection();
+        }
+        public string? Obtenedescripcion(int? cod)
+        {
+            return contexto.SaEvePaquetes.Where(a => a.CodPaquete == cod).FirstOrDefault().DesPaquete;
         }
     }
 }

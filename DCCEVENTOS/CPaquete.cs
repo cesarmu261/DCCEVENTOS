@@ -1,14 +1,10 @@
-﻿using Entidades;
+﻿using Datos;
+using DatosManejo;
+using DCCEVENTOS.CBusqueda;
+using Entidades;
 using InfoCompartidaCaps;
 using Negocio;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DCCEVENTOS
@@ -34,25 +30,137 @@ namespace DCCEVENTOS
             Object[] estado = nestado.ObtenerDescripciones();
             CBESTADO.DataSource = estado;
             CBESTADO.Refresh();
+        }
+        private void ModificarRegistro()
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(CBESTADO.Text) || string.IsNullOrWhiteSpace(TbDes.Text))
+                {
+                    MessageBox.Show("DEBE CAPTURAR TODOS LOS DATOS PARA EL REGISTRO");
+                    return; // Salir del método sin agregar el registro
+                }
+                SaEvePaquete categoria = new SaEvePaquete();
+                categoria.CodPaquete = NPaquete.SSCod;
+                categoria.DesPaquete = TbDes.Text;
+                categoria.CodEstado = nestado.ObtenerDescripcionesCod(CBESTADO.SelectedItem.ToString());
 
+                InfoCompartidaCapas rGuardar = npaquete.Modificar(categoria);
+                if (!String.IsNullOrEmpty(rGuardar.error))
+                {
+                    MessageBox.Show(rGuardar.error);
+                }
+                CargarInformacion();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("DEBE CAPTURAR TODOS LOS DATOS PARA");
+            }
+        }
+        private void Nuevo()
+        {
+            TbDes.Text = string.Empty;
+            CBESTADO.SelectedIndex = 0;
+            CargarInformacion();
         }
         private void AgregarRegistro()
         {
-            SaEvePaquete categoria = new SaEvePaquete();
-            categoria.DesPaquete = TBDesPaq.GetTextBox().Text;
-            categoria.CodEstado = nestado.ObtenerDescripcionesCod(CBESTADO.SelectedItem.ToString());
-
-            InfoCompartidaCapas rGuardar = npaquete.Guardar(categoria);
-            if (!String.IsNullOrEmpty(rGuardar.error))
+            try
             {
-                MessageBox.Show(rGuardar.error);
+                if (string.IsNullOrWhiteSpace(CBESTADO.Text) || string.IsNullOrWhiteSpace(TbDes.Text))
+                {
+                    MessageBox.Show("DEBE CAPTURAR TODOS LOS DATOS PARA EL REGISTRO");
+                    return; // Salir del método sin agregar el registro
+                }
+                SaEvePaquete categoria = new SaEvePaquete();
+                categoria.DesPaquete = TbDes.Text;
+                categoria.CodEstado = nestado.ObtenerDescripcionesCod(CBESTADO.SelectedItem.ToString());
+
+                InfoCompartidaCapas rGuardar = npaquete.Guardar(categoria);
+                if (!String.IsNullOrEmpty(rGuardar.error))
+                {
+                    MessageBox.Show(rGuardar.error);
+                }
+                CargarInformacion();
             }
-            CargarInformacion();
+            catch (Exception e)
+            {
+                MessageBox.Show("DEBE CAPTURAR TODOS LOS DATOS");
+            }
+        }
+        private void Buscar()
+        {
+            ConsultadePaquete consulta = new ConsultadePaquete();
+            consulta.ShowDialog();
+            EventosContext context = new EventosContext();
+            List<SaEvePaquete> conceptosList = new DMPaquete(context).Obtener(NPaquete.SSCod);
+            foreach (var concepto in conceptosList)
+            {
+                TbDes.Text = concepto.DesPaquete.ToString(); // Asigna el valor de la primera columna al textBox1
+                string valorDeseado = nestado.ObtenerDescripcione(concepto.CodEstado); // Valor que deseas seleccionar
+                int indice = CBESTADO.FindStringExact(valorDeseado);
+                if (indice != -1)
+                {
+                    CBESTADO.SelectedIndex = indice; // Establecer el índice seleccionado
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             AgregarRegistro();
+        }
+
+        private void toolStripNuevo_Click(object sender, EventArgs e)
+        {
+            Nuevo();
+        }
+
+        private void toolStripGuardar_Click(object sender, EventArgs e)
+        {
+            AgregarRegistro();
+        }
+
+        private void toolStripBuscar_Click(object sender, EventArgs e)
+        {
+            Buscar();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            ModificarRegistro();
+            Nuevo();
+        }
+
+        private void toolStripSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Nuevo();
+        }
+
+        private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AgregarRegistro();
+        }
+
+        private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ModificarRegistro();
+            Nuevo();
+        }
+
+        private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Buscar();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

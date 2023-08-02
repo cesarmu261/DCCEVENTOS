@@ -3,18 +3,13 @@ using DatosManejo;
 using Entidades;
 using InfoCompartidaCaps;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Win32.SafeHandles;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Negocio
 {
     public class NPaquete
     {
+        public static int SSCod = 1;
         DataTable paquete;
         public NPaquete()
         {
@@ -23,11 +18,45 @@ namespace Negocio
         public DataTable ObtenerPaquete()
         {
             EventosContext contexto = new EventosContext();
-            paquete = ToolsDBContext.ToDataTable<SaEvePaquete>(new DMPaquete(contexto).Obtener());
-            paquete.Columns.Remove(paquete.Columns[paquete.Columns.Count - 1]);
-            paquete.Columns.Remove(paquete.Columns[paquete.Columns.Count - 1]);
+            List<SaEvePaquete> List = new DMPaquete(contexto).Obtener();
 
-            return paquete;
+            DataTable Table = new DataTable();
+            Table.Columns.Add("CODIGO");  // Reemplaza "Columna1" con el nombre de la columna real que deseas incluir
+            Table.Columns.Add("DESCRIPCION");
+            Table.Columns.Add("ESTADO");
+
+            foreach (SaEvePaquete concepto in List)
+            {
+                DataRow row = Table.NewRow();
+                row["CODIGO"] = concepto.CodPaquete;  // Reemplaza "Columna1" y "Propiedad1" con los nombres reales de la columna y propiedad que deseas incluir
+                row["DESCRIPCION"] = concepto.DesPaquete;  // Reemplaza "Columna2" y "Propiedad2" con los nombres reales de la columna y propiedad que deseas incluir
+                row["ESTADO"] = ObtenerNombreTipoestado(concepto.CodEstado);
+                Table.Rows.Add(row);
+            }
+
+            return Table;
+        }
+        public DataTable ObtenerPaquete(string Descripcion)
+        {
+            EventosContext contexto = new EventosContext();
+            List<SaEvePaquete> conceptosList = new DMPaquete(contexto).Obtener(0, Descripcion);
+
+            DataTable conceptosTable = new DataTable();
+            conceptosTable.Columns.Add("CODIGO");  // Reemplaza "Columna1" con el nombre de la columna real que deseas incluir
+            conceptosTable.Columns.Add("DESCRIPCION");
+            conceptosTable.Columns.Add("ESTADO");
+
+            foreach (SaEvePaquete concepto in conceptosList)
+            {
+                DataRow row = conceptosTable.NewRow();
+                row["CODIGO"] = concepto.CodPaquete;  // Reemplaza "Columna1" y "Propiedad1" con los nombres reales de la columna y propiedad que deseas incluir
+                row["DESCRIPCION"] = concepto.DesPaquete;  // Reemplaza "Columna2" y "Propiedad2" con los nombres reales de la columna y propiedad que deseas incluir
+                row["ESTADO"] = ObtenerNombreTipoestado(concepto.CodEstado);
+                conceptosTable.Rows.Add(row);
+            }
+
+            return conceptosTable;
+
         }
         public InfoCompartidaCapas Guardar(SaEvePaquete paquete)
         {
@@ -40,7 +69,16 @@ namespace Negocio
             }
             return rpaquete;
         }
-        
+        public InfoCompartidaCapas Modificar(SaEvePaquete paquete)
+        {
+            EventosContext contexto = new EventosContext();
+            InfoCompartidaCapas rcategorias = new DMPaquete(contexto).Modificar(paquete);
+            if (String.IsNullOrEmpty(rcategorias.error))
+            {
+                contexto.SaveChanges();
+            }
+            return rcategorias;
+        }
         public InfoCompartidaCapas Eliminar(SaEvePaquete paquete)
         {
             EventosContext contexto = new EventosContext();
@@ -81,12 +119,33 @@ namespace Negocio
         public Object[] ObtenerDescripciones(int CodCategoria = 0, string Descripcion = "")
         {
             EventosContext context = new EventosContext();
-            return (from c in new DMPorcentaje(context).Obtener(CodCategoria, Descripcion) select c.DesPorcentaje).ToArray();
+            return (from c in new DMPaquete(context).Obtener(CodCategoria, Descripcion) select c.DesPaquete).ToArray();
         }
         public decimal ObtenerDescripcionesCod(string descripcion = "")
         {
             EventosContext context = new EventosContext();
-            return (decimal)new DMPorcentaje(context).ObtenerCodigo(descripcion);
+            return (decimal)new DMPaquete(context).ObtenerCodigo(descripcion);
         }
+        public string ObtenerNombreTipoestado(string codigoestado)
+        {
+            using (var db = new EventosContext()) // Reemplazar TuContextoDeEntityFramework por el nombre de tu contexto de Entity Framework
+            {
+                var tipoestado = db.SaCodEstados.FirstOrDefault(t => t.CodEstado == codigoestado);
+                if (tipoestado != null)
+                {
+                    return tipoestado.DesEstado;
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+        public string ObtenerDescripcione(int? cod = 0)
+        {
+            EventosContext context = new EventosContext();
+            return new DMPaquete(context).Obtenedescripcion(cod);
+        }
+        
     }
 }

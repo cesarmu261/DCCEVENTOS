@@ -35,6 +35,10 @@
             conceptoToolStripMenuItem = new ToolStripMenuItem();
             paqueteToolStripMenuItem = new ToolStripMenuItem();
             paqueteDetalleToolStripMenuItem = new ToolStripMenuItem();
+            clientesToolStripMenuItem = new ToolStripMenuItem();
+            eventosToolStripMenuItem = new ToolStripMenuItem();
+            panel1 = new Panel();
+            panel2 = new Panel();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -43,13 +47,13 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { catalogoToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.Size = new Size(1924, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
             // catalogoToolStripMenuItem
             // 
-            catalogoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { porcentajeToolStripMenuItem, categoriaToolStripMenuItem, conceptoToolStripMenuItem, paqueteToolStripMenuItem, paqueteDetalleToolStripMenuItem });
+            catalogoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { porcentajeToolStripMenuItem, categoriaToolStripMenuItem, conceptoToolStripMenuItem, paqueteToolStripMenuItem, paqueteDetalleToolStripMenuItem, clientesToolStripMenuItem, eventosToolStripMenuItem });
             catalogoToolStripMenuItem.Name = "catalogoToolStripMenuItem";
             catalogoToolStripMenuItem.Size = new Size(67, 20);
             catalogoToolStripMenuItem.Text = "Catalogo";
@@ -57,47 +61,80 @@
             // porcentajeToolStripMenuItem
             // 
             porcentajeToolStripMenuItem.Name = "porcentajeToolStripMenuItem";
-            porcentajeToolStripMenuItem.Size = new Size(180, 22);
+            porcentajeToolStripMenuItem.Size = new Size(156, 22);
             porcentajeToolStripMenuItem.Text = "Porcentaje";
             porcentajeToolStripMenuItem.Click += porcentajeToolStripMenuItem_Click;
             // 
             // categoriaToolStripMenuItem
             // 
             categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
-            categoriaToolStripMenuItem.Size = new Size(180, 22);
+            categoriaToolStripMenuItem.Size = new Size(156, 22);
             categoriaToolStripMenuItem.Text = "Categoria";
             categoriaToolStripMenuItem.Click += categoriaToolStripMenuItem_Click;
             // 
             // conceptoToolStripMenuItem
             // 
             conceptoToolStripMenuItem.Name = "conceptoToolStripMenuItem";
-            conceptoToolStripMenuItem.Size = new Size(180, 22);
+            conceptoToolStripMenuItem.Size = new Size(156, 22);
             conceptoToolStripMenuItem.Text = "Concepto";
             conceptoToolStripMenuItem.Click += conceptoToolStripMenuItem_Click;
             // 
             // paqueteToolStripMenuItem
             // 
             paqueteToolStripMenuItem.Name = "paqueteToolStripMenuItem";
-            paqueteToolStripMenuItem.Size = new Size(180, 22);
+            paqueteToolStripMenuItem.Size = new Size(156, 22);
             paqueteToolStripMenuItem.Text = "Paquete";
             paqueteToolStripMenuItem.Click += paqueteToolStripMenuItem_Click;
             // 
             // paqueteDetalleToolStripMenuItem
             // 
             paqueteDetalleToolStripMenuItem.Name = "paqueteDetalleToolStripMenuItem";
-            paqueteDetalleToolStripMenuItem.Size = new Size(180, 22);
+            paqueteDetalleToolStripMenuItem.Size = new Size(156, 22);
             paqueteDetalleToolStripMenuItem.Text = "Paquete Detalle";
             paqueteDetalleToolStripMenuItem.Click += paqueteDetalleToolStripMenuItem_Click;
+            // 
+            // clientesToolStripMenuItem
+            // 
+            clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            clientesToolStripMenuItem.Size = new Size(156, 22);
+            clientesToolStripMenuItem.Text = "Clientes";
+            clientesToolStripMenuItem.Click += clientesToolStripMenuItem_Click;
+            // 
+            // eventosToolStripMenuItem
+            // 
+            eventosToolStripMenuItem.Name = "eventosToolStripMenuItem";
+            eventosToolStripMenuItem.Size = new Size(156, 22);
+            eventosToolStripMenuItem.Text = "Eventos";
+            eventosToolStripMenuItem.Click += eventosToolStripMenuItem_Click;
+            // 
+            // panel1
+            // 
+            panel1.Location = new Point(194, 27);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1246, 792);
+            panel1.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            panel2.Location = new Point(1470, 28);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(455, 516);
+            panel2.TabIndex = 2;
             // 
             // CPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1924, 887);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "CPrincipal";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Menu principal";
+            WindowState = FormWindowState.Maximized;
+            Load += CPrincipal_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -113,5 +150,9 @@
         private ToolStripMenuItem conceptoToolStripMenuItem;
         private ToolStripMenuItem paqueteToolStripMenuItem;
         private ToolStripMenuItem paqueteDetalleToolStripMenuItem;
+        private ToolStripMenuItem clientesToolStripMenuItem;
+        private ToolStripMenuItem eventosToolStripMenuItem;
+        private Panel panel1;
+        private Panel panel2;
     }
 }

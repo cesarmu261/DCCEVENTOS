@@ -38,7 +38,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 27);
+            label1.Location = new Point(11, 13);
             label1.Name = "label1";
             label1.Size = new Size(69, 15);
             label1.TabIndex = 56;
@@ -46,7 +46,7 @@
             // 
             // BTNBus
             // 
-            BTNBus.Location = new Point(380, 26);
+            BTNBus.Location = new Point(379, 12);
             BTNBus.Name = "BTNBus";
             BTNBus.Size = new Size(144, 23);
             BTNBus.TabIndex = 58;
@@ -56,32 +56,36 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 68);
+            dataGridView1.Dock = DockStyle.Bottom;
+            dataGridView1.Location = new Point(0, 59);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(626, 258);
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(661, 258);
             dataGridView1.TabIndex = 59;
             dataGridView1.DoubleClick += dataGridView1_DoubleClick;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(96, 26);
+            textBox1.Location = new Point(95, 12);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(267, 23);
             textBox1.TabIndex = 60;
+            textBox1.KeyPress += textBox1_KeyPress;
             // 
             // ConsultadeConceptos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(647, 342);
+            ClientSize = new Size(661, 317);
             Controls.Add(textBox1);
             Controls.Add(dataGridView1);
             Controls.Add(BTNBus);
             Controls.Add(label1);
             Name = "ConsultadeConceptos";
-            Text = "ConsultadeConceptos";
+            Text = "Consulta de Conceptos";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

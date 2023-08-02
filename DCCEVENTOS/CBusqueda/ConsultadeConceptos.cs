@@ -1,20 +1,11 @@
-﻿using DatosManejo;
-using Entidades;
-using Negocio;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Negocio;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace DCCEVENTOS.CBusqueda
 {
     public partial class ConsultadeConceptos : Form
     {
+
         private DataTable tablaconceptos = new DataTable();
         private NConceptos nconceptos;
         public ConsultadeConceptos()
@@ -34,14 +25,28 @@ namespace DCCEVENTOS.CBusqueda
         }
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            string SSCodcon;
+            string SSCodcon, SSDescon, SScan;
             DataSet dataSet = new DataSet();
 
             if (dataGridView1.CurrentRow.Index >= 0)
             {
-                SSCodcon = dataGridView1.SelectedRows[0].Cells["DesConceptos"].Value.ToString();
+
+                SSCodcon = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                SSDescon = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                SScan = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
                 NConceptos.SSCodcon = SSCodcon;
+                NConceptos.SSDescon = SSDescon;
+                NConceptos.SScantidad = SScan;
+                NConceptos.SSCod = Convert.ToInt32(SSCodcon);
                 base.Close();
+            }
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                CargarInformacion();
             }
         }
     }

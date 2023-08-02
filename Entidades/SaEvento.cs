@@ -7,7 +7,7 @@ public partial class SaEvento
 {
     public int CodEvento { get; set; }
 
-    public string? CodCliente { get; set; }
+    public int? CodCliente { get; set; }
 
     public string? DesEvento { get; set; }
 

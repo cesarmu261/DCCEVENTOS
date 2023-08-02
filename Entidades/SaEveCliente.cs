@@ -5,7 +5,9 @@ namespace Entidades;
 
 public partial class SaEveCliente
 {
-    public string CodCliente { get; set; } = null!;
+    public int CodCliente { get; set; }
+
+    public string? CodTercero { get; set; }
 
     public string NomCliente { get; set; } = null!;
 

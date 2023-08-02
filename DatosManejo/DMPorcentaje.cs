@@ -1,16 +1,16 @@
 ﻿using Datos;
 using Entidades;
-using Microsoft.EntityFrameworkCore;
 using InfoCompartidaCaps;
+using Microsoft.EntityFrameworkCore;
 
 namespace DatosManejo
 {
     public class DMPorcentaje
     {
-        private EventosContext contexto {  get; set; }
+        private EventosContext contexto { get; set; }
         public DMPorcentaje(EventosContext contexto)
         {
-            this.contexto = contexto; 
+            this.contexto = contexto;
             this.contexto.Database.OpenConnection();
         }
         public decimal? ObtenerCodigo(string descripcion)
@@ -21,7 +21,8 @@ namespace DatosManejo
         {
             return contexto.SaEvePorcentajes.Where(a => a.DesPorcentaje == descripcion).FirstOrDefault().Porciento;
         }
-        public List<SaEvePorcentaje> Obtener(decimal CodPorcentaje = 0, string DesPorcentaje = "", decimal porciento = 0 , string CodEstado = "")
+
+        public List<SaEvePorcentaje> Obtener(decimal CodPorcentaje = 0, string DesPorcentaje = "", decimal porciento = 0, string CodEstado = "")
         {
             List<SaEvePorcentaje> porcentajes = new List<SaEvePorcentaje>();
             if (CodPorcentaje != 0)
@@ -64,9 +65,14 @@ namespace DatosManejo
             }
             else
             {
-                return  contexto.SaEvePorcentajes.AsNoTracking().ToList();
+                return contexto.SaEvePorcentajes.AsNoTracking().ToList();
             }
             return porcentajes;
+        }
+
+        public string? Obtenedescripcion(int? cod)
+        {
+            return contexto.SaEvePorcentajes.Where(a => a.CodPorcentaje == cod).FirstOrDefault().DesPorcentaje;
         }
         public InfoCompartidaCapas Crear(SaEvePorcentaje porcentaje)
         {

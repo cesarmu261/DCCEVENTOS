@@ -7,7 +7,7 @@ public partial class SaEvePaqueteDetalle
 {
     public int CodDetallepaq { get; set; }
 
-    public int CodDp { get; set; }
+    public int? CodDp { get; set; }
 
     public int? CodPaquete { get; set; }
 
@@ -20,6 +20,4 @@ public partial class SaEvePaqueteDetalle
     public virtual SaCodEstado? CodEstadoNavigation { get; set; }
 
     public virtual SaEvePaquete? CodPaqueteNavigation { get; set; }
-
-    public virtual ICollection<SaEventoDetalle> SaEventoDetalles { get; set; } = new List<SaEventoDetalle>();
 }

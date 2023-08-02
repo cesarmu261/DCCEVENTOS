@@ -1,16 +1,10 @@
-﻿using DatosManejo;
+﻿using Datos;
+using DatosManejo;
+using DCCEVENTOS.CBusqueda;
 using Entidades;
 using InfoCompartidaCaps;
 using Negocio;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace DCCEVENTOS
 {
@@ -38,31 +32,138 @@ namespace DCCEVENTOS
         }
         private void AgregarRegistro()
         {
-            SaEvePorcentaje categoria = new SaEvePorcentaje();
-            categoria.DesPorcentaje = TBDesPor.GetTextBox().Text;
-            categoria.Porciento = Convert.ToDecimal(TBPorciento.GetTextBox().Text);
-            categoria.CodEstado = nestado.ObtenerDescripcionesCod(CBESTADO.SelectedItem.ToString());
-
-            InfoCompartidaCapas rGuardar = nporcentaje.Guardar(categoria);
-            if (!String.IsNullOrEmpty(rGuardar.error))
+            try
             {
-                MessageBox.Show(rGuardar.error);
+                if (string.IsNullOrWhiteSpace(TbDes.Text) || string.IsNullOrWhiteSpace(TbPor.Text)
+                   || string.IsNullOrWhiteSpace(CBESTADO.Text))
+                {
+                    MessageBox.Show("DEBE CAPTURAR TODOS LOS DATOS PARA EL REGISTRO");
+                    return; // Salir del método sin agregar el registro
+                }
+                SaEvePorcentaje categoria = new SaEvePorcentaje();
+                categoria.DesPorcentaje = TbDes.Text;
+                categoria.Porciento = Convert.ToDecimal(TbPor.Text);
+                categoria.CodEstado = nestado.ObtenerDescripcionesCod(CBESTADO.SelectedItem.ToString());
+
+                InfoCompartidaCapas rGuardar = nporcentaje.Guardar(categoria);
+                if (!String.IsNullOrEmpty(rGuardar.error))
+                {
+                    MessageBox.Show(rGuardar.error);
+                }
+                CargarInformacion();
             }
-            CargarInformacion();
+            catch (Exception e)
+            {
+
+                MessageBox.Show("DEBE CAPTURAR TODOS LOS DATOS PARA EL REGISTRO");
+            }
         }
 
+        private void ModificarRegistro()
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(TbDes.Text) || string.IsNullOrWhiteSpace(TbPor.Text) 
+                    || string.IsNullOrWhiteSpace(CBESTADO.Text))
+                {
+                    MessageBox.Show("DEBE CAPTURAR TODOS LOS DATOS PARA EL REGISTRO");
+                    return; // Salir del método sin agregar el registro
+                }
+                SaEvePorcentaje categoria = new SaEvePorcentaje();
+                categoria.CodPorcentaje = (int)NPorcentaje.SSCod;
+                categoria.DesPorcentaje = TbDes.Text;
+                categoria.Porciento = Convert.ToDecimal(TbPor.Text);
+                categoria.CodEstado = nestado.ObtenerDescripcionesCod(CBESTADO.SelectedItem.ToString());
+
+                InfoCompartidaCapas rGuardar = nporcentaje.Modificar(categoria);
+                if (!String.IsNullOrEmpty(rGuardar.error))
+                {
+                    MessageBox.Show(rGuardar.error);
+                }
+                CargarInformacion();
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show("DEBE CAPTURAR TODOS LOS DATOS PARA EL REGISTRO");
+            }
+        }
+        private void Nuevo()
+        {
+            TbDes.Text = string.Empty;
+            TbPor.Text = string.Empty;
+            CBESTADO.SelectedIndex = 0;
+            CargarInformacion();
+        }
+        private void Buscar()
+        {
+            ConsultaPorcentaje consultaPorcentaje = new ConsultaPorcentaje();
+            consultaPorcentaje.ShowDialog();
+            EventosContext contexto = new EventosContext();
+            List<SaEvePorcentaje> conceptosList = new DMPorcentaje(contexto).Obtener(NPorcentaje.SSCod);
+            foreach (var concepto in conceptosList)
+            {
+                TbDes.Text = concepto.DesPorcentaje.ToString(); // Asigna el valor de la primera columna al textBox1
+                TbPor.Text = concepto.Porciento.ToString(); // Asigna el valor de la segunda columna al textBox2
+                string valorDeseado = nestado.ObtenerDescripcione(concepto.CodEstado); // Valor que deseas seleccionar
+
+                int indice = CBESTADO.FindStringExact(valorDeseado);
+                if (indice != -1)
+                {
+                    CBESTADO.SelectedIndex = indice; // Establecer el índice seleccionado
+                }
+
+            }
+        }
         private void BTAgregar_Click(object sender, EventArgs e)
         {
             AgregarRegistro();
         }
-
-        private void BTNAct_Click(object sender, EventArgs e)
+        private void toolStripBuscar_Click(object sender, EventArgs e)
         {
-            InfoCompartidaCapas rGest = nporcentaje.GestionarDataTable(tablaporcentaje, (DataTable)PorcentjesExistencia.DataSource);
-            if (!String.IsNullOrEmpty(rGest.error))
-            {
-                MessageBox.Show(rGest.error);
-            }
+            Buscar();
+        }
+
+        private void toolStripNuevo_Click(object sender, EventArgs e)
+        {
+            Nuevo();
+        }
+
+        private void toolStripSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            ModificarRegistro();
+            Nuevo();
+        }
+
+        private void toolStripGuardar_Click(object sender, EventArgs e)
+        {
+            AgregarRegistro();
+        }
+
+        private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AgregarRegistro();
+        }
+
+        private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ModificarRegistro();
+            Nuevo();
+        }
+
+        private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Buscar();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

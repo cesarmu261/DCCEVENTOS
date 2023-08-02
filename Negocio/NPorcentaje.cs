@@ -1,20 +1,15 @@
 ﻿using Datos;
 using DatosManejo;
-using InfoCompartidaCaps;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using Entidades;
+using InfoCompartidaCaps;
+using System.Data;
 
 namespace Negocio
 {
     public class NPorcentaje
     {
         DataTable porcentajes;
+        public static decimal SSCod = 1;
         public NPorcentaje()
         {
             porcentajes = new DataTable();
@@ -22,12 +17,50 @@ namespace Negocio
         public DataTable ObtenerPorcentajes()
         {
             EventosContext contexto = new EventosContext();
-            porcentajes = ToolsDBContext.ToDataTable<SaEvePorcentaje>(new DMPorcentaje(contexto).Obtener());
+            List<SaEvePorcentaje> conceptosList = new DMPorcentaje(contexto).Obtener();
+            DataTable conceptosTable = new DataTable();
+            conceptosTable.Columns.Add("CODIGO");  // Reemplaza "Columna1" con el nombre de la columna real que deseas incluir
+            conceptosTable.Columns.Add("DESCRIPCION");
+            conceptosTable.Columns.Add("PORCIENTO");
+            conceptosTable.Columns.Add("ESTADO");
 
-            porcentajes.Columns.Remove(porcentajes.Columns[porcentajes.Columns.Count - 1]);
-            porcentajes.Columns.Remove(porcentajes.Columns[porcentajes.Columns.Count - 1]);
+            foreach (SaEvePorcentaje concepto in conceptosList)
+            {
+                DataRow row = conceptosTable.NewRow();
+                row["CODIGO"] = concepto.CodPorcentaje;  // Reemplaza "Columna1" y "Propiedad1" con los nombres reales de la columna y propiedad que deseas incluir
+                row["DESCRIPCION"] = concepto.DesPorcentaje;  // Reemplaza "Columna2" y "Propiedad2" con los nombres reales de la columna y propiedad que deseas incluir
+                row["PORCIENTO"] = (concepto.Porciento);
+                row["ESTADO"] = ObtenerNombreTipoestado(concepto.CodEstado);
+                conceptosTable.Rows.Add(row);
+            }
 
-            return porcentajes;
+            return conceptosTable;
+
+        }
+
+        public DataTable ObtenerPorcentajes(string descripcion)
+        {
+            EventosContext contexto = new EventosContext();
+            List<SaEvePorcentaje> conceptosList = new DMPorcentaje(contexto).Obtener(0, descripcion);
+
+            DataTable conceptosTable = new DataTable();
+            conceptosTable.Columns.Add("CODIGO");  // Reemplaza "Columna1" con el nombre de la columna real que deseas incluir
+            conceptosTable.Columns.Add("DESCRIPCION");
+            conceptosTable.Columns.Add("PORCIENTO");
+            conceptosTable.Columns.Add("ESTADO");
+
+            foreach (SaEvePorcentaje concepto in conceptosList)
+            {
+                DataRow row = conceptosTable.NewRow();
+                row["CODIGO"] = concepto.CodPorcentaje;  // Reemplaza "Columna1" y "Propiedad1" con los nombres reales de la columna y propiedad que deseas incluir
+                row["DESCRIPCION"] = concepto.DesPorcentaje;  // Reemplaza "Columna2" y "Propiedad2" con los nombres reales de la columna y propiedad que deseas incluir
+                row["PORCIENTO"] = (concepto.Porciento);
+                row["ESTADO"] = ObtenerNombreTipoestado(concepto.CodEstado);
+                conceptosTable.Rows.Add(row);
+            }
+
+            return conceptosTable;
+
         }
         public InfoCompartidaCapas Guardar(SaEvePorcentaje porcentaje)
         {
@@ -61,7 +94,7 @@ namespace Negocio
                 }
                 if (filtrarporcentajes.DefaultView.Count > 1 && (porcentaje.Porciento != 0))
                 {
-                    filtrarporcentajes.DefaultView.RowFilter = String.Format("CodigoCliente like '%{0}%' And Nombre like '%{1}%' And RFC like '%{2}%'", porcentaje.CodPorcentaje, porcentaje.DesPorcentaje,porcentaje.Porciento);
+                    filtrarporcentajes.DefaultView.RowFilter = String.Format("CodigoCliente like '%{0}%' And Nombre like '%{1}%' And RFC like '%{2}%'", porcentaje.CodPorcentaje, porcentaje.DesPorcentaje, porcentaje.Porciento);
                 }
                 else
                 {
@@ -69,8 +102,8 @@ namespace Negocio
                 }
                 if (filtrarporcentajes.DefaultView.Count > 1)
                 {
-                    filtrarporcentajes.DefaultView.RowFilter = String.Format("CodigoCliente like '%{0}%' And Nombre like '%{1}%' And Rfc like '%{2}%' And DomicilioFiscal like '%{3}%'", porcentaje.CodPorcentaje, porcentaje.DesPorcentaje, porcentaje.Porciento,porcentaje.CodEstado); ;
-                    
+                    filtrarporcentajes.DefaultView.RowFilter = String.Format("CodigoCliente like '%{0}%' And Nombre like '%{1}%' And Rfc like '%{2}%' And DomicilioFiscal like '%{3}%'", porcentaje.CodPorcentaje, porcentaje.DesPorcentaje, porcentaje.Porciento, porcentaje.CodEstado); ;
+
                 }
                 return new InfoCompartidaCapas() { informacion = filtrarporcentajes };
             }
@@ -79,6 +112,7 @@ namespace Negocio
                 return new InfoCompartidaCapas() { error = $"Ocurrio un error al intentar buscar el o los clientes" };
             }
         }
+
         public InfoCompartidaCapas Eliminar(SaEvePorcentaje porcentaje)
         {
             EventosContext contexto = new EventosContext();
@@ -89,33 +123,17 @@ namespace Negocio
             }
             return rporcentaje;
         }
-        public InfoCompartidaCapas GestionarDataTable(DataTable tablaporcentajes, DataTable porcentajeExistencia)
+        public InfoCompartidaCapas Modificar(SaEvePorcentaje porcentaje)
         {
             EventosContext contexto = new EventosContext();
-            tablaporcentajes.Merge(porcentajeExistencia);
-            contexto.Database.OpenConnection();
-            System.Data.Common.DbConnection coneccion = contexto.Database.GetDbConnection();
-            System.Data.Common.DbTransaction transaccion = coneccion.BeginTransaction();
-            contexto.TransaccionBR(coneccion, transaccion);
-            DMPorcentaje dmClientes = new DMPorcentaje(contexto);
-            List<SaEvePorcentaje> modificarClientes = (from a in tablaporcentajes.Select(null, null, DataViewRowState.ModifiedCurrent).ToList<DataRow>() select new SaEvePorcentaje() { CodPorcentaje = a.Field<int>("CodPorcentaje"), DesPorcentaje = a.Field<String>("Descripcion"), Porciento = a.Field<decimal>("Porciento"), CodEstado = a.Field<string>("Estado") }).ToList();
-            InfoCompartidaCapas rModArt = dmClientes.Modificar(modificarClientes);
-            if (!String.IsNullOrEmpty(rModArt.error))
+            InfoCompartidaCapas rporcentajes = new DMPorcentaje(contexto).Modificar(porcentaje);
+            if (String.IsNullOrEmpty(rporcentajes.error))
             {
-                contexto.Database.RollbackTransaction();
-                return rModArt;
+                contexto.SaveChanges();
             }
-            List<SaEvePorcentaje> crearClientes = (from a in tablaporcentajes.Select(null, null, DataViewRowState.Added).ToList<DataRow>() select new SaEvePorcentaje() { CodPorcentaje = a.Field<int>("CodPorcentaje"), DesPorcentaje = a.Field<String>("Descripcione"), Porciento = a.Field<decimal>("Porciento"), CodEstado = a.Field<string>("Estado") }).ToList();
-            InfoCompartidaCapas rCreArt = dmClientes.Crear(crearClientes);
-            if (!String.IsNullOrEmpty(rCreArt.error))
-            {
-                contexto.Database.RollbackTransaction();
-                return rCreArt;
-            }
-            contexto.SaveChanges();
-            contexto.Database.CommitTransaction();
-            return new InfoCompartidaCapas() { informacion = tablaporcentajes };
+            return rporcentajes;
         }
+
         public Object[] ObtenerDescripciones(int codporcentaje = 0, string Descripcion = "")
         {
             EventosContext context = new EventosContext();
@@ -131,7 +149,26 @@ namespace Negocio
             EventosContext context = new EventosContext();
             return (decimal)new DMPorcentaje(context).Obteneriva(descripcion);
         }
-
+        public string ObtenerNombreTipoestado(string codigoestado)
+        {
+            using (var db = new EventosContext()) // Reemplazar TuContextoDeEntityFramework por el nombre de tu contexto de Entity Framework
+            {
+                var tipoestado = db.SaCodEstados.FirstOrDefault(t => t.CodEstado == codigoestado);
+                if (tipoestado != null)
+                {
+                    return tipoestado.DesEstado;
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+        public string ObtenerDescripcione(int? cod = 0)
+        {
+            EventosContext context = new EventosContext();
+            return new DMPorcentaje(context).Obtenedescripcion(cod);
+        }
     }
 }
 

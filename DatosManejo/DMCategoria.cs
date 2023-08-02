@@ -1,12 +1,7 @@
 ﻿using Datos;
-using InfoCompartidaCaps;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using Entidades;
+using InfoCompartidaCaps;
+using Microsoft.EntityFrameworkCore;
 
 namespace DatosManejo
 {
@@ -35,11 +30,11 @@ namespace DatosManejo
             }
             else if (!String.IsNullOrEmpty(DesCategoria))
             {
-                    categoria = categoria.Where(a => a.DesCategoria.Contains(DesCategoria)).ToList();
-                    if (categoria.Count > 1 && !String.IsNullOrEmpty(CodEstado))
-                    {
-                        categoria = categoria.Where(a => a.CodEstado.Contains(CodEstado)).ToList();
-                    }
+                categoria = categoria.Where(a => a.DesCategoria.Contains(DesCategoria)).ToList();
+                if (categoria.Count > 1 && !String.IsNullOrEmpty(CodEstado))
+                {
+                    categoria = categoria.Where(a => a.CodEstado.Contains(CodEstado)).ToList();
+                }
             }
             else
             {
@@ -50,6 +45,10 @@ namespace DatosManejo
         public decimal? ObtenerCodigo(string descripcion)
         {
             return contexto.SaEveCategoriaimps.Where(a => a.DesCategoria == descripcion).FirstOrDefault().CodCategoria;
+        }
+        public string? Obtenedescripcion(int? cod)
+        {
+            return contexto.SaEveCategoriaimps.Where(a => a.CodCategoria == cod).FirstOrDefault().DesCategoria;
         }
         public InfoCompartidaCapas Crear(SaEveCategoriaimp categoria)
         {

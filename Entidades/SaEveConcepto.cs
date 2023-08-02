@@ -11,6 +11,8 @@ public partial class SaEveConcepto
 
     public string DesConceptos { get; set; } = null!;
 
+    public int? Cantidad { get; set; }
+
     public decimal? CostosConceptos { get; set; }
 
     public decimal? Costoprecio { get; set; }

@@ -1,12 +1,6 @@
 ﻿using Datos;
 using Entidades;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using System.CodeDom;
 
 namespace DatosManejo
 {
@@ -18,7 +12,7 @@ namespace DatosManejo
             this.contexto = contexto;
             this.contexto.Database.OpenConnection();
         }
-        public List<SaCodEstado> Obtener(string CodEstado ="", string DesEstado = "")
+        public List<SaCodEstado> Obtener(string CodEstado = "", string DesEstado = "")
         {
             List<SaCodEstado> porcentajes = new List<SaCodEstado>();
             if (porcentajes.Count > 1 && !String.IsNullOrEmpty(CodEstado))
@@ -38,6 +32,11 @@ namespace DatosManejo
         public string? ObtenerCodigoEstado(string descripcion)
         {
             return contexto.SaCodEstados.Where(a => a.DesEstado == descripcion).FirstOrDefault().CodEstado;
+        }
+        public string? Obtenedescripcion(string cod)
+        {
+            var elemento = contexto.SaCodEstados.FirstOrDefault(a => a.CodEstado == cod);
+            return elemento != null ? elemento.DesEstado : "ACTIVO";
         }
     }
 }

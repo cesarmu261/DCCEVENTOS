@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Coneccion;
-using System.Data.Common;
-using Microsoft.EntityFrameworkCore;
+﻿using Coneccion;
 using Entidades;
-using System.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using System.Data.Common;
+using Microsoft.Data.SqlClient;
 
 namespace Datos;
 
@@ -27,6 +25,8 @@ public partial class EventosContext : DbContext
     }
 
     public virtual DbSet<SaCodEstado> SaCodEstados { get; set; }
+
+    public virtual DbSet<SaCodReg> SaCodRegs { get; set; }
 
     public virtual DbSet<SaEveCategoriaimp> SaEveCategoriaimps { get; set; }
 
@@ -70,6 +70,30 @@ public partial class EventosContext : DbContext
                 .HasColumnName("DES_ESTADO");
         });
 
+        modelBuilder.Entity<SaCodReg>(entity =>
+        {
+            entity.HasKey(e => e.CodReg);
+
+            entity.ToTable("SA_COD_REG");
+
+            entity.Property(e => e.CodReg)
+                .HasMaxLength(5)
+                .IsUnicode(false)
+                .HasColumnName("COD_REG");
+            entity.Property(e => e.CodEmpresa)
+                .HasMaxLength(5)
+                .IsUnicode(false)
+                .HasColumnName("COD_EMPRESA");
+            entity.Property(e => e.CodSucursal)
+                .HasMaxLength(5)
+                .IsUnicode(false)
+                .HasColumnName("COD_SUCURSAL");
+            entity.Property(e => e.DesReg)
+                .HasMaxLength(100)
+                .IsUnicode(false)
+                .HasColumnName("DES_REG");
+        });
+
         modelBuilder.Entity<SaEveCategoriaimp>(entity =>
         {
             entity.HasKey(e => e.CodCategoria);
@@ -97,10 +121,7 @@ public partial class EventosContext : DbContext
 
             entity.ToTable("SA_EVE_CLIENTES");
 
-            entity.Property(e => e.CodCliente)
-                .HasMaxLength(20)
-                .IsUnicode(false)
-                .HasColumnName("COD_CLIENTE");
+            entity.Property(e => e.CodCliente).HasColumnName("COD_CLIENTE");
             entity.Property(e => e.Celular)
                 .HasMaxLength(20)
                 .IsUnicode(false)
@@ -113,6 +134,10 @@ public partial class EventosContext : DbContext
                 .HasMaxLength(5)
                 .IsUnicode(false)
                 .HasColumnName("COD_REGIMENFISCAL");
+            entity.Property(e => e.CodTercero)
+                .HasMaxLength(20)
+                .IsUnicode(false)
+                .HasColumnName("COD_TERCERO");
             entity.Property(e => e.Correo)
                 .HasMaxLength(100)
                 .IsUnicode(false)
@@ -176,6 +201,7 @@ public partial class EventosContext : DbContext
             entity.ToTable("SA_EVE_CONCEPTOS");
 
             entity.Property(e => e.CodConceptos).HasColumnName("COD_CONCEPTOS");
+            entity.Property(e => e.Cantidad).HasColumnName("CANTIDAD");
             entity.Property(e => e.CodCategoria).HasColumnName("COD_CATEGORIA");
             entity.Property(e => e.CodEstado)
                 .HasMaxLength(1)
@@ -193,7 +219,7 @@ public partial class EventosContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("DES_CONCEPTOS");
             entity.Property(e => e.Porciento)
-                .HasColumnType("decimal(5, 0)")
+                .HasColumnType("decimal(5, 2)")
                 .HasColumnName("PORCIENTO");
 
             entity.HasOne(d => d.CodCategoriaNavigation).WithMany(p => p.SaEveConceptos)
@@ -232,17 +258,13 @@ public partial class EventosContext : DbContext
 
         modelBuilder.Entity<SaEvePaqueteDetalle>(entity =>
         {
-            entity.HasKey(e => e.CodDp);
+            entity.HasKey(e => e.CodDetallepaq);
 
             entity.ToTable("SA_EVE_PAQUETE_DETALLE");
 
-            entity.Property(e => e.CodDp)
-                .ValueGeneratedNever()
-                .HasColumnName("COD_DP");
+            entity.Property(e => e.CodDetallepaq).HasColumnName("COD_DETALLEPAQ");
             entity.Property(e => e.CodConceptos).HasColumnName("COD_CONCEPTOS");
-            entity.Property(e => e.CodDetallepaq)
-                .ValueGeneratedOnAdd()
-                .HasColumnName("COD_DETALLEPAQ");
+            entity.Property(e => e.CodDp).HasColumnName("COD_DP");
             entity.Property(e => e.CodEstado)
                 .HasMaxLength(1)
                 .IsUnicode(false)
@@ -293,10 +315,7 @@ public partial class EventosContext : DbContext
             entity.ToTable("SA_EVENTOS");
 
             entity.Property(e => e.CodEvento).HasColumnName("COD_EVENTO");
-            entity.Property(e => e.CodCliente)
-                .HasMaxLength(20)
-                .IsUnicode(false)
-                .HasColumnName("COD_CLIENTE");
+            entity.Property(e => e.CodCliente).HasColumnName("COD_CLIENTE");
             entity.Property(e => e.CodEstado)
                 .HasMaxLength(1)
                 .IsUnicode(false)
@@ -333,22 +352,19 @@ public partial class EventosContext : DbContext
                 .HasColumnType("decimal(18, 0)")
                 .HasColumnName("CANTIDAD");
             entity.Property(e => e.CodConceptos).HasColumnName("COD_CONCEPTOS");
-            entity.Property(e => e.CodDp).HasColumnName("COD_DP");
+            entity.Property(e => e.CodDetallepaq).HasColumnName("COD_DETALLEPAQ");
             entity.Property(e => e.CodEvento).HasColumnName("COD_EVENTO");
             entity.Property(e => e.CodPorcentaje).HasColumnName("COD__PORCENTAJE");
+            entity.Property(e => e.CostoTotal).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.Costoprecio)
                 .HasColumnType("decimal(18, 2)")
                 .HasColumnName("COSTOPRECIO");
             entity.Property(e => e.CostosConcepto)
                 .HasColumnType("decimal(18, 2)")
                 .HasColumnName("COSTOS_CONCEPTO");
-            entity.Property(e => e.Porciento)
-                .HasColumnType("decimal(5, 0)")
-                .HasColumnName("PORCIENTO");
-
-            entity.HasOne(d => d.CodDpNavigation).WithMany(p => p.SaEventoDetalles)
-                .HasForeignKey(d => d.CodDp)
-                .HasConstraintName("FK_SA_EVENTO_DETALLE_SA_EVE_PAQUETE_DETALLE");
+            entity.Property(e => e.Descuento)
+                .HasColumnType("decimal(5, 2)")
+                .HasColumnName("DESCUENTO");
 
             entity.HasOne(d => d.CodEventoNavigation).WithMany(p => p.SaEventoDetalles)
                 .HasForeignKey(d => d.CodEvento)

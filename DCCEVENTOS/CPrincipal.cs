@@ -1,16 +1,3 @@
-using DatosManejo;
-using Entidades;
-using Negocio;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
 namespace DCCEVENTOS
 {
     public partial class CPrincipal : Form
@@ -19,7 +6,6 @@ namespace DCCEVENTOS
         {
             InitializeComponent();
         }
-
         private void porcentajeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CPorcentaje form = new CPorcentaje();
@@ -49,5 +35,28 @@ namespace DCCEVENTOS
             CPaqueteDetalle form = new CPaqueteDetalle();
             form.Show();
         }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CClientes form = new CClientes();
+            form.Show();
+        }
+
+        private void eventosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CEventos form = new CEventos();
+            form.Show();
+        }
+
+        private void CPrincipal_Load(object sender, EventArgs e)
+        {
+            DCCEVENTOS.Calendario.Calendario formSecundario = new DCCEVENTOS.Calendario.Calendario();
+            formSecundario.TopLevel = false;
+            formSecundario.FormBorderStyle = FormBorderStyle.None;
+            formSecundario.Dock = DockStyle.Fill;
+            panel1.Controls.Add(formSecundario);
+            formSecundario.Show();
+        }
+
     }
 }
