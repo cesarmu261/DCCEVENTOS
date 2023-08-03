@@ -21,5 +21,7 @@ public partial class SaCodEstado
 
     public virtual ICollection<SaEvePorcentaje> SaEvePorcentajes { get; set; } = new List<SaEvePorcentaje>();
 
+    public virtual ICollection<SaEventoSalone> SaEventoSalones { get; set; } = new List<SaEventoSalone>();
+
     public virtual ICollection<SaEvento> SaEventos { get; set; } = new List<SaEvento>();
 }

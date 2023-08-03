@@ -34,8 +34,8 @@ namespace DCCEVENTOS.CBusqueda
 
         public void fecha()
         {
-            DateTime selectedDate = dateTimePicker1.Value.Date; 
-            DateTime startDate = selectedDate.Date; 
+            DateTime selectedDate = dateTimePicker1.Value.Date;
+            DateTime startDate = selectedDate.Date;
 
             table = nevento.Obtener2(startDate);
             DTGEventos.DataSource = table;
@@ -101,7 +101,7 @@ namespace DCCEVENTOS.CBusqueda
             ConsultaClientes form = new ConsultaClientes();
             form.ShowDialog();
             EventosContext contexto = new EventosContext();
-            List<SaEveCliente> List = new DMCliente(contexto).Obtener(NTercero.SSCod);
+            List<SaEveCliente> List = new DMCliente(contexto).Obtener(NCliente.SSCod);
             foreach (var t in List)
             {
                 TBClientes.Text = t.NomCliente.ToString();
@@ -111,7 +111,7 @@ namespace DCCEVENTOS.CBusqueda
         private void button2_Click(object sender, EventArgs e)
         {
             FRE rE = new FRE();
-            
+
             rE.Show();
         }
     }

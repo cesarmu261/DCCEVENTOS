@@ -63,7 +63,7 @@ namespace DCCEVENTOS
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(TbDes.Text) || string.IsNullOrWhiteSpace(TbPor.Text) 
+                if (string.IsNullOrWhiteSpace(TbDes.Text) || string.IsNullOrWhiteSpace(TbPor.Text)
                     || string.IsNullOrWhiteSpace(CBESTADO.Text))
                 {
                     MessageBox.Show("DEBE CAPTURAR TODOS LOS DATOS PARA EL REGISTRO");

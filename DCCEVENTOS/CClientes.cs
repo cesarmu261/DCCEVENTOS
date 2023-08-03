@@ -208,7 +208,7 @@ namespace DCCEVENTOS
             ConsultaClientes form = new ConsultaClientes();
             form.ShowDialog();
             EventosContext contexto = new EventosContext();
-            List<SaEveCliente> List = new DMCliente(contexto).Obtener(NTercero.SSCod);
+            List<SaEveCliente> List = new DMCliente(contexto).Obtener(NCliente.SSCod);
             foreach (var t in List)
             {
                 TbCodter.Text = t.CodTercero.ToString();

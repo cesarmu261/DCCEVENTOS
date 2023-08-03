@@ -84,7 +84,6 @@
             // CategoriaExistencia
             // 
             CategoriaExistencia.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            CategoriaExistencia.Enabled = false;
             CategoriaExistencia.Location = new Point(304, 70);
             CategoriaExistencia.Name = "CategoriaExistencia";
             CategoriaExistencia.RowTemplate.Height = 25;
@@ -189,35 +188,35 @@
             // nuevoToolStripMenuItem
             // 
             nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            nuevoToolStripMenuItem.Size = new Size(180, 22);
+            nuevoToolStripMenuItem.Size = new Size(126, 22);
             nuevoToolStripMenuItem.Text = "Nuevo";
             nuevoToolStripMenuItem.Click += nuevoToolStripMenuItem_Click;
             // 
             // guardarToolStripMenuItem
             // 
             guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            guardarToolStripMenuItem.Size = new Size(180, 22);
+            guardarToolStripMenuItem.Size = new Size(126, 22);
             guardarToolStripMenuItem.Text = "Guardar";
             guardarToolStripMenuItem.Click += guardarToolStripMenuItem_Click;
             // 
             // actualizarToolStripMenuItem
             // 
             actualizarToolStripMenuItem.Name = "actualizarToolStripMenuItem";
-            actualizarToolStripMenuItem.Size = new Size(180, 22);
+            actualizarToolStripMenuItem.Size = new Size(126, 22);
             actualizarToolStripMenuItem.Text = "Actualizar";
             actualizarToolStripMenuItem.Click += actualizarToolStripMenuItem_Click;
             // 
             // buscarToolStripMenuItem
             // 
             buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
-            buscarToolStripMenuItem.Size = new Size(180, 22);
+            buscarToolStripMenuItem.Size = new Size(126, 22);
             buscarToolStripMenuItem.Text = "Buscar";
             buscarToolStripMenuItem.Click += buscarToolStripMenuItem_Click;
             // 
             // salirToolStripMenuItem
             // 
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            salirToolStripMenuItem.Size = new Size(180, 22);
+            salirToolStripMenuItem.Size = new Size(126, 22);
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
@@ -234,6 +233,7 @@
             Controls.Add(label3);
             Controls.Add(label1);
             Name = "CCategoria";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Categoria";
             ((System.ComponentModel.ISupportInitialize)CategoriaExistencia).EndInit();
             toolStrip1.ResumeLayout(false);

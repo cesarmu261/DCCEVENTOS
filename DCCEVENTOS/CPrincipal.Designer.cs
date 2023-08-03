@@ -39,12 +39,14 @@
             eventosToolStripMenuItem = new ToolStripMenuItem();
             panel1 = new Panel();
             panel2 = new Panel();
+            reportesToolStripMenuItem = new ToolStripMenuItem();
+            reporteEventoToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { catalogoToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { catalogoToolStripMenuItem, reportesToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1924, 24);
@@ -121,6 +123,20 @@
             panel2.Size = new Size(455, 516);
             panel2.TabIndex = 2;
             // 
+            // reportesToolStripMenuItem
+            // 
+            reportesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { reporteEventoToolStripMenuItem });
+            reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            reportesToolStripMenuItem.Size = new Size(65, 20);
+            reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // reporteEventoToolStripMenuItem
+            // 
+            reporteEventoToolStripMenuItem.Name = "reporteEventoToolStripMenuItem";
+            reporteEventoToolStripMenuItem.Size = new Size(180, 22);
+            reporteEventoToolStripMenuItem.Text = "Reporte Evento";
+            reporteEventoToolStripMenuItem.Click += reporteEventoToolStripMenuItem_Click;
+            // 
             // CPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -154,5 +170,7 @@
         private ToolStripMenuItem eventosToolStripMenuItem;
         private Panel panel1;
         private Panel panel2;
+        private ToolStripMenuItem reportesToolStripMenuItem;
+        private ToolStripMenuItem reporteEventoToolStripMenuItem;
     }
 }

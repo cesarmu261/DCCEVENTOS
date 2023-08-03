@@ -14,13 +14,42 @@ namespace DatosManejo
             this.contexto = contexto;
         }
 
-        public List<SaEvento> Obtener(int CodEvento = 0, int Codcliente = 0, string descripcionEvento = ""
+        public List<SaEvento> Obtener(int CodEvento = 0, int CodSalon=0, int Codcliente = 0, string descripcionEvento = ""
             , DateTime fecha = new DateTime(), string observaciones = "", string codestado = "")
         {
             List<SaEvento> clientes = new List<SaEvento>();
             if (CodEvento != 0)
             {
                 clientes = contexto.SaEventos.AsNoTracking().Where(a => a.CodEvento == (CodEvento)).ToList();
+                if (CodSalon != 0)
+                {
+                    clientes = clientes.Where(a => a.CodSalon == (CodSalon)).ToList();
+                    if (Codcliente != 0)
+                    {
+                        clientes = clientes.Where(a => a.CodCliente == (Codcliente)).ToList();
+                        if (clientes.Count > 1 && !String.IsNullOrEmpty(descripcionEvento))
+                        {
+                            clientes = clientes.Where(a => a.DesEvento.Contains(descripcionEvento)).ToList();
+                            if (clientes.Count > 1 && fecha > new DateTime(1900, 01, 01))
+                            {
+                                clientes = clientes.Where(a => a.Fecha == fecha).ToList();
+                                if (clientes.Count > 1 && !String.IsNullOrEmpty(observaciones))
+                                {
+                                    clientes = clientes.Where(a => a.Observaciones.Contains(observaciones)).ToList();
+                                    if (clientes.Count > 1 && !String.IsNullOrEmpty(codestado))
+                                    {
+                                        clientes = clientes.Where(a => a.CodEstado.Contains(codestado)).ToList();
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (CodSalon != 0)
+            {
+                clientes = contexto.SaEventos.AsNoTracking().Where(a => a.CodSalon == (CodSalon)).ToList();
                 if (Codcliente != 0)
                 {
                     clientes = clientes.Where(a => a.CodCliente == (Codcliente)).ToList();
@@ -43,7 +72,7 @@ namespace DatosManejo
                     }
                 }
             }
-            if (Codcliente != 0)
+            else if (Codcliente != 0)
             {
                 clientes = contexto.SaEventos.AsNoTracking().Where(a => a.CodCliente == (Codcliente)).ToList();
                 if (clientes.Count > 1 && !String.IsNullOrEmpty(descripcionEvento))

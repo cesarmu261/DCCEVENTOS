@@ -30,7 +30,7 @@ namespace DatosManejo
             }
             else if (!String.IsNullOrEmpty(DesCategoria))
             {
-                categoria = categoria.Where(a => a.DesCategoria.Contains(DesCategoria)).ToList();
+                categoria = contexto.SaEveCategoriaimps.AsNoTracking().Where(a => a.DesCategoria.Contains(DesCategoria)).ToList();
                 if (categoria.Count > 1 && !String.IsNullOrEmpty(CodEstado))
                 {
                     categoria = categoria.Where(a => a.CodEstado.Contains(CodEstado)).ToList();

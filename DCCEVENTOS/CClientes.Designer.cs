@@ -488,7 +488,8 @@
             Controls.Add(label2);
             Controls.Add(TbCodter);
             Name = "CClientes";
-            Text = "CEventos";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Eventos";
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             menuStrip1.ResumeLayout(false);

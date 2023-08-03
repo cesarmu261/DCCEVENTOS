@@ -44,6 +44,8 @@ public partial class EventosContext : DbContext
 
     public virtual DbSet<SaEventoDetalle> SaEventoDetalles { get; set; }
 
+    public virtual DbSet<SaEventoSalone> SaEventoSalones { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
@@ -320,6 +322,7 @@ public partial class EventosContext : DbContext
                 .HasMaxLength(1)
                 .IsUnicode(false)
                 .HasColumnName("COD_ESTADO");
+            entity.Property(e => e.CodSalon).HasColumnName("COD_SALON");
             entity.Property(e => e.DesEvento)
                 .HasMaxLength(100)
                 .IsUnicode(false)
@@ -339,6 +342,10 @@ public partial class EventosContext : DbContext
             entity.HasOne(d => d.CodEstadoNavigation).WithMany(p => p.SaEventos)
                 .HasForeignKey(d => d.CodEstado)
                 .HasConstraintName("FK_SA_EVENTOS_SA_COD_ESTADO");
+
+            entity.HasOne(d => d.CodSalonNavigation).WithMany(p => p.SaEventos)
+                .HasForeignKey(d => d.CodSalon)
+                .HasConstraintName("FK_SA_EVENTOS_SA_EVENTO_SALONES");
         });
 
         modelBuilder.Entity<SaEventoDetalle>(entity =>
@@ -354,7 +361,7 @@ public partial class EventosContext : DbContext
             entity.Property(e => e.CodConceptos).HasColumnName("COD_CONCEPTOS");
             entity.Property(e => e.CodDetallepaq).HasColumnName("COD_DETALLEPAQ");
             entity.Property(e => e.CodEvento).HasColumnName("COD_EVENTO");
-            entity.Property(e => e.CodPorcentaje).HasColumnName("COD__PORCENTAJE");
+            entity.Property(e => e.CodCategoria).HasColumnName("COD_CATEGORIA");
             entity.Property(e => e.CostoTotal).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.Costoprecio)
                 .HasColumnType("decimal(18, 2)")
@@ -369,6 +376,31 @@ public partial class EventosContext : DbContext
             entity.HasOne(d => d.CodEventoNavigation).WithMany(p => p.SaEventoDetalles)
                 .HasForeignKey(d => d.CodEvento)
                 .HasConstraintName("FK_SA_EVENTO_DETALLE_SA_EVENTOS");
+        });
+
+        modelBuilder.Entity<SaEventoSalone>(entity =>
+        {
+            entity.HasKey(e => e.CodSalon);
+
+            entity.ToTable("SA_EVENTO_SALONES");
+
+            entity.Property(e => e.CodSalon).HasColumnName("COD_SALON");
+            entity.Property(e => e.CodEstado)
+                .HasMaxLength(1)
+                .IsUnicode(false)
+                .HasColumnName("COD_ESTADO");
+            entity.Property(e => e.DesSalon)
+                .HasMaxLength(100)
+                .IsUnicode(false)
+                .HasColumnName("DES_SALON");
+            entity.Property(e => e.DeslarSalon)
+                .HasMaxLength(150)
+                .IsUnicode(false)
+                .HasColumnName("DESLAR_SALON");
+
+            entity.HasOne(d => d.CodEstadoNavigation).WithMany(p => p.SaEventoSalones)
+                .HasForeignKey(d => d.CodEstado)
+                .HasConstraintName("FK_SA_EVENTO_SALONES_SA_COD_ESTADO");
         });
 
         OnModelCreatingPartial(modelBuilder);

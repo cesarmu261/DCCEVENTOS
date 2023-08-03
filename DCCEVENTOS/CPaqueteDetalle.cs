@@ -36,11 +36,11 @@ namespace DCCEVENTOS
             if (!DatoExisteEnDataGridView(NConceptos.SSCodcon))
             {
                 int index1 = dataGridView1.Rows.Add();
-            dataGridView1.Rows[index1].Cells["Codigo"].Value = NConceptos.SSCodcon;
-            dataGridView1.Rows[index1].Cells["Descripcion"].Value = NConceptos.SSDescon;
-            dataGridView1.Rows[index1].Cells["Cantidad"].Value = NConceptos.SScantidad;
-            dataGridView1.Update();
-            dataGridView1.Refresh();
+                dataGridView1.Rows[index1].Cells["Codigo"].Value = NConceptos.SSCodcon;
+                dataGridView1.Rows[index1].Cells["Descripcion"].Value = NConceptos.SSDescon;
+                dataGridView1.Rows[index1].Cells["Cantidad"].Value = NConceptos.SScantidad;
+                dataGridView1.Update();
+                dataGridView1.Refresh();
             }
             else
             {
@@ -59,7 +59,7 @@ namespace DCCEVENTOS
         }
         private void Buscar()
         {
-            
+
             //ConsultaPaqueteD consulta = new ConsultaPaqueteD();
             //consulta.ShowDialog();
             ConsultadePaquete consulta = new ConsultadePaquete();
@@ -86,13 +86,13 @@ namespace DCCEVENTOS
                 List<SaEveConcepto> conceptosList = new DMConceptos(contexto).Obtener((int)datos.CodConceptos);
                 foreach (SaEveConcepto concepto in conceptosList)
                 {
-                    
-                        row.CreateCells(dataGridView1);
-                        row.Cells[0].Value = datos.CodConceptos;
-                        row.Cells[1].Value = concepto.DesConceptos;
-                        row.Cells[2].Value = concepto.Cantidad;
-                        dataGridView1.Rows.Add(row);
-                    
+
+                    row.CreateCells(dataGridView1);
+                    row.Cells[0].Value = datos.CodConceptos;
+                    row.Cells[1].Value = concepto.DesConceptos;
+                    row.Cells[2].Value = concepto.Cantidad;
+                    dataGridView1.Rows.Add(row);
+
                 }
                 string Vp = npaquete.ObtenerDescripcione(datos.CodPaquete);
                 int icp = CBPaquete.FindStringExact(Vp);
@@ -101,7 +101,7 @@ namespace DCCEVENTOS
                     CBPaquete.SelectedIndex = icp; // Set the selected index for CBPaquete
                 }
             }
-            
+
         }
         private bool DatoExisteEnDataGridView(string dato)
         {
@@ -128,8 +128,8 @@ namespace DCCEVENTOS
                 CBEstado.DataSource = estado;
                 CBEstado.Refresh();
             }
-            Coddp.Text =Convert.ToString(nPaDetalle.ObtenerDescripcionesCod());
-            
+            Coddp.Text = Convert.ToString(nPaDetalle.ObtenerDescripcionesCod());
+
         }
         private List<int> codigosDetalle = new List<int>();
 
@@ -153,11 +153,11 @@ namespace DCCEVENTOS
                     //bool existeRegistro = nPaDetalle.ExisteRegistro(concepto);
                     //if (!existeRegistro)
                     //{
-                        InfoCompartidaCapas rGuardar = nPaDetalle.Modificar(concepto);
-                        if (!String.IsNullOrEmpty(rGuardar.error))
-                        {
-                            MessageBox.Show(rGuardar.error);
-                        }
+                    InfoCompartidaCapas rGuardar = nPaDetalle.Modificar(concepto);
+                    if (!String.IsNullOrEmpty(rGuardar.error))
+                    {
+                        MessageBox.Show(rGuardar.error);
+                    }
                     //}
                 }
             }

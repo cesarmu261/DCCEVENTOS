@@ -33,8 +33,6 @@ namespace DCCEVENTOS.Reportes
 
             //reportViewer1.LocalReport.ReportEmbeddedResource = "DCCEVENTOS.Reportes.Report1.rdlc";
 
-
-
             //reportViewer1.RefreshReport();
 
         }

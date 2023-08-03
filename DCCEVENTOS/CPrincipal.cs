@@ -1,3 +1,6 @@
+using DCCEVENTOS.CBusqueda;
+using System.Windows.Forms;
+
 namespace DCCEVENTOS
 {
     public partial class CPrincipal : Form
@@ -58,5 +61,10 @@ namespace DCCEVENTOS
             formSecundario.Show();
         }
 
+        private void reporteEventoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaDeEventos form = new ConsultaDeEventos();
+            form.Show();
+        }
     }
 }

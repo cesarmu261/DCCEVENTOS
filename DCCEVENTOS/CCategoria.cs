@@ -39,7 +39,7 @@ namespace DCCEVENTOS
         }
         public void Buscar()
         {
-            
+
             ConsulatadeCategorias consulta = new ConsulatadeCategorias();
             consulta.ShowDialog();
             EventosContext contexto = new EventosContext();
@@ -90,7 +90,7 @@ namespace DCCEVENTOS
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(TbDes.Text) 
+                if (string.IsNullOrWhiteSpace(TbDes.Text)
                    || string.IsNullOrWhiteSpace(CBESTADO.Text))
                 {
                     MessageBox.Show("DEBE CAPTURAR TODOS LOS DATOS PARA EL REGISTRO");

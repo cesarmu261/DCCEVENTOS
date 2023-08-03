@@ -270,19 +270,19 @@
             // nuevoToolStripMenuItem
             // 
             nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            nuevoToolStripMenuItem.Size = new Size(154, 22);
+            nuevoToolStripMenuItem.Size = new Size(180, 22);
             nuevoToolStripMenuItem.Text = "Nuevo";
             // 
             // guardarToolStripMenuItem
             // 
             guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            guardarToolStripMenuItem.Size = new Size(154, 22);
+            guardarToolStripMenuItem.Size = new Size(180, 22);
             guardarToolStripMenuItem.Text = "Guardar";
             // 
             // buscarClientesToolStripMenuItem
             // 
             buscarClientesToolStripMenuItem.Name = "buscarClientesToolStripMenuItem";
-            buscarClientesToolStripMenuItem.Size = new Size(154, 22);
+            buscarClientesToolStripMenuItem.Size = new Size(180, 22);
             buscarClientesToolStripMenuItem.Text = "Buscar Clientes";
             buscarClientesToolStripMenuItem.Click += buscarClientesToolStripMenuItem_Click;
             // 
@@ -319,7 +319,8 @@
             Controls.Add(label4);
             Controls.Add(label1);
             Name = "ConsultaDeEventos";
-            Text = "ConsultaDeEventos";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Consulta De Eventos";
             ((System.ComponentModel.ISupportInitialize)DTGEventos).EndInit();
             ((System.ComponentModel.ISupportInitialize)DTGDetalles).EndInit();
             toolStrip1.ResumeLayout(false);

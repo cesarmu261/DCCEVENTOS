@@ -38,7 +38,7 @@ namespace DCCEVENTOS.CBusqueda
                 SSDescon = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
                 NCliente.SSCodcon = SSCodcon;
                 NCliente.SSDescon = SSDescon;
-                NCliente.SSCod = Convert.ToInt32(SSCodcon);
+                NCliente.SSCod = Convert.ToInt32(NCliente.SSCodcon);
                 base.Close();
             }
         }

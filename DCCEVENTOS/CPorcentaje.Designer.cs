@@ -123,14 +123,14 @@
             // 
             nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
             nuevoToolStripMenuItem.ShortcutKeyDisplayString = "";
-            nuevoToolStripMenuItem.Size = new Size(180, 22);
+            nuevoToolStripMenuItem.Size = new Size(126, 22);
             nuevoToolStripMenuItem.Text = "Nuevo";
             // 
             // guardarToolStripMenuItem
             // 
             guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
             guardarToolStripMenuItem.ShortcutKeyDisplayString = "";
-            guardarToolStripMenuItem.Size = new Size(180, 22);
+            guardarToolStripMenuItem.Size = new Size(126, 22);
             guardarToolStripMenuItem.Text = "Guardar";
             guardarToolStripMenuItem.Click += guardarToolStripMenuItem_Click;
             // 
@@ -138,7 +138,7 @@
             // 
             actualizarToolStripMenuItem.Name = "actualizarToolStripMenuItem";
             actualizarToolStripMenuItem.ShortcutKeyDisplayString = "";
-            actualizarToolStripMenuItem.Size = new Size(180, 22);
+            actualizarToolStripMenuItem.Size = new Size(126, 22);
             actualizarToolStripMenuItem.Text = "Actualizar";
             actualizarToolStripMenuItem.Click += actualizarToolStripMenuItem_Click;
             // 
@@ -146,7 +146,7 @@
             // 
             buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
             buscarToolStripMenuItem.ShortcutKeyDisplayString = "";
-            buscarToolStripMenuItem.Size = new Size(180, 22);
+            buscarToolStripMenuItem.Size = new Size(126, 22);
             buscarToolStripMenuItem.Text = "Buscar ";
             buscarToolStripMenuItem.Click += buscarToolStripMenuItem_Click;
             // 
@@ -154,7 +154,7 @@
             // 
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             salirToolStripMenuItem.ShortcutKeyDisplayString = "";
-            salirToolStripMenuItem.Size = new Size(180, 22);
+            salirToolStripMenuItem.Size = new Size(126, 22);
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
@@ -261,6 +261,7 @@
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "CPorcentaje";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Porcentaje";
             ((System.ComponentModel.ISupportInitialize)PorcentjesExistencia).EndInit();
             menuStrip1.ResumeLayout(false);

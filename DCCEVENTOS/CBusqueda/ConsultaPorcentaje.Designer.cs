@@ -89,6 +89,7 @@
             Controls.Add(BTNBus);
             Controls.Add(label1);
             Name = "ConsultaPorcentaje";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Consulta de Porcentaje";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);

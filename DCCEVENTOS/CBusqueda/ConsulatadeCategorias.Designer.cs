@@ -92,6 +92,7 @@
             Controls.Add(BTNBus);
             Controls.Add(label1);
             Name = "ConsulatadeCategorias";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ConsulatadeCategorias";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);

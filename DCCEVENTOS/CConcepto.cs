@@ -93,7 +93,7 @@ namespace DCCEVENTOS
                 concepto.CodCategoria = (int?)ncategoria.ObtenerDescripcionesCod(CBCodCat.SelectedItem.ToString());
                 concepto.DesConceptos = TbDes.Text;
                 concepto.Cantidad = Convert.ToInt32(TBCantidad.Text);
-                concepto.CostosConceptos = Convert.ToDecimal(TbPrecio.Text);
+                concepto.CostosConceptos = Convert.ToDecimal(textBox2.Text);
                 concepto.Costoprecio = Convert.ToDecimal(TbTotal.Text);
                 concepto.CodEstado = nestado.ObtenerDescripcionesCod(CBEstado.SelectedItem.ToString());
                 concepto.CodPorcentaje = (int?)nporcentaje.ObtenerDescripcionesCod(CBCodPor.SelectedItem.ToString());
@@ -179,7 +179,7 @@ namespace DCCEVENTOS
             concepto.CodCategoria = (int?)ncategoria.ObtenerDescripcionesCod(CBCodCat.SelectedItem.ToString());
             concepto.DesConceptos = TbDes.Text;
             concepto.Cantidad = Convert.ToInt32(TBCantidad.Text);
-            concepto.CostosConceptos = Convert.ToDecimal(TbPrecio.Text);
+            concepto.CostosConceptos = Convert.ToDecimal(textBox2.Text);
             concepto.Costoprecio = Convert.ToDecimal(TbTotal.Text);
             concepto.CodEstado = nestado.ObtenerDescripcionesCod(CBEstado.SelectedItem.ToString());
             concepto.CodPorcentaje = (int?)nporcentaje.ObtenerDescripcionesCod(CBCodPor.SelectedItem.ToString());

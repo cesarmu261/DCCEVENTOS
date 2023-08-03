@@ -89,7 +89,8 @@
             Controls.Add(BTNBus);
             Controls.Add(label1);
             Name = "ConsultaPaqueteD";
-            Text = "ConsultaPaqueteD";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Consulta Paquete D";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

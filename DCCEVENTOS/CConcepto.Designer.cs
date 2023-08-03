@@ -154,7 +154,6 @@
             // conceptosexistentes
             // 
             conceptosexistentes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            conceptosexistentes.Enabled = false;
             conceptosexistentes.Location = new Point(411, 73);
             conceptosexistentes.Name = "conceptosexistentes";
             conceptosexistentes.RowTemplate.Height = 25;
@@ -402,6 +401,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Name = "CConcepto";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "CConcepto";
             ((System.ComponentModel.ISupportInitialize)conceptosexistentes).EndInit();
             toolStrip1.ResumeLayout(false);

@@ -327,7 +327,7 @@
             Controls.Add(label3);
             Controls.Add(label1);
             Name = "CPaqueteDetalle";
-            Text = "CPaqueteDetalle";
+            Text = "Paquete Detalle";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

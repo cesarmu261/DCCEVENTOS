@@ -85,6 +85,7 @@
             Controls.Add(BTNBus);
             Controls.Add(label1);
             Name = "ConsultadeConceptos";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Consulta de Conceptos";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);

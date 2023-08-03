@@ -15,6 +15,8 @@ namespace DCCEVENTOS
     public partial class CEventos : Form
     {
         private NConceptos nconceptos;
+        private NCategoria nCategoria;
+        private NSalones nsalones;
         private NEstado nestado;
         private NEventos nevento;
         private NPaquete npaquete;
@@ -26,12 +28,14 @@ namespace DCCEVENTOS
         public CEventos()
         {
             InitializeComponent();
+            nsalones = new NSalones();
             nestado = new NEstado();
             nevento = new NEventos();
             npaquete = new NPaquete();
             nPa = new NPaDetalle();
             neventod = new NEventoDetalle();
             ncliente = new NCliente();
+            nCategoria = new NCategoria();
             Cargainformacion();
         }
         public void Cargainformacion()
@@ -39,9 +43,19 @@ namespace DCCEVENTOS
             int dia = Convert.ToInt32(Calendario.UserControlDias.dia_estat);
             int mes = Calendario.Calendario.mes_estat;
             int anio = Calendario.Calendario.an_estat;
+            DateTime fecha;
 
-            DateTime fecha = new DateTime(anio, mes, dia);
+            if (dia > 0 && mes > 0 && anio > 0)
+            {
+                fecha = new DateTime(anio, mes, dia);
+            }
+            else
+            {
+                fecha = DateTime.Now;
+            }
+
             dateTimePicker1.Value = fecha;
+
             //dateTimePicker1.Text =  Calendario.UserControlDias.dia_estat + "/" + Calendario.Calendario.mes_esta + "/" + Calendario.Calendario.an_esta;
             Object[] estado = nestado.ObtenerDescripciones();
             if (estado.Length > 0)
@@ -49,18 +63,50 @@ namespace DCCEVENTOS
                 CBEstado.DataSource = estado;
                 CBEstado.Refresh();
             }
-            Object[] paquete = npaquete.ObtenerDescripciones();
-            if (paquete.Length > 0)
+            //Object[] paquete = npaquete.ObtenerDescripciones();
+            //if (paquete.Length > 0)
+            //{
+            //    CBPaquete.DataSource = paquete;
+            //    CBPaquete.Refresh();
+            //}
+
+            Object[] salones = nsalones.ObtenerDescripciones();
+            if (salones.Length > 0)
             {
-                CBPaquete.DataSource = paquete;
-                CBPaquete.Refresh();
+                CBSalones.DataSource = salones;
+                CBSalones.Refresh();
             }
         }
+        private void Nuevo()
+        {
+            textBox1.Text = string.Empty;
+            textBox2.Text = string.Empty;
+            textBox3.Text = string.Empty;
+            CBSalones.SelectedIndex = 0;
+            CBEstado.SelectedIndex = 0;
+            //dataGridView1.DataSource = string.Empty;
+            CBPaquete.Text = string.Empty;
+            ConceptosPaquetes.Rows.Clear();
+            ConceptosUni.Rows.Clear();
+        }
+
+
         int codevento;
         public void AgregarInformacion()
         {
+            //DataGridViewCell cell = ConceptosUni.Rows[0].Cells[0];
+            //object cellValue = cell.Value;
+            //if (string.IsNullOrWhiteSpace(CBSalones.Text) || string.IsNullOrWhiteSpace(textBox1.Text)
+            //   || string.IsNullOrWhiteSpace(textBox2.Text) || string.IsNullOrWhiteSpace(textBox3.Text)
+            //   || string.IsNullOrWhiteSpace(CBEstado.Text) || cellValue == null || cellValue.ToString().Trim() == "")
+            //{
+            //    MessageBox.Show("DEBE CAPTURAR TODOS LOS DATOS PARA EL REGISTRO");
+            //    return; // Salir del método sin agregar el registro
+            //}
+
             SaEvento evento = new SaEvento();
             codevento = evento.CodEvento;
+            evento.CodSalon = nsalones.ObtenerDescripcione(CBSalones.SelectedItem.ToString());
             evento.CodCliente = ncliente.ObtenerDescripcione(textBox1.Text);
             evento.DesEvento = textBox2.Text;
             evento.Fecha = dateTimePicker1.Value;
@@ -74,6 +120,15 @@ namespace DCCEVENTOS
         }
         public void AgregarInformaciondetalleeventos()
         {
+            //DataGridViewCell cell = ConceptosUni.Rows[0].Cells[0];
+            //object cellValue = cell.Value;
+            //if (string.IsNullOrWhiteSpace(CBSalones.Text) || string.IsNullOrWhiteSpace(textBox1.Text)
+            //   || string.IsNullOrWhiteSpace(textBox2.Text) || string.IsNullOrWhiteSpace(textBox3.Text)
+            //   || string.IsNullOrWhiteSpace(CBEstado.Text) || cellValue == null || cellValue.ToString().Trim() == "")
+            //{
+            //    MessageBox.Show("DEBE CAPTURAR TODOS LOS DATOS PARA EL REGISTRO");
+            //    return; // Salir del método sin agregar el registro
+            //}
             int columnaIndex = 0; // Índice de la columna que deseas recorrer
             int columnaIndex1 = 1;
             int columnaIndex2 = 2;
@@ -82,6 +137,7 @@ namespace DCCEVENTOS
             int columnaIndex5 = 5;
             int columnaIndex6 = 6;
             int columnaIndex7 = 7;
+            int columnaIndex8 = 8;
             int ultimaFilaIndex = ConceptosUni.Rows.Count - 1;
             for (int filaIndex = 0; filaIndex <= ultimaFilaIndex; filaIndex++)
             {
@@ -93,6 +149,7 @@ namespace DCCEVENTOS
                 DataGridViewCell celda5 = ConceptosUni[columnaIndex5, filaIndex];
                 DataGridViewCell celda6 = ConceptosUni[columnaIndex6, filaIndex];
                 DataGridViewCell celda7 = ConceptosUni[columnaIndex7, filaIndex];
+                DataGridViewCell celda8 = ConceptosUni[columnaIndex8, filaIndex];
                 if (celda.Value != null)
                 {
                     string valor = celda.Value.ToString();
@@ -103,6 +160,7 @@ namespace DCCEVENTOS
                     string valor5 = celda5.Value.ToString();
                     string valor6 = celda6.Value.ToString();
                     string valor7 = celda7.Value.ToString();
+                    string valor8 = celda8.Value.ToString();
 
 
                     SaEventoDetalle ev = new SaEventoDetalle();
@@ -110,12 +168,13 @@ namespace DCCEVENTOS
                     //ev.CodEvento = neventod.ObtenerDescripcionesCod(NCliente.SSCodcon);
                     ev.CodEvento = neventod.ObtenerDescripcionesCod();
                     ev.CodConceptos = Convert.ToInt32(valor);
-                    ev.CostosConcepto = Convert.ToDecimal(valor3);
                     ev.Cantidad = Convert.ToInt32(valor2);
-                    ev.CodDetallepaq = Convert.ToInt32(valor4);
-                    ev.Costoprecio = Convert.ToDecimal(valor5);
-                    ev.Descuento = Convert.ToDecimal(valor6);
-                    ev.CostoTotal = Convert.ToDecimal(valor7);
+                    ev.CostosConcepto = Convert.ToDecimal(valor3);
+                    ev.CodDetallepaq = (int)npaquete.ObtenerDescripcionesCod(valor4);
+                    ev.CodCategoria = (int?)nCategoria.ObtenerDescripcionesCod(valor5);
+                    ev.Costoprecio = Convert.ToDecimal(valor6);
+                    ev.Descuento = Convert.ToDecimal(valor7);
+                    ev.CostoTotal = Convert.ToDecimal(valor8);
 
                     //bool existeRegistro = neventod.ExisteRegistro(ev);
                     //if (!existeRegistro)
@@ -128,12 +187,6 @@ namespace DCCEVENTOS
                     //}
                 }
             }
-
-        }
-        private void BtnAgregar_Click(object sender, EventArgs e)
-        {
-            AgregarInformacion();
-            AgregarInformaciondetalleeventos();
         }
         private void CBPaquete_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -141,21 +194,20 @@ namespace DCCEVENTOS
             {
                 ConceptosPaquetes.Rows.Clear();
                 ConceptosUni.Rows.Clear();
-
                 DTGC();
-
             }
         }
         private List<int> codigosDetalle = new List<int>();
         public void DTGC()
         {
+            label9.Text = string.Empty;
             DataTable dt = new DataTable();
             SaEvePaqueteDetalle pa = new SaEvePaqueteDetalle();
             pa.CodPaquete = (int?)npaquete.ObtenerDescripcionesCod(CBPaquete.SelectedItem.ToString());
+            SaEveCategoriaimp CA = new SaEveCategoriaimp();
             EventosContext context = new EventosContext();
             List<SaEvePaqueteDetalle> List = new DMPaDetalle(context).Obtener(0, 0, pa.CodPaquete.Value);
-            //dt = nPa.Obtener(pa.CodPaquete.Value);
-            // Remover la primera y última columna
+
 
             foreach (var datos in List)
             {
@@ -177,21 +229,21 @@ namespace DCCEVENTOS
                     ConceptosUni.Rows[index1].Cells["DTCodigo"].Value = datos.CodConceptos;
                     ConceptosUni.Rows[index1].Cells["DTDESCRIPCION"].Value = concepto.DesConceptos;
                     ConceptosUni.Rows[index1].Cells["DTCantida"].Value = 1;
-                    ConceptosUni.Rows[index1].Cells["DTCostosc"].Value = concepto.Costoprecio;
-                    ConceptosUni.Rows[index1].Cells["Paquete"].Value = pa.CodPaquete.Value;
+                    ConceptosUni.Rows[index1].Cells["DTCostosc"].Value = concepto.CostosConceptos;
+                    ConceptosUni.Rows[index1].Cells["Paquete"].Value = npaquete.ObtenerDescripcione(pa.CodPaquete.Value);
+                    ConceptosUni.Rows[index1].Cells["Categoria"].Value = nCategoria.ObtenerDescripcione(concepto.CodCategoria);
                     ConceptosUni.Update();
                     ConceptosUni.Refresh();
                 }
-                //DTG();
             }
             DTG();
-
         }
         decimal sumatoriaPrecioTotal = 0;
         decimal descuentototal = 0;
 
         public void DTG()
         {
+            label9.Text = string.Empty;
             // Agregar la columna "Precio" a ConceptosUni
             if (!ConceptosUni.Columns.Contains("Precio"))
             {
@@ -199,15 +251,17 @@ namespace DCCEVENTOS
             }
             if (!ConceptosUni.Columns.Contains("Descuento"))
             {
-                ConceptosUni.Columns.Add("Descuento", "Descuento");
+                ConceptosUni.Columns.Add("Descuento", "Descuento (%)");
             }
             if (!ConceptosUni.Columns.Contains("Precio Total"))
             {
                 ConceptosUni.Columns.Add("Precio Total", "Precio Total");
             }
-            //decimal sumatoriaPrecioTotal = 0;
             using (var dbContext = new EventosContext())
             {
+                decimal sumatoriaIngresos = 0;
+                decimal sumatoriaEgresos = 0;
+
                 foreach (DataGridViewRow row in ConceptosUni.Rows)
                 {
                     int codigo = Convert.ToInt32(row.Cells["DTCodigo"].Value);
@@ -221,23 +275,36 @@ namespace DCCEVENTOS
                         decimal precioUnitario = Convert.ToDecimal(row.Cells["Precio"].Value);
                         // Calcular el precio total
                         decimal precioTotal = cantidad * precioUnitario;
-                        // Asignar el valor de precio total a la columna correspondiente
-                        //row.Cells["Precio Total"].Value = precioTotal;
 
                         // Obtener el valor del porcentaje de descuento
                         decimal porcentajeDescuento = Convert.ToDecimal(row.Cells["Descuento"].Value);
                         // Calcular el descuento
                         decimal descuento = precioTotal * (porcentajeDescuento / 100);
-                        descuentototal = precioTotal - descuento;
-                        // Asignar el valor de descuento a la columna correspondiente
-                        //row.Cells["Descuento"].Value = descuento;
+                        decimal descuentototal = precioTotal - descuento;
                         row.Cells["Precio Total"].Value = descuentototal;
-                        sumatoriaPrecioTotal += descuentototal;
+
+                        // Obtener la categoría de la fila actual
+                        string categoria = row.Cells["Categoria"].Value.ToString();
+
+                        // Sumar al total correspondiente según la categoría
+                        if (categoria.ToLower() == "ingresos")
+                        {
+                            sumatoriaIngresos += descuentototal;
+                        }
+                        else if (categoria.ToLower() == "egresos")
+                        {
+                            sumatoriaEgresos += descuentototal;
+                        }
                     }
-                    label9.Text = sumatoriaPrecioTotal.ToString();
                 }
+
+                // Restar las sumas de ingresos y egresos
+                decimal resultadoFinal = sumatoriaIngresos - sumatoriaEgresos;
+                label9.Text = resultadoFinal.ToString();
             }
+
             tablaCargada = true;
+
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -275,6 +342,9 @@ namespace DCCEVENTOS
             {
                 using (var dbContext = new EventosContext())
                 {
+                    decimal sumatoriaIngresos = 0;
+                    decimal sumatoriaEgresos = 0;
+                    decimal sumatoriaPrecioTotal = 0;
                     foreach (DataGridViewRow row in ConceptosUni.Rows)
                     {
                         int codigo = Convert.ToInt32(row.Cells["DTCodigo"].Value);
@@ -292,17 +362,34 @@ namespace DCCEVENTOS
                             decimal descuentoAplicado = precioTotal * (descuento / 100);
                             decimal precioTotalDescuento = precioTotal - descuentoAplicado;
 
-                            row.Cells["Precio Total"].Value = precioTotalDescuento;
-                            sumatoriaPrecioTotal += precioTotalDescuento;
+                            row.Cells["Precio Total"].Value = precioTotalDescuento.ToString("N2");
+                            //sumatoriaPrecioTotal += precioTotalDescuento;
+                            // Obtener la categoría de la fila actual
+                            string categoria = row.Cells["Categoria"].Value.ToString();
+
+                            // Sumar al total correspondiente según la categoría
+                            if (categoria.ToLower() == "ingresos")
+                            {
+                                sumatoriaIngresos += precioTotalDescuento;
+                            }
+                            else if (categoria.ToLower() == "egresos")
+                            {
+                                sumatoriaEgresos += precioTotalDescuento;
+                            }
                         }
-                        label9.Text = sumatoriaPrecioTotal.ToString();
+                        decimal resultadoFinal = sumatoriaIngresos - sumatoriaEgresos;
+                        label9.Text = resultadoFinal.ToString();
                     }
                 }
+
             }
             if (tablaCargada && e.ColumnIndex == ConceptosUni.Columns["Descuento"].Index && e.RowIndex >= 0)
             {
                 using (var dbContext = new EventosContext())
                 {
+                    decimal sumatoriaIngresos = 0;
+                    decimal sumatoriaEgresos = 0;
+                    decimal sumatoriaPrecioTotal = 0;
                     foreach (DataGridViewRow row in ConceptosUni.Rows)
                     {
                         int codigo = Convert.ToInt32(row.Cells["DTCodigo"].Value);
@@ -320,22 +407,34 @@ namespace DCCEVENTOS
                             decimal descuentoAplicado = precioTotal * (descuento / 100);
                             decimal precioTotalDescuento = precioTotal - descuentoAplicado;
 
-                            row.Cells["Precio Total"].Value = precioTotalDescuento;
+                            row.Cells["Precio Total"].Value = precioTotalDescuento.ToString("N2");
                             sumatoriaPrecioTotal += precioTotalDescuento;
+                            // Obtener la categoría de la fila actual
+                            string categoria = row.Cells["Categoria"].Value.ToString();
+
+                            // Sumar al total correspondiente según la categoría
+                            if (categoria.ToLower() == "ingresos")
+                            {
+                                sumatoriaIngresos += precioTotalDescuento;
+                            }
+                            else if (categoria.ToLower() == "egresos")
+                            {
+                                sumatoriaEgresos += precioTotalDescuento;
+                            }
                         }
-                        label9.Text = sumatoriaPrecioTotal.ToString();
+                        // Restar las sumas de ingresos y egresos
+                        decimal resultadoFinal = (sumatoriaIngresos - sumatoriaEgresos);
+                        label9.Text = resultadoFinal.ToString();
                     }
                 }
             }
         }
-
         private void buscarClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             ConsultaClientes form = new ConsultaClientes();
             form.ShowDialog();
             EventosContext contexto = new EventosContext();
-            List<SaEveCliente> List = new DMCliente(contexto).Obtener(NTercero.SSCod);
+            List<SaEveCliente> List = new DMCliente(contexto).Obtener(NCliente.SSCod);
             foreach (var t in List)
             {
                 textBox1.Text = t.NomCliente.ToString();
@@ -344,8 +443,81 @@ namespace DCCEVENTOS
 
         private void toolStripBuscar_Click(object sender, EventArgs e)
         {
-            ConsultaDeEventos form = new ConsultaDeEventos();
+            ConsultaClientes form = new ConsultaClientes();
             form.ShowDialog();
+            EventosContext contexto = new EventosContext();
+            List<SaEveCliente> List = new DMCliente(contexto).Obtener(NCliente.SSCod);
+            foreach (var t in List)
+            {
+                textBox1.Text = t.NomCliente.ToString();
+            }
+        }
+
+        private void CBPaquete_DropDown(object sender, EventArgs e)
+        {
+            Object[] paquete = npaquete.ObtenerDescripciones();
+            if (paquete.Length > 0)
+            {
+                CBPaquete.DataSource = paquete;
+                CBPaquete.Refresh();
+            }
+        }
+
+        private void toolStripGuardar_Click(object sender, EventArgs e)
+        {
+            DataGridViewCell cell = ConceptosUni.Rows[0].Cells[0];
+            object cellValue = cell.Value;
+            if (string.IsNullOrWhiteSpace(CBSalones.Text) || string.IsNullOrWhiteSpace(textBox1.Text)
+               || string.IsNullOrWhiteSpace(textBox2.Text) || string.IsNullOrWhiteSpace(textBox3.Text)
+               || string.IsNullOrWhiteSpace(CBEstado.Text) || cellValue == null || cellValue.ToString().Trim() == "")
+            {
+                MessageBox.Show("DEBE CAPTURAR TODOS LOS DATOS PARA EL REGISTRO");
+                return; // Salir del método sin agregar el registro
+            }
+            AgregarInformacion();
+            AgregarInformaciondetalleeventos();
+        }
+
+        private void toolStripNuevo_Click(object sender, EventArgs e)
+        {
+            Nuevo();
+        }
+
+        private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataGridViewCell cell = ConceptosUni.Rows[0].Cells[0];
+            object cellValue = cell.Value;
+            if (string.IsNullOrWhiteSpace(CBSalones.Text) || string.IsNullOrWhiteSpace(textBox1.Text)
+               || string.IsNullOrWhiteSpace(textBox2.Text) || string.IsNullOrWhiteSpace(textBox3.Text)
+               || string.IsNullOrWhiteSpace(CBEstado.Text) || cellValue == null || cellValue.ToString().Trim() == "")
+            {
+                MessageBox.Show("DEBE CAPTURAR TODOS LOS DATOS PARA EL REGISTRO");
+                return; // Salir del método sin agregar el registro
+            }
+            AgregarInformacion();
+            AgregarInformaciondetalleeventos();
+        }
+
+        private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Nuevo();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            ConsultaClientes form = new ConsultaClientes();
+            form.ShowDialog();
+            EventosContext contexto = new EventosContext();
+            List<SaEveCliente> List = new DMCliente(contexto).Obtener(NCliente.SSCod);
+            foreach (var t in List)
+            {
+                textBox1.Text = t.NomCliente.ToString();
+            }
+        }
+
+        private void toolStripSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

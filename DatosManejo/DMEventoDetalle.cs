@@ -18,7 +18,7 @@ namespace DatosManejo
             return ultimoCodigoEvento;
         }
         public List<SaEventoDetalle> Obtener(int coddetalles = 0, int codevento = 0, int coddetallep = 0, int codconceptos = 0
-            , decimal costosconceptos = 0, decimal costosprecios = 0, decimal cantidad = 0, int codporcentaje = 0, decimal descuento = 0, decimal costototal = 0)
+            , decimal costosconceptos = 0, decimal costosprecios = 0, decimal cantidad = 0, int codcategoria = 0, decimal descuento = 0, decimal costototal = 0)
         {
             List<SaEventoDetalle> ev = new List<SaEventoDetalle>();
             if (coddetalles != 0)
@@ -42,9 +42,9 @@ namespace DatosManejo
                                     if (ev.Count > 1 && (cantidad != 0))
                                     {
                                         ev = ev.Where(a => a.Cantidad == (cantidad)).ToList();
-                                        if (ev.Count > 1 && (codporcentaje != 0))
+                                        if (ev.Count > 1 && (codcategoria != 0))
                                         {
-                                            ev = ev.Where(a => a.CodPorcentaje == (codporcentaje)).ToList();
+                                            ev = ev.Where(a => a.CodCategoria == (codcategoria)).ToList();
                                             if (ev.Count > 1 && (descuento != 0))
                                             {
                                                 ev = ev.Where(a => a.Descuento == (descuento)).ToList();
@@ -61,49 +61,15 @@ namespace DatosManejo
                         }
                     }
                 }
+            }
 
-                else if (codevento != 0)
+            else if (codevento != 0)
+            {
+                ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.CodEvento == (codevento)).ToList();
+
+                if (ev.Count > 1 && (coddetallep != 0))
                 {
-                    ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.CodEvento == (codevento)).ToList();
-
-                    if (ev.Count > 1 && (coddetallep != 0))
-                    {
-                        ev = ev.Where(a => a.CodDetallepaq == (coddetallep)).ToList();
-                        if (ev.Count > 1 && (codconceptos != 0))
-                        {
-                            ev = ev.Where(a => a.CodConceptos == (codconceptos)).ToList();
-                            if (ev.Count > 1 && (costosconceptos != 0))
-                            {
-                                ev = ev.Where(a => a.CostosConcepto == (costosconceptos)).ToList();
-                                if (ev.Count > 1 && (costosprecios != 0))
-                                {
-                                    ev = ev.Where(a => a.Costoprecio == (costosprecios)).ToList();
-                                    if (ev.Count > 1 && (cantidad != 0))
-                                    {
-                                        ev = ev.Where(a => a.Cantidad == (cantidad)).ToList();
-                                        if (ev.Count > 1 && (codporcentaje != 0))
-                                        {
-                                            ev = ev.Where(a => a.CodPorcentaje == (codporcentaje)).ToList();
-                                            if (ev.Count > 1 && (descuento != 0))
-                                            {
-                                                ev = ev.Where(a => a.Descuento == (descuento)).ToList();
-                                                if (ev.Count > 1 && (costototal != 0))
-                                                {
-                                                    ev = ev.Where(a => a.CostoTotal == (cantidad)).ToList();
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-                        }
-                    }
-
-                }
-                else if (coddetallep != 0)
-                {
-                    ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.CodDetallepaq == (coddetallep)).ToList();
+                    ev = ev.Where(a => a.CodDetallepaq == (coddetallep)).ToList();
                     if (ev.Count > 1 && (codconceptos != 0))
                     {
                         ev = ev.Where(a => a.CodConceptos == (codconceptos)).ToList();
@@ -116,9 +82,9 @@ namespace DatosManejo
                                 if (ev.Count > 1 && (cantidad != 0))
                                 {
                                     ev = ev.Where(a => a.Cantidad == (cantidad)).ToList();
-                                    if (ev.Count > 1 && (codporcentaje != 0))
+                                    if (ev.Count > 1 && (codcategoria != 0))
                                     {
-                                        ev = ev.Where(a => a.CodPorcentaje == (codporcentaje)).ToList();
+                                        ev = ev.Where(a => a.CodCategoria == (codcategoria)).ToList();
                                         if (ev.Count > 1 && (descuento != 0))
                                         {
                                             ev = ev.Where(a => a.Descuento == (descuento)).ToList();
@@ -131,11 +97,17 @@ namespace DatosManejo
                                 }
                             }
                         }
+
                     }
                 }
-                else if (codconceptos != 0)
+
+            }
+            else if (coddetallep != 0)
+            {
+                ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.CodDetallepaq == (coddetallep)).ToList();
+                if (ev.Count > 1 && (codconceptos != 0))
                 {
-                    ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.CodConceptos == (codconceptos)).ToList();
+                    ev = ev.Where(a => a.CodConceptos == (codconceptos)).ToList();
                     if (ev.Count > 1 && (costosconceptos != 0))
                     {
                         ev = ev.Where(a => a.CostosConcepto == (costosconceptos)).ToList();
@@ -145,9 +117,9 @@ namespace DatosManejo
                             if (ev.Count > 1 && (cantidad != 0))
                             {
                                 ev = ev.Where(a => a.Cantidad == (cantidad)).ToList();
-                                if (ev.Count > 1 && (codporcentaje != 0))
+                                if (ev.Count > 1 && (codcategoria != 0))
                                 {
-                                    ev = ev.Where(a => a.CodPorcentaje == (codporcentaje)).ToList();
+                                    ev = ev.Where(a => a.CodCategoria == (codcategoria)).ToList();
                                     if (ev.Count > 1 && (descuento != 0))
                                     {
                                         ev = ev.Where(a => a.Descuento == (descuento)).ToList();
@@ -161,19 +133,22 @@ namespace DatosManejo
                         }
                     }
                 }
-                else if (costosconceptos != 0)
+            }
+            else if (codconceptos != 0)
+            {
+                ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.CodConceptos == (codconceptos)).ToList();
+                if (ev.Count > 1 && (costosconceptos != 0))
                 {
-                    ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.CostosConcepto == (costosconceptos)).ToList();
-
+                    ev = ev.Where(a => a.CostosConcepto == (costosconceptos)).ToList();
                     if (ev.Count > 1 && (costosprecios != 0))
                     {
                         ev = ev.Where(a => a.Costoprecio == (costosprecios)).ToList();
                         if (ev.Count > 1 && (cantidad != 0))
                         {
                             ev = ev.Where(a => a.Cantidad == (cantidad)).ToList();
-                            if (ev.Count > 1 && (codporcentaje != 0))
+                            if (ev.Count > 1 && (codcategoria != 0))
                             {
-                                ev = ev.Where(a => a.CodPorcentaje == (codporcentaje)).ToList();
+                                ev = ev.Where(a => a.CodCategoria == (codcategoria)).ToList();
                                 if (ev.Count > 1 && (descuento != 0))
                                 {
                                     ev = ev.Where(a => a.Descuento == (descuento)).ToList();
@@ -186,41 +161,20 @@ namespace DatosManejo
                         }
                     }
                 }
-                else if (costosconceptos != 0)
-                {
-                    ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.CostosConcepto == (costosconceptos)).ToList();
+            }
+            else if (costosconceptos != 0)
+            {
+                ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.CostosConcepto == (costosconceptos)).ToList();
 
-                    if (ev.Count > 1 && (costosprecios != 0))
-                    {
-                        ev = ev.Where(a => a.Costoprecio == (costosprecios)).ToList();
-                        if (ev.Count > 1 && (cantidad != 0))
-                        {
-                            ev = ev.Where(a => a.Cantidad == (cantidad)).ToList();
-                            if (ev.Count > 1 && (codporcentaje != 0))
-                            {
-                                ev = ev.Where(a => a.CodPorcentaje == (codporcentaje)).ToList();
-                                if (ev.Count > 1 && (descuento != 0))
-                                {
-                                    ev = ev.Where(a => a.Descuento == (descuento)).ToList();
-                                    if (ev.Count > 1 && (costototal != 0))
-                                    {
-                                        ev = ev.Where(a => a.CostoTotal == (cantidad)).ToList();
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if (costosprecios != 0)
+                if (ev.Count > 1 && (costosprecios != 0))
                 {
-                    ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.Costoprecio == (costosprecios)).ToList();
-
+                    ev = ev.Where(a => a.Costoprecio == (costosprecios)).ToList();
                     if (ev.Count > 1 && (cantidad != 0))
                     {
                         ev = ev.Where(a => a.Cantidad == (cantidad)).ToList();
-                        if (ev.Count > 1 && (codporcentaje != 0))
+                        if (ev.Count > 1 && (codcategoria != 0))
                         {
-                            ev = ev.Where(a => a.CodPorcentaje == (codporcentaje)).ToList();
+                            ev = ev.Where(a => a.CodCategoria == (codcategoria)).ToList();
                             if (ev.Count > 1 && (descuento != 0))
                             {
                                 ev = ev.Where(a => a.Descuento == (descuento)).ToList();
@@ -232,12 +186,42 @@ namespace DatosManejo
                         }
                     }
                 }
-                else if (cantidad != 0)
+            }
+            else if (costosconceptos != 0)
+            {
+                ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.CostosConcepto == (costosconceptos)).ToList();
+
+                if (ev.Count > 1 && (costosprecios != 0))
                 {
-                    ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.Cantidad == (cantidad)).ToList();
-                    if (ev.Count > 1 && (codporcentaje != 0))
+                    ev = ev.Where(a => a.Costoprecio == (costosprecios)).ToList();
+                    if (ev.Count > 1 && (cantidad != 0))
                     {
-                        ev = ev.Where(a => a.CodPorcentaje == (codporcentaje)).ToList();
+                        ev = ev.Where(a => a.Cantidad == (cantidad)).ToList();
+                        if (ev.Count > 1 && (codcategoria != 0))
+                        {
+                            ev = ev.Where(a => a.CodCategoria == (codcategoria)).ToList();
+                            if (ev.Count > 1 && (descuento != 0))
+                            {
+                                ev = ev.Where(a => a.Descuento == (descuento)).ToList();
+                                if (ev.Count > 1 && (costototal != 0))
+                                {
+                                    ev = ev.Where(a => a.CostoTotal == (cantidad)).ToList();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (costosprecios != 0)
+            {
+                ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.Costoprecio == (costosprecios)).ToList();
+
+                if (ev.Count > 1 && (cantidad != 0))
+                {
+                    ev = ev.Where(a => a.Cantidad == (cantidad)).ToList();
+                    if (ev.Count > 1 && (codcategoria != 0))
+                    {
+                        ev = ev.Where(a => a.CodCategoria == (codcategoria)).ToList();
                         if (ev.Count > 1 && (descuento != 0))
                         {
                             ev = ev.Where(a => a.Descuento == (descuento)).ToList();
@@ -248,9 +232,13 @@ namespace DatosManejo
                         }
                     }
                 }
-                else if (codporcentaje != 0)
+            }
+            else if (cantidad != 0)
+            {
+                ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.Cantidad == (cantidad)).ToList();
+                if (ev.Count > 1 && (codcategoria != 0))
                 {
-                    ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.CodPorcentaje == (codporcentaje)).ToList();
+                    ev = ev.Where(a => a.CodCategoria == (codcategoria)).ToList();
                     if (ev.Count > 1 && (descuento != 0))
                     {
                         ev = ev.Where(a => a.Descuento == (descuento)).ToList();
@@ -260,15 +248,28 @@ namespace DatosManejo
                         }
                     }
                 }
-                else if (descuento != 0)
+            }
+            else if (codcategoria != 0)
+            {
+                ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.CodCategoria == (codcategoria)).ToList();
+                if (ev.Count > 1 && (descuento != 0))
                 {
-                    ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.Descuento == (descuento)).ToList();
-
+                    ev = ev.Where(a => a.Descuento == (descuento)).ToList();
                     if (ev.Count > 1 && (costototal != 0))
                     {
                         ev = ev.Where(a => a.CostoTotal == (cantidad)).ToList();
                     }
                 }
+            }
+            else if (descuento != 0)
+            {
+                ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.Descuento == (descuento)).ToList();
+
+                if (ev.Count > 1 && (costototal != 0))
+                {
+                    ev = ev.Where(a => a.CostoTotal == (cantidad)).ToList();
+                }
+            
             }
             else
             {
@@ -277,7 +278,7 @@ namespace DatosManejo
             return ev;
         }
         public List<SaEventoDetalle> Obtener2(int codevento = 0 ,int coddetalles = 0, int coddetallep = 0, int codconceptos = 0
-            , decimal costosconceptos = 0, decimal costosprecios = 0, decimal cantidad = 0, int codporcentaje = 0, decimal descuento = 0, decimal costototal = 0)
+            , decimal costosconceptos = 0, decimal costosprecios = 0, decimal cantidad = 0, int codcategoria = 0, decimal descuento = 0, decimal costototal = 0)
         {
             List<SaEventoDetalle> ev = new List<SaEventoDetalle>();
             if (codevento != 0)
@@ -301,9 +302,9 @@ namespace DatosManejo
                                     if (ev.Count > 1 && (cantidad != 0))
                                     {
                                         ev = ev.Where(a => a.Cantidad == (cantidad)).ToList();
-                                        if (ev.Count > 1 && (codporcentaje != 0))
+                                        if (ev.Count > 1 && (codcategoria != 0))
                                         {
-                                            ev = ev.Where(a => a.CodPorcentaje == (codporcentaje)).ToList();
+                                            ev = ev.Where(a => a.CodCategoria == (codcategoria)).ToList();
                                             if (ev.Count > 1 && (descuento != 0))
                                             {
                                                 ev = ev.Where(a => a.Descuento == (descuento)).ToList();
@@ -320,49 +321,15 @@ namespace DatosManejo
                         }
                     }
                 }
+            }
 
-                else if (coddetalles != 0)
+            else if (coddetalles != 0)
+            {
+                ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.CodDetalles == (coddetalles)).ToList();
+
+                if (ev.Count > 1 && (coddetallep != 0))
                 {
-                    ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.CodDetalles == (coddetalles)).ToList();
-
-                    if (ev.Count > 1 && (coddetallep != 0))
-                    {
-                        ev = ev.Where(a => a.CodDetallepaq == (coddetallep)).ToList();
-                        if (ev.Count > 1 && (codconceptos != 0))
-                        {
-                            ev = ev.Where(a => a.CodConceptos == (codconceptos)).ToList();
-                            if (ev.Count > 1 && (costosconceptos != 0))
-                            {
-                                ev = ev.Where(a => a.CostosConcepto == (costosconceptos)).ToList();
-                                if (ev.Count > 1 && (costosprecios != 0))
-                                {
-                                    ev = ev.Where(a => a.Costoprecio == (costosprecios)).ToList();
-                                    if (ev.Count > 1 && (cantidad != 0))
-                                    {
-                                        ev = ev.Where(a => a.Cantidad == (cantidad)).ToList();
-                                        if (ev.Count > 1 && (codporcentaje != 0))
-                                        {
-                                            ev = ev.Where(a => a.CodPorcentaje == (codporcentaje)).ToList();
-                                            if (ev.Count > 1 && (descuento != 0))
-                                            {
-                                                ev = ev.Where(a => a.Descuento == (descuento)).ToList();
-                                                if (ev.Count > 1 && (costototal != 0))
-                                                {
-                                                    ev = ev.Where(a => a.CostoTotal == (cantidad)).ToList();
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-                        }
-                    }
-
-                }
-                else if (coddetallep != 0)
-                {
-                    ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.CodDetallepaq == (coddetallep)).ToList();
+                    ev = ev.Where(a => a.CodDetallepaq == (coddetallep)).ToList();
                     if (ev.Count > 1 && (codconceptos != 0))
                     {
                         ev = ev.Where(a => a.CodConceptos == (codconceptos)).ToList();
@@ -375,9 +342,9 @@ namespace DatosManejo
                                 if (ev.Count > 1 && (cantidad != 0))
                                 {
                                     ev = ev.Where(a => a.Cantidad == (cantidad)).ToList();
-                                    if (ev.Count > 1 && (codporcentaje != 0))
+                                    if (ev.Count > 1 && (codcategoria != 0))
                                     {
-                                        ev = ev.Where(a => a.CodPorcentaje == (codporcentaje)).ToList();
+                                        ev = ev.Where(a => a.CodCategoria == (codcategoria)).ToList();
                                         if (ev.Count > 1 && (descuento != 0))
                                         {
                                             ev = ev.Where(a => a.Descuento == (descuento)).ToList();
@@ -390,11 +357,17 @@ namespace DatosManejo
                                 }
                             }
                         }
+
                     }
                 }
-                else if (codconceptos != 0)
+
+            }
+            else if (coddetallep != 0)
+            {
+                ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.CodDetallepaq == (coddetallep)).ToList();
+                if (ev.Count > 1 && (codconceptos != 0))
                 {
-                    ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.CodConceptos == (codconceptos)).ToList();
+                    ev = ev.Where(a => a.CodConceptos == (codconceptos)).ToList();
                     if (ev.Count > 1 && (costosconceptos != 0))
                     {
                         ev = ev.Where(a => a.CostosConcepto == (costosconceptos)).ToList();
@@ -404,9 +377,9 @@ namespace DatosManejo
                             if (ev.Count > 1 && (cantidad != 0))
                             {
                                 ev = ev.Where(a => a.Cantidad == (cantidad)).ToList();
-                                if (ev.Count > 1 && (codporcentaje != 0))
+                                if (ev.Count > 1 && (codcategoria != 0))
                                 {
-                                    ev = ev.Where(a => a.CodPorcentaje == (codporcentaje)).ToList();
+                                    ev = ev.Where(a => a.CodCategoria == (codcategoria)).ToList();
                                     if (ev.Count > 1 && (descuento != 0))
                                     {
                                         ev = ev.Where(a => a.Descuento == (descuento)).ToList();
@@ -420,19 +393,22 @@ namespace DatosManejo
                         }
                     }
                 }
-                else if (costosconceptos != 0)
+            }
+            else if (codconceptos != 0)
+            {
+                ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.CodConceptos == (codconceptos)).ToList();
+                if (ev.Count > 1 && (costosconceptos != 0))
                 {
-                    ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.CostosConcepto == (costosconceptos)).ToList();
-
+                    ev = ev.Where(a => a.CostosConcepto == (costosconceptos)).ToList();
                     if (ev.Count > 1 && (costosprecios != 0))
                     {
                         ev = ev.Where(a => a.Costoprecio == (costosprecios)).ToList();
                         if (ev.Count > 1 && (cantidad != 0))
                         {
                             ev = ev.Where(a => a.Cantidad == (cantidad)).ToList();
-                            if (ev.Count > 1 && (codporcentaje != 0))
+                            if (ev.Count > 1 && (codcategoria != 0))
                             {
-                                ev = ev.Where(a => a.CodPorcentaje == (codporcentaje)).ToList();
+                                ev = ev.Where(a => a.CodCategoria == (codcategoria)).ToList();
                                 if (ev.Count > 1 && (descuento != 0))
                                 {
                                     ev = ev.Where(a => a.Descuento == (descuento)).ToList();
@@ -445,41 +421,20 @@ namespace DatosManejo
                         }
                     }
                 }
-                else if (costosconceptos != 0)
-                {
-                    ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.CostosConcepto == (costosconceptos)).ToList();
+            }
+            else if (costosconceptos != 0)
+            {
+                ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.CostosConcepto == (costosconceptos)).ToList();
 
-                    if (ev.Count > 1 && (costosprecios != 0))
-                    {
-                        ev = ev.Where(a => a.Costoprecio == (costosprecios)).ToList();
-                        if (ev.Count > 1 && (cantidad != 0))
-                        {
-                            ev = ev.Where(a => a.Cantidad == (cantidad)).ToList();
-                            if (ev.Count > 1 && (codporcentaje != 0))
-                            {
-                                ev = ev.Where(a => a.CodPorcentaje == (codporcentaje)).ToList();
-                                if (ev.Count > 1 && (descuento != 0))
-                                {
-                                    ev = ev.Where(a => a.Descuento == (descuento)).ToList();
-                                    if (ev.Count > 1 && (costototal != 0))
-                                    {
-                                        ev = ev.Where(a => a.CostoTotal == (cantidad)).ToList();
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if (costosprecios != 0)
+                if (ev.Count > 1 && (costosprecios != 0))
                 {
-                    ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.Costoprecio == (costosprecios)).ToList();
-
+                    ev = ev.Where(a => a.Costoprecio == (costosprecios)).ToList();
                     if (ev.Count > 1 && (cantidad != 0))
                     {
                         ev = ev.Where(a => a.Cantidad == (cantidad)).ToList();
-                        if (ev.Count > 1 && (codporcentaje != 0))
+                        if (ev.Count > 1 && (codcategoria != 0))
                         {
-                            ev = ev.Where(a => a.CodPorcentaje == (codporcentaje)).ToList();
+                            ev = ev.Where(a => a.CodCategoria == (codcategoria)).ToList();
                             if (ev.Count > 1 && (descuento != 0))
                             {
                                 ev = ev.Where(a => a.Descuento == (descuento)).ToList();
@@ -491,12 +446,42 @@ namespace DatosManejo
                         }
                     }
                 }
-                else if (cantidad != 0)
+            }
+            else if (costosconceptos != 0)
+            {
+                ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.CostosConcepto == (costosconceptos)).ToList();
+
+                if (ev.Count > 1 && (costosprecios != 0))
                 {
-                    ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.Cantidad == (cantidad)).ToList();
-                    if (ev.Count > 1 && (codporcentaje != 0))
+                    ev = ev.Where(a => a.Costoprecio == (costosprecios)).ToList();
+                    if (ev.Count > 1 && (cantidad != 0))
                     {
-                        ev = ev.Where(a => a.CodPorcentaje == (codporcentaje)).ToList();
+                        ev = ev.Where(a => a.Cantidad == (cantidad)).ToList();
+                        if (ev.Count > 1 && (codcategoria != 0))
+                        {
+                            ev = ev.Where(a => a.CodCategoria == (codcategoria)).ToList();
+                            if (ev.Count > 1 && (descuento != 0))
+                            {
+                                ev = ev.Where(a => a.Descuento == (descuento)).ToList();
+                                if (ev.Count > 1 && (costototal != 0))
+                                {
+                                    ev = ev.Where(a => a.CostoTotal == (cantidad)).ToList();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (costosprecios != 0)
+            {
+                ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.Costoprecio == (costosprecios)).ToList();
+
+                if (ev.Count > 1 && (cantidad != 0))
+                {
+                    ev = ev.Where(a => a.Cantidad == (cantidad)).ToList();
+                    if (ev.Count > 1 && (codcategoria != 0))
+                    {
+                        ev = ev.Where(a => a.CodCategoria == (codcategoria)).ToList();
                         if (ev.Count > 1 && (descuento != 0))
                         {
                             ev = ev.Where(a => a.Descuento == (descuento)).ToList();
@@ -507,9 +492,13 @@ namespace DatosManejo
                         }
                     }
                 }
-                else if (codporcentaje != 0)
+            }
+            else if (cantidad != 0)
+            {
+                ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.Cantidad == (cantidad)).ToList();
+                if (ev.Count > 1 && (codcategoria != 0))
                 {
-                    ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.CodPorcentaje == (codporcentaje)).ToList();
+                    ev = ev.Where(a => a.CodCategoria == (codcategoria)).ToList();
                     if (ev.Count > 1 && (descuento != 0))
                     {
                         ev = ev.Where(a => a.Descuento == (descuento)).ToList();
@@ -519,15 +508,29 @@ namespace DatosManejo
                         }
                     }
                 }
-                else if (descuento != 0)
+            }
+            else if (codcategoria != 0)
+            {
+                ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.CodCategoria == (codcategoria)).ToList();
+                if (ev.Count > 1 && (descuento != 0))
                 {
-                    ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.Descuento == (descuento)).ToList();
-
+                    ev = ev.Where(a => a.Descuento == (descuento)).ToList();
                     if (ev.Count > 1 && (costototal != 0))
                     {
                         ev = ev.Where(a => a.CostoTotal == (cantidad)).ToList();
                     }
                 }
+            }
+            else if (descuento != 0)
+            {
+                ev = contexto.SaEventoDetalles.AsNoTracking().Where(a => a.Descuento == (descuento)).ToList();
+
+                if (ev.Count > 1 && (costototal != 0))
+                {
+                    ev = ev.Where(a => a.CostoTotal == (cantidad)).ToList();
+                }
+            
+
             }
             else
             {

@@ -39,7 +39,6 @@
             label4 = new Label();
             CBEstado = new ComboBox();
             label5 = new Label();
-            BtnAgregar = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
             lblCajas = new Label();
             CBPaquete = new ComboBox();
@@ -57,7 +56,6 @@
             toolStrip1 = new ToolStrip();
             toolStripNuevo = new ToolStripButton();
             toolStripGuardar = new ToolStripButton();
-            toolStripButton1 = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
             toolStripBuscar = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
@@ -67,6 +65,7 @@
             nuevoToolStripMenuItem = new ToolStripMenuItem();
             guardarToolStripMenuItem = new ToolStripMenuItem();
             buscarClientesToolStripMenuItem = new ToolStripMenuItem();
+            salirToolStripMenuItem = new ToolStripMenuItem();
             Codigo = new DataGridViewTextBoxColumn();
             flowLayoutPanel3 = new FlowLayoutPanel();
             ConceptosUni = new DataGridView();
@@ -75,15 +74,18 @@
             DTCantida = new DataGridViewTextBoxColumn();
             DTCostosC = new DataGridViewTextBoxColumn();
             Paquete = new DataGridViewTextBoxColumn();
+            Categoria = new DataGridViewTextBoxColumn();
             Codigoc = new DataGridViewTextBoxColumn();
-            comboBox1 = new ComboBox();
+            CBSalones = new ComboBox();
             Salon = new Label();
+            pictureBox1 = new PictureBox();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ConceptosPaquetes).BeginInit();
             toolStrip1.SuspendLayout();
             menuStrip1.SuspendLayout();
             flowLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ConceptosUni).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -107,7 +109,7 @@
             textBox2.Location = new Point(102, 125);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(200, 23);
-            textBox2.TabIndex = 3;
+            textBox2.TabIndex = 2;
             // 
             // label2
             // 
@@ -115,7 +117,7 @@
             label2.Location = new Point(12, 128);
             label2.Name = "label2";
             label2.Size = new Size(72, 15);
-            label2.TabIndex = 2;
+            label2.TabIndex = 0;
             label2.Text = "Descripcion ";
             // 
             // textBox3
@@ -123,7 +125,7 @@
             textBox3.Location = new Point(102, 250);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(200, 23);
-            textBox3.TabIndex = 5;
+            textBox3.TabIndex = 6;
             // 
             // label3
             // 
@@ -131,7 +133,7 @@
             label3.Location = new Point(12, 210);
             label3.Name = "label3";
             label3.Size = new Size(38, 15);
-            label3.TabIndex = 4;
+            label3.TabIndex = 0;
             label3.Text = "Fecha";
             // 
             // dateTimePicker1
@@ -139,7 +141,7 @@
             dateTimePicker1.Location = new Point(102, 204);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 6;
+            dateTimePicker1.TabIndex = 4;
             // 
             // label4
             // 
@@ -147,16 +149,17 @@
             label4.Location = new Point(12, 253);
             label4.Name = "label4";
             label4.Size = new Size(84, 15);
-            label4.TabIndex = 7;
+            label4.TabIndex = 0;
             label4.Text = "Observaciones";
             // 
             // CBEstado
             // 
+            CBEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             CBEstado.FormattingEnabled = true;
             CBEstado.Location = new Point(102, 291);
             CBEstado.Name = "CBEstado";
             CBEstado.Size = new Size(200, 23);
-            CBEstado.TabIndex = 63;
+            CBEstado.TabIndex = 7;
             // 
             // label5
             // 
@@ -164,27 +167,17 @@
             label5.Location = new Point(12, 294);
             label5.Name = "label5";
             label5.Size = new Size(42, 15);
-            label5.TabIndex = 62;
+            label5.TabIndex = 0;
             label5.Text = "Estado";
-            // 
-            // BtnAgregar
-            // 
-            BtnAgregar.Location = new Point(12, 347);
-            BtnAgregar.Name = "BtnAgregar";
-            BtnAgregar.Size = new Size(75, 23);
-            BtnAgregar.TabIndex = 64;
-            BtnAgregar.Text = "Agregar";
-            BtnAgregar.UseVisualStyleBackColor = true;
-            BtnAgregar.Click += BtnAgregar_Click;
             // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Controls.Add(lblCajas);
             flowLayoutPanel1.Controls.Add(CBPaquete);
             flowLayoutPanel1.Controls.Add(ConceptosPaquetes);
-            flowLayoutPanel1.Location = new Point(315, 54);
+            flowLayoutPanel1.Location = new Point(315, 58);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(689, 214);
+            flowLayoutPanel1.Size = new Size(686, 231);
             flowLayoutPanel1.TabIndex = 65;
             // 
             // lblCajas
@@ -192,17 +185,19 @@
             lblCajas.AutoSize = true;
             lblCajas.Location = new Point(3, 0);
             lblCajas.Name = "lblCajas";
-            lblCajas.Size = new Size(110, 15);
+            lblCajas.Size = new Size(126, 15);
             lblCajas.TabIndex = 4;
-            lblCajas.Text = "Seleccione una caja";
+            lblCajas.Text = "Seleccione un paquete";
             // 
             // CBPaquete
             // 
+            CBPaquete.DropDownStyle = ComboBoxStyle.DropDownList;
             CBPaquete.FormattingEnabled = true;
-            CBPaquete.Location = new Point(119, 3);
+            CBPaquete.Location = new Point(135, 3);
             CBPaquete.Name = "CBPaquete";
             CBPaquete.Size = new Size(181, 23);
             CBPaquete.TabIndex = 3;
+            CBPaquete.DropDown += CBPaquete_DropDown;
             CBPaquete.SelectedIndexChanged += CBPaquete_SelectedIndexChanged;
             // 
             // ConceptosPaquetes
@@ -244,18 +239,18 @@
             // 
             // button1
             // 
-            button1.Location = new Point(398, 284);
+            button1.Location = new Point(398, 295);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 68;
-            button1.Text = "Buscar";
+            button1.Text = "Agregar";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(318, 288);
+            label6.Location = new Point(318, 299);
             label6.Name = "label6";
             label6.Size = new Size(64, 15);
             label6.TabIndex = 67;
@@ -264,7 +259,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(841, 284);
+            label7.Location = new Point(820, 299);
             label7.Name = "label7";
             label7.Size = new Size(78, 15);
             label7.TabIndex = 69;
@@ -274,7 +269,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(925, 282);
+            label8.Location = new Point(914, 295);
             label8.Name = "label8";
             label8.Size = new Size(0, 21);
             label8.TabIndex = 70;
@@ -283,7 +278,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(861, 653);
+            label9.Location = new Point(1130, 665);
             label9.Name = "label9";
             label9.Size = new Size(0, 21);
             label9.TabIndex = 72;
@@ -291,7 +286,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(748, 653);
+            label10.Location = new Point(1017, 665);
             label10.Name = "label10";
             label10.Size = new Size(92, 15);
             label10.TabIndex = 71;
@@ -300,10 +295,10 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(24, 24);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripNuevo, toolStripGuardar, toolStripButton1, toolStripSeparator1, toolStripBuscar, toolStripSeparator2, toolStripSalir });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripNuevo, toolStripGuardar, toolStripSeparator1, toolStripBuscar, toolStripSeparator2, toolStripSalir });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1055, 31);
+            toolStrip1.Size = new Size(1223, 31);
             toolStrip1.TabIndex = 74;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -315,6 +310,7 @@
             toolStripNuevo.Name = "toolStripNuevo";
             toolStripNuevo.Size = new Size(28, 28);
             toolStripNuevo.Text = "Nuevo";
+            toolStripNuevo.Click += toolStripNuevo_Click;
             // 
             // toolStripGuardar
             // 
@@ -324,15 +320,7 @@
             toolStripGuardar.Name = "toolStripGuardar";
             toolStripGuardar.Size = new Size(28, 28);
             toolStripGuardar.Text = "Guardar";
-            // 
-            // toolStripButton1
-            // 
-            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
-            toolStripButton1.ImageTransparentColor = Color.Magenta;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(28, 28);
-            toolStripButton1.Text = "toolStripButton1";
+            toolStripGuardar.Click += toolStripGuardar_Click;
             // 
             // toolStripSeparator1
             // 
@@ -346,7 +334,7 @@
             toolStripBuscar.ImageTransparentColor = Color.Magenta;
             toolStripBuscar.Name = "toolStripBuscar";
             toolStripBuscar.Size = new Size(28, 28);
-            toolStripBuscar.Text = "toolStripButton4";
+            toolStripBuscar.Text = "Buscar Clientes";
             toolStripBuscar.ToolTipText = "Buscar";
             toolStripBuscar.Click += toolStripBuscar_Click;
             // 
@@ -364,19 +352,20 @@
             toolStripSalir.Size = new Size(28, 28);
             toolStripSalir.Text = "toolStripButton5";
             toolStripSalir.ToolTipText = "Salir";
+            toolStripSalir.Click += toolStripSalir_Click;
             // 
             // menuStrip1
             // 
             menuStrip1.Items.AddRange(new ToolStripItem[] { opcionesToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1055, 24);
+            menuStrip1.Size = new Size(1223, 24);
             menuStrip1.TabIndex = 73;
             menuStrip1.Text = "Opciones";
             // 
             // opcionesToolStripMenuItem
             // 
-            opcionesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { nuevoToolStripMenuItem, guardarToolStripMenuItem, buscarClientesToolStripMenuItem });
+            opcionesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { nuevoToolStripMenuItem, guardarToolStripMenuItem, buscarClientesToolStripMenuItem, salirToolStripMenuItem });
             opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
             opcionesToolStripMenuItem.Size = new Size(69, 20);
             opcionesToolStripMenuItem.Text = "Opciones";
@@ -386,12 +375,14 @@
             nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
             nuevoToolStripMenuItem.Size = new Size(154, 22);
             nuevoToolStripMenuItem.Text = "Nuevo";
+            nuevoToolStripMenuItem.Click += nuevoToolStripMenuItem_Click;
             // 
             // guardarToolStripMenuItem
             // 
             guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
             guardarToolStripMenuItem.Size = new Size(154, 22);
             guardarToolStripMenuItem.Text = "Guardar";
+            guardarToolStripMenuItem.Click += guardarToolStripMenuItem_Click;
             // 
             // buscarClientesToolStripMenuItem
             // 
@@ -399,6 +390,12 @@
             buscarClientesToolStripMenuItem.Size = new Size(154, 22);
             buscarClientesToolStripMenuItem.Text = "Buscar Clientes";
             buscarClientesToolStripMenuItem.Click += buscarClientesToolStripMenuItem_Click;
+            // 
+            // salirToolStripMenuItem
+            // 
+            salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            salirToolStripMenuItem.Size = new Size(154, 22);
+            salirToolStripMenuItem.Text = "Salir";
             // 
             // Codigo
             // 
@@ -410,17 +407,17 @@
             flowLayoutPanel3.Controls.Add(ConceptosUni);
             flowLayoutPanel3.Location = new Point(315, 327);
             flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(686, 317);
+            flowLayoutPanel3.Size = new Size(896, 317);
             flowLayoutPanel3.TabIndex = 75;
             // 
             // ConceptosUni
             // 
             ConceptosUni.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            ConceptosUni.Columns.AddRange(new DataGridViewColumn[] { DTCodigo, DTDESCRIPCION, DTCantida, DTCostosC, Paquete });
+            ConceptosUni.Columns.AddRange(new DataGridViewColumn[] { DTCodigo, DTDESCRIPCION, DTCantida, DTCostosC, Paquete, Categoria });
             ConceptosUni.Location = new Point(3, 3);
             ConceptosUni.Name = "ConceptosUni";
             ConceptosUni.RowTemplate.Height = 25;
-            ConceptosUni.Size = new Size(663, 314);
+            ConceptosUni.Size = new Size(882, 314);
             ConceptosUni.TabIndex = 0;
             ConceptosUni.CellValueChanged += ConceptosUni_CellValueChanged;
             // 
@@ -449,18 +446,24 @@
             Paquete.HeaderText = "Paquete";
             Paquete.Name = "Paquete";
             // 
+            // Categoria
+            // 
+            Categoria.HeaderText = "Categoria";
+            Categoria.Name = "Categoria";
+            // 
             // Codigoc
             // 
             Codigoc.HeaderText = "Codigo";
             Codigoc.Name = "Codigoc";
             // 
-            // comboBox1
+            // CBSalones
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(102, 166);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(200, 23);
-            comboBox1.TabIndex = 76;
+            CBSalones.DropDownStyle = ComboBoxStyle.DropDownList;
+            CBSalones.FormattingEnabled = true;
+            CBSalones.Location = new Point(102, 166);
+            CBSalones.Name = "CBSalones";
+            CBSalones.Size = new Size(200, 23);
+            CBSalones.TabIndex = 3;
             // 
             // Salon
             // 
@@ -468,16 +471,28 @@
             Salon.Location = new Point(12, 174);
             Salon.Name = "Salon";
             Salon.Size = new Size(36, 15);
-            Salon.TabIndex = 77;
+            Salon.TabIndex = 0;
             Salon.Text = "Salon";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(81, 86);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(15, 15);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 78;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // CEventos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1055, 686);
+            ClientSize = new Size(1223, 708);
+            Controls.Add(pictureBox1);
             Controls.Add(Salon);
-            Controls.Add(comboBox1);
+            Controls.Add(CBSalones);
             Controls.Add(flowLayoutPanel3);
             Controls.Add(toolStrip1);
             Controls.Add(menuStrip1);
@@ -488,7 +503,6 @@
             Controls.Add(button1);
             Controls.Add(label6);
             Controls.Add(flowLayoutPanel1);
-            Controls.Add(BtnAgregar);
             Controls.Add(CBEstado);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -512,6 +526,7 @@
             menuStrip1.PerformLayout();
             flowLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)ConceptosUni).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -528,7 +543,6 @@
         private Label label4;
         private ComboBox CBEstado;
         private Label label5;
-        private Button BtnAgregar;
         private TextLabel.ControlTextoEtiqueta codigoBarras;
         private TextLabel.ControlTextoEtiqueta descripcion;
         private TextLabel.ControlTextoEtiqueta codigoCliente;
@@ -545,7 +559,6 @@
         private ToolStrip toolStrip1;
         private ToolStripButton toolStripNuevo;
         private ToolStripButton toolStripGuardar;
-        private ToolStripButton toolStripButton1;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripButton toolStripBuscar;
         private ToolStripSeparator toolStripSeparator2;
@@ -568,7 +581,10 @@
         private DataGridViewTextBoxColumn DTCantida;
         private DataGridViewTextBoxColumn DTCostosC;
         private DataGridViewTextBoxColumn Paquete;
-        private ComboBox comboBox1;
+        private ComboBox CBSalones;
         private Label Salon;
+        private DataGridViewTextBoxColumn Categoria;
+        private PictureBox pictureBox1;
+        private ToolStripMenuItem salirToolStripMenuItem;
     }
 }

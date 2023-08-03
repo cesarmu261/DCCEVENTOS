@@ -24,7 +24,7 @@ namespace Negocio
         public DataTable Obtener2( DateTime fecha)
         {
             EventosContext contexto = new EventosContext();
-            List<SaEvento> List = new DMEvento(contexto).Obtener(0, 0, "", fecha);
+            List<SaEvento> List = new DMEvento(contexto).Obtener(0, 0,0, "", fecha);
 
             DataTable Table = new DataTable();
             Table.Columns.Add("CODIGO");  // Reemplaza "Columna1" con el nombre de la columna real que deseas incluir
@@ -46,7 +46,7 @@ namespace Negocio
         public DataTable Obtener3(int cliente,string descripcion)
         {
             EventosContext contexto = new EventosContext();
-            List<SaEvento> List = new DMEvento(contexto).Obtener(0,cliente,descripcion);
+            List<SaEvento> List = new DMEvento(contexto).Obtener(0,0,cliente,descripcion);
 
             DataTable Table = new DataTable();
             Table.Columns.Add("CODIGO");  // Reemplaza "Columna1" con el nombre de la columna real que deseas incluir

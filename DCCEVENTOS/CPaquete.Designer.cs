@@ -117,35 +117,35 @@
             // nuevoToolStripMenuItem
             // 
             nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            nuevoToolStripMenuItem.Size = new Size(180, 22);
+            nuevoToolStripMenuItem.Size = new Size(126, 22);
             nuevoToolStripMenuItem.Text = "Nuevo";
             nuevoToolStripMenuItem.Click += nuevoToolStripMenuItem_Click;
             // 
             // guardarToolStripMenuItem
             // 
             guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            guardarToolStripMenuItem.Size = new Size(180, 22);
+            guardarToolStripMenuItem.Size = new Size(126, 22);
             guardarToolStripMenuItem.Text = "Guardar";
             guardarToolStripMenuItem.Click += guardarToolStripMenuItem_Click;
             // 
             // actualizarToolStripMenuItem
             // 
             actualizarToolStripMenuItem.Name = "actualizarToolStripMenuItem";
-            actualizarToolStripMenuItem.Size = new Size(180, 22);
+            actualizarToolStripMenuItem.Size = new Size(126, 22);
             actualizarToolStripMenuItem.Text = "Actualizar";
             actualizarToolStripMenuItem.Click += actualizarToolStripMenuItem_Click;
             // 
             // buscarToolStripMenuItem
             // 
             buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
-            buscarToolStripMenuItem.Size = new Size(180, 22);
+            buscarToolStripMenuItem.Size = new Size(126, 22);
             buscarToolStripMenuItem.Text = "Buscar";
             buscarToolStripMenuItem.Click += buscarToolStripMenuItem_Click;
             // 
             // salirToolStripMenuItem
             // 
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            salirToolStripMenuItem.Size = new Size(180, 22);
+            salirToolStripMenuItem.Size = new Size(126, 22);
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
@@ -234,6 +234,7 @@
             Controls.Add(label3);
             Controls.Add(label1);
             Name = "CPaquete";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Paquete";
             ((System.ComponentModel.ISupportInitialize)PaqueteExistencia).EndInit();
             menuStrip1.ResumeLayout(false);

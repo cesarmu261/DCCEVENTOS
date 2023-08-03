@@ -19,7 +19,7 @@ public partial class SaEventoDetalle
 
     public decimal? Cantidad { get; set; }
 
-    public int? CodPorcentaje { get; set; }
+    public int? CodCategoria { get; set; }
 
     public decimal? Descuento { get; set; }
 
