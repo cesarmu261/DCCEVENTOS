@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DatosManejo
 {
-     public class DMRegimen
+     public class DMRegimen : IDisposable
     {
         private EventosContext contexto { get; set; }
         public DMRegimen(EventosContext contexto)
@@ -44,6 +44,10 @@ namespace DatosManejo
             var elemento = contexto.SaCodRegs.FirstOrDefault(a => a.CodReg == cod);
             return elemento != null ? elemento.DesReg : "612";
 
+        }
+        public void Dispose()
+        {
+            contexto.Database.CloseConnection();
         }
     }
 }

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DatosManejo
 {
-    public class DMEstado
+    public class DMEstado : IDisposable
     {
         private EventosContext contexto { get; set; }
         public DMEstado(EventosContext contexto)
@@ -37,6 +37,10 @@ namespace DatosManejo
         {
             var elemento = contexto.SaCodEstados.FirstOrDefault(a => a.CodEstado == cod);
             return elemento != null ? elemento.DesEstado : "ACTIVO";
+        }
+        public void Dispose()
+        {
+            contexto.Database.CloseConnection();
         }
     }
 }

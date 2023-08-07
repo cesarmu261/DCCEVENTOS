@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DatosManejo
 {
-    public class DMSalones
+    public class DMSalones : IDisposable
     {
 
         private EventosContext contexto { get; set; }

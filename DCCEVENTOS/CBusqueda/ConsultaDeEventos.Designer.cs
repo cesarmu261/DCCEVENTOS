@@ -44,8 +44,6 @@
             button2 = new Button();
             toolStrip1 = new ToolStrip();
             toolStripNuevo = new ToolStripButton();
-            toolStripGuardar = new ToolStripButton();
-            toolStripButton1 = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
             toolStripBuscar = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
@@ -53,9 +51,11 @@
             menuStrip1 = new MenuStrip();
             opcionesToolStripMenuItem = new ToolStripMenuItem();
             nuevoToolStripMenuItem = new ToolStripMenuItem();
-            guardarToolStripMenuItem = new ToolStripMenuItem();
             buscarClientesToolStripMenuItem = new ToolStripMenuItem();
+            salirToolStripMenuItem = new ToolStripMenuItem();
             pictureBox1 = new PictureBox();
+            CBSalones = new ComboBox();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)DTGEventos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DTGDetalles).BeginInit();
             toolStrip1.SuspendLayout();
@@ -69,14 +69,14 @@
             TBClientes.Location = new Point(149, 157);
             TBClientes.Name = "TBClientes";
             TBClientes.Size = new Size(200, 23);
-            TBClientes.TabIndex = 64;
+            TBClientes.TabIndex = 1;
             // 
             // BTNBus
             // 
-            BTNBus.Location = new Point(19, 249);
+            BTNBus.Location = new Point(12, 270);
             BTNBus.Name = "BTNBus";
             BTNBus.Size = new Size(144, 23);
-            BTNBus.TabIndex = 62;
+            BTNBus.TabIndex = 4;
             BTNBus.Text = "Buscar";
             BTNBus.UseVisualStyleBackColor = true;
             BTNBus.Click += BTNBus_Click;
@@ -87,7 +87,7 @@
             label1.Location = new Point(15, 157);
             label1.Name = "label1";
             label1.Size = new Size(44, 15);
-            label1.TabIndex = 61;
+            label1.TabIndex = 0;
             label1.Text = "Cliente";
             // 
             // dateTimePicker1
@@ -95,7 +95,7 @@
             dateTimePicker1.Location = new Point(149, 76);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 65;
+            dateTimePicker1.TabIndex = 0;
             dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // label2
@@ -104,7 +104,7 @@
             label2.Location = new Point(19, 76);
             label2.Name = "label2";
             label2.Size = new Size(48, 15);
-            label2.TabIndex = 66;
+            label2.TabIndex = 0;
             label2.Text = "periodo";
             // 
             // dateTimePicker2
@@ -112,7 +112,7 @@
             dateTimePicker2.Location = new Point(149, 112);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(200, 23);
-            dateTimePicker2.TabIndex = 65;
+            dateTimePicker2.TabIndex = 0;
             // 
             // label3
             // 
@@ -120,7 +120,7 @@
             label3.Location = new Point(19, 118);
             label3.Name = "label3";
             label3.Size = new Size(16, 15);
-            label3.TabIndex = 66;
+            label3.TabIndex = 0;
             label3.Text = "al";
             // 
             // label4
@@ -129,7 +129,7 @@
             label4.Location = new Point(15, 189);
             label4.Name = "label4";
             label4.Size = new Size(124, 15);
-            label4.TabIndex = 61;
+            label4.TabIndex = 0;
             label4.Text = "Descripcion de Evento";
             // 
             // TBDescripcion
@@ -137,12 +137,14 @@
             TBDescripcion.Location = new Point(149, 189);
             TBDescripcion.Name = "TBDescripcion";
             TBDescripcion.Size = new Size(200, 23);
-            TBDescripcion.TabIndex = 64;
+            TBDescripcion.TabIndex = 2;
             // 
             // DTGEventos
             // 
             DTGEventos.AllowUserToAddRows = false;
             DTGEventos.AllowUserToDeleteRows = false;
+            DTGEventos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            DTGEventos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             DTGEventos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DTGEventos.Location = new Point(368, 76);
             DTGEventos.Name = "DTGEventos";
@@ -150,20 +152,22 @@
             DTGEventos.RowTemplate.Height = 25;
             DTGEventos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DTGEventos.Size = new Size(832, 239);
-            DTGEventos.TabIndex = 67;
+            DTGEventos.TabIndex = 0;
             DTGEventos.DoubleClick += DTGEventos_DoubleClick;
             // 
             // DTGDetalles
             // 
             DTGDetalles.AllowUserToAddRows = false;
             DTGDetalles.AllowUserToDeleteRows = false;
+            DTGDetalles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            DTGDetalles.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             DTGDetalles.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DTGDetalles.Location = new Point(368, 401);
             DTGDetalles.Name = "DTGDetalles";
             DTGDetalles.ReadOnly = true;
             DTGDetalles.RowTemplate.Height = 25;
             DTGDetalles.Size = new Size(832, 171);
-            DTGDetalles.TabIndex = 68;
+            DTGDetalles.TabIndex = 0;
             // 
             // button1
             // 
@@ -187,7 +191,7 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(24, 24);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripNuevo, toolStripGuardar, toolStripButton1, toolStripSeparator1, toolStripBuscar, toolStripSeparator2, toolStripSalir });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripNuevo, toolStripSeparator1, toolStripBuscar, toolStripSeparator2, toolStripSalir });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(1212, 31);
@@ -202,24 +206,7 @@
             toolStripNuevo.Name = "toolStripNuevo";
             toolStripNuevo.Size = new Size(28, 28);
             toolStripNuevo.Text = "Nuevo";
-            // 
-            // toolStripGuardar
-            // 
-            toolStripGuardar.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripGuardar.Image = (Image)resources.GetObject("toolStripGuardar.Image");
-            toolStripGuardar.ImageTransparentColor = Color.Magenta;
-            toolStripGuardar.Name = "toolStripGuardar";
-            toolStripGuardar.Size = new Size(28, 28);
-            toolStripGuardar.Text = "Guardar";
-            // 
-            // toolStripButton1
-            // 
-            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
-            toolStripButton1.ImageTransparentColor = Color.Magenta;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(28, 28);
-            toolStripButton1.Text = "toolStripButton1";
+            toolStripNuevo.Click += toolStripNuevo_Click;
             // 
             // toolStripSeparator1
             // 
@@ -250,6 +237,7 @@
             toolStripSalir.Size = new Size(28, 28);
             toolStripSalir.Text = "toolStripButton5";
             toolStripSalir.ToolTipText = "Salir";
+            toolStripSalir.Click += toolStripSalir_Click;
             // 
             // menuStrip1
             // 
@@ -262,7 +250,7 @@
             // 
             // opcionesToolStripMenuItem
             // 
-            opcionesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { nuevoToolStripMenuItem, guardarToolStripMenuItem, buscarClientesToolStripMenuItem });
+            opcionesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { nuevoToolStripMenuItem, buscarClientesToolStripMenuItem, salirToolStripMenuItem });
             opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
             opcionesToolStripMenuItem.Size = new Size(69, 20);
             opcionesToolStripMenuItem.Text = "Opciones";
@@ -270,21 +258,23 @@
             // nuevoToolStripMenuItem
             // 
             nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            nuevoToolStripMenuItem.Size = new Size(180, 22);
+            nuevoToolStripMenuItem.Size = new Size(154, 22);
             nuevoToolStripMenuItem.Text = "Nuevo";
-            // 
-            // guardarToolStripMenuItem
-            // 
-            guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            guardarToolStripMenuItem.Size = new Size(180, 22);
-            guardarToolStripMenuItem.Text = "Guardar";
+            nuevoToolStripMenuItem.Click += nuevoToolStripMenuItem_Click;
             // 
             // buscarClientesToolStripMenuItem
             // 
             buscarClientesToolStripMenuItem.Name = "buscarClientesToolStripMenuItem";
-            buscarClientesToolStripMenuItem.Size = new Size(180, 22);
+            buscarClientesToolStripMenuItem.Size = new Size(154, 22);
             buscarClientesToolStripMenuItem.Text = "Buscar Clientes";
             buscarClientesToolStripMenuItem.Click += buscarClientesToolStripMenuItem_Click;
+            // 
+            // salirToolStripMenuItem
+            // 
+            salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            salirToolStripMenuItem.Size = new Size(154, 22);
+            salirToolStripMenuItem.Text = "Salir";
+            salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
             // pictureBox1
             // 
@@ -297,11 +287,31 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
+            // CBSalones
+            // 
+            CBSalones.DropDownStyle = ComboBoxStyle.DropDownList;
+            CBSalones.FormattingEnabled = true;
+            CBSalones.Location = new Point(149, 228);
+            CBSalones.Name = "CBSalones";
+            CBSalones.Size = new Size(200, 23);
+            CBSalones.TabIndex = 3;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(16, 233);
+            label5.Name = "label5";
+            label5.Size = new Size(36, 15);
+            label5.TabIndex = 0;
+            label5.Text = "Salon";
+            // 
             // ConsultaDeEventos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1212, 616);
+            Controls.Add(label5);
+            Controls.Add(CBSalones);
             Controls.Add(pictureBox1);
             Controls.Add(toolStrip1);
             Controls.Add(menuStrip1);
@@ -349,8 +359,6 @@
         private Button button2;
         private ToolStrip toolStrip1;
         private ToolStripButton toolStripNuevo;
-        private ToolStripButton toolStripGuardar;
-        private ToolStripButton toolStripButton1;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripButton toolStripBuscar;
         private ToolStripSeparator toolStripSeparator2;
@@ -358,8 +366,10 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem opcionesToolStripMenuItem;
         private ToolStripMenuItem nuevoToolStripMenuItem;
-        private ToolStripMenuItem guardarToolStripMenuItem;
         private ToolStripMenuItem buscarClientesToolStripMenuItem;
         private PictureBox pictureBox1;
+        private ToolStripMenuItem salirToolStripMenuItem;
+        private ComboBox CBSalones;
+        private Label label5;
     }
 }

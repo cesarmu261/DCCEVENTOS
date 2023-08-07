@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DatosManejo
 {
-    public class DMTercero
+    public class DMTercero : IDisposable
     {
 
         private CuotasV100Context contexto { get; set; }

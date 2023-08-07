@@ -74,6 +74,9 @@
             opcionesToolStripMenuItem = new ToolStripMenuItem();
             nuevoToolStripMenuItem = new ToolStripMenuItem();
             guardarToolStripMenuItem = new ToolStripMenuItem();
+            actualizarToolStripMenuItem = new ToolStripMenuItem();
+            bucarClientesToolStripMenuItem = new ToolStripMenuItem();
+            buscarDCCToolStripMenuItem = new ToolStripMenuItem();
             toolStrip1.SuspendLayout();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -431,7 +434,7 @@
             // 
             // opcionesToolStripMenuItem
             // 
-            opcionesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { nuevoToolStripMenuItem, guardarToolStripMenuItem });
+            opcionesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { nuevoToolStripMenuItem, guardarToolStripMenuItem, actualizarToolStripMenuItem, bucarClientesToolStripMenuItem, buscarDCCToolStripMenuItem });
             opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
             opcionesToolStripMenuItem.Size = new Size(69, 20);
             opcionesToolStripMenuItem.Text = "Opciones";
@@ -439,14 +442,37 @@
             // nuevoToolStripMenuItem
             // 
             nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            nuevoToolStripMenuItem.Size = new Size(116, 22);
+            nuevoToolStripMenuItem.Size = new Size(180, 22);
             nuevoToolStripMenuItem.Text = "Nuevo";
+            nuevoToolStripMenuItem.Click += nuevoToolStripMenuItem_Click;
             // 
             // guardarToolStripMenuItem
             // 
             guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            guardarToolStripMenuItem.Size = new Size(116, 22);
+            guardarToolStripMenuItem.Size = new Size(180, 22);
             guardarToolStripMenuItem.Text = "Guardar";
+            guardarToolStripMenuItem.Click += guardarToolStripMenuItem_Click;
+            // 
+            // actualizarToolStripMenuItem
+            // 
+            actualizarToolStripMenuItem.Name = "actualizarToolStripMenuItem";
+            actualizarToolStripMenuItem.Size = new Size(180, 22);
+            actualizarToolStripMenuItem.Text = "Actualizar";
+            actualizarToolStripMenuItem.Click += actualizarToolStripMenuItem_Click;
+            // 
+            // bucarClientesToolStripMenuItem
+            // 
+            bucarClientesToolStripMenuItem.Name = "bucarClientesToolStripMenuItem";
+            bucarClientesToolStripMenuItem.Size = new Size(180, 22);
+            bucarClientesToolStripMenuItem.Text = "Bucar clientes";
+            bucarClientesToolStripMenuItem.Click += bucarClientesToolStripMenuItem_Click;
+            // 
+            // buscarDCCToolStripMenuItem
+            // 
+            buscarDCCToolStripMenuItem.Name = "buscarDCCToolStripMenuItem";
+            buscarDCCToolStripMenuItem.Size = new Size(180, 22);
+            buscarDCCToolStripMenuItem.Text = "Buscar DCC";
+            buscarDCCToolStripMenuItem.Click += buscarDCCToolStripMenuItem_Click;
             // 
             // CClientes
             // 
@@ -544,5 +570,8 @@
         private ToolStripMenuItem nuevoToolStripMenuItem;
         private ToolStripMenuItem guardarToolStripMenuItem;
         private ToolStripButton toolStripButton2;
+        private ToolStripMenuItem actualizarToolStripMenuItem;
+        private ToolStripMenuItem bucarClientesToolStripMenuItem;
+        private ToolStripMenuItem buscarDCCToolStripMenuItem;
     }
 }

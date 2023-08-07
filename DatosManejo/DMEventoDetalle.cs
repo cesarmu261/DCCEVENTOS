@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DatosManejo
 {
-    public class DMEventoDetalle
+    public class DMEventoDetalle : IDisposable
     {
         private EventosContext contexto { get; set; }
         public DMEventoDetalle(EventosContext contexto)

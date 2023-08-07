@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DatosManejo
 {
-    public class DMPorcentaje
+    public class DMPorcentaje : IDisposable
     {
         private EventosContext contexto { get; set; }
         public DMPorcentaje(EventosContext contexto)

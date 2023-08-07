@@ -90,6 +90,7 @@ namespace DCCEVENTOS
         }
         private void Nuevo()
         {
+            toolStripGuardar.Enabled = true;
             TbDes.Text = string.Empty;
             TbPor.Text = string.Empty;
             CBESTADO.SelectedIndex = 0;
@@ -97,6 +98,7 @@ namespace DCCEVENTOS
         }
         private void Buscar()
         {
+            toolStripGuardar.Enabled = false;
             ConsultaPorcentaje consultaPorcentaje = new ConsultaPorcentaje();
             consultaPorcentaje.ShowDialog();
             EventosContext contexto = new EventosContext();
@@ -114,10 +116,6 @@ namespace DCCEVENTOS
                 }
 
             }
-        }
-        private void BTAgregar_Click(object sender, EventArgs e)
-        {
-            AgregarRegistro();
         }
         private void toolStripBuscar_Click(object sender, EventArgs e)
         {
@@ -143,11 +141,13 @@ namespace DCCEVENTOS
         private void toolStripGuardar_Click(object sender, EventArgs e)
         {
             AgregarRegistro();
+            Nuevo();
         }
 
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AgregarRegistro();
+            Nuevo();
         }
 
         private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)

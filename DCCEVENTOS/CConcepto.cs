@@ -124,10 +124,12 @@ namespace DCCEVENTOS
             CBEstado.SelectedIndex = 0;
             CBCodPor.SelectedIndex = 0;
             textBox1.Text = string.Empty;
+            toolStripGuardar.Enabled = true;
             CargarInformacion();
         }
         private void Buscar()
         {
+            toolStripGuardar.Enabled = false;
             ConsultadeConceptos consulta = new ConsultadeConceptos();
             consulta.ShowDialog();
             EventosContext contexto = new EventosContext();
@@ -192,6 +194,7 @@ namespace DCCEVENTOS
                 MessageBox.Show(rGuardar.error);
             }
             CargarInformacion();
+            toolStripGuardar.Enabled = true;
         }
         private void BTNAct_Click(object sender, EventArgs e)
         {
@@ -213,6 +216,7 @@ namespace DCCEVENTOS
         private void toolStripGuardar_Click(object sender, EventArgs e)
         {
             AgregarRegistro();
+            Nuevo();
         }
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
@@ -234,6 +238,7 @@ namespace DCCEVENTOS
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AgregarRegistro();
+            Nuevo();
         }
 
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)

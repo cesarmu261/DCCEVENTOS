@@ -155,12 +155,7 @@ namespace DCCEVENTOS
             }
 
         }
-        private void toolStripGuardar_Click(object sender, EventArgs e)
-        {
-            AgregarInformacion();
-        }
-
-        private void toolStripBuscar_Click(object sender, EventArgs e)
+        private void BuscarDCC()
         {
             ConsultaTerceros form = new ConsultaTerceros();
             form.ShowDialog();
@@ -201,8 +196,7 @@ namespace DCCEVENTOS
                 toolStripButton1.Enabled = false;
             }
         }
-
-        private void toolStripButton2_Click(object sender, EventArgs e)
+        private void BuscarClientes()
         {
             toolStripButton1.Enabled = true;
             ConsultaClientes form = new ConsultaClientes();
@@ -243,6 +237,21 @@ namespace DCCEVENTOS
                 }  // Asigna el valor de la tercera columna al textBox3
             }
         }
+        private void toolStripGuardar_Click(object sender, EventArgs e)
+        {
+            AgregarInformacion();
+            Nuevo();
+        }
+
+        private void toolStripBuscar_Click(object sender, EventArgs e)
+        {
+            BuscarDCC();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            BuscarClientes();
+        }
 
         private void toolStripSalir_Click(object sender, EventArgs e)
         {
@@ -258,6 +267,33 @@ namespace DCCEVENTOS
         {
             ModificarInformacion();
             Nuevo();
+        }
+
+        private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Nuevo();
+        }
+
+        private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AgregarInformacion();
+            Nuevo();
+        }
+
+        private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ModificarInformacion();
+            Nuevo();
+        }
+
+        private void bucarClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BuscarClientes();
+        }
+
+        private void buscarDCCToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BuscarDCC();
         }
     }
 }

@@ -121,23 +121,6 @@
     <value>132, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="toolStripGuardar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACoAAAAjCAYAAADizJiTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACASURBVFhH7c5BCoAwDETRHL03r2YxEErBjg2V1vmQhWLM
-        s7pJgmYnaHbDUDNLH6ZzoaW8O+TFHXZ/OTQOk6C9sI9/MAnaC/uCesBtBY3HmGl3mf4BnZmlULxjRlDU
-        HhqFxvxZUITDgj7EfX0XEbPDdC70qwTNTtDsBM1O0NxqvQC9Bl77O/e/YQAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="toolStripButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACwAAAAjCAYAAADv0ujUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACcSURBVFhH7c+LCoAwCEBR//+nF8EMkbXmi5jzgATV8gZt
-        MxUcrYKj5QwGgGc8WL6XP5iPhOUsEp3iC+nMSN79kjuY4hE41Oie1TnBiMa+jafzglF0KDoveBTKx5P6
-        a6Owe6jZM638wTwCZ0by7pfcwXyxdLnmDFfBK0xn+3UJDTUttZzt12WWZR7yB3vS/PivwRoVHK2Co20W
-        3NoFS7b6LfsZpmEAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="toolStripBuscar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADQAAAAjCAYAAADbqynIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8

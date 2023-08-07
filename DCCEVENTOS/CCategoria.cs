@@ -23,6 +23,7 @@ namespace DCCEVENTOS
         }
         private void Nuevo()
         {
+            toolStripGuardar.Enabled = true;
             TbDes.Text = string.Empty;
             CBESTADO.SelectedIndex = 0;
             CargarInformacion();
@@ -39,7 +40,7 @@ namespace DCCEVENTOS
         }
         public void Buscar()
         {
-
+            toolStripGuardar.Enabled = false;
             ConsulatadeCategorias consulta = new ConsulatadeCategorias();
             consulta.ShowDialog();
             EventosContext contexto = new EventosContext();
@@ -84,6 +85,7 @@ namespace DCCEVENTOS
 
                 MessageBox.Show("DEBE CAPTURAR TODOS LOS DATOS PARA EL REGISTRO");
             }
+            toolStripGuardar.Enabled = true;
         }
 
         private void AgregarRegistro()
@@ -119,12 +121,6 @@ namespace DCCEVENTOS
             Nuevo();
         }
 
-        private void BTNGuardar_Click(object sender, EventArgs e)
-        {
-            AgregarRegistro();
-            Nuevo();
-        }
-
         private void toolStripNuevo_Click(object sender, EventArgs e)
         {
             Nuevo();
@@ -133,6 +129,7 @@ namespace DCCEVENTOS
         private void toolStripGuardar_Click(object sender, EventArgs e)
         {
             AgregarRegistro();
+            Nuevo();
 
         }
 
@@ -155,6 +152,7 @@ namespace DCCEVENTOS
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AgregarRegistro();
+            Nuevo();
         }
 
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)

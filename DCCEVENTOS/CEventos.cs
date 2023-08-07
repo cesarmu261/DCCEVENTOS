@@ -297,7 +297,8 @@ namespace DCCEVENTOS
                         }
                     }
                 }
-
+                label11.Text = sumatoriaIngresos.ToString();
+                label12.Text = sumatoriaEgresos.ToString();
                 // Restar las sumas de ingresos y egresos
                 decimal resultadoFinal = sumatoriaIngresos - sumatoriaEgresos;
                 label9.Text = resultadoFinal.ToString();
@@ -335,98 +336,71 @@ namespace DCCEVENTOS
 
             DTG();
         }
+
+        private void CalculosDatagrind()
+        {
+            using (var dbContext = new EventosContext())
+            {
+                decimal sumatoriaIngresos = 0;
+                decimal sumatoriaEgresos = 0;
+                decimal sumatoriaPrecioTotal = 0;
+                foreach (DataGridViewRow row in ConceptosUni.Rows)
+                {
+                    int codigo = Convert.ToInt32(row.Cells["DTCodigo"].Value);
+                    var precio = dbContext.SaEveConceptos.FirstOrDefault(p => p.CodConceptos == codigo);
+                    var cantidadCellValue = row.Cells["DTCantida"].Value;
+                    var descuentoCellValue = row.Cells["Descuento"].Value;
+
+                    if (cantidadCellValue != null && decimal.TryParse(cantidadCellValue.ToString(), out decimal cantidad) &&
+                        descuentoCellValue != null && decimal.TryParse(descuentoCellValue.ToString(), out decimal descuento))
+                    {
+                        //decimal costoPrecio = (decimal)precio.Costoprecio;
+                        //row.Cells["Precio"].Value = costoPrecio;
+                        decimal costoPrecio = Convert.ToDecimal(row.Cells["Precio"].Value); ;
+                        row.Cells["Precio"].Value = costoPrecio.ToString("N2"); ;
+
+                        decimal precioTotal = cantidad * costoPrecio;
+                        decimal descuentoAplicado = precioTotal * (descuento / 100);
+                        decimal precioTotalDescuento = precioTotal - descuentoAplicado;
+
+                        row.Cells["Precio Total"].Value = precioTotalDescuento.ToString("N2");
+                        //sumatoriaPrecioTotal += precioTotalDescuento;
+                        // Obtener la categoría de la fila actual
+                        string categoria = row.Cells["Categoria"].Value.ToString();
+
+                        // Sumar al total correspondiente según la categoría
+                        if (categoria.ToLower() == "ingresos")
+                        {
+                            sumatoriaIngresos += precioTotalDescuento;
+                        }
+                        else if (categoria.ToLower() == "egresos")
+                        {
+                            sumatoriaEgresos += precioTotalDescuento;
+                        }
+                    }
+                    label11.Text = sumatoriaIngresos.ToString();
+                    label12.Text = sumatoriaEgresos.ToString();
+                    decimal resultadoFinal = sumatoriaIngresos - sumatoriaEgresos;
+                    label9.Text = resultadoFinal.ToString();
+                }
+            }
+        }
+
+
         private void ConceptosUni_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             // Verificar si la celda modificada corresponde a la columna "Cantidad"
             if (tablaCargada && e.ColumnIndex == ConceptosUni.Columns["DTCantida"].Index && e.RowIndex >= 0)
             {
-                using (var dbContext = new EventosContext())
-                {
-                    decimal sumatoriaIngresos = 0;
-                    decimal sumatoriaEgresos = 0;
-                    decimal sumatoriaPrecioTotal = 0;
-                    foreach (DataGridViewRow row in ConceptosUni.Rows)
-                    {
-                        int codigo = Convert.ToInt32(row.Cells["DTCodigo"].Value);
-                        var precio = dbContext.SaEveConceptos.FirstOrDefault(p => p.CodConceptos == codigo);
-                        var cantidadCellValue = row.Cells["DTCantida"].Value;
-                        var descuentoCellValue = row.Cells["Descuento"].Value;
-
-                        if (cantidadCellValue != null && decimal.TryParse(cantidadCellValue.ToString(), out decimal cantidad) &&
-                            descuentoCellValue != null && decimal.TryParse(descuentoCellValue.ToString(), out decimal descuento))
-                        {
-                            decimal costoPrecio = (decimal)precio.Costoprecio;
-                            row.Cells["Precio"].Value = costoPrecio;
-
-                            decimal precioTotal = cantidad * costoPrecio;
-                            decimal descuentoAplicado = precioTotal * (descuento / 100);
-                            decimal precioTotalDescuento = precioTotal - descuentoAplicado;
-
-                            row.Cells["Precio Total"].Value = precioTotalDescuento.ToString("N2");
-                            //sumatoriaPrecioTotal += precioTotalDescuento;
-                            // Obtener la categoría de la fila actual
-                            string categoria = row.Cells["Categoria"].Value.ToString();
-
-                            // Sumar al total correspondiente según la categoría
-                            if (categoria.ToLower() == "ingresos")
-                            {
-                                sumatoriaIngresos += precioTotalDescuento;
-                            }
-                            else if (categoria.ToLower() == "egresos")
-                            {
-                                sumatoriaEgresos += precioTotalDescuento;
-                            }
-                        }
-                        decimal resultadoFinal = sumatoriaIngresos - sumatoriaEgresos;
-                        label9.Text = resultadoFinal.ToString();
-                    }
-                }
-
+                CalculosDatagrind();
             }
             if (tablaCargada && e.ColumnIndex == ConceptosUni.Columns["Descuento"].Index && e.RowIndex >= 0)
             {
-                using (var dbContext = new EventosContext())
-                {
-                    decimal sumatoriaIngresos = 0;
-                    decimal sumatoriaEgresos = 0;
-                    decimal sumatoriaPrecioTotal = 0;
-                    foreach (DataGridViewRow row in ConceptosUni.Rows)
-                    {
-                        int codigo = Convert.ToInt32(row.Cells["DTCodigo"].Value);
-                        var precio = dbContext.SaEveConceptos.FirstOrDefault(p => p.CodConceptos == codigo);
-                        var cantidadCellValue = row.Cells["DTCantida"].Value;
-                        var descuentoCellValue = row.Cells["Descuento"].Value;
-
-                        if (cantidadCellValue != null && decimal.TryParse(cantidadCellValue.ToString(), out decimal cantidad) &&
-                            descuentoCellValue != null && decimal.TryParse(descuentoCellValue.ToString(), out decimal descuento))
-                        {
-                            decimal costoPrecio = (decimal)precio.Costoprecio;
-                            row.Cells["Precio"].Value = costoPrecio;
-
-                            decimal precioTotal = cantidad * costoPrecio;
-                            decimal descuentoAplicado = precioTotal * (descuento / 100);
-                            decimal precioTotalDescuento = precioTotal - descuentoAplicado;
-
-                            row.Cells["Precio Total"].Value = precioTotalDescuento.ToString("N2");
-                            sumatoriaPrecioTotal += precioTotalDescuento;
-                            // Obtener la categoría de la fila actual
-                            string categoria = row.Cells["Categoria"].Value.ToString();
-
-                            // Sumar al total correspondiente según la categoría
-                            if (categoria.ToLower() == "ingresos")
-                            {
-                                sumatoriaIngresos += precioTotalDescuento;
-                            }
-                            else if (categoria.ToLower() == "egresos")
-                            {
-                                sumatoriaEgresos += precioTotalDescuento;
-                            }
-                        }
-                        // Restar las sumas de ingresos y egresos
-                        decimal resultadoFinal = (sumatoriaIngresos - sumatoriaEgresos);
-                        label9.Text = resultadoFinal.ToString();
-                    }
-                }
+                CalculosDatagrind();
+            }
+            if (tablaCargada && e.ColumnIndex == ConceptosUni.Columns["Precio"].Index && e.RowIndex >= 0)
+            {
+                CalculosDatagrind();
             }
         }
         private void buscarClientesToolStripMenuItem_Click(object sender, EventArgs e)

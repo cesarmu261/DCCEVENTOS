@@ -58,6 +58,8 @@
             // 
             // PorcentjesExistencia
             // 
+            PorcentjesExistencia.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            PorcentjesExistencia.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             PorcentjesExistencia.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             PorcentjesExistencia.Enabled = false;
             PorcentjesExistencia.Location = new Point(331, 67);
@@ -195,7 +197,7 @@
             toolStripButton1.ImageTransparentColor = Color.Magenta;
             toolStripButton1.Name = "toolStripButton1";
             toolStripButton1.Size = new Size(28, 28);
-            toolStripButton1.Text = "toolStripButton1";
+            toolStripButton1.Text = "Actualizar";
             toolStripButton1.ToolTipText = "Actualizar";
             toolStripButton1.Click += toolStripButton1_Click;
             // 

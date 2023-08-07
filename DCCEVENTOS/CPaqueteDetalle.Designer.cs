@@ -104,6 +104,8 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Codigo, Descripcion, Cantidad });
             dataGridView1.Location = new Point(54, 163);
@@ -119,16 +121,19 @@
             // 
             Codigo.HeaderText = "Codigo";
             Codigo.Name = "Codigo";
+            Codigo.Width = 71;
             // 
             // Descripcion
             // 
             Descripcion.HeaderText = "Descripcion";
             Descripcion.Name = "Descripcion";
+            Descripcion.Width = 94;
             // 
             // Cantidad
             // 
             Cantidad.HeaderText = "Cantidad";
             Cantidad.Name = "Cantidad";
+            Cantidad.Width = 80;
             // 
             // Coddp
             // 

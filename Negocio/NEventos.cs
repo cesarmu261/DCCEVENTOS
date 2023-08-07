@@ -65,6 +65,28 @@ namespace Negocio
             return Table;
 
         }
+        public DataTable Obtener4(int salon)
+        {
+            EventosContext contexto = new EventosContext();
+            List<SaEvento> List = new DMEvento(contexto).Obtener(0,salon);
+
+            DataTable Table = new DataTable();
+            Table.Columns.Add("CODIGO");  // Reemplaza "Columna1" con el nombre de la columna real que deseas incluir
+            Table.Columns.Add("DESCRIPCION");
+            Table.Columns.Add("FECHA");
+
+            foreach (SaEvento ev in List)
+            {
+                DataRow row = Table.NewRow();
+                row["CODIGO"] = ev.CodEvento;  // Reemplaza "Columna1" y "Propiedad1" con los nombres reales de la columna y propiedad que deseas incluir
+                row["DESCRIPCION"] = ev.DesEvento;  // Reemplaza "Columna2" y "Propiedad2" con los nombres reales de la columna y propiedad que deseas incluir
+                row["FECHA"] = ev.Fecha;
+                Table.Rows.Add(row);
+            }
+
+            return Table;
+
+        }
         public InfoCompartidaCapas Guardar(SaEvento evento)
         {
             EventosContext contexto = new EventosContext();

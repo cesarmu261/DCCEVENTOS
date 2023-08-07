@@ -153,6 +153,8 @@
             // 
             // conceptosexistentes
             // 
+            conceptosexistentes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            conceptosexistentes.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             conceptosexistentes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             conceptosexistentes.Location = new Point(411, 73);
             conceptosexistentes.Name = "conceptosexistentes";

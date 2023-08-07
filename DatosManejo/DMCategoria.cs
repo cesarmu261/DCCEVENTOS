@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DatosManejo
 {
-    public class DMCategoria
+    public class DMCategoria : IDisposable
     {
         private EventosContext contexto { get; set; }
         public DMCategoria(EventosContext contexto)

@@ -79,6 +79,8 @@
             CBSalones = new ComboBox();
             Salon = new Label();
             pictureBox1 = new PictureBox();
+            label11 = new Label();
+            label12 = new Label();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ConceptosPaquetes).BeginInit();
             toolStrip1.SuspendLayout();
@@ -204,6 +206,8 @@
             // 
             ConceptosPaquetes.AllowUserToAddRows = false;
             ConceptosPaquetes.AllowUserToDeleteRows = false;
+            ConceptosPaquetes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            ConceptosPaquetes.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             ConceptosPaquetes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             ConceptosPaquetes.Columns.AddRange(new DataGridViewColumn[] { CCodigo, Column1, Column2, CostosC });
             ConceptosPaquetes.Location = new Point(3, 32);
@@ -218,24 +222,28 @@
             CCodigo.HeaderText = "Codigo";
             CCodigo.Name = "CCodigo";
             CCodigo.ReadOnly = true;
+            CCodigo.Width = 71;
             // 
             // Column1
             // 
             Column1.HeaderText = "Descripcion";
             Column1.Name = "Column1";
             Column1.ReadOnly = true;
+            Column1.Width = 94;
             // 
             // Column2
             // 
             Column2.HeaderText = "Cantidad";
             Column2.Name = "Column2";
             Column2.ReadOnly = true;
+            Column2.Width = 80;
             // 
             // CostosC
             // 
             CostosC.HeaderText = "Costos Concepto";
             CostosC.Name = "CostosC";
             CostosC.ReadOnly = true;
+            CostosC.Width = 113;
             // 
             // button1
             // 
@@ -412,6 +420,8 @@
             // 
             // ConceptosUni
             // 
+            ConceptosUni.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            ConceptosUni.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             ConceptosUni.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             ConceptosUni.Columns.AddRange(new DataGridViewColumn[] { DTCodigo, DTDESCRIPCION, DTCantida, DTCostosC, Paquete, Categoria });
             ConceptosUni.Location = new Point(3, 3);
@@ -425,31 +435,37 @@
             // 
             DTCodigo.HeaderText = "Codigo";
             DTCodigo.Name = "DTCodigo";
+            DTCodigo.Width = 71;
             // 
             // DTDESCRIPCION
             // 
             DTDESCRIPCION.HeaderText = "Descripcion";
             DTDESCRIPCION.Name = "DTDESCRIPCION";
+            DTDESCRIPCION.Width = 94;
             // 
             // DTCantida
             // 
             DTCantida.HeaderText = "Cantidad";
             DTCantida.Name = "DTCantida";
+            DTCantida.Width = 80;
             // 
             // DTCostosC
             // 
             DTCostosC.HeaderText = "Costos";
             DTCostosC.Name = "DTCostosC";
+            DTCostosC.Width = 68;
             // 
             // Paquete
             // 
             Paquete.HeaderText = "Paquete";
             Paquete.Name = "Paquete";
+            Paquete.Width = 75;
             // 
             // Categoria
             // 
             Categoria.HeaderText = "Categoria";
             Categoria.Name = "Categoria";
+            Categoria.Width = 83;
             // 
             // Codigoc
             // 
@@ -485,11 +501,31 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(383, 665);
+            label11.Name = "label11";
+            label11.Size = new Size(51, 15);
+            label11.TabIndex = 79;
+            label11.Text = "Ingresos";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(513, 665);
+            label12.Name = "label12";
+            label12.Size = new Size(47, 15);
+            label12.TabIndex = 80;
+            label12.Text = "Egresos";
+            // 
             // CEventos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1223, 708);
+            Controls.Add(label12);
+            Controls.Add(label11);
             Controls.Add(pictureBox1);
             Controls.Add(Salon);
             Controls.Add(CBSalones);
@@ -586,5 +622,7 @@
         private DataGridViewTextBoxColumn Categoria;
         private PictureBox pictureBox1;
         private ToolStripMenuItem salirToolStripMenuItem;
+        private Label label11;
+        private Label label12;
     }
 }

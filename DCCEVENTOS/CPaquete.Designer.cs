@@ -56,6 +56,8 @@
             // 
             // PaqueteExistencia
             // 
+            PaqueteExistencia.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            PaqueteExistencia.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             PaqueteExistencia.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             PaqueteExistencia.Enabled = false;
             PaqueteExistencia.Location = new Point(244, 68);
