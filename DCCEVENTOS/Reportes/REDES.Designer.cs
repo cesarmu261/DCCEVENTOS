@@ -1,6 +1,6 @@
 ﻿namespace DCCEVENTOS.Reportes
 {
-    partial class FRE
+    partial class REDES
     {
         /// <summary>
         /// Required designer variable.
@@ -37,19 +37,18 @@
             reportViewer1.Location = new Point(0, 0);
             reportViewer1.Name = "ReportViewer";
             reportViewer1.ServerReport.BearerToken = null;
-            reportViewer1.Size = new Size(1174, 941);
+            reportViewer1.Size = new Size(1021, 519);
             reportViewer1.TabIndex = 0;
             // 
-            // FRE
+            // REDES
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1174, 941);
+            ClientSize = new Size(1021, 519);
             Controls.Add(reportViewer1);
-            Name = "FRE";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Reporte";
-            Load += FRE_Load;
+            Name = "REDES";
+            Text = "REDES";
+            Load += REDES_Load;
             ResumeLayout(false);
         }
 

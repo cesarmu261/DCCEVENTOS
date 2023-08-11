@@ -260,6 +260,14 @@ namespace DatosManejo
         {
             return contexto.SaEveConceptos.Where(a => a.CodConceptos == cod).FirstOrDefault().DesConceptos;
         }
+        public int? ObteneCategoria(int? cod)
+        {
+            return contexto.SaEveConceptos.Where(a => a.CodConceptos == cod).FirstOrDefault().CodCategoria;
+        }
+        public decimal? ObteneCostosConceptos(int? cod)
+        {
+            return contexto.SaEveConceptos.Where(a => a.CodConceptos == cod).FirstOrDefault().CostosConceptos;
+        }
     }
 }
 

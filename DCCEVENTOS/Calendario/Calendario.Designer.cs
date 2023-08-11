@@ -40,6 +40,8 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            DTGEventos = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)DTGEventos).BeginInit();
             SuspendLayout();
             // 
             // button2
@@ -148,11 +150,28 @@
             label1.TabIndex = 24;
             label1.Text = "Domingo";
             // 
+            // DTGEventos
+            // 
+            DTGEventos.AllowUserToAddRows = false;
+            DTGEventos.AllowUserToDeleteRows = false;
+            DTGEventos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            DTGEventos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            DTGEventos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DTGEventos.Location = new Point(1065, 147);
+            DTGEventos.Name = "DTGEventos";
+            DTGEventos.ReadOnly = true;
+            DTGEventos.RowTemplate.Height = 25;
+            DTGEventos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DTGEventos.Size = new Size(494, 461);
+            DTGEventos.TabIndex = 35;
+            DTGEventos.DoubleClick += DTGEventos_DoubleClick;
+            // 
             // Calendario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1058, 833);
+            ClientSize = new Size(1571, 833);
+            Controls.Add(DTGEventos);
             Controls.Add(Contenedordia);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -167,6 +186,7 @@
             Name = "Calendario";
             Text = "Calendario";
             Load += Calendario_Load;
+            ((System.ComponentModel.ISupportInitialize)DTGEventos).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -184,5 +204,6 @@
         private Label label3;
         private Label label2;
         private Label label1;
+        private DataGridView DTGEventos;
     }
 }

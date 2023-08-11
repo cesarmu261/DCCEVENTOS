@@ -49,7 +49,17 @@ namespace Negocio
             {
                 DataRow row = Table.NewRow();
                 row["CODIGO"] = ev.CodEvento;  // Reemplaza "Columna1" y "Propiedad1" con los nombres reales de la columna y propiedad que deseas incluir
-                row["COD PAQUETE"] = nPaquete.ObtenerDescripcione((int)ev.CodDetallepaq);
+
+                int? codDetallepaq = ev.CodDetallepaq;
+
+                // Obtener la descripción del paquete si el valor no es null, o un valor vacío si es null.
+                string descripcionPaquete = codDetallepaq.HasValue
+                    ? nPaquete.ObtenerDescripcione(codDetallepaq.Value)
+                    : string.Empty;
+
+                // Asignar el valor a la columna "COD PAQUETE" en la fila "row".
+                row["COD PAQUETE"] = descripcionPaquete;
+                //row["COD PAQUETE"] = nPaquete.ObtenerDescripcione((int)ev.CodDetallepaq);
                 row["DES CONCEPTOS"] =nConceptos.ObtenerDescripcione( ev.CodConceptos);  // Reemplaza "Columna2" y "Propiedad2" con los nombres reales de la columna y propiedad que deseas incluir
                 row["COSTOS CONCEPTO"] = ev.CostosConcepto;
                 row["COSTO DE VENTA"] = ev.Costoprecio;

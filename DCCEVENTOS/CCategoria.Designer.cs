@@ -83,6 +83,8 @@
             // 
             // CategoriaExistencia
             // 
+            CategoriaExistencia.AllowUserToAddRows = false;
+            CategoriaExistencia.AllowUserToDeleteRows = false;
             CategoriaExistencia.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             CategoriaExistencia.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             CategoriaExistencia.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;

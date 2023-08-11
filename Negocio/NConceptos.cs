@@ -11,7 +11,7 @@ namespace Negocio
     {
         DataTable conceptos;
         public static int SSCod =1;
-        public static string SSCodcon, SSDescon, SScantidad;
+        public static string SSCodcon, SSDescon, SScantidad, SSCategoria, SSCostos;
         public static Action<object, object> PropertyChanged;
 
         public NConceptos()
@@ -61,6 +61,7 @@ namespace Negocio
             conceptosTable.Columns.Add("Codigos");  // Reemplaza "Columna1" con el nombre de la columna real que deseas incluir
             conceptosTable.Columns.Add("Descripcion");
             conceptosTable.Columns.Add("Cantidad");
+            
 
             foreach (SaEveConcepto concepto in conceptosList)
             {
@@ -68,6 +69,7 @@ namespace Negocio
                 row["Codigos"] = concepto.CodConceptos;  // Reemplaza "Columna1" y "Propiedad1" con los nombres reales de la columna y propiedad que deseas incluir
                 row["Descripcion"] = concepto.DesConceptos;  // Reemplaza "Columna2" y "Propiedad2" con los nombres reales de la columna y propiedad que deseas incluir
                 row["Cantidad"] = concepto.Cantidad;
+                
                 conceptosTable.Rows.Add(row);
             }
 
@@ -183,6 +185,16 @@ namespace Negocio
         {
             EventosContext context = new EventosContext();
             return new DMConceptos(context).Obtenedescripcion(cod);
+        }
+        public int? Obtenercategoria(int? cod = 0)
+        {
+            EventosContext context = new EventosContext();
+            return new DMConceptos(context).ObteneCategoria(cod);
+        }
+        public decimal? ObtenerCostos(int? cod = 0)
+        {
+            EventosContext context = new EventosContext();
+            return new DMConceptos(context).ObteneCostosConceptos(cod);
         }
     }
 }

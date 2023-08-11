@@ -153,6 +153,8 @@
             // 
             // conceptosexistentes
             // 
+            conceptosexistentes.AllowUserToAddRows = false;
+            conceptosexistentes.AllowUserToDeleteRows = false;
             conceptosexistentes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             conceptosexistentes.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             conceptosexistentes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;

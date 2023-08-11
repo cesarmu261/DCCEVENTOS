@@ -21,28 +21,54 @@ namespace Negocio
             return eventos;
         }
 
-        public DataTable Obtener2( DateTime fecha)
+        //public DataTable Obtener2( DateTime fecha)
+        //{
+        //    EventosContext contexto = new EventosContext();
+        //    List<SaEvento> List = new DMEvento(contexto).Obtener(0, 0,0, "", fecha);
+
+        //    DataTable Table = new DataTable();
+        //    Table.Columns.Add("CODIGO");  // Reemplaza "Columna1" con el nombre de la columna real que deseas incluir
+        //    Table.Columns.Add("DESCRIPCION");
+        //    Table.Columns.Add("FECHA");
+
+        //    foreach (SaEvento ev in List)
+        //    {
+        //        DataRow row = Table.NewRow();
+        //        row["CODIGO"] = ev.CodEvento;  // Reemplaza "Columna1" y "Propiedad1" con los nombres reales de la columna y propiedad que deseas incluir
+        //        row["DESCRIPCION"] = ev.DesEvento;  // Reemplaza "Columna2" y "Propiedad2" con los nombres reales de la columna y propiedad que deseas incluir
+        //        row["FECHA"] = ev.Fecha;
+        //        Table.Rows.Add(row);
+        //    }
+
+        //    return Table;
+
+        //}
+        public DataTable Obtener2(DateTime fechaInicial, DateTime fechaFinal)
         {
             EventosContext contexto = new EventosContext();
-            List<SaEvento> List = new DMEvento(contexto).Obtener(0, 0,0, "", fecha);
+            List<SaEvento> list = new DMEvento(contexto).Obtener(0, 0, 0, "", fechaInicial);
 
-            DataTable Table = new DataTable();
-            Table.Columns.Add("CODIGO");  // Reemplaza "Columna1" con el nombre de la columna real que deseas incluir
-            Table.Columns.Add("DESCRIPCION");
-            Table.Columns.Add("FECHA");
+            DataTable table = new DataTable();
+            table.Columns.Add("CODIGO");
+            table.Columns.Add("DESCRIPCION");
+            table.Columns.Add("FECHA");
 
-            foreach (SaEvento ev in List)
+            foreach (SaEvento ev in list)
             {
-                DataRow row = Table.NewRow();
-                row["CODIGO"] = ev.CodEvento;  // Reemplaza "Columna1" y "Propiedad1" con los nombres reales de la columna y propiedad que deseas incluir
-                row["DESCRIPCION"] = ev.DesEvento;  // Reemplaza "Columna2" y "Propiedad2" con los nombres reales de la columna y propiedad que deseas incluir
-                row["FECHA"] = ev.Fecha;
-                Table.Rows.Add(row);
+                // Check if the event date is within the specified range
+                if (ev.Fecha >= fechaInicial && ev.Fecha <= fechaFinal)
+                {
+                    DataRow row = table.NewRow();
+                    row["CODIGO"] = ev.CodEvento;
+                    row["DESCRIPCION"] = ev.DesEvento;
+                    row["FECHA"] = ev.Fecha;
+                    table.Rows.Add(row);
+                }
             }
 
-            return Table;
-
+            return table;
         }
+
         public DataTable Obtener3(int cliente,string descripcion)
         {
             EventosContext contexto = new EventosContext();

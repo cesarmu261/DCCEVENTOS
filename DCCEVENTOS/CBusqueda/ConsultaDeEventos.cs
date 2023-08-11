@@ -46,6 +46,12 @@ namespace DCCEVENTOS.CBusqueda
             TBClientes.Text = string.Empty;
             DTGDetalles.DataSource = null;
             DTGEventos.DataSource = null;
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
+            button5.Enabled = false;
+            button6.Enabled = false;
+
             //DTGEventos.Rows.Clear();
             //DTGEventos.Rows.Clear();
         }
@@ -54,8 +60,8 @@ namespace DCCEVENTOS.CBusqueda
         {
             DateTime selectedDate = dateTimePicker1.Value.Date;
             DateTime startDate = selectedDate.Date;
-
-            table = nevento.Obtener2(startDate);
+            DateTime FINALDATE = dateTimePicker2.Value.Date;
+            table = nevento.Obtener2(startDate, FINALDATE);
             DTGEventos.DataSource = table;
             DTGEventos.Refresh();
 
@@ -77,31 +83,6 @@ namespace DCCEVENTOS.CBusqueda
             table = nevento.Obtener4(nsalones.ObtenerDescripcione(CBSalones.SelectedItem.ToString()));
             DTGEventos.DataSource = table;
             DTGEventos.Refresh();
-        }
-
-        private void BTNBus_Click(object sender, EventArgs e)
-        {
-
-            if (!string.IsNullOrWhiteSpace(TBDescripcion.Text))
-            {
-                descripcion();
-            }
-            else if (!string.IsNullOrWhiteSpace(TBClientes.Text))
-            {
-                cliente();
-            }
-            else if (!string.IsNullOrWhiteSpace(CBSalones.Text))
-            {
-                Salones();
-            }
-            else if (!string.IsNullOrWhiteSpace(dateTimePicker1.Text))
-            {
-                fecha();
-            }
-            else
-            {
-                MessageBox.Show("Debe ingresar al menos un valor para buscar.");
-            }
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -136,6 +117,7 @@ namespace DCCEVENTOS.CBusqueda
                 DTGDetalles.DataSource = table;
                 DTGDetalles.Refresh();
             }
+            button2.Enabled = true;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -152,9 +134,10 @@ namespace DCCEVENTOS.CBusqueda
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FRE rE = new FRE();
+
             SSCod = DTGEventos.SelectedRows[0].Cells[0].Value.ToString();
             int cod = Convert.ToInt32(SSCod);
+            FRE rE = new FRE(cod);
             rE.Cod_Evento = cod;
             rE.Show();
         }
@@ -178,6 +161,108 @@ namespace DCCEVENTOS.CBusqueda
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        //private List<int> GetAllColumnValues()
+        //{
+        //    List<int> valores = new List<int>();
+
+        //    foreach (DataGridViewRow row in DTGEventos.Rows)
+        //    {
+        //        if (!row.IsNewRow && row.Cells[0].Value != null)
+        //        {
+        //            int valor = Convert.ToInt32(row.Cells[0].Value);
+        //            valores.Add(valor);
+        //        }
+        //    }
+
+        //    return valores;
+        //}
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DateTime selectedDate = dateTimePicker1.Value.Date;
+            DateTime startDate = selectedDate.Date;
+            DateTime FINALDATE = dateTimePicker2.Value.Date;
+            DateTime finDate = FINALDATE.Date;
+            FRE2 reportForm = new FRE2(startDate, finDate);
+            reportForm.Show();
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(dateTimePicker1.Text))
+            {
+                fecha();
+                button3.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Debe ingresar al menos un valor para buscar.");
+            }
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(TBClientes.Text))
+            {
+                cliente();
+                button4.Enabled = true;
+            }
+
+            else
+            {
+                MessageBox.Show("Debe ingresar al menos un valor para buscar.");
+            }
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(TBDescripcion.Text))
+            {
+                descripcion();
+                button5.Enabled = true;
+            }
+
+            else
+            {
+                MessageBox.Show("Debe ingresar al menos un valor para buscar.");
+            }
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(CBSalones.Text))
+            {
+                Salones();
+                button6.Enabled = true;
+            }
+
+            else
+            {
+                MessageBox.Show("Debe ingresar al menos un valor para buscar.");
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            RECLIE reportForm = new RECLIE(NTercero.SSCod);
+            reportForm.Show();
+        }
+
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            RESAL reportForm = new RESAL(nsalones.ObtenerDescripcione(CBSalones.SelectedItem.ToString()));
+            reportForm.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            REDES reportForm = new REDES(TBDescripcion.Text);
+            reportForm.Show();
         }
     }
 }

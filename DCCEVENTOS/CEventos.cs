@@ -156,7 +156,7 @@ namespace DCCEVENTOS
                     string valor1 = celda1.Value.ToString();
                     string valor2 = celda2.Value.ToString();
                     string valor3 = celda3.Value.ToString();
-                    string valor4 = celda4.Value.ToString();
+                    string? valor4 = celda4?.Value?.ToString();
                     string valor5 = celda5.Value.ToString();
                     string valor6 = celda6.Value.ToString();
                     string valor7 = celda7.Value.ToString();
@@ -170,7 +170,15 @@ namespace DCCEVENTOS
                     ev.CodConceptos = Convert.ToInt32(valor);
                     ev.Cantidad = Convert.ToInt32(valor2);
                     ev.CostosConcepto = Convert.ToDecimal(valor3);
-                    ev.CodDetallepaq = (int)npaquete.ObtenerDescripcionesCod(valor4);
+
+                    if(string.IsNullOrEmpty(valor4))
+{
+                        ev.CodDetallepaq = null;
+                    }
+                    else
+                    {
+                        ev.CodDetallepaq = (int)npaquete.ObtenerDescripcionesCod(valor4);
+                    }
                     ev.CodCategoria = (int?)nCategoria.ObtenerDescripcionesCod(valor5);
                     ev.Costoprecio = Convert.ToDecimal(valor6);
                     ev.Descuento = Convert.ToDecimal(valor7);
@@ -330,6 +338,8 @@ namespace DCCEVENTOS
                 ConceptosUni.Rows[index1].Cells["DTCodigo"].Value = NConceptos.SSCodcon;
                 ConceptosUni.Rows[index1].Cells["DTDESCRIPCION"].Value = NConceptos.SSDescon;
                 ConceptosUni.Rows[index1].Cells["DTCantida"].Value = NConceptos.SScantidad;
+                ConceptosUni.Rows[index1].Cells["Categoria"].Value = NConceptos.SSCategoria;
+                ConceptosUni.Rows[index1].Cells["DTCostosC"].Value = NConceptos.SSCostos;
                 ConceptosUni.Update();
                 ConceptosUni.Refresh();
             }
@@ -450,6 +460,7 @@ namespace DCCEVENTOS
             }
             AgregarInformacion();
             AgregarInformaciondetalleeventos();
+            Nuevo();
         }
 
         private void toolStripNuevo_Click(object sender, EventArgs e)

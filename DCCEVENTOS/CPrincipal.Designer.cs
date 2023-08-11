@@ -37,10 +37,9 @@
             paqueteDetalleToolStripMenuItem = new ToolStripMenuItem();
             clientesToolStripMenuItem = new ToolStripMenuItem();
             eventosToolStripMenuItem = new ToolStripMenuItem();
-            panel1 = new Panel();
-            panel2 = new Panel();
             reportesToolStripMenuItem = new ToolStripMenuItem();
             reporteEventoToolStripMenuItem = new ToolStripMenuItem();
+            panel1 = new Panel();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -109,20 +108,6 @@
             eventosToolStripMenuItem.Text = "Eventos";
             eventosToolStripMenuItem.Click += eventosToolStripMenuItem_Click;
             // 
-            // panel1
-            // 
-            panel1.Location = new Point(194, 27);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1246, 792);
-            panel1.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            panel2.Location = new Point(1470, 28);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(455, 516);
-            panel2.TabIndex = 2;
-            // 
             // reportesToolStripMenuItem
             // 
             reportesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { reporteEventoToolStripMenuItem });
@@ -133,16 +118,22 @@
             // reporteEventoToolStripMenuItem
             // 
             reporteEventoToolStripMenuItem.Name = "reporteEventoToolStripMenuItem";
-            reporteEventoToolStripMenuItem.Size = new Size(180, 22);
+            reporteEventoToolStripMenuItem.Size = new Size(154, 22);
             reporteEventoToolStripMenuItem.Text = "Reporte Evento";
             reporteEventoToolStripMenuItem.Click += reporteEventoToolStripMenuItem_Click;
+            // 
+            // panel1
+            // 
+            panel1.Location = new Point(0, 27);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1940, 926);
+            panel1.TabIndex = 1;
             // 
             // CPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1924, 887);
-            Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
@@ -169,7 +160,6 @@
         private ToolStripMenuItem clientesToolStripMenuItem;
         private ToolStripMenuItem eventosToolStripMenuItem;
         private Panel panel1;
-        private Panel panel2;
         private ToolStripMenuItem reportesToolStripMenuItem;
         private ToolStripMenuItem reporteEventoToolStripMenuItem;
     }

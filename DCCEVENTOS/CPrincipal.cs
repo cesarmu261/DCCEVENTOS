@@ -1,14 +1,34 @@
 using DCCEVENTOS.CBusqueda;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.VisualBasic;
+using Negocio;
+using System.Data;
 using System.Windows.Forms;
 
 namespace DCCEVENTOS
 {
+
     public partial class CPrincipal : Form
     {
+        DataTable table;
+        private NEventos nevento;
+        private Calendario.Calendario calendario;
         public CPrincipal()
         {
             InitializeComponent();
+            nevento = new NEventos();
+            calendario = new Calendario.Calendario();
+
         }
+        //public void fecha()
+        //{
+        //    DTGEventos.DataSource = null;
+        //    DateTime iniciodemes = new DateTime(Calendario.Calendario.an_estat, Calendario.Calendario.mes_estat, 1);
+        //    DateTime FINdemes = new DateTime(Calendario.Calendario.an_estat, (Calendario.Calendario.mes_estat) + 1, 1);
+        //    table = nevento.Obtener2(iniciodemes, FINdemes);
+        //    DTGEventos.DataSource = table;
+        //    DTGEventos.Refresh();
+        //}
         private void porcentajeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CPorcentaje form = new CPorcentaje();
@@ -53,7 +73,7 @@ namespace DCCEVENTOS
 
         private void CPrincipal_Load(object sender, EventArgs e)
         {
-            DCCEVENTOS.Calendario.Calendario formSecundario = new DCCEVENTOS.Calendario.Calendario();
+            Calendario.Calendario formSecundario = new Calendario.Calendario();
             formSecundario.TopLevel = false;
             formSecundario.FormBorderStyle = FormBorderStyle.None;
             formSecundario.Dock = DockStyle.Fill;
