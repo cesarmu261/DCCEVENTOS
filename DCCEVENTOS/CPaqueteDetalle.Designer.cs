@@ -113,7 +113,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(393, 150);
+            dataGridView1.Size = new Size(490, 257);
             dataGridView1.TabIndex = 0;
             dataGridView1.TabStop = false;
             // 
@@ -155,15 +155,15 @@
             // 
             CBEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             CBEstado.FormattingEnabled = true;
-            CBEstado.Location = new Point(94, 326);
+            CBEstado.Location = new Point(90, 426);
             CBEstado.Name = "CBEstado";
-            CBEstado.Size = new Size(193, 23);
+            CBEstado.Size = new Size(248, 23);
             CBEstado.TabIndex = 4;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(25, 329);
+            label4.Location = new Point(21, 429);
             label4.Name = "label4";
             label4.Size = new Size(42, 15);
             label4.TabIndex = 50;
@@ -196,7 +196,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripNuevo, toolStripGuardar, toolStripButton1, toolStripSeparator1, toolStripBuscar, toolStripSeparator2, toolStripSalir });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(532, 31);
+            toolStrip1.Size = new Size(556, 31);
             toolStrip1.TabIndex = 81;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -267,7 +267,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { opcionesToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(532, 24);
+            menuStrip1.Size = new Size(556, 24);
             menuStrip1.TabIndex = 80;
             menuStrip1.Text = "Opciones";
             // 
@@ -317,7 +317,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(532, 381);
+            ClientSize = new Size(556, 480);
             Controls.Add(toolStrip1);
             Controls.Add(menuStrip1);
             Controls.Add(pictureBox2);
