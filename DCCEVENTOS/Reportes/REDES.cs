@@ -17,7 +17,7 @@ namespace DCCEVENTOS.Reportes
     public partial class REDES : Form
     {
         Conecciones con;
-        private string  VALOR;
+        private string VALOR;
         public REDES(string descripcion)
         {
             InitializeComponent();

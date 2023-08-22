@@ -2,6 +2,7 @@
 using DatosManejo;
 using Entidades;
 using InfoCompartidaCaps;
+using Microsoft.EntityFrameworkCore;
 using System.Data;
 
 namespace Negocio
@@ -123,6 +124,16 @@ namespace Negocio
             }
             return r;
         }
+        public InfoCompartidaCapas Modificar(SaEvento evento)
+        {
+            EventosContext contexto = new EventosContext();
+            InfoCompartidaCapas r = new DMEvento(contexto).Modificar(evento);
+            if (String.IsNullOrEmpty(r.error))
+            {
+                contexto.SaveChanges();
+            }
+            return r;
+        }
 
         public InfoCompartidaCapas Eliminar(SaEvento evento)
         {
@@ -140,6 +151,10 @@ namespace Negocio
             EventosContext context = new EventosContext();
             return new DMEventoDetalle(context).Obtener(0,codeven);
         }
+
+
+
+        
     }
 }
 

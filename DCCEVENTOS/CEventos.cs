@@ -1,6 +1,7 @@
 ﻿using Datos;
 using DatosManejo;
 using DCCEVENTOS.CBusqueda;
+using DCCEVENTOS.Editar;
 using Entidades;
 using InfoCompartidaCaps;
 using Microsoft.Identity.Client;
@@ -171,8 +172,8 @@ namespace DCCEVENTOS
                     ev.Cantidad = Convert.ToInt32(valor2);
                     ev.CostosConcepto = Convert.ToDecimal(valor3);
 
-                    if(string.IsNullOrEmpty(valor4))
-{
+                    if (string.IsNullOrEmpty(valor4))
+                    {
                         ev.CodDetallepaq = null;
                     }
                     else
@@ -320,7 +321,6 @@ namespace DCCEVENTOS
             CBusqueda.ConsultadeConceptos form = new CBusqueda.ConsultadeConceptos();
             form.ShowDialog();
 
-            // Check if a row with the same DTDESCRIPCION already exists
             bool rowExists = false;
             foreach (DataGridViewRow row in ConceptosUni.Rows)
             {
@@ -503,6 +503,12 @@ namespace DCCEVENTOS
         private void toolStripSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            CEventoEdit form = new CEventoEdit();
+            form.Show();
         }
     }
 }

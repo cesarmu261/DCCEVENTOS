@@ -39,7 +39,7 @@ namespace DCCEVENTOS.Reportes
             coneccion = new SqlConnection(con.ObtenerConeccion("FRE"));
             tableAdapter.Connection = (SqlConnection)coneccion;
             tableAdapter1.Connection = (SqlConnection)coneccion;
-
+            
             //int VALOR;
             //VALOR = Cod_Evento;
             // Llenar el DataSet con datos desde la fuente de datos

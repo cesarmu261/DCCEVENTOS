@@ -181,6 +181,11 @@ namespace Negocio
                 }
             }
         }
+        public int? ObtenerDescripcionesCod(string descripcion = "")
+        {
+            EventosContext context = new EventosContext();
+            return new DMConceptos(context).ObtenerCodigo(descripcion);
+        }
         public string ObtenerDescripcione(int? cod = 0)
         {
             EventosContext context = new EventosContext();

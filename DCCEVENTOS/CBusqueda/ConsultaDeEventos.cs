@@ -144,7 +144,6 @@ namespace DCCEVENTOS.CBusqueda
 
         private void toolStripNuevo_Click(object sender, EventArgs e)
         {
-
             Nuevo();
         }
 

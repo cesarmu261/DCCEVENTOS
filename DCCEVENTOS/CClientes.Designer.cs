@@ -442,35 +442,35 @@
             // nuevoToolStripMenuItem
             // 
             nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            nuevoToolStripMenuItem.Size = new Size(180, 22);
+            nuevoToolStripMenuItem.Size = new Size(147, 22);
             nuevoToolStripMenuItem.Text = "Nuevo";
             nuevoToolStripMenuItem.Click += nuevoToolStripMenuItem_Click;
             // 
             // guardarToolStripMenuItem
             // 
             guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            guardarToolStripMenuItem.Size = new Size(180, 22);
+            guardarToolStripMenuItem.Size = new Size(147, 22);
             guardarToolStripMenuItem.Text = "Guardar";
             guardarToolStripMenuItem.Click += guardarToolStripMenuItem_Click;
             // 
             // actualizarToolStripMenuItem
             // 
             actualizarToolStripMenuItem.Name = "actualizarToolStripMenuItem";
-            actualizarToolStripMenuItem.Size = new Size(180, 22);
+            actualizarToolStripMenuItem.Size = new Size(147, 22);
             actualizarToolStripMenuItem.Text = "Actualizar";
             actualizarToolStripMenuItem.Click += actualizarToolStripMenuItem_Click;
             // 
             // bucarClientesToolStripMenuItem
             // 
             bucarClientesToolStripMenuItem.Name = "bucarClientesToolStripMenuItem";
-            bucarClientesToolStripMenuItem.Size = new Size(180, 22);
+            bucarClientesToolStripMenuItem.Size = new Size(147, 22);
             bucarClientesToolStripMenuItem.Text = "Bucar clientes";
             bucarClientesToolStripMenuItem.Click += bucarClientesToolStripMenuItem_Click;
             // 
             // buscarDCCToolStripMenuItem
             // 
             buscarDCCToolStripMenuItem.Name = "buscarDCCToolStripMenuItem";
-            buscarDCCToolStripMenuItem.Size = new Size(180, 22);
+            buscarDCCToolStripMenuItem.Size = new Size(147, 22);
             buscarDCCToolStripMenuItem.Text = "Buscar DCC";
             buscarDCCToolStripMenuItem.Click += buscarDCCToolStripMenuItem_Click;
             // 
@@ -515,7 +515,7 @@
             Controls.Add(TbCodter);
             Name = "CClientes";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Eventos";
+            Text = "Clientes";
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             menuStrip1.ResumeLayout(false);

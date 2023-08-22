@@ -37,16 +37,17 @@
             reportViewer1.Location = new Point(0, 0);
             reportViewer1.Name = "ReportViewer";
             reportViewer1.ServerReport.BearerToken = null;
-            reportViewer1.Size = new Size(1021, 519);
+            reportViewer1.Size = new Size(1174, 961);
             reportViewer1.TabIndex = 0;
             // 
             // REDES
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1021, 519);
+            ClientSize = new Size(1174, 961);
             Controls.Add(reportViewer1);
             Name = "REDES";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "REDES";
             Load += REDES_Load;
             ResumeLayout(false);

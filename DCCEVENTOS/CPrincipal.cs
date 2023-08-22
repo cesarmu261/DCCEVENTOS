@@ -86,5 +86,11 @@ namespace DCCEVENTOS
             ConsultaDeEventos form = new ConsultaDeEventos();
             form.Show();
         }
+
+        private void salonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CSalones form = new CSalones();
+            form.Show();
+        }
     }
 }

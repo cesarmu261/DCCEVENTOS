@@ -256,6 +256,10 @@ namespace DatosManejo
         {
             contexto.Database.CloseConnection();
         }
+        public int? ObtenerCodigo(string descripcion)
+        {
+            return contexto.SaEveConceptos.Where(a => a.DesConceptos == descripcion).FirstOrDefault().CodConceptos;
+        }
         public string? Obtenedescripcion(int? cod)
         {
             return contexto.SaEveConceptos.Where(a => a.CodConceptos == cod).FirstOrDefault().DesConceptos;

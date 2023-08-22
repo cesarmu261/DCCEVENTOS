@@ -49,8 +49,6 @@
             CostosC = new DataGridViewTextBoxColumn();
             button1 = new Button();
             label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
             label9 = new Label();
             label10 = new Label();
             toolStrip1 = new ToolStrip();
@@ -58,6 +56,7 @@
             toolStripGuardar = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
             toolStripBuscar = new ToolStripButton();
+            toolStripButton1 = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
             toolStripSalir = new ToolStripButton();
             menuStrip1 = new MenuStrip();
@@ -81,6 +80,8 @@
             pictureBox1 = new PictureBox();
             label11 = new Label();
             label12 = new Label();
+            label13 = new Label();
+            label14 = new Label();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ConceptosPaquetes).BeginInit();
             toolStrip1.SuspendLayout();
@@ -179,7 +180,7 @@
             flowLayoutPanel1.Controls.Add(ConceptosPaquetes);
             flowLayoutPanel1.Location = new Point(315, 58);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(686, 231);
+            flowLayoutPanel1.Size = new Size(746, 231);
             flowLayoutPanel1.TabIndex = 65;
             // 
             // lblCajas
@@ -214,7 +215,7 @@
             ConceptosPaquetes.Name = "ConceptosPaquetes";
             ConceptosPaquetes.ReadOnly = true;
             ConceptosPaquetes.RowTemplate.Height = 25;
-            ConceptosPaquetes.Size = new Size(666, 171);
+            ConceptosPaquetes.Size = new Size(724, 199);
             ConceptosPaquetes.TabIndex = 2;
             // 
             // CCodigo
@@ -264,49 +265,32 @@
             label6.TabIndex = 67;
             label6.Text = "Conceptos";
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(820, 299);
-            label7.Name = "label7";
-            label7.Size = new Size(78, 15);
-            label7.TabIndex = 69;
-            label7.Text = "Total Paquete";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(914, 295);
-            label8.Name = "label8";
-            label8.Size = new Size(0, 21);
-            label8.TabIndex = 70;
-            // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(1130, 665);
+            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.Location = new Point(1171, 665);
             label9.Name = "label9";
-            label9.Size = new Size(0, 21);
+            label9.Size = new Size(79, 15);
             label9.TabIndex = 72;
+            label9.Text = "Ingreso Total";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(1017, 665);
+            label10.Location = new Point(1091, 665);
             label10.Name = "label10";
-            label10.Size = new Size(92, 15);
+            label10.Size = new Size(74, 15);
             label10.TabIndex = 71;
-            label10.Text = "Total Conceptos";
+            label10.Text = "Ingreso Total";
             // 
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(24, 24);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripNuevo, toolStripGuardar, toolStripSeparator1, toolStripBuscar, toolStripSeparator2, toolStripSalir });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripNuevo, toolStripGuardar, toolStripSeparator1, toolStripBuscar, toolStripButton1, toolStripSeparator2, toolStripSalir });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1223, 31);
+            toolStrip1.Size = new Size(1284, 31);
             toolStrip1.TabIndex = 74;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -346,6 +330,16 @@
             toolStripBuscar.ToolTipText = "Buscar";
             toolStripBuscar.Click += toolStripBuscar_Click;
             // 
+            // toolStripButton1
+            // 
+            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
+            toolStripButton1.ImageTransparentColor = Color.Magenta;
+            toolStripButton1.Name = "toolStripButton1";
+            toolStripButton1.Size = new Size(28, 28);
+            toolStripButton1.Text = "Editar Evento";
+            toolStripButton1.Click += toolStripButton1_Click;
+            // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
@@ -367,7 +361,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { opcionesToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1223, 24);
+            menuStrip1.Size = new Size(1284, 24);
             menuStrip1.TabIndex = 73;
             menuStrip1.Text = "Opciones";
             // 
@@ -415,7 +409,7 @@
             flowLayoutPanel3.Controls.Add(ConceptosUni);
             flowLayoutPanel3.Location = new Point(315, 327);
             flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(896, 317);
+            flowLayoutPanel3.Size = new Size(969, 317);
             flowLayoutPanel3.TabIndex = 75;
             // 
             // ConceptosUni
@@ -427,7 +421,7 @@
             ConceptosUni.Location = new Point(3, 3);
             ConceptosUni.Name = "ConceptosUni";
             ConceptosUni.RowTemplate.Height = 25;
-            ConceptosUni.Size = new Size(882, 314);
+            ConceptosUni.Size = new Size(954, 314);
             ConceptosUni.TabIndex = 0;
             ConceptosUni.CellValueChanged += ConceptosUni_CellValueChanged;
             // 
@@ -504,7 +498,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(383, 665);
+            label11.Location = new Point(782, 665);
             label11.Name = "label11";
             label11.Size = new Size(51, 15);
             label11.TabIndex = 79;
@@ -513,17 +507,37 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(513, 665);
+            label12.Location = new Point(964, 665);
             label12.Name = "label12";
             label12.Size = new Size(47, 15);
             label12.TabIndex = 80;
             label12.Text = "Egresos";
             // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(689, 665);
+            label13.Name = "label13";
+            label13.Size = new Size(87, 15);
+            label13.TabIndex = 81;
+            label13.Text = "Costo de Renta";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(911, 665);
+            label14.Name = "label14";
+            label14.Size = new Size(47, 15);
+            label14.TabIndex = 82;
+            label14.Text = "Egresos";
+            // 
             // CEventos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1223, 708);
+            ClientSize = new Size(1284, 708);
+            Controls.Add(label14);
+            Controls.Add(label13);
             Controls.Add(label12);
             Controls.Add(label11);
             Controls.Add(pictureBox1);
@@ -534,8 +548,6 @@
             Controls.Add(menuStrip1);
             Controls.Add(label9);
             Controls.Add(label10);
-            Controls.Add(label8);
-            Controls.Add(label7);
             Controls.Add(button1);
             Controls.Add(label6);
             Controls.Add(flowLayoutPanel1);
@@ -552,7 +564,7 @@
             Location = new Point(1310, 130);
             Name = "CEventos";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "CEventos";
+            Text = "Eventos";
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)ConceptosPaquetes).EndInit();
@@ -588,8 +600,6 @@
         private DataGridView ConceptosPaquetes;
         private Button button1;
         private Label label6;
-        private Label label7;
-        private Label label8;
         private Label label9;
         private Label label10;
         private ToolStrip toolStrip1;
@@ -624,5 +634,8 @@
         private ToolStripMenuItem salirToolStripMenuItem;
         private Label label11;
         private Label label12;
+        private Label label13;
+        private Label label14;
+        private ToolStripButton toolStripButton1;
     }
 }

@@ -253,6 +253,7 @@ namespace DCCEVENTOS
         private void toolStripGuardar_Click(object sender, EventArgs e)
         {
             AgregarRegistro();
+            Nuevo();
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)

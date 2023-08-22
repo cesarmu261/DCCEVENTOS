@@ -416,7 +416,7 @@
             Controls.Add(label1);
             Name = "ConsultaDeEventos";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Consulta De Eventos";
+            Text = "Reporte De Eventos";
             ((System.ComponentModel.ISupportInitialize)DTGEventos).EndInit();
             ((System.ComponentModel.ISupportInitialize)DTGDetalles).EndInit();
             toolStrip1.ResumeLayout(false);

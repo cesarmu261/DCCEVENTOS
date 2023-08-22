@@ -406,7 +406,7 @@
             Controls.Add(label2);
             Name = "CConcepto";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "CConcepto";
+            Text = "Concepto";
             ((System.ComponentModel.ISupportInitialize)conceptosexistentes).EndInit();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();

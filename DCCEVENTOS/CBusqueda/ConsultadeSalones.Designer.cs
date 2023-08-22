@@ -1,6 +1,6 @@
 ﻿namespace DCCEVENTOS.CBusqueda
 {
-    partial class ConsultaPorcentaje
+    partial class ConsultadeSalones
     {
         /// <summary>
         /// Required designer variable.
@@ -37,10 +37,10 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(87, 21);
+            textBox1.Location = new Point(87, 6);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(267, 23);
-            textBox1.TabIndex = 64;
+            textBox1.TabIndex = 72;
             textBox1.KeyPress += textBox1_KeyPress;
             // 
             // dataGridView1
@@ -48,24 +48,25 @@
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Dock = DockStyle.Bottom;
-            dataGridView1.Location = new Point(0, 60);
+            dataGridView1.Location = new Point(0, 52);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(804, 271);
-            dataGridView1.TabIndex = 63;
+            dataGridView1.Size = new Size(800, 271);
+            dataGridView1.TabIndex = 71;
             dataGridView1.DoubleClick += dataGridView1_DoubleClick;
             // 
             // BTNBus
             // 
-            BTNBus.Location = new Point(371, 21);
+            BTNBus.Location = new Point(371, 6);
             BTNBus.Name = "BTNBus";
             BTNBus.Size = new Size(144, 23);
-            BTNBus.TabIndex = 62;
+            BTNBus.TabIndex = 70;
             BTNBus.Text = "Buscar";
             BTNBus.UseVisualStyleBackColor = true;
             BTNBus.Click += BTNBus_Click;
@@ -73,24 +74,23 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(3, 22);
+            label1.Location = new Point(3, 7);
             label1.Name = "label1";
             label1.Size = new Size(69, 15);
-            label1.TabIndex = 61;
+            label1.TabIndex = 69;
             label1.Text = "Descripcion";
             // 
-            // ConsultaPorcentaje
+            // ConsultadeSalones
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(804, 331);
+            ClientSize = new Size(800, 323);
             Controls.Add(textBox1);
             Controls.Add(dataGridView1);
             Controls.Add(BTNBus);
             Controls.Add(label1);
-            Name = "ConsultaPorcentaje";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Consulta de Porcentaje";
+            Name = "ConsultadeSalones";
+            Text = "ConsultadeSalones";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

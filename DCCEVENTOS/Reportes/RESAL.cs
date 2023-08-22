@@ -35,7 +35,7 @@ namespace DCCEVENTOS.Reportes
             tableAdapter.Connection = (SqlConnection)coneccion;
             //foreach (int valor in valores)
             //{
-            tableAdapter.Fill(dataSet.sp_DetalleEventosalon,valor );
+            tableAdapter.Fill(dataSet.sp_DetalleEventosalon, valor);
             // Agregar los datos a las fuentes de datos
             ReportDataSource reportDataSources = new ReportDataSource("DataSet1", dataSet.Tables["sp_DetalleEventosalon"]);
             //}

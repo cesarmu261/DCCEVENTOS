@@ -145,5 +145,9 @@ namespace DatosManejo
         {
             return contexto.SaEventoSalones.Where(a => a.DesSalon == nombre).FirstOrDefault().CodSalon;
         }
+        public string  Obtenedescripcioncod(int? cod)
+        {
+            return contexto.SaEventoSalones.Where(a => a.CodSalon == cod).FirstOrDefault().DesSalon;
+        }
     }
 }

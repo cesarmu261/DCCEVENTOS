@@ -41,7 +41,7 @@ namespace DCCEVENTOS.Calendario
             dia_estat = Lbdia.Text;
             //timer1.Start();
             CEventos form = new CEventos();
-            form.ShowDialog();
+            form.Show();
 
         }
         EventosContext contexto = new EventosContext();
