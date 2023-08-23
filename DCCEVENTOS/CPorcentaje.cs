@@ -19,6 +19,7 @@ namespace DCCEVENTOS
             nporcentaje = new NPorcentaje();
             nestado = new NEstado();
             CargarInformacion();
+            CPrincipal.CambiarMaysucula(TbDes);
         }
         private void CargarInformacion()
         {

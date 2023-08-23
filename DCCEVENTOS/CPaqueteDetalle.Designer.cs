@@ -227,7 +227,7 @@
             toolStripButton1.ImageTransparentColor = Color.Magenta;
             toolStripButton1.Name = "toolStripButton1";
             toolStripButton1.Size = new Size(28, 28);
-            toolStripButton1.Text = "toolStripButton1";
+            toolStripButton1.Text = "Actualizar";
             toolStripButton1.Click += toolStripButton1_Click;
             // 
             // toolStripSeparator1

@@ -27,6 +27,8 @@ namespace DCCEVENTOS
             nsalones = new NSalones();
             nestado = new NEstado();
             CargarInformacion();
+            CPrincipal.CambiarMaysucula(TbDes);
+            CPrincipal.CambiarMaysucula(textBox1);
         }
         private void Nuevo()
         {

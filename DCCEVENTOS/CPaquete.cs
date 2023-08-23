@@ -6,6 +6,7 @@ using InfoCompartidaCaps;
 using Negocio;
 using System.Data;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DCCEVENTOS
 {
@@ -20,6 +21,7 @@ namespace DCCEVENTOS
             npaquete = new NPaquete();
             nestado = new NEstado();
             CargarInformacion();
+            CPrincipal.CambiarMaysucula(TbDes);
         }
 
         private void CargarInformacion()

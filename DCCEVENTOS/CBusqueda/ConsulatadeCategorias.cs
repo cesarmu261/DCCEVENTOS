@@ -1,4 +1,5 @@
-﻿using Negocio;
+﻿using DCCEVENTOS.Reportes;
+using Negocio;
 using System.Data;
 
 namespace DCCEVENTOS.CBusqueda
@@ -11,6 +12,7 @@ namespace DCCEVENTOS.CBusqueda
         {
             InitializeComponent();
             ncategoria = new NCategoria();
+            CPrincipal.CambiarMaysucula(textBox1);
         }
         private void CargarInformacion()
         {

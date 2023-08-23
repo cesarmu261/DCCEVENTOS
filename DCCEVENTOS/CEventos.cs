@@ -38,6 +38,10 @@ namespace DCCEVENTOS
             ncliente = new NCliente();
             nCategoria = new NCategoria();
             Cargainformacion();
+            CPrincipal.CambiarMaysucula(textBox1);
+            CPrincipal.CambiarMaysucula(textBox2);
+            CPrincipal.CambiarMaysucula(textBox3);
+
         }
         public void Cargainformacion()
         {

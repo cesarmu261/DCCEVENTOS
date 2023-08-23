@@ -1,9 +1,11 @@
 ﻿using Datos;
 using DatosManejo;
 using DCCEVENTOS.CBusqueda;
+using DCCEVENTOS.Reportes;
 using Entidades;
 using InfoCompartidaCaps;
 using Microsoft.Extensions.Logging;
+using Microsoft.Win32;
 using Negocio;
 using System.Data;
 using System.Drawing;
@@ -29,6 +31,7 @@ namespace DCCEVENTOS
             nestado = new NEstado();
             nPaDetalle = new NPaDetalle();
             Cargainformacion();
+            CPrincipal.CambiarMaysucula(Coddp);
         }
 
         public void DTG()
@@ -59,49 +62,53 @@ namespace DCCEVENTOS
         }
         private void Buscar()
         {
-
-            //ConsultaPaqueteD consulta = new ConsultaPaqueteD();
-            //consulta.ShowDialog();
-            ConsultadePaquete consulta = new ConsultadePaquete();
-            consulta.ShowDialog();
-            EventosContext context = new EventosContext();
-            List<SaEvePaqueteDetalle> List = new DMPaDetalle(context).Obtener(0, 0, NPaquete.SSCod);
-            foreach (var datos in List)
+            try
             {
+                //ConsultaPaqueteD consulta = new ConsultaPaqueteD();
+                //consulta.ShowDialog();
 
-                codigosDetalle.Add(datos.CodDetallepaq);
-                // Resto del código...
-                Coddp.Text = Convert.ToString(datos.CodDp);
-                //CBPaquete.Text = Convert.ToString(datos.CodPaquete);
-                string valorDeseado = nestado.ObtenerDescripcione(datos.CodEstado); // Valor que deseas seleccionar
-                int indice = CBEstado.FindStringExact(valorDeseado);
-                if (indice != -1)
-                {
-                    CBEstado.SelectedIndex = indice; // Establecer el índice seleccionado
-                }
-
-                //tablas conceptos con cantidades 
-                DataGridViewRow row = new DataGridViewRow();
-                EventosContext contexto = new EventosContext();
-                List<SaEveConcepto> conceptosList = new DMConceptos(contexto).Obtener((int)datos.CodConceptos);
-                foreach (SaEveConcepto concepto in conceptosList)
+                EventosContext context = new EventosContext();
+                List<SaEvePaqueteDetalle> List = new DMPaDetalle(context).Obtener(0, 0, NPaquete.SSCod);
+                foreach (var datos in List)
                 {
 
-                    row.CreateCells(dataGridView1);
-                    row.Cells[0].Value = datos.CodConceptos;
-                    row.Cells[1].Value = concepto.DesConceptos;
-                    row.Cells[2].Value = concepto.Cantidad;
-                    dataGridView1.Rows.Add(row);
+                    codigosDetalle.Add(datos.CodDetallepaq);
+                    // Resto del código...
+                    Coddp.Text = Convert.ToString(datos.CodDp);
+                    //CBPaquete.Text = Convert.ToString(datos.CodPaquete);
+                    string valorDeseado = nestado.ObtenerDescripcione(datos.CodEstado); // Valor que deseas seleccionar
+                    int indice = CBEstado.FindStringExact(valorDeseado);
+                    if (indice != -1)
+                    {
+                        CBEstado.SelectedIndex = indice; // Establecer el índice seleccionado
+                    }
 
-                }
-                string Vp = npaquete.ObtenerDescripcione(datos.CodPaquete);
-                int icp = CBPaquete.FindStringExact(Vp);
-                if (icp != -1)
-                {
-                    CBPaquete.SelectedIndex = icp; // Set the selected index for CBPaquete
+                    //tablas conceptos con cantidades 
+                    DataGridViewRow row = new DataGridViewRow();
+                    EventosContext contexto = new EventosContext();
+                    List<SaEveConcepto> conceptosList = new DMConceptos(contexto).Obtener((int)datos.CodConceptos);
+                    foreach (SaEveConcepto concepto in conceptosList)
+                    {
+
+                        row.CreateCells(dataGridView1);
+                        row.Cells[0].Value = datos.CodConceptos;
+                        row.Cells[1].Value = concepto.DesConceptos;
+                        row.Cells[2].Value = concepto.Cantidad;
+                        dataGridView1.Rows.Add(row);
+
+                    }
+                    string Vp = npaquete.ObtenerDescripcione(datos.CodPaquete);
+                    int icp = CBPaquete.FindStringExact(Vp);
+                    if (icp != -1)
+                    {
+                        CBPaquete.SelectedIndex = icp; // Set the selected index for CBPaquete
+                    }
                 }
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("DEBIO OCURRIR ALGO EN BUSCAR");
+            }
         }
         private bool DatoExisteEnDataGridView(string dato)
         {
@@ -164,26 +171,33 @@ namespace DCCEVENTOS
         }
         public void Eliminar()
         {
-            string SSCod;
-            SSCod = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-            SaEvePaqueteDetalle concepto = new SaEvePaqueteDetalle();
-            EventosContext context = new EventosContext();
-
-            //concepto.CodDetallepaq = 
-            concepto.CodDp = Convert.ToInt32(Coddp.Text);
-            concepto.CodPaquete = (int?)npaquete.ObtenerDescripcionesCod(CBPaquete.SelectedItem.ToString());
-            concepto.CodConceptos = Convert.ToInt32(SSCod);
-            concepto.CodEstado = nestado.ObtenerDescripcionesCod(CBEstado.SelectedItem.ToString());
-            List<SaEvePaqueteDetalle> list = new DMPaDetalle(context).Obtener(0, (int)concepto.CodDp, (int)concepto.CodPaquete, (int)concepto.CodConceptos, concepto.CodEstado);
-            foreach (SaEvePaqueteDetalle dat in list)
+            try
             {
-                concepto.CodDetallepaq = dat.CodDetallepaq;
+                string SSCod;
+                SSCod = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                SaEvePaqueteDetalle concepto = new SaEvePaqueteDetalle();
+                EventosContext context = new EventosContext();
+
+                //concepto.CodDetallepaq = 
+                concepto.CodDp = Convert.ToInt32(Coddp.Text);
+                concepto.CodPaquete = (int?)npaquete.ObtenerDescripcionesCod(CBPaquete.SelectedItem.ToString());
+                concepto.CodConceptos = Convert.ToInt32(SSCod);
+                concepto.CodEstado = nestado.ObtenerDescripcionesCod(CBEstado.SelectedItem.ToString());
+                List<SaEvePaqueteDetalle> list = new DMPaDetalle(context).Obtener(0, (int)concepto.CodDp, (int)concepto.CodPaquete, (int)concepto.CodConceptos, concepto.CodEstado);
+                foreach (SaEvePaqueteDetalle dat in list)
+                {
+                    concepto.CodDetallepaq = dat.CodDetallepaq;
+                }
+
+                InfoCompartidaCapas rGuardar = nPaDetalle.Eliminar(concepto);
+                if (!String.IsNullOrEmpty(rGuardar.error))
+                {
+                    MessageBox.Show(rGuardar.error);
+                }
             }
-
-            InfoCompartidaCapas rGuardar = nPaDetalle.Eliminar(concepto);
-            if (!String.IsNullOrEmpty(rGuardar.error))
+            catch (Exception e)
             {
-                MessageBox.Show(rGuardar.error);
+                MessageBox.Show("OCURRIO ALGO EN MODIFICAR EL REGISTRO");
             }
         }
         private void AgregarRegistro()
@@ -196,41 +210,41 @@ namespace DCCEVENTOS
                     MessageBox.Show("DEBE CAPTURAR TODOS LOS DATOS PARA EL REGISTRO");
                     return; // Salir del método sin agregar el registro
                 }
-                
+
                 int columnaIndex = 0;
                 int ultimaFilaIndex = dataGridView1.Rows.Count - 1;
                 for (int filaIndex = 0; filaIndex < ultimaFilaIndex; filaIndex++)
                 {
-                    
-                        DataGridViewCell celda = dataGridView1[columnaIndex, filaIndex];
 
-                        if (celda.Value != null)
+                    DataGridViewCell celda = dataGridView1[columnaIndex, filaIndex];
+
+                    if (celda.Value != null)
+                    {
+                        string valor = celda.Value.ToString();
+
+                        SaEvePaqueteDetalle concepto = new SaEvePaqueteDetalle();
+                        concepto.CodDp = Convert.ToInt32(Coddp.Text);
+                        concepto.CodPaquete = (int?)npaquete.ObtenerDescripcionesCod(CBPaquete.SelectedItem.ToString());
+                        concepto.CodConceptos = Convert.ToInt32(valor);
+                        concepto.CodEstado = nestado.ObtenerDescripcionesCod(CBEstado.SelectedItem.ToString());
+
+                        bool existeRegistro = nPaDetalle.ExisteRegistro(concepto);
+                        if (!existeRegistro)
                         {
-                            string valor = celda.Value.ToString();
-
-                            SaEvePaqueteDetalle concepto = new SaEvePaqueteDetalle();
-                            concepto.CodDp = Convert.ToInt32(Coddp.Text);
-                            concepto.CodPaquete = (int?)npaquete.ObtenerDescripcionesCod(CBPaquete.SelectedItem.ToString());
-                            concepto.CodConceptos = Convert.ToInt32(valor);
-                            concepto.CodEstado = nestado.ObtenerDescripcionesCod(CBEstado.SelectedItem.ToString());
-
-                            bool existeRegistro = nPaDetalle.ExisteRegistro(concepto);
-                            if (!existeRegistro)
+                            InfoCompartidaCapas rGuardar = nPaDetalle.Guardar(concepto);
+                            if (!String.IsNullOrEmpty(rGuardar.error))
                             {
-                                InfoCompartidaCapas rGuardar = nPaDetalle.Guardar(concepto);
-                                if (!String.IsNullOrEmpty(rGuardar.error))
-                                {
-                                    MessageBox.Show(rGuardar.error);
-                                }
+                                MessageBox.Show(rGuardar.error);
                             }
                         }
                     }
-                
+                }
+
 
             }
             catch (Exception e)
             {
-                MessageBox.Show("DEBE CAPTURAR TODOS LOS DATOS PARA hacer claculos");
+                MessageBox.Show("OCURRIO ALGO EN AGREGAR EL REGISTRO");
             }
         }
         private void button1_Click(object sender, EventArgs e)
@@ -248,17 +262,20 @@ namespace DCCEVENTOS
         private void toolStripGuardar_Click(object sender, EventArgs e)
         {
             AgregarRegistro();
-            Nuevo();
+            Buscar();
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
+            AgregarRegistro();
+            Buscar();
         }
 
         private void toolStripBuscar_Click(object sender, EventArgs e)
         {
-
             Nuevo();
+            ConsultadePaquete consulta = new ConsultadePaquete();
+            consulta.ShowDialog();
             Buscar();
         }
 
@@ -275,16 +292,20 @@ namespace DCCEVENTOS
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AgregarRegistro();
+            Buscar();
         }
 
         private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            AgregarRegistro();
+            Buscar();
         }
 
         private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Nuevo();
+            ConsultadePaquete consulta = new ConsultadePaquete();
+            consulta.ShowDialog();
             Buscar();
         }
 
@@ -305,43 +326,8 @@ namespace DCCEVENTOS
                 }
             }
             Eliminar();
-            EventosContext context = new EventosContext();
-            List<SaEvePaqueteDetalle> List = new DMPaDetalle(context).Obtener(0, 0, NPaquete.SSCod);
-            foreach (var datos in List)
-            {
-
-                codigosDetalle.Add(datos.CodDetallepaq);
-                // Resto del código...
-                Coddp.Text = Convert.ToString(datos.CodDp);
-                //CBPaquete.Text = Convert.ToString(datos.CodPaquete);
-                string valorDeseado = nestado.ObtenerDescripcione(datos.CodEstado); // Valor que deseas seleccionar
-                int indice = CBEstado.FindStringExact(valorDeseado);
-                if (indice != -1)
-                {
-                    CBEstado.SelectedIndex = indice; // Establecer el índice seleccionado
-                }
-
-                //tablas conceptos con cantidades 
-                DataGridViewRow row = new DataGridViewRow();
-                EventosContext contexto = new EventosContext();
-                List<SaEveConcepto> conceptosList = new DMConceptos(contexto).Obtener((int)datos.CodConceptos);
-                foreach (SaEveConcepto concepto in conceptosList)
-                {
-
-                    row.CreateCells(dataGridView1);
-                    row.Cells[0].Value = datos.CodConceptos;
-                    row.Cells[1].Value = concepto.DesConceptos;
-                    row.Cells[2].Value = concepto.Cantidad;
-                    dataGridView1.Rows.Add(row);
-
-                }
-                string Vp = npaquete.ObtenerDescripcione(datos.CodPaquete);
-                int icp = CBPaquete.FindStringExact(Vp);
-                if (icp != -1)
-                {
-                    CBPaquete.SelectedIndex = icp; // Set the selected index for CBPaquete
-                }
-            }
+            dataGridView1.Rows.Clear();
+            Buscar();
 
         }
     }

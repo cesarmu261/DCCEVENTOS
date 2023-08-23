@@ -1,6 +1,7 @@
 ﻿using Datos;
 using DatosManejo;
 using DCCEVENTOS.CBusqueda;
+using DCCEVENTOS.Reportes;
 using Entidades;
 using InfoCompartidaCaps;
 using Microsoft.VisualBasic;
@@ -13,6 +14,8 @@ namespace DCCEVENTOS
         private NEstado nestado;
         private NRegimen nregimen;
         private NCliente nCliente;
+
+        
         public CClientes()
         {
             InitializeComponent();
@@ -20,6 +23,19 @@ namespace DCCEVENTOS
             nCliente = new NCliente();
             nregimen = new NRegimen();
             Cargainformacion();
+            CPrincipal.CambiarMaysucula(TbCodter);
+            CPrincipal.CambiarMaysucula(textBox1);
+            CPrincipal.CambiarMaysucula(textBox2);
+            CPrincipal.CambiarMaysucula(textBox3);
+            CPrincipal.CambiarMaysucula(textBox4);
+            CPrincipal.CambiarMaysucula(textBox5);
+            CPrincipal.CambiarMaysucula(textBox6);
+            CPrincipal.CambiarMaysucula(textBox7);
+            CPrincipal.CambiarMaysucula(textBox8);
+            CPrincipal.CambiarMaysucula(textBox9);
+            CPrincipal.CambiarMaysucula(textBox10);
+            CPrincipal.CambiarMaysucula(textBox11);
+            CPrincipal.CambiarMaysucula(textBox12);
         }
         public void Cargainformacion()
         {

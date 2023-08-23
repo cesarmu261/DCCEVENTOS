@@ -39,6 +39,8 @@ namespace DCCEVENTOS.CBusqueda
                 CBSalones.DataSource = salones;
                 CBSalones.Refresh();
             }
+            CPrincipal.CambiarMaysucula(TBClientes);
+            CPrincipal.CambiarMaysucula(TBDescripcion);
         }
         private void Nuevo()
         {

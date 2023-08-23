@@ -98,6 +98,7 @@
             button1 = new Button();
             label23 = new Label();
             label24 = new Label();
+            pictureBox1 = new PictureBox();
             toolStrip1.SuspendLayout();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DTGDetalles).BeginInit();
@@ -106,6 +107,7 @@
             toolStripContainer1.SuspendLayout();
             toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // toolStrip1
@@ -152,6 +154,7 @@
             toolStripBuscar.Size = new Size(28, 28);
             toolStripBuscar.Text = "Buscar Clientes";
             toolStripBuscar.ToolTipText = "Buscar";
+            toolStripBuscar.Click += toolStripBuscar_Click;
             // 
             // toolStripSeparator2
             // 
@@ -730,11 +733,23 @@
             label24.TabIndex = 112;
             label24.Text = "Costo Total";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(112, 147);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(15, 15);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 113;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // CEventoEdit
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1501, 841);
+            Controls.Add(pictureBox1);
             Controls.Add(label24);
             Controls.Add(label23);
             Controls.Add(button1);
@@ -767,7 +782,7 @@
             Controls.Add(menuStrip1);
             Name = "CEventoEdit";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "CEventoEdit";
+            Text = "Editar Evento";
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             menuStrip1.ResumeLayout(false);
@@ -782,6 +797,7 @@
             toolStrip2.ResumeLayout(false);
             toolStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -857,5 +873,6 @@
         private Button button1;
         private Label label23;
         private Label label24;
+        private PictureBox pictureBox1;
     }
 }

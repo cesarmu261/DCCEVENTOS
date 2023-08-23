@@ -1,6 +1,7 @@
 ﻿using Datos;
 using DatosManejo;
 using DCCEVENTOS.CBusqueda;
+using DCCEVENTOS.Reportes;
 using Entidades;
 using InfoCompartidaCaps;
 using Negocio;
@@ -14,12 +15,16 @@ namespace DCCEVENTOS
         private DataTable tablacategoria = new DataTable();
         private NCategoria ncategoria;
         private NEstado nestado;
+        
+        
         public CCategoria()
         {
             InitializeComponent();
             ncategoria = new NCategoria();
             nestado = new NEstado();
             CargarInformacion();
+            CPrincipal.CambiarMaysucula(TbDes);
+            
         }
         private void Nuevo()
         {

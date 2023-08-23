@@ -47,19 +47,15 @@
                           <TextRuns>
                             <TextRun>
                               <Value>CODIGO</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
-                        </Paragraph>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox2</rd:DefaultName>
@@ -86,10 +82,15 @@
                           <TextRuns>
                             <TextRun>
                               <Value>CONCEPTOS</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox4</rd:DefaultName>
@@ -116,10 +117,15 @@
                           <TextRuns>
                             <TextRun>
                               <Value>PAQUETE</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox6</rd:DefaultName>
@@ -146,10 +152,15 @@
                           <TextRuns>
                             <TextRun>
                               <Value>COSTOS CONCEPTO</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox8</rd:DefaultName>
@@ -176,10 +187,15 @@
                           <TextRuns>
                             <TextRun>
                               <Value>COSTO</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox10</rd:DefaultName>
@@ -206,10 +222,15 @@
                           <TextRuns>
                             <TextRun>
                               <Value>CANTIDAD</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox12</rd:DefaultName>
@@ -236,10 +257,15 @@
                           <TextRuns>
                             <TextRun>
                               <Value>CATEGORIA</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox18</rd:DefaultName>
@@ -266,10 +292,15 @@
                           <TextRuns>
                             <TextRun>
                               <Value>DESCUENTO</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox16</rd:DefaultName>
@@ -296,10 +327,15 @@
                           <TextRuns>
                             <TextRun>
                               <Value>COSTO TOTAL</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox19</rd:DefaultName>
@@ -331,7 +367,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!COD_CONCEPTOS.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -361,7 +399,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!DES_CONCEPTOS.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -391,7 +431,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!COD_DETALLES.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -421,7 +463,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!COSTOS_CONCEPTO.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -451,7 +495,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!COSTOPRECIO.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -481,7 +527,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!CANTIDAD.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -511,7 +559,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!DES_CATEGORIA.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -541,10 +591,14 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!DESCUENTO.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>DESCUENTO</rd:DefaultName>
@@ -571,10 +625,14 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!CostoTotal.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>CostoTotal</rd:DefaultName>
@@ -619,14 +677,15 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>5.75cm</Top>
-        <Left>0.79057cm</Left>
+        <Top>3.76562cm</Top>
+        <Left>0.97326cm</Left>
         <Height>1.2cm</Height>
         <Width>27.22903cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
+          <FontSize>8pt</FontSize>
         </Style>
       </Tablix>
       <Textbox Name="DES_SALON_EVENTO">
@@ -637,15 +696,17 @@
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!DES_SALON_EVENTO.Value, "DataSet2")</Value>
-                <Style />
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>DES_SALON_EVENTO</rd:DefaultName>
-        <Top>1.91354cm</Top>
-        <Left>5.15779cm</Left>
+        <Top>1.03215cm</Top>
+        <Left>4.28465cm</Left>
         <Height>0.6cm</Height>
         <Width>5.04cm</Width>
         <ZIndex>1</ZIndex>
@@ -667,15 +728,17 @@
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!NOM_CLIENTE.Value, "DataSet2")</Value>
-                <Style />
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>NOM_CLIENTE</rd:DefaultName>
-        <Top>2.99833cm</Top>
-        <Left>5.15779cm</Left>
+        <Top>1.75563cm</Top>
+        <Left>4.28466cm</Left>
         <Height>0.6cm</Height>
         <Width>5.96604cm</Width>
         <ZIndex>2</ZIndex>
@@ -697,15 +760,17 @@
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!DES_EVENTO.Value, "DataSet2")</Value>
-                <Style />
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>DES_EVENTO</rd:DefaultName>
-        <Top>3.95083cm</Top>
-        <Left>5.2107cm</Left>
+        <Top>2.68167cm</Top>
+        <Left>4.28465cm</Left>
         <Height>0.6cm</Height>
         <Width>5.91313cm</Width>
         <ZIndex>3</ZIndex>
@@ -727,15 +792,19 @@
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!FECHA.Value, "DataSet2")</Value>
-                <Style />
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>FECHA</rd:DefaultName>
-        <Top>0.61708cm</Top>
-        <Left>24.2062cm</Left>
+        <Top>0.25576cm</Top>
+        <Left>23.85272cm</Left>
         <Height>0.6cm</Height>
         <Width>4.16688cm</Width>
         <ZIndex>4</ZIndex>
@@ -758,7 +827,7 @@
               <TextRun>
                 <Value>=First(Fields!OBSERVACIONES.Value, "DataSet2")</Value>
                 <Style>
-                  <FontSize>15pt</FontSize>
+                  <FontSize>8pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -766,9 +835,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>OBSERVACIONES</rd:DefaultName>
-        <Top>2.65438cm</Top>
-        <Left>22.19536cm</Left>
-        <Height>1.89646cm</Height>
+        <Top>1.63215cm</Top>
+        <Left>21.96714cm</Left>
+        <Height>0.6cm</Height>
         <Width>6.17771cm</Width>
         <ZIndex>5</ZIndex>
         <Style>
@@ -789,17 +858,21 @@
             <TextRuns>
               <TextRun>
                 <Value>=Sum(Fields!COD_EVENTO.Value, "DataSet2")</Value>
-                <Style />
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>COD_EVENTO</rd:DefaultName>
-        <Top>0.90812cm</Top>
-        <Left>5.15779cm</Left>
+        <Top>0.25576cm</Top>
+        <Left>4.28466cm</Left>
         <Height>0.6cm</Height>
-        <Width>3.29375cm</Width>
+        <Width>1.23cm</Width>
         <ZIndex>6</ZIndex>
         <Style>
           <Border>
@@ -819,17 +892,19 @@
             <TextRuns>
               <TextRun>
                 <Value>CODIGO DE  EVENTO:</Value>
-                <Style />
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox11</rd:DefaultName>
-        <Top>0.88166cm</Top>
-        <Left>0.79057cm</Left>
+        <Top>0.17639cm</Top>
+        <Left>0.97327cm</Left>
         <Height>0.6cm</Height>
-        <Width>4.00812cm</Width>
+        <Width>3.08208cm</Width>
         <ZIndex>7</ZIndex>
         <Style>
           <Border>
@@ -849,15 +924,17 @@
             <TextRuns>
               <TextRun>
                 <Value>FECHA</Value>
-                <Style />
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>0.61708cm</Top>
-        <Left>22.19536cm</Left>
+        <Top>0.25576cm</Top>
+        <Left>21.96714cm</Left>
         <Height>0.6cm</Height>
         <Width>1.5475cm</Width>
         <ZIndex>8</ZIndex>
@@ -879,17 +956,19 @@
             <TextRuns>
               <TextRun>
                 <Value>SALON DEL EVENTO:</Value>
-                <Style />
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox15</rd:DefaultName>
-        <Top>1.91354cm</Top>
-        <Left>0.79057cm</Left>
+        <Top>0.97924cm</Top>
+        <Left>0.97326cm</Left>
         <Height>0.6cm</Height>
-        <Width>4.00812cm</Width>
+        <Width>3.08209cm</Width>
         <ZIndex>9</ZIndex>
         <Style>
           <Border>
@@ -909,17 +988,19 @@
             <TextRuns>
               <TextRun>
                 <Value>NOMBRE DE CLIENTE:</Value>
-                <Style />
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox15</rd:DefaultName>
-        <Top>2.99833cm</Top>
-        <Left>0.79058cm</Left>
+        <Top>1.75563cm</Top>
+        <Left>0.97327cm</Left>
         <Height>0.6cm</Height>
-        <Width>4.00812cm</Width>
+        <Width>3.08208cm</Width>
         <ZIndex>10</ZIndex>
         <Style>
           <Border>
@@ -939,15 +1020,17 @@
             <TextRuns>
               <TextRun>
                 <Value>OBSERVACIONES:</Value>
-                <Style />
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>1.94854cm</Top>
-        <Left>22.19536cm</Left>
+        <Top>0.92631cm</Top>
+        <Left>21.96714cm</Left>
         <Height>0.6cm</Height>
         <Width>3.55176cm</Width>
         <ZIndex>11</ZIndex>
@@ -969,17 +1052,19 @@
             <TextRuns>
               <TextRun>
                 <Value>NOMBRE DE EVENTO:</Value>
-                <Style />
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox21</rd:DefaultName>
-        <Top>3.95083cm</Top>
-        <Left>0.79057cm</Left>
+        <Top>2.70813cm</Top>
+        <Left>0.97326cm</Left>
         <Height>0.6cm</Height>
-        <Width>4.00812cm</Width>
+        <Width>3.08209cm</Width>
         <ZIndex>12</ZIndex>
         <Style>
           <Border>
@@ -999,17 +1084,21 @@
             <TextRuns>
               <TextRun>
                 <Value>=Sum(Fields!CostoTotal.Value, "DataSet1")</Value>
-                <Style />
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>10.96201cm</Top>
-        <Left>25.5196cm</Left>
+        <Top>5.77618cm</Top>
+        <Left>25.35245cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.5cm</Width>
+        <Width>2.84984cm</Width>
         <ZIndex>13</ZIndex>
         <Style>
           <Border>
@@ -1028,18 +1117,20 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>COSTO TOTAL</Value>
-                <Style />
+                <Value>COSTO TOTAL =</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox14</rd:DefaultName>
-        <Top>10.96201cm</Top>
-        <Left>22.19536cm</Left>
+        <Top>5.77618cm</Top>
+        <Left>22.56326cm</Left>
         <Height>0.6cm</Height>
-        <Width>3.21841cm</Width>
+        <Width>2.6128cm</Width>
         <ZIndex>14</ZIndex>
         <Style>
           <Border>
@@ -1059,15 +1150,19 @@
             <TextRuns>
               <TextRun>
                 <Value>=Sum(IIF(Fields!DES_CATEGORIA.Value = "EGRESOS", CInt(Fields!CostoTotal.Value), 0), "DataSet1")</Value>
-                <Style />
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>11.73839cm</Top>
-        <Left>14.55459cm</Left>
+        <Top>6.55256cm</Top>
+        <Left>19.64983cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>15</ZIndex>
@@ -1089,17 +1184,19 @@
             <TextRuns>
               <TextRun>
                 <Value>EGRESOS =</Value>
-                <Style />
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox5</rd:DefaultName>
-        <Top>11.73839cm</Top>
-        <Left>11.8782cm</Left>
+        <Top>6.55256cm</Top>
+        <Left>17.71427cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.5cm</Width>
+        <Width>1.75917cm</Width>
         <ZIndex>16</ZIndex>
         <Style>
           <Border>
@@ -1119,15 +1216,19 @@
             <TextRuns>
               <TextRun>
                 <Value>=Sum(IIF(Fields!DES_CATEGORIA.Value = "INGRESOS", CInt(Fields!CostoTotal.Value), 0), "DataSet1")</Value>
-                <Style />
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>10.96201cm</Top>
-        <Left>14.55459cm</Left>
+        <Top>5.77618cm</Top>
+        <Left>19.64983cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>17</ZIndex>
@@ -1149,17 +1250,19 @@
             <TextRuns>
               <TextRun>
                 <Value>COSTO  DE RENTA =</Value>
-                <Style />
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox5</rd:DefaultName>
-        <Top>10.96201cm</Top>
-        <Left>10.71403cm</Left>
+        <Top>5.77618cm</Top>
+        <Left>16.60302cm</Left>
         <Height>0.6cm</Height>
-        <Width>3.66417cm</Width>
+        <Width>2.87042cm</Width>
         <ZIndex>18</ZIndex>
         <Style>
           <Border>
@@ -1178,18 +1281,20 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>INGRESO TOTAL</Value>
-                <Style />
+                <Value>INGRESO TOTAL =</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox14</rd:DefaultName>
-        <Top>12.63812cm</Top>
-        <Left>11.15979cm</Left>
+        <Top>7.45229cm</Top>
+        <Left>16.89407cm</Left>
         <Height>0.6cm</Height>
-        <Width>3.21841cm</Width>
+        <Width>2.57937cm</Width>
         <ZIndex>19</ZIndex>
         <Style>
           <Border>
@@ -1209,15 +1314,19 @@
             <TextRuns>
               <TextRun>
                 <Value>=(Sum(IIF(Fields!DES_CATEGORIA.Value = "INGRESOS", CInt(Fields!CostoTotal.Value), 0), "DataSet1")) -(Sum(IIF(Fields!DES_CATEGORIA.Value = "EGRESOS", CInt(Fields!CostoTotal.Value), 0), "DataSet1"))</Value>
-                <Style />
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>12.63812cm</Top>
-        <Left>14.55459cm</Left>
+        <Top>7.45229cm</Top>
+        <Left>19.64983cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>20</ZIndex>
@@ -1232,13 +1341,13 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>5.54166in</Height>
+    <Height>3.44791in</Height>
     <Style />
   </Body>
-  <Width>11.88925in</Width>
+  <Width>11.38925in</Width>
   <Page>
     <PageHeader>
-      <Height>3.87766cm</Height>
+      <Height>3.05745cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1246,8 +1355,8 @@
           <Source>Embedded</Source>
           <Value>qtq_95</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.81435cm</Top>
-          <Left>6.09675cm</Left>
+          <Top>0.28518cm</Top>
+          <Left>5.15779cm</Left>
           <Height>2.24896cm</Height>
           <Width>2.35479cm</Width>
           <Style>
@@ -1273,8 +1382,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>0.81435cm</Top>
-          <Left>9.26767cm</Left>
+          <Top>0.28518cm</Top>
+          <Left>8.32871cm</Left>
           <Height>1.27882cm</Height>
           <Width>15.33171cm</Width>
           <ZIndex>1</ZIndex>
@@ -1305,9 +1414,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>2.41067cm</Top>
-          <Left>15.56687cm</Left>
-          <Height>0.65264cm</Height>
+          <Top>1.8815cm</Top>
+          <Left>14.62791cm</Left>
+          <Height>0.82317cm</Height>
           <Width>3.98109cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
@@ -1320,6 +1429,18 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Line Name="Line2">
+          <Top>2.88106cm</Top>
+          <Left>0.97328cm</Left>
+          <Height>0cm</Height>
+          <Width>27.22901cm</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+            </Border>
+          </Style>
+        </Line>
       </ReportItems>
       <Style>
         <Border>
@@ -1328,7 +1449,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>3.06916cm</Height>
+      <Height>2.69874cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1339,57 +1460,21 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Carretera Delicias-Rosales Km. 4                                        Tel. (639) 472 5790           Cel. (639) 501-13-70 </Value>
-                  <Style>
-                    <FontStyle>Normal</FontStyle>
-                    <FontFamily>Times New Roman</FontFamily>
-                    <FontSize>12pt</FontSize>
-                    <FontWeight>Normal</FontWeight>
-                    <TextDecoration>None</TextDecoration>
-                    <Color>#000000</Color>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>Martes a Viernes 8:00am-1:00pm y 3:00pm-6:30pm      /     Sábado 8:00am-2:00pm </Value>
-                  <Style>
-                    <FontStyle>Normal</FontStyle>
-                    <FontFamily>Times New Roman</FontFamily>
-                    <FontSize>12pt</FontSize>
-                    <FontWeight>Normal</FontWeight>
-                    <TextDecoration>None</TextDecoration>
-                    <Color>#000000</Color>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>administracion@deliciascountryclub.com.mx                         Eventos Delicias Country Club</Value>
-                  <Style>
-                    <FontStyle>Normal</FontStyle>
-                    <FontFamily>Times New Roman</FontFamily>
-                    <FontSize>12pt</FontSize>
-                    <FontWeight>Normal</FontWeight>
-                    <TextDecoration>None</TextDecoration>
-                    <Color>#000000</Color>
-                  </Style>
+                  <Value>Carretera Delicias-Rosales Km. 4
+Tel. (639) 472 5790 Cel. (639) 501-13-70 
+Martes a Viernes 8:00am-1:00pm y 3:00pm-6:30pm / Sábado 8:00am-2:00pm 
+administracion@deliciascountryclub.com.mx</Value>
+                  <Style />
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
-          <rd:DefaultName>Textbox22</rd:DefaultName>
-          <Top>0.43187cm</Top>
-          <Left>6.35968cm</Left>
-          <Height>2.08167cm</Height>
-          <Width>18.17283cm</Width>
+          <rd:DefaultName>Textbox6</rd:DefaultName>
+          <Top>0.61736cm</Top>
+          <Left>0.97327cm</Left>
+          <Height>1.83444cm</Height>
+          <Width>14.27396cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1414,9 +1499,9 @@
               <Style />
             </Paragraph>
           </Paragraphs>
-          <rd:DefaultName>Textbox25</rd:DefaultName>
-          <Top>1.91354cm</Top>
-          <Left>25.87307cm</Left>
+          <rd:DefaultName>Textbox8</rd:DefaultName>
+          <Top>1.14653cm</Top>
+          <Left>25.70229cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>1</ZIndex>
@@ -1430,6 +1515,18 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Line Name="Line3">
+          <Top>0.17639cm</Top>
+          <Left>0.97326cm</Left>
+          <Height>0cm</Height>
+          <Width>27.22903cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+            </Border>
+          </Style>
+        </Line>
       </ReportItems>
       <Style>
         <Border>

@@ -568,7 +568,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox35</rd:DefaultName>
@@ -1106,7 +1108,7 @@
     <Height>2.42936in</Height>
     <Style />
   </Body>
-  <Width>11.92105in</Width>
+  <Width>9.31688in</Width>
   <Page>
     <PageHeader>
       <Height>3.23674cm</Height>
@@ -1190,7 +1192,7 @@
           <rd:DefaultName>Textbox4</rd:DefaultName>
           <Top>1.89618cm</Top>
           <Left>11.32417cm</Left>
-          <Height>0.65264cm</Height>
+          <Height>0.84667cm</Height>
           <Width>3.98109cm</Width>
           <ZIndex>3</ZIndex>
           <Style>
@@ -1278,6 +1280,7 @@ administracion@deliciascountryclub.com.mx</Value>
           </Style>
         </Textbox>
         <Line Name="Line1">
+          <Top>0cm</Top>
           <Left>1.15081cm</Left>
           <Height>0cm</Height>
           <Width>21.70605cm</Width>

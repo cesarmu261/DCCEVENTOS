@@ -1,5 +1,6 @@
 ﻿using Datos;
 using DatosManejo;
+using DCCEVENTOS.CBusqueda;
 using DCCEVENTOS.Reportes;
 using Entidades;
 using InfoCompartidaCaps;
@@ -524,6 +525,61 @@ namespace DCCEVENTOS.Editar
             FRE rE = new FRE(cod);
             rE.Cod_Evento = cod;
             rE.Show();
+        }
+
+        private void toolStripBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            ConsultadeEventosDes form = new ConsultadeEventosDes();
+            form.ShowDialog();
+            TBCod.Text = Convert.ToString(NSalones.SSCod);
+            System.Text.RegularExpressions.Regex er = new System.Text.RegularExpressions.Regex("^(?:\\+|-)?\\d+$");
+            if (!er.Match(TBCod.Text).Success)
+            {
+                label22.Visible = true;
+                this.label22.Text = "El campo debe ser un número entero positivo o negativo";
+            }
+
+            else
+            {
+                label22.Visible = false;
+                EventosContext contexto = new EventosContext();
+                int cod = Convert.ToInt32(TBCod.Text);
+                List<SaEvento> List = new DMEvento(contexto).Obtener(cod);
+
+                foreach (var t in List)
+                {
+                    List<SaEveCliente> List2 = new DMCliente(contexto).Obtener(Convert.ToInt32(t.CodCliente));
+                    foreach (var t2 in List2)
+                    {
+                        textBox1.Text = t2.NomCliente.ToString();
+                    }
+                    textBox2.Text = t.DesEvento.ToString();
+                    CBSalones.Text = nsalones.ObtenerNombreTipoSalon((int)t.CodSalon);
+                    string valorDeseado2 = nsalones.ObtenerDescripcioneCod(t.CodSalon); // Valor que deseas seleccionar
+
+                    int indice2 = CBSalones.FindStringExact(valorDeseado2);
+                    if (indice2 != -1)
+                    {
+                        CBSalones.SelectedIndex = indice2; // Establecer el índice seleccionado
+                    }
+                    dateTimePicker1.Value = (DateTime)t.Fecha;
+                    textBox3.Text = t.Observaciones.ToString();
+                    string valorDeseado = nestado.ObtenerDescripcione(t.CodEstado); // Valor que deseas seleccionar
+
+                    int indice = CBEstado.FindStringExact(valorDeseado);
+                    if (indice != -1)
+                    {
+                        CBEstado.SelectedIndex = indice; // Establecer el índice seleccionado
+                    }
+                    CBEstado.Text = nsalones.ObtenerNombreTipoestado(t.CodEstado);
+                    CargarDTG();
+                }
+            }
         }
     }
 }

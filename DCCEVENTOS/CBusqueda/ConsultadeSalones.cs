@@ -20,6 +20,7 @@ namespace DCCEVENTOS.CBusqueda
         {
             InitializeComponent();
             nSalones = new NSalones();
+            CPrincipal.CambiarMaysucula(textBox1);
         }
         private void CargarInformacion()
         {

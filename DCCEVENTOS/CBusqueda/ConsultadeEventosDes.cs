@@ -1,22 +1,32 @@
-﻿using Negocio;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Extensions.Logging;
+using Negocio;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DCCEVENTOS.CBusqueda
 {
-    public partial class ConsultadePaquete : Form
+    public partial class ConsultadeEventosDes : Form
     {
-        private DataTable tablas = new DataTable();
-        private NPaquete npaquete;
-        public ConsultadePaquete()
+        private DataTable table = new DataTable();
+        private NEventos nevento;
+        public ConsultadeEventosDes()
         {
             InitializeComponent();
-            npaquete = new NPaquete();
+            nevento = new NEventos();
             CPrincipal.CambiarMaysucula(textBox1);
         }
         private void CargarInformacion()
         {
-            tablas = npaquete.ObtenerPaquete(textBox1.Text);
-            dataGridView1.DataSource = tablas;
+            table = nevento.Obtener3(0, textBox1.Text);
+            dataGridView1.DataSource = table;
             dataGridView1.Refresh();
         }
 
@@ -24,17 +34,15 @@ namespace DCCEVENTOS.CBusqueda
         {
             CargarInformacion();
         }
-
+        string SSCod;
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            string SSCod;
             DataSet dataSet = new DataSet();
 
             if (dataGridView1.CurrentRow.Index >= 0)
             {
                 SSCod = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-
-                NPaquete.SSCod = Convert.ToInt32(SSCod);
+                NSalones.SSCod = Convert.ToInt32(SSCod);
 
                 base.Close();
             }

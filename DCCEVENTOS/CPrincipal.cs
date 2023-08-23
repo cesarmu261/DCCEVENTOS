@@ -13,6 +13,20 @@ namespace DCCEVENTOS
         DataTable table;
         private NEventos nevento;
         private Calendario.Calendario calendario;
+        public static void CambiarMaysucula(TextBox textBox)
+        {
+            textBox.TextChanged += (sender, e) =>
+            {
+                int selectionStart = textBox.SelectionStart;
+                int selectionLength = textBox.SelectionLength;
+
+                textBox.Text = textBox.Text.ToUpper();
+
+                textBox.SelectionStart = selectionStart;
+                textBox.SelectionLength = selectionLength;
+            };
+        }
+        //EnableAutoUpperCase(TbDes);
         public CPrincipal()
         {
             InitializeComponent();
