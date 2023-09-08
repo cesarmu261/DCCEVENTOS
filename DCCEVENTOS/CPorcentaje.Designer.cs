@@ -76,7 +76,7 @@
             CBESTADO.Location = new Point(99, 127);
             CBESTADO.Name = "CBESTADO";
             CBESTADO.Size = new Size(117, 23);
-            CBESTADO.TabIndex = 4;
+            CBESTADO.TabIndex = 3;
             // 
             // label3
             // 
@@ -110,7 +110,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { opcionesToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(813, 24);
+            menuStrip1.Size = new Size(806, 24);
             menuStrip1.TabIndex = 40;
             menuStrip1.Text = "Opciones";
             // 
@@ -166,7 +166,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripNuevo, toolStripGuardar, toolStripButton1, toolStripSeparator1, toolStripBuscar, toolStripSeparator2, toolStripSalir });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(813, 31);
+            toolStrip1.Size = new Size(806, 31);
             toolStrip1.TabIndex = 41;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -235,6 +235,7 @@
             // 
             // TbPor
             // 
+            TbPor.CharacterCasing = CharacterCasing.Upper;
             TbPor.Location = new Point(99, 96);
             TbPor.Name = "TbPor";
             TbPor.Size = new Size(226, 23);
@@ -242,6 +243,7 @@
             // 
             // TbDes
             // 
+            TbDes.CharacterCasing = CharacterCasing.Upper;
             TbDes.Location = new Point(99, 67);
             TbDes.Name = "TbDes";
             TbDes.Size = new Size(226, 23);
@@ -251,7 +253,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(813, 314);
+            ClientSize = new Size(806, 313);
             Controls.Add(TbDes);
             Controls.Add(TbPor);
             Controls.Add(toolStrip1);

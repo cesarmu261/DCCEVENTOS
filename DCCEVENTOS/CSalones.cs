@@ -27,8 +27,6 @@ namespace DCCEVENTOS
             nsalones = new NSalones();
             nestado = new NEstado();
             CargarInformacion();
-            CPrincipal.CambiarMaysucula(TbDes);
-            CPrincipal.CambiarMaysucula(textBox1);
         }
         private void Nuevo()
         {
@@ -51,7 +49,7 @@ namespace DCCEVENTOS
         public void Buscar()
         {
             toolStripGuardar.Enabled = false;
-            ConsultadeSalones consulta = new ConsultadeSalones();
+            ConsultaTipoTrenasacciones consulta = new ConsultaTipoTrenasacciones();
             consulta.ShowDialog();
             EventosContext contexto = new EventosContext();
             List<SaEventoSalone> List = new DMSalones(contexto).Obtener(NSalones.SSCod);

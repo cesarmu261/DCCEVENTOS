@@ -95,6 +95,7 @@
             // 
             // TbDes
             // 
+            TbDes.CharacterCasing = CharacterCasing.Upper;
             TbDes.Location = new Point(98, 68);
             TbDes.Name = "TbDes";
             TbDes.Size = new Size(141, 23);

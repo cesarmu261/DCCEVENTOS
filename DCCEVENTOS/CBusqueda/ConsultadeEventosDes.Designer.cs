@@ -37,10 +37,11 @@
             // 
             // textBox1
             // 
+            textBox1.CharacterCasing = CharacterCasing.Upper;
             textBox1.Location = new Point(96, 17);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(267, 23);
-            textBox1.TabIndex = 64;
+            textBox1.TabIndex = 1;
             textBox1.KeyPress += textBox1_KeyPress;
             // 
             // dataGridView1
@@ -58,7 +59,7 @@
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(900, 285);
-            dataGridView1.TabIndex = 63;
+            dataGridView1.TabIndex = 0;
             dataGridView1.DoubleClick += dataGridView1_DoubleClick;
             // 
             // BTNBus
@@ -66,7 +67,7 @@
             BTNBus.Location = new Point(380, 17);
             BTNBus.Name = "BTNBus";
             BTNBus.Size = new Size(144, 23);
-            BTNBus.TabIndex = 62;
+            BTNBus.TabIndex = 2;
             BTNBus.Text = "Buscar";
             BTNBus.UseVisualStyleBackColor = true;
             BTNBus.Click += BTNBus_Click;
@@ -77,7 +78,7 @@
             label1.Location = new Point(12, 21);
             label1.Name = "label1";
             label1.Size = new Size(69, 15);
-            label1.TabIndex = 61;
+            label1.TabIndex = 0;
             label1.Text = "Descripcion";
             // 
             // ConsultadeEventosDes

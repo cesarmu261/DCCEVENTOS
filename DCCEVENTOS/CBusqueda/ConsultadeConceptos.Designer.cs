@@ -38,18 +38,18 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(11, 13);
+            label1.Location = new Point(12, 21);
             label1.Name = "label1";
             label1.Size = new Size(69, 15);
-            label1.TabIndex = 56;
+            label1.TabIndex = 0;
             label1.Text = "Descripcion";
             // 
             // BTNBus
             // 
-            BTNBus.Location = new Point(379, 12);
+            BTNBus.Location = new Point(380, 20);
             BTNBus.Name = "BTNBus";
             BTNBus.Size = new Size(144, 23);
-            BTNBus.TabIndex = 58;
+            BTNBus.TabIndex = 2;
             BTNBus.Text = "Buscar";
             BTNBus.UseVisualStyleBackColor = true;
             BTNBus.Click += BTNBus_Click;
@@ -69,15 +69,16 @@
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(804, 258);
-            dataGridView1.TabIndex = 59;
+            dataGridView1.TabIndex = 0;
             dataGridView1.DoubleClick += dataGridView1_DoubleClick;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(95, 12);
+            textBox1.CharacterCasing = CharacterCasing.Upper;
+            textBox1.Location = new Point(96, 20);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(267, 23);
-            textBox1.TabIndex = 60;
+            textBox1.TabIndex = 1;
             textBox1.KeyPress += textBox1_KeyPress;
             // 
             // ConsultadeConceptos

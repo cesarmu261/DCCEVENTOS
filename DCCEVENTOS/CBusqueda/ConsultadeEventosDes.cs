@@ -21,7 +21,7 @@ namespace DCCEVENTOS.CBusqueda
         {
             InitializeComponent();
             nevento = new NEventos();
-            CPrincipal.CambiarMaysucula(textBox1);
+            
         }
         private void CargarInformacion()
         {
@@ -32,7 +32,10 @@ namespace DCCEVENTOS.CBusqueda
 
         private void BTNBus_Click(object sender, EventArgs e)
         {
-            CargarInformacion();
+            
+                CargarInformacion();
+            
+            
         }
         string SSCod;
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
@@ -42,7 +45,7 @@ namespace DCCEVENTOS.CBusqueda
             if (dataGridView1.CurrentRow.Index >= 0)
             {
                 SSCod = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-                NSalones.SSCod = Convert.ToInt32(SSCod);
+                NEventos.SSCod = Convert.ToInt32(SSCod);
 
                 base.Close();
             }

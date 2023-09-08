@@ -31,7 +31,6 @@ namespace DCCEVENTOS
             nestado = new NEstado();
             nPaDetalle = new NPaDetalle();
             Cargainformacion();
-            CPrincipal.CambiarMaysucula(Coddp);
         }
 
         public void DTG()

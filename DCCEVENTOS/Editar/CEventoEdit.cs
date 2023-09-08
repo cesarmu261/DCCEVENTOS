@@ -76,8 +76,6 @@ namespace DCCEVENTOS.Editar
             textBox3.Text = string.Empty;
             CBSalones.SelectedIndex = 0;
             CBEstado.SelectedIndex = 0;
-            //dataGridView1.DataSource = string.Empty;
-            //DTGDetalles.Rows.Clear();
             DTGDetalles.DataSource = null;
             comboBox1.Text = string.Empty;
             textBox4.Text = string.Empty;
@@ -200,8 +198,7 @@ namespace DCCEVENTOS.Editar
         {
             CargarEvento();
         }
-        //public int? CodDetalles, CodEvento, CodDetallepaq, CodConceptos;
-        //public decimal? CostosConcepto, Costoprecio, Cantidad, CodCategoria, Descuento, CostoTotal;
+
         private void DTGDetalles_DoubleClick(object sender, EventArgs e)
         {
             panel1.Visible = true;
@@ -212,37 +209,25 @@ namespace DCCEVENTOS.Editar
 
             foreach (var t in List)
             {
-                //CodDetalles = t.CodDetalles;
-                //CodEvento = t.CodEvento;
-                //CodDetallepaq = t.CodDetallepaq;
-                //CodConceptos = t.CodConceptos;
-                //CostosConcepto = t.CostosConcepto;
-                //Costoprecio = t.Costoprecio;
-                //Cantidad = t.Cantidad;
-                //CodCategoria = t.CodCategoria;
-                //Descuento = t.Descuento;
-                //CostoTotal = t.CostoTotal;
-
                 textBox4.Text = t.CodDetalles.ToString();
                 textBox5.Text = t.CodEvento.ToString();
-                //textBox6.Text = t.CodDetallepaq.ToString();
-                //textBox6.Text = npaquete.ObtenerDescripcione(t.CodDetallepaq);
-                //textBox7.Text = t.CodConceptos.ToString();
-                if (string.IsNullOrEmpty(textBox6.Text))
-                {
-                    textBox6.Text = null;
-                }
-                else
-                {
-                    textBox6.Text = npaquete.ObtenerDescripcione(t.CodDetallepaq);
-                }
+
+                textBox6.Text = npaquete.ObtenerDescripcione(t.CodDetallepaq);
+                //if (string.IsNullOrEmpty(textBox6.Text))
+                //{
+                //    textBox6.Text = null;
+                //}
+                //else
+                //{
+                //    textBox6.Text = npaquete.ObtenerDescripcione(t.CodDetallepaq);
+                //}
+
                 textBox7.Text = nconceptos.ObtenerDescripcione(t.CodConceptos);
-                //textBox11.Text = t.CodCategoria.ToString();
-                string valorcate = nCategoria.ObtenerDescripcione(t.CodCategoria); // Valor que deseas seleccionar
+                string valorcate = nCategoria.ObtenerDescripcione(t.CodCategoria);
                 int ic = comboBox1.FindStringExact(valorcate);
                 if (ic != -1)
                 {
-                    comboBox1.SelectedIndex = ic; // Establecer el índice seleccionado
+                    comboBox1.SelectedIndex = ic;
                 }
                 textBox8.Text = t.CostosConcepto.ToString();
                 textBox9.Text = t.Costoprecio.ToString();
@@ -427,10 +412,6 @@ namespace DCCEVENTOS.Editar
         }
         public void Calculos()
         {
-            //textBox10.Text;//cantidad 
-            //textBox9.Text;//Costoprecio
-            //textBox12.Text;//Descuento
-            //textBox13.Text;//CostoTotal
             decimal Cantidad, CostoPrecio, Descuento, CostoTotal;
             Cantidad = Convert.ToDecimal(textBox10.Text);
             CostoPrecio = Convert.ToDecimal(textBox9.Text);

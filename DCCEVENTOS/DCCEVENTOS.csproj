@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DatosManejo\DatosManejo.csproj" />
     <ProjectReference Include="..\Negocio\Negocio.csproj" />
     <ProjectReference Include="..\TextLabel\TextLabel.csproj" />
   </ItemGroup>

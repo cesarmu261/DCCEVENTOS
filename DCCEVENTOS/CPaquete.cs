@@ -21,7 +21,6 @@ namespace DCCEVENTOS
             npaquete = new NPaquete();
             nestado = new NEstado();
             CargarInformacion();
-            CPrincipal.CambiarMaysucula(TbDes);
         }
 
         private void CargarInformacion()

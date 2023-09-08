@@ -25,5 +25,7 @@ public partial class SaEvento
 
     public virtual SaEventoSalone? CodSalonNavigation { get; set; }
 
+    public virtual ICollection<SaEvePago> SaEvePagos { get; set; } = new List<SaEvePago>();
+
     public virtual ICollection<SaEventoDetalle> SaEventoDetalles { get; set; } = new List<SaEventoDetalle>();
 }

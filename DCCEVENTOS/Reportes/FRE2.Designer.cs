@@ -38,14 +38,14 @@
             reportViewer1.Location = new Point(0, 0);
             reportViewer1.Name = "ReportViewer";
             reportViewer1.ServerReport.BearerToken = null;
-            reportViewer1.Size = new Size(1174, 961);
+            reportViewer1.Size = new Size(884, 861);
             reportViewer1.TabIndex = 0;
             // 
             // FRE2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1174, 961);
+            ClientSize = new Size(884, 861);
             Controls.Add(reportViewer1);
             Name = "FRE2";
             StartPosition = FormStartPosition.CenterScreen;

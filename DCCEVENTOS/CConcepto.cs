@@ -23,7 +23,6 @@ namespace DCCEVENTOS
             nestado = new NEstado();
             ncategoria = new NCategoria();
             CargarInformacion();
-            CPrincipal.CambiarMaysucula(TbDes);
         }
         private void calculos()
         {

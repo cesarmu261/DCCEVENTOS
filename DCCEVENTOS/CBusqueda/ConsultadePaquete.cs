@@ -11,7 +11,7 @@ namespace DCCEVENTOS.CBusqueda
         {
             InitializeComponent();
             npaquete = new NPaquete();
-            CPrincipal.CambiarMaysucula(textBox1);
+            
         }
         private void CargarInformacion()
         {

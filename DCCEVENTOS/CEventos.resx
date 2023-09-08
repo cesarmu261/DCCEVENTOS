@@ -129,6 +129,18 @@
   <metadata name="CostosC.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="CCodigo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="CostosC.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>132, 17</value>
   </metadata>
@@ -363,7 +375,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAEKFJREFUeF7tnXesBUUVxlVUsKGiIqJib2CwxgZqoqKoCcaKiD1WrCT2GnsJFizo
+        wgAADsIBFShKgAAAEKFJREFUeF7tnXesBUUVxlVUsKGiIqJib2CwxgZqoqKoCcaKiD1WrCT2GnsJFizo
         H5bYW1QQS+y9xI69YARjRbGLvXw/ww/HZffu3vt237tlvuTLK3fv7sw53zkzOzsze5YlxNnCs4e7/Pev
         /8e5w6uEtw+fGL4y/Ej49fBH4W/DP4f/CP8V/iX8Q/jz8Lvh58K3hs8N7xseGF40PGtYgr+7ylAxATA4
         xsb5JXYPbxo+KTw+PCnEqf8eiYjk1BBhHBMeHl4mLAWhGJplqxgBRntp8L3Ce4bHhaeEXY4jyuE/Tyf/
@@ -437,6 +449,9 @@
         6f+JkH2Mg7Ps8h+ktU59ROfEawAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="sp_EventosTableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>237, 17</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>

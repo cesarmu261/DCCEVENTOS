@@ -38,9 +38,6 @@ namespace DCCEVENTOS
             ncliente = new NCliente();
             nCategoria = new NCategoria();
             Cargainformacion();
-            CPrincipal.CambiarMaysucula(textBox1);
-            CPrincipal.CambiarMaysucula(textBox2);
-            CPrincipal.CambiarMaysucula(textBox3);
 
         }
         public void Cargainformacion()
@@ -300,11 +297,11 @@ namespace DCCEVENTOS
                         string categoria = row.Cells["Categoria"].Value.ToString();
 
                         // Sumar al total correspondiente según la categoría
-                        if (categoria.ToLower() == "ingresos")
+                        if (categoria.ToUpper() == "INGRESOS")
                         {
                             sumatoriaIngresos += descuentototal;
                         }
-                        else if (categoria.ToLower() == "egresos")
+                        else if (categoria.ToUpper() == "EGRESOS")
                         {
                             sumatoriaEgresos += descuentototal;
                         }

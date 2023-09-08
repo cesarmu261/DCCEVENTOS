@@ -82,6 +82,7 @@
             label12 = new Label();
             label13 = new Label();
             label14 = new Label();
+            sp_EventosTableAdapter1 = new Reportes.DataSet1TableAdapters.sp_EventosTableAdapter();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ConceptosPaquetes).BeginInit();
             toolStrip1.SuspendLayout();
@@ -102,6 +103,7 @@
             // 
             // textBox1
             // 
+            textBox1.CharacterCasing = CharacterCasing.Upper;
             textBox1.Location = new Point(102, 83);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(200, 23);
@@ -109,6 +111,7 @@
             // 
             // textBox2
             // 
+            textBox2.CharacterCasing = CharacterCasing.Upper;
             textBox2.Location = new Point(102, 125);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(200, 23);
@@ -125,10 +128,11 @@
             // 
             // textBox3
             // 
+            textBox3.CharacterCasing = CharacterCasing.Upper;
             textBox3.Location = new Point(102, 250);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(200, 23);
-            textBox3.TabIndex = 6;
+            textBox3.TabIndex = 5;
             // 
             // label3
             // 
@@ -162,7 +166,7 @@
             CBEstado.Location = new Point(102, 291);
             CBEstado.Name = "CBEstado";
             CBEstado.Size = new Size(200, 23);
-            CBEstado.TabIndex = 7;
+            CBEstado.TabIndex = 6;
             // 
             // label5
             // 
@@ -180,7 +184,7 @@
             flowLayoutPanel1.Controls.Add(ConceptosPaquetes);
             flowLayoutPanel1.Location = new Point(315, 58);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(746, 231);
+            flowLayoutPanel1.Size = new Size(746, 256);
             flowLayoutPanel1.TabIndex = 65;
             // 
             // lblCajas
@@ -199,7 +203,7 @@
             CBPaquete.Location = new Point(135, 3);
             CBPaquete.Name = "CBPaquete";
             CBPaquete.Size = new Size(181, 23);
-            CBPaquete.TabIndex = 3;
+            CBPaquete.TabIndex = 0;
             CBPaquete.DropDown += CBPaquete_DropDown;
             CBPaquete.SelectedIndexChanged += CBPaquete_SelectedIndexChanged;
             // 
@@ -215,8 +219,8 @@
             ConceptosPaquetes.Name = "ConceptosPaquetes";
             ConceptosPaquetes.ReadOnly = true;
             ConceptosPaquetes.RowTemplate.Height = 25;
-            ConceptosPaquetes.Size = new Size(724, 199);
-            ConceptosPaquetes.TabIndex = 2;
+            ConceptosPaquetes.Size = new Size(724, 219);
+            ConceptosPaquetes.TabIndex = 0;
             // 
             // CCodigo
             // 
@@ -248,7 +252,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(398, 295);
+            button1.Location = new Point(397, 326);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 68;
@@ -259,7 +263,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(318, 299);
+            label6.Location = new Point(317, 330);
             label6.Name = "label6";
             label6.Size = new Size(64, 15);
             label6.TabIndex = 67;
@@ -269,7 +273,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(1171, 665);
+            label9.Location = new Point(800, 705);
             label9.Name = "label9";
             label9.Size = new Size(79, 15);
             label9.TabIndex = 72;
@@ -278,7 +282,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(1091, 665);
+            label10.Location = new Point(720, 705);
             label10.Name = "label10";
             label10.Size = new Size(74, 15);
             label10.TabIndex = 71;
@@ -407,9 +411,9 @@
             // flowLayoutPanel3
             // 
             flowLayoutPanel3.Controls.Add(ConceptosUni);
-            flowLayoutPanel3.Location = new Point(315, 327);
+            flowLayoutPanel3.Location = new Point(314, 358);
             flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(969, 317);
+            flowLayoutPanel3.Size = new Size(969, 319);
             flowLayoutPanel3.TabIndex = 75;
             // 
             // ConceptosUni
@@ -421,7 +425,7 @@
             ConceptosUni.Location = new Point(3, 3);
             ConceptosUni.Name = "ConceptosUni";
             ConceptosUni.RowTemplate.Height = 25;
-            ConceptosUni.Size = new Size(954, 314);
+            ConceptosUni.Size = new Size(954, 304);
             ConceptosUni.TabIndex = 0;
             ConceptosUni.CellValueChanged += ConceptosUni_CellValueChanged;
             // 
@@ -498,7 +502,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(782, 665);
+            label11.Location = new Point(411, 705);
             label11.Name = "label11";
             label11.Size = new Size(51, 15);
             label11.TabIndex = 79;
@@ -507,7 +511,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(964, 665);
+            label12.Location = new Point(593, 705);
             label12.Name = "label12";
             label12.Size = new Size(47, 15);
             label12.TabIndex = 80;
@@ -516,7 +520,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(689, 665);
+            label13.Location = new Point(318, 705);
             label13.Name = "label13";
             label13.Size = new Size(87, 15);
             label13.TabIndex = 81;
@@ -525,17 +529,21 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(911, 665);
+            label14.Location = new Point(540, 705);
             label14.Name = "label14";
             label14.Size = new Size(47, 15);
             label14.TabIndex = 82;
             label14.Text = "Egresos";
             // 
+            // sp_EventosTableAdapter1
+            // 
+            sp_EventosTableAdapter1.ClearBeforeFill = true;
+            // 
             // CEventos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1284, 708);
+            ClientSize = new Size(1284, 758);
             Controls.Add(label14);
             Controls.Add(label13);
             Controls.Add(label12);
@@ -637,5 +645,6 @@
         private Label label13;
         private Label label14;
         private ToolStripButton toolStripButton1;
+        private Reportes.DataSet1TableAdapters.sp_EventosTableAdapter sp_EventosTableAdapter1;
     }
 }

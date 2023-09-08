@@ -26,8 +26,6 @@ namespace DCCEVENTOS.Reportes {
         
         private sp_EventosDataTable tablesp_Eventos;
         
-        private sp_DetalleEventoDataTable tablesp_DetalleEvento;
-        
         private sp_DetalleEvento2DataTable tablesp_DetalleEvento2;
         
         private sp_DetalleEventoclientesDataTable tablesp_DetalleEventoclientes;
@@ -35,6 +33,8 @@ namespace DCCEVENTOS.Reportes {
         private sp_DetalleEventosalonDataTable tablesp_DetalleEventosalon;
         
         private sp_DetalleEventodescripcionDataTable tablesp_DetalleEventodescripcion;
+        
+        private sp_DetalleEventoDataTable tablesp_DetalleEvento;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -67,9 +67,6 @@ namespace DCCEVENTOS.Reportes {
                 if ((ds.Tables["sp_Eventos"] != null)) {
                     base.Tables.Add(new sp_EventosDataTable(ds.Tables["sp_Eventos"]));
                 }
-                if ((ds.Tables["sp_DetalleEvento"] != null)) {
-                    base.Tables.Add(new sp_DetalleEventoDataTable(ds.Tables["sp_DetalleEvento"]));
-                }
                 if ((ds.Tables["sp_DetalleEvento2"] != null)) {
                     base.Tables.Add(new sp_DetalleEvento2DataTable(ds.Tables["sp_DetalleEvento2"]));
                 }
@@ -81,6 +78,9 @@ namespace DCCEVENTOS.Reportes {
                 }
                 if ((ds.Tables["sp_DetalleEventodescripcion"] != null)) {
                     base.Tables.Add(new sp_DetalleEventodescripcionDataTable(ds.Tables["sp_DetalleEventodescripcion"]));
+                }
+                if ((ds.Tables["sp_DetalleEvento"] != null)) {
+                    base.Tables.Add(new sp_DetalleEventoDataTable(ds.Tables["sp_DetalleEvento"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -107,16 +107,6 @@ namespace DCCEVENTOS.Reportes {
         public sp_EventosDataTable sp_Eventos {
             get {
                 return this.tablesp_Eventos;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public sp_DetalleEventoDataTable sp_DetalleEvento {
-            get {
-                return this.tablesp_DetalleEvento;
             }
         }
         
@@ -157,6 +147,16 @@ namespace DCCEVENTOS.Reportes {
         public sp_DetalleEventodescripcionDataTable sp_DetalleEventodescripcion {
             get {
                 return this.tablesp_DetalleEventodescripcion;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public sp_DetalleEventoDataTable sp_DetalleEvento {
+            get {
+                return this.tablesp_DetalleEvento;
             }
         }
         
@@ -230,9 +230,6 @@ namespace DCCEVENTOS.Reportes {
                 if ((ds.Tables["sp_Eventos"] != null)) {
                     base.Tables.Add(new sp_EventosDataTable(ds.Tables["sp_Eventos"]));
                 }
-                if ((ds.Tables["sp_DetalleEvento"] != null)) {
-                    base.Tables.Add(new sp_DetalleEventoDataTable(ds.Tables["sp_DetalleEvento"]));
-                }
                 if ((ds.Tables["sp_DetalleEvento2"] != null)) {
                     base.Tables.Add(new sp_DetalleEvento2DataTable(ds.Tables["sp_DetalleEvento2"]));
                 }
@@ -244,6 +241,9 @@ namespace DCCEVENTOS.Reportes {
                 }
                 if ((ds.Tables["sp_DetalleEventodescripcion"] != null)) {
                     base.Tables.Add(new sp_DetalleEventodescripcionDataTable(ds.Tables["sp_DetalleEventodescripcion"]));
+                }
+                if ((ds.Tables["sp_DetalleEvento"] != null)) {
+                    base.Tables.Add(new sp_DetalleEventoDataTable(ds.Tables["sp_DetalleEvento"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -284,12 +284,6 @@ namespace DCCEVENTOS.Reportes {
                     this.tablesp_Eventos.InitVars();
                 }
             }
-            this.tablesp_DetalleEvento = ((sp_DetalleEventoDataTable)(base.Tables["sp_DetalleEvento"]));
-            if ((initTable == true)) {
-                if ((this.tablesp_DetalleEvento != null)) {
-                    this.tablesp_DetalleEvento.InitVars();
-                }
-            }
             this.tablesp_DetalleEvento2 = ((sp_DetalleEvento2DataTable)(base.Tables["sp_DetalleEvento2"]));
             if ((initTable == true)) {
                 if ((this.tablesp_DetalleEvento2 != null)) {
@@ -314,6 +308,12 @@ namespace DCCEVENTOS.Reportes {
                     this.tablesp_DetalleEventodescripcion.InitVars();
                 }
             }
+            this.tablesp_DetalleEvento = ((sp_DetalleEventoDataTable)(base.Tables["sp_DetalleEvento"]));
+            if ((initTable == true)) {
+                if ((this.tablesp_DetalleEvento != null)) {
+                    this.tablesp_DetalleEvento.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -326,8 +326,6 @@ namespace DCCEVENTOS.Reportes {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tablesp_Eventos = new sp_EventosDataTable();
             base.Tables.Add(this.tablesp_Eventos);
-            this.tablesp_DetalleEvento = new sp_DetalleEventoDataTable();
-            base.Tables.Add(this.tablesp_DetalleEvento);
             this.tablesp_DetalleEvento2 = new sp_DetalleEvento2DataTable();
             base.Tables.Add(this.tablesp_DetalleEvento2);
             this.tablesp_DetalleEventoclientes = new sp_DetalleEventoclientesDataTable();
@@ -336,17 +334,13 @@ namespace DCCEVENTOS.Reportes {
             base.Tables.Add(this.tablesp_DetalleEventosalon);
             this.tablesp_DetalleEventodescripcion = new sp_DetalleEventodescripcionDataTable();
             base.Tables.Add(this.tablesp_DetalleEventodescripcion);
+            this.tablesp_DetalleEvento = new sp_DetalleEventoDataTable();
+            base.Tables.Add(this.tablesp_DetalleEvento);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializesp_Eventos() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializesp_DetalleEvento() {
             return false;
         }
         
@@ -371,6 +365,12 @@ namespace DCCEVENTOS.Reportes {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializesp_DetalleEventodescripcion() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializesp_DetalleEvento() {
             return false;
         }
         
@@ -433,9 +433,6 @@ namespace DCCEVENTOS.Reportes {
         public delegate void sp_EventosRowChangeEventHandler(object sender, sp_EventosRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void sp_DetalleEventoRowChangeEventHandler(object sender, sp_DetalleEventoRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void sp_DetalleEvento2RowChangeEventHandler(object sender, sp_DetalleEvento2RowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -446,6 +443,9 @@ namespace DCCEVENTOS.Reportes {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void sp_DetalleEventodescripcionRowChangeEventHandler(object sender, sp_DetalleEventodescripcionRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void sp_DetalleEventoRowChangeEventHandler(object sender, sp_DetalleEventoRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -744,384 +744,6 @@ namespace DCCEVENTOS.Reportes {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "sp_EventosDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class sp_DetalleEventoDataTable : global::System.Data.TypedTableBase<sp_DetalleEventoRow> {
-            
-            private global::System.Data.DataColumn columnCOD_CONCEPTOS;
-            
-            private global::System.Data.DataColumn columnDES_CONCEPTOS;
-            
-            private global::System.Data.DataColumn columnCOD_DETALLES;
-            
-            private global::System.Data.DataColumn columnCOSTOS_CONCEPTO;
-            
-            private global::System.Data.DataColumn columnCOSTOPRECIO;
-            
-            private global::System.Data.DataColumn columnCANTIDAD;
-            
-            private global::System.Data.DataColumn columnDES_CATEGORIA;
-            
-            private global::System.Data.DataColumn columnDESCUENTO;
-            
-            private global::System.Data.DataColumn columnCostoTotal;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public sp_DetalleEventoDataTable() {
-                this.TableName = "sp_DetalleEvento";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal sp_DetalleEventoDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected sp_DetalleEventoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn COD_CONCEPTOSColumn {
-                get {
-                    return this.columnCOD_CONCEPTOS;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn DES_CONCEPTOSColumn {
-                get {
-                    return this.columnDES_CONCEPTOS;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn COD_DETALLESColumn {
-                get {
-                    return this.columnCOD_DETALLES;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn COSTOS_CONCEPTOColumn {
-                get {
-                    return this.columnCOSTOS_CONCEPTO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn COSTOPRECIOColumn {
-                get {
-                    return this.columnCOSTOPRECIO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn CANTIDADColumn {
-                get {
-                    return this.columnCANTIDAD;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn DES_CATEGORIAColumn {
-                get {
-                    return this.columnDES_CATEGORIA;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn DESCUENTOColumn {
-                get {
-                    return this.columnDESCUENTO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn CostoTotalColumn {
-                get {
-                    return this.columnCostoTotal;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public sp_DetalleEventoRow this[int index] {
-                get {
-                    return ((sp_DetalleEventoRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event sp_DetalleEventoRowChangeEventHandler sp_DetalleEventoRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event sp_DetalleEventoRowChangeEventHandler sp_DetalleEventoRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event sp_DetalleEventoRowChangeEventHandler sp_DetalleEventoRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event sp_DetalleEventoRowChangeEventHandler sp_DetalleEventoRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Addsp_DetalleEventoRow(sp_DetalleEventoRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public sp_DetalleEventoRow Addsp_DetalleEventoRow(int COD_CONCEPTOS, string DES_CONCEPTOS, decimal COSTOS_CONCEPTO, decimal COSTOPRECIO, decimal CANTIDAD, string DES_CATEGORIA, decimal DESCUENTO, decimal CostoTotal) {
-                sp_DetalleEventoRow rowsp_DetalleEventoRow = ((sp_DetalleEventoRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        COD_CONCEPTOS,
-                        DES_CONCEPTOS,
-                        null,
-                        COSTOS_CONCEPTO,
-                        COSTOPRECIO,
-                        CANTIDAD,
-                        DES_CATEGORIA,
-                        DESCUENTO,
-                        CostoTotal};
-                rowsp_DetalleEventoRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowsp_DetalleEventoRow);
-                return rowsp_DetalleEventoRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public sp_DetalleEventoRow FindByCOD_DETALLES(int COD_DETALLES) {
-                return ((sp_DetalleEventoRow)(this.Rows.Find(new object[] {
-                            COD_DETALLES})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                sp_DetalleEventoDataTable cln = ((sp_DetalleEventoDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new sp_DetalleEventoDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal void InitVars() {
-                this.columnCOD_CONCEPTOS = base.Columns["COD_CONCEPTOS"];
-                this.columnDES_CONCEPTOS = base.Columns["DES_CONCEPTOS"];
-                this.columnCOD_DETALLES = base.Columns["COD_DETALLES"];
-                this.columnCOSTOS_CONCEPTO = base.Columns["COSTOS_CONCEPTO"];
-                this.columnCOSTOPRECIO = base.Columns["COSTOPRECIO"];
-                this.columnCANTIDAD = base.Columns["CANTIDAD"];
-                this.columnDES_CATEGORIA = base.Columns["DES_CATEGORIA"];
-                this.columnDESCUENTO = base.Columns["DESCUENTO"];
-                this.columnCostoTotal = base.Columns["CostoTotal"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            private void InitClass() {
-                this.columnCOD_CONCEPTOS = new global::System.Data.DataColumn("COD_CONCEPTOS", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCOD_CONCEPTOS);
-                this.columnDES_CONCEPTOS = new global::System.Data.DataColumn("DES_CONCEPTOS", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDES_CONCEPTOS);
-                this.columnCOD_DETALLES = new global::System.Data.DataColumn("COD_DETALLES", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCOD_DETALLES);
-                this.columnCOSTOS_CONCEPTO = new global::System.Data.DataColumn("COSTOS_CONCEPTO", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCOSTOS_CONCEPTO);
-                this.columnCOSTOPRECIO = new global::System.Data.DataColumn("COSTOPRECIO", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCOSTOPRECIO);
-                this.columnCANTIDAD = new global::System.Data.DataColumn("CANTIDAD", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCANTIDAD);
-                this.columnDES_CATEGORIA = new global::System.Data.DataColumn("DES_CATEGORIA", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDES_CATEGORIA);
-                this.columnDESCUENTO = new global::System.Data.DataColumn("DESCUENTO", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDESCUENTO);
-                this.columnCostoTotal = new global::System.Data.DataColumn("CostoTotal", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCostoTotal);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnCOD_DETALLES}, true));
-                this.columnDES_CONCEPTOS.AllowDBNull = false;
-                this.columnDES_CONCEPTOS.MaxLength = 100;
-                this.columnCOD_DETALLES.AutoIncrement = true;
-                this.columnCOD_DETALLES.AutoIncrementSeed = -1;
-                this.columnCOD_DETALLES.AutoIncrementStep = -1;
-                this.columnCOD_DETALLES.AllowDBNull = false;
-                this.columnCOD_DETALLES.ReadOnly = true;
-                this.columnCOD_DETALLES.Unique = true;
-                this.columnDES_CATEGORIA.AllowDBNull = false;
-                this.columnDES_CATEGORIA.MaxLength = 100;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public sp_DetalleEventoRow Newsp_DetalleEventoRow() {
-                return ((sp_DetalleEventoRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new sp_DetalleEventoRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(sp_DetalleEventoRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.sp_DetalleEventoRowChanged != null)) {
-                    this.sp_DetalleEventoRowChanged(this, new sp_DetalleEventoRowChangeEvent(((sp_DetalleEventoRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.sp_DetalleEventoRowChanging != null)) {
-                    this.sp_DetalleEventoRowChanging(this, new sp_DetalleEventoRowChangeEvent(((sp_DetalleEventoRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.sp_DetalleEventoRowDeleted != null)) {
-                    this.sp_DetalleEventoRowDeleted(this, new sp_DetalleEventoRowChangeEvent(((sp_DetalleEventoRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.sp_DetalleEventoRowDeleting != null)) {
-                    this.sp_DetalleEventoRowDeleting(this, new sp_DetalleEventoRowChangeEvent(((sp_DetalleEventoRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Removesp_DetalleEventoRow(sp_DetalleEventoRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DataSet1 ds = new DataSet1();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "sp_DetalleEventoDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2571,6 +2193,384 @@ namespace DCCEVENTOS.Reportes {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class sp_DetalleEventoDataTable : global::System.Data.TypedTableBase<sp_DetalleEventoRow> {
+            
+            private global::System.Data.DataColumn columnCOD_CONCEPTOS;
+            
+            private global::System.Data.DataColumn columnDES_CONCEPTOS;
+            
+            private global::System.Data.DataColumn columnCOD_DETALLES;
+            
+            private global::System.Data.DataColumn columnCOSTOS_CONCEPTO;
+            
+            private global::System.Data.DataColumn columnCOSTOPRECIO;
+            
+            private global::System.Data.DataColumn columnCANTIDAD;
+            
+            private global::System.Data.DataColumn columnDES_CATEGORIA;
+            
+            private global::System.Data.DataColumn columnDESCUENTO;
+            
+            private global::System.Data.DataColumn columnCostoTotal;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public sp_DetalleEventoDataTable() {
+                this.TableName = "sp_DetalleEvento";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal sp_DetalleEventoDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected sp_DetalleEventoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn COD_CONCEPTOSColumn {
+                get {
+                    return this.columnCOD_CONCEPTOS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DES_CONCEPTOSColumn {
+                get {
+                    return this.columnDES_CONCEPTOS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn COD_DETALLESColumn {
+                get {
+                    return this.columnCOD_DETALLES;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn COSTOS_CONCEPTOColumn {
+                get {
+                    return this.columnCOSTOS_CONCEPTO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn COSTOPRECIOColumn {
+                get {
+                    return this.columnCOSTOPRECIO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CANTIDADColumn {
+                get {
+                    return this.columnCANTIDAD;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DES_CATEGORIAColumn {
+                get {
+                    return this.columnDES_CATEGORIA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DESCUENTOColumn {
+                get {
+                    return this.columnDESCUENTO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CostoTotalColumn {
+                get {
+                    return this.columnCostoTotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public sp_DetalleEventoRow this[int index] {
+                get {
+                    return ((sp_DetalleEventoRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event sp_DetalleEventoRowChangeEventHandler sp_DetalleEventoRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event sp_DetalleEventoRowChangeEventHandler sp_DetalleEventoRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event sp_DetalleEventoRowChangeEventHandler sp_DetalleEventoRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event sp_DetalleEventoRowChangeEventHandler sp_DetalleEventoRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Addsp_DetalleEventoRow(sp_DetalleEventoRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public sp_DetalleEventoRow Addsp_DetalleEventoRow(int COD_CONCEPTOS, string DES_CONCEPTOS, decimal COSTOS_CONCEPTO, decimal COSTOPRECIO, decimal CANTIDAD, string DES_CATEGORIA, decimal DESCUENTO, decimal CostoTotal) {
+                sp_DetalleEventoRow rowsp_DetalleEventoRow = ((sp_DetalleEventoRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        COD_CONCEPTOS,
+                        DES_CONCEPTOS,
+                        null,
+                        COSTOS_CONCEPTO,
+                        COSTOPRECIO,
+                        CANTIDAD,
+                        DES_CATEGORIA,
+                        DESCUENTO,
+                        CostoTotal};
+                rowsp_DetalleEventoRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowsp_DetalleEventoRow);
+                return rowsp_DetalleEventoRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public sp_DetalleEventoRow FindByCOD_DETALLES(int COD_DETALLES) {
+                return ((sp_DetalleEventoRow)(this.Rows.Find(new object[] {
+                            COD_DETALLES})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                sp_DetalleEventoDataTable cln = ((sp_DetalleEventoDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new sp_DetalleEventoDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnCOD_CONCEPTOS = base.Columns["COD_CONCEPTOS"];
+                this.columnDES_CONCEPTOS = base.Columns["DES_CONCEPTOS"];
+                this.columnCOD_DETALLES = base.Columns["COD_DETALLES"];
+                this.columnCOSTOS_CONCEPTO = base.Columns["COSTOS_CONCEPTO"];
+                this.columnCOSTOPRECIO = base.Columns["COSTOPRECIO"];
+                this.columnCANTIDAD = base.Columns["CANTIDAD"];
+                this.columnDES_CATEGORIA = base.Columns["DES_CATEGORIA"];
+                this.columnDESCUENTO = base.Columns["DESCUENTO"];
+                this.columnCostoTotal = base.Columns["CostoTotal"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnCOD_CONCEPTOS = new global::System.Data.DataColumn("COD_CONCEPTOS", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCOD_CONCEPTOS);
+                this.columnDES_CONCEPTOS = new global::System.Data.DataColumn("DES_CONCEPTOS", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDES_CONCEPTOS);
+                this.columnCOD_DETALLES = new global::System.Data.DataColumn("COD_DETALLES", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCOD_DETALLES);
+                this.columnCOSTOS_CONCEPTO = new global::System.Data.DataColumn("COSTOS_CONCEPTO", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCOSTOS_CONCEPTO);
+                this.columnCOSTOPRECIO = new global::System.Data.DataColumn("COSTOPRECIO", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCOSTOPRECIO);
+                this.columnCANTIDAD = new global::System.Data.DataColumn("CANTIDAD", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCANTIDAD);
+                this.columnDES_CATEGORIA = new global::System.Data.DataColumn("DES_CATEGORIA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDES_CATEGORIA);
+                this.columnDESCUENTO = new global::System.Data.DataColumn("DESCUENTO", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDESCUENTO);
+                this.columnCostoTotal = new global::System.Data.DataColumn("CostoTotal", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCostoTotal);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnCOD_DETALLES}, true));
+                this.columnDES_CONCEPTOS.AllowDBNull = false;
+                this.columnDES_CONCEPTOS.MaxLength = 100;
+                this.columnCOD_DETALLES.AutoIncrement = true;
+                this.columnCOD_DETALLES.AutoIncrementSeed = -1;
+                this.columnCOD_DETALLES.AutoIncrementStep = -1;
+                this.columnCOD_DETALLES.AllowDBNull = false;
+                this.columnCOD_DETALLES.ReadOnly = true;
+                this.columnCOD_DETALLES.Unique = true;
+                this.columnDES_CATEGORIA.AllowDBNull = false;
+                this.columnDES_CATEGORIA.MaxLength = 100;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public sp_DetalleEventoRow Newsp_DetalleEventoRow() {
+                return ((sp_DetalleEventoRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new sp_DetalleEventoRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(sp_DetalleEventoRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.sp_DetalleEventoRowChanged != null)) {
+                    this.sp_DetalleEventoRowChanged(this, new sp_DetalleEventoRowChangeEvent(((sp_DetalleEventoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.sp_DetalleEventoRowChanging != null)) {
+                    this.sp_DetalleEventoRowChanging(this, new sp_DetalleEventoRowChangeEvent(((sp_DetalleEventoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.sp_DetalleEventoRowDeleted != null)) {
+                    this.sp_DetalleEventoRowDeleted(this, new sp_DetalleEventoRowChangeEvent(((sp_DetalleEventoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.sp_DetalleEventoRowDeleting != null)) {
+                    this.sp_DetalleEventoRowDeleting(this, new sp_DetalleEventoRowChangeEvent(((sp_DetalleEventoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Removesp_DetalleEventoRow(sp_DetalleEventoRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DataSet1 ds = new DataSet1();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "sp_DetalleEventoDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class sp_EventosRow : global::System.Data.DataRow {
@@ -2716,223 +2716,6 @@ namespace DCCEVENTOS.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetOBSERVACIONESNull() {
                 this[this.tablesp_Eventos.OBSERVACIONESColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class sp_DetalleEventoRow : global::System.Data.DataRow {
-            
-            private sp_DetalleEventoDataTable tablesp_DetalleEvento;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal sp_DetalleEventoRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tablesp_DetalleEvento = ((sp_DetalleEventoDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int COD_CONCEPTOS {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_DetalleEvento.COD_CONCEPTOSColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'COD_CONCEPTOS\' de la tabla \'sp_DetalleEvento\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_DetalleEvento.COD_CONCEPTOSColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string DES_CONCEPTOS {
-                get {
-                    return ((string)(this[this.tablesp_DetalleEvento.DES_CONCEPTOSColumn]));
-                }
-                set {
-                    this[this.tablesp_DetalleEvento.DES_CONCEPTOSColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int COD_DETALLES {
-                get {
-                    return ((int)(this[this.tablesp_DetalleEvento.COD_DETALLESColumn]));
-                }
-                set {
-                    this[this.tablesp_DetalleEvento.COD_DETALLESColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal COSTOS_CONCEPTO {
-                get {
-                    try {
-                        return ((decimal)(this[this.tablesp_DetalleEvento.COSTOS_CONCEPTOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'COSTOS_CONCEPTO\' de la tabla \'sp_DetalleEvento\' es DBNull" +
-                                ".", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_DetalleEvento.COSTOS_CONCEPTOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal COSTOPRECIO {
-                get {
-                    try {
-                        return ((decimal)(this[this.tablesp_DetalleEvento.COSTOPRECIOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'COSTOPRECIO\' de la tabla \'sp_DetalleEvento\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_DetalleEvento.COSTOPRECIOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal CANTIDAD {
-                get {
-                    try {
-                        return ((decimal)(this[this.tablesp_DetalleEvento.CANTIDADColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CANTIDAD\' de la tabla \'sp_DetalleEvento\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_DetalleEvento.CANTIDADColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string DES_CATEGORIA {
-                get {
-                    return ((string)(this[this.tablesp_DetalleEvento.DES_CATEGORIAColumn]));
-                }
-                set {
-                    this[this.tablesp_DetalleEvento.DES_CATEGORIAColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal DESCUENTO {
-                get {
-                    try {
-                        return ((decimal)(this[this.tablesp_DetalleEvento.DESCUENTOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'DESCUENTO\' de la tabla \'sp_DetalleEvento\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_DetalleEvento.DESCUENTOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal CostoTotal {
-                get {
-                    try {
-                        return ((decimal)(this[this.tablesp_DetalleEvento.CostoTotalColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CostoTotal\' de la tabla \'sp_DetalleEvento\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_DetalleEvento.CostoTotalColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsCOD_CONCEPTOSNull() {
-                return this.IsNull(this.tablesp_DetalleEvento.COD_CONCEPTOSColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetCOD_CONCEPTOSNull() {
-                this[this.tablesp_DetalleEvento.COD_CONCEPTOSColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsCOSTOS_CONCEPTONull() {
-                return this.IsNull(this.tablesp_DetalleEvento.COSTOS_CONCEPTOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetCOSTOS_CONCEPTONull() {
-                this[this.tablesp_DetalleEvento.COSTOS_CONCEPTOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsCOSTOPRECIONull() {
-                return this.IsNull(this.tablesp_DetalleEvento.COSTOPRECIOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetCOSTOPRECIONull() {
-                this[this.tablesp_DetalleEvento.COSTOPRECIOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsCANTIDADNull() {
-                return this.IsNull(this.tablesp_DetalleEvento.CANTIDADColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetCANTIDADNull() {
-                this[this.tablesp_DetalleEvento.CANTIDADColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDESCUENTONull() {
-                return this.IsNull(this.tablesp_DetalleEvento.DESCUENTOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDESCUENTONull() {
-                this[this.tablesp_DetalleEvento.DESCUENTOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsCostoTotalNull() {
-                return this.IsNull(this.tablesp_DetalleEvento.CostoTotalColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetCostoTotalNull() {
-                this[this.tablesp_DetalleEvento.CostoTotalColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3659,6 +3442,223 @@ namespace DCCEVENTOS.Reportes {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class sp_DetalleEventoRow : global::System.Data.DataRow {
+            
+            private sp_DetalleEventoDataTable tablesp_DetalleEvento;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal sp_DetalleEventoRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablesp_DetalleEvento = ((sp_DetalleEventoDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int COD_CONCEPTOS {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_DetalleEvento.COD_CONCEPTOSColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'COD_CONCEPTOS\' de la tabla \'sp_DetalleEvento\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_DetalleEvento.COD_CONCEPTOSColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string DES_CONCEPTOS {
+                get {
+                    return ((string)(this[this.tablesp_DetalleEvento.DES_CONCEPTOSColumn]));
+                }
+                set {
+                    this[this.tablesp_DetalleEvento.DES_CONCEPTOSColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int COD_DETALLES {
+                get {
+                    return ((int)(this[this.tablesp_DetalleEvento.COD_DETALLESColumn]));
+                }
+                set {
+                    this[this.tablesp_DetalleEvento.COD_DETALLESColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal COSTOS_CONCEPTO {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablesp_DetalleEvento.COSTOS_CONCEPTOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'COSTOS_CONCEPTO\' de la tabla \'sp_DetalleEvento\' es DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_DetalleEvento.COSTOS_CONCEPTOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal COSTOPRECIO {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablesp_DetalleEvento.COSTOPRECIOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'COSTOPRECIO\' de la tabla \'sp_DetalleEvento\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_DetalleEvento.COSTOPRECIOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal CANTIDAD {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablesp_DetalleEvento.CANTIDADColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CANTIDAD\' de la tabla \'sp_DetalleEvento\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_DetalleEvento.CANTIDADColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string DES_CATEGORIA {
+                get {
+                    return ((string)(this[this.tablesp_DetalleEvento.DES_CATEGORIAColumn]));
+                }
+                set {
+                    this[this.tablesp_DetalleEvento.DES_CATEGORIAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal DESCUENTO {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablesp_DetalleEvento.DESCUENTOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'DESCUENTO\' de la tabla \'sp_DetalleEvento\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_DetalleEvento.DESCUENTOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal CostoTotal {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablesp_DetalleEvento.CostoTotalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CostoTotal\' de la tabla \'sp_DetalleEvento\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_DetalleEvento.CostoTotalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCOD_CONCEPTOSNull() {
+                return this.IsNull(this.tablesp_DetalleEvento.COD_CONCEPTOSColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCOD_CONCEPTOSNull() {
+                this[this.tablesp_DetalleEvento.COD_CONCEPTOSColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCOSTOS_CONCEPTONull() {
+                return this.IsNull(this.tablesp_DetalleEvento.COSTOS_CONCEPTOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCOSTOS_CONCEPTONull() {
+                this[this.tablesp_DetalleEvento.COSTOS_CONCEPTOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCOSTOPRECIONull() {
+                return this.IsNull(this.tablesp_DetalleEvento.COSTOPRECIOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCOSTOPRECIONull() {
+                this[this.tablesp_DetalleEvento.COSTOPRECIOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCANTIDADNull() {
+                return this.IsNull(this.tablesp_DetalleEvento.CANTIDADColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCANTIDADNull() {
+                this[this.tablesp_DetalleEvento.CANTIDADColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsDESCUENTONull() {
+                return this.IsNull(this.tablesp_DetalleEvento.DESCUENTOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetDESCUENTONull() {
+                this[this.tablesp_DetalleEvento.DESCUENTOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCostoTotalNull() {
+                return this.IsNull(this.tablesp_DetalleEvento.CostoTotalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCostoTotalNull() {
+                this[this.tablesp_DetalleEvento.CostoTotalColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -3678,40 +3678,6 @@ namespace DCCEVENTOS.Reportes {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public sp_EventosRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class sp_DetalleEventoRowChangeEvent : global::System.EventArgs {
-            
-            private sp_DetalleEventoRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public sp_DetalleEventoRowChangeEvent(sp_DetalleEventoRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public sp_DetalleEventoRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3848,6 +3814,40 @@ namespace DCCEVENTOS.Reportes {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public sp_DetalleEventodescripcionRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class sp_DetalleEventoRowChangeEvent : global::System.EventArgs {
+            
+            private sp_DetalleEventoRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public sp_DetalleEventoRowChangeEvent(sp_DetalleEventoRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public sp_DetalleEventoRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -4038,186 +4038,6 @@ namespace DCCEVENTOS.Reportes.DataSet1TableAdapters {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(COD_EVENTO));
             DataSet1.sp_EventosDataTable dataTable = new DataSet1.sp_EventosDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class sp_DetalleEventoTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public sp_DetalleEventoTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "sp_DetalleEvento";
-            tableMapping.ColumnMappings.Add("COD_CONCEPTOS", "COD_CONCEPTOS");
-            tableMapping.ColumnMappings.Add("DES_CONCEPTOS", "DES_CONCEPTOS");
-            tableMapping.ColumnMappings.Add("COD_DETALLES", "COD_DETALLES");
-            tableMapping.ColumnMappings.Add("COSTOS_CONCEPTO", "COSTOS_CONCEPTO");
-            tableMapping.ColumnMappings.Add("COSTOPRECIO", "COSTOPRECIO");
-            tableMapping.ColumnMappings.Add("CANTIDAD", "CANTIDAD");
-            tableMapping.ColumnMappings.Add("DES_CATEGORIA", "DES_CATEGORIA");
-            tableMapping.ColumnMappings.Add("DESCUENTO", "DESCUENTO");
-            tableMapping.ColumnMappings.Add("CostoTotal", "CostoTotal");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=WSDEVELOP00\\WSDEVELOP002K17;Initial Catalog=EVENTOS;Integrated Securi" +
-                "ty=True";
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "dbo.sp_DetalleEvento";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Variant, 0, global::System.Data.ParameterDirection.ReturnValue, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@COD_EVENTO", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "COD_EVENTO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSet1.sp_DetalleEventoDataTable dataTable, int COD_EVENTO) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(COD_EVENTO));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSet1.sp_DetalleEventoDataTable GetData(int COD_EVENTO) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(COD_EVENTO));
-            DataSet1.sp_DetalleEventoDataTable dataTable = new DataSet1.sp_DetalleEventoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4983,6 +4803,196 @@ namespace DCCEVENTOS.Reportes.DataSet1TableAdapters {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((string)(DESCRIPCION));
             }
             DataSet1.sp_DetalleEventodescripcionDataTable dataTable = new DataSet1.sp_DetalleEventodescripcionDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class sp_DetalleEventoTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public sp_DetalleEventoTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "sp_DetalleEvento";
+            tableMapping.ColumnMappings.Add("COD_CONCEPTOS", "COD_CONCEPTOS");
+            tableMapping.ColumnMappings.Add("DES_CONCEPTOS", "DES_CONCEPTOS");
+            tableMapping.ColumnMappings.Add("COD_DETALLES", "COD_DETALLES");
+            tableMapping.ColumnMappings.Add("COSTOS_CONCEPTO", "COSTOS_CONCEPTO");
+            tableMapping.ColumnMappings.Add("COSTOPRECIO", "COSTOPRECIO");
+            tableMapping.ColumnMappings.Add("CANTIDAD", "CANTIDAD");
+            tableMapping.ColumnMappings.Add("DES_CATEGORIA", "DES_CATEGORIA");
+            tableMapping.ColumnMappings.Add("DESCUENTO", "DESCUENTO");
+            tableMapping.ColumnMappings.Add("CostoTotal", "CostoTotal");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = "Data Source=WSDEVELOP00\\WSDEVELOP002K17;Initial Catalog=EVENTOS;Integrated Securi" +
+                "ty=True";
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.sp_DetalleEvento";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@COD_EVENTO", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DataSet1.sp_DetalleEventoDataTable dataTable, global::System.Nullable<int> COD_EVENTO) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((COD_EVENTO.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(COD_EVENTO.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DataSet1.sp_DetalleEventoDataTable GetData(global::System.Nullable<int> COD_EVENTO) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((COD_EVENTO.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(COD_EVENTO.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            DataSet1.sp_DetalleEventoDataTable dataTable = new DataSet1.sp_DetalleEventoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

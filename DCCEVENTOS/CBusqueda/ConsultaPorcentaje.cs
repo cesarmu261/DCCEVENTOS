@@ -11,7 +11,6 @@ namespace DCCEVENTOS.CBusqueda
         {
             InitializeComponent();
             nPorcentaje = new NPorcentaje();
-            CPrincipal.CambiarMaysucula(textBox1);
         }
         private void CargarInformacion()
         {

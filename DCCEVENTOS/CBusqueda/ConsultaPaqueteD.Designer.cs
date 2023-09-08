@@ -37,10 +37,11 @@
             // 
             // textBox1
             // 
+            textBox1.CharacterCasing = CharacterCasing.Upper;
             textBox1.Location = new Point(110, 26);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(267, 23);
-            textBox1.TabIndex = 71;
+            textBox1.TabIndex = 1;
             textBox1.KeyPress += textBox1_KeyPress;
             // 
             // BTNBus
@@ -48,7 +49,7 @@
             BTNBus.Location = new Point(394, 26);
             BTNBus.Name = "BTNBus";
             BTNBus.Size = new Size(144, 23);
-            BTNBus.TabIndex = 70;
+            BTNBus.TabIndex = 2;
             BTNBus.Text = "Buscar";
             BTNBus.UseVisualStyleBackColor = true;
             BTNBus.Click += BTNBus_Click;
@@ -59,7 +60,7 @@
             label1.Location = new Point(26, 27);
             label1.Name = "label1";
             label1.Size = new Size(69, 15);
-            label1.TabIndex = 69;
+            label1.TabIndex = 0;
             label1.Text = "Descripcion";
             // 
             // dataGridView1
@@ -76,7 +77,7 @@
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(804, 271);
-            dataGridView1.TabIndex = 72;
+            dataGridView1.TabIndex = 0;
             dataGridView1.DoubleClick += dataGridView1_DoubleClick;
             // 
             // ConsultaPaqueteD

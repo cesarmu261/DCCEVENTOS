@@ -228,7 +228,7 @@
             CBSalones.Location = new Point(135, 185);
             CBSalones.Name = "CBSalones";
             CBSalones.Size = new Size(200, 23);
-            CBSalones.TabIndex = 87;
+            CBSalones.TabIndex = 4;
             // 
             // CBEstado
             // 
@@ -237,7 +237,7 @@
             CBEstado.Location = new Point(135, 310);
             CBEstado.Name = "CBEstado";
             CBEstado.Size = new Size(200, 23);
-            CBEstado.TabIndex = 90;
+            CBEstado.TabIndex = 7;
             // 
             // label5
             // 
@@ -262,14 +262,15 @@
             dateTimePicker1.Location = new Point(135, 223);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 88;
+            dateTimePicker1.TabIndex = 5;
             // 
             // textBox3
             // 
+            textBox3.CharacterCasing = CharacterCasing.Upper;
             textBox3.Location = new Point(135, 269);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(200, 23);
-            textBox3.TabIndex = 4;
+            textBox3.TabIndex = 6;
             // 
             // label3
             // 
@@ -282,6 +283,7 @@
             // 
             // textBox2
             // 
+            textBox2.CharacterCasing = CharacterCasing.Upper;
             textBox2.Location = new Point(135, 144);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(200, 23);
@@ -298,6 +300,7 @@
             // 
             // textBox1
             // 
+            textBox1.CharacterCasing = CharacterCasing.Upper;
             textBox1.Location = new Point(135, 107);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(200, 23);
@@ -413,7 +416,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(14, 178);
+            label15.Location = new Point(3, 178);
             label15.Name = "label15";
             label15.Size = new Size(129, 15);
             label15.TabIndex = 16;
@@ -444,76 +447,85 @@
             comboBox1.Location = new Point(135, 252);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(200, 23);
-            comboBox1.TabIndex = 9;
+            comboBox1.TabIndex = 14;
             // 
             // textBox12
             // 
+            textBox12.CharacterCasing = CharacterCasing.Upper;
             textBox12.Location = new Point(135, 368);
             textBox12.Name = "textBox12";
             textBox12.Size = new Size(200, 23);
-            textBox12.TabIndex = 7;
+            textBox12.TabIndex = 17;
             // 
             // textBox13
             // 
+            textBox13.CharacterCasing = CharacterCasing.Upper;
             textBox13.Location = new Point(135, 407);
             textBox13.Name = "textBox13";
             textBox13.Size = new Size(200, 23);
-            textBox13.TabIndex = 8;
+            textBox13.TabIndex = 18;
             // 
             // textBox10
             // 
+            textBox10.CharacterCasing = CharacterCasing.Upper;
             textBox10.Location = new Point(135, 336);
             textBox10.Name = "textBox10";
             textBox10.Size = new Size(200, 23);
-            textBox10.TabIndex = 6;
+            textBox10.TabIndex = 16;
             // 
             // textBox9
             // 
+            textBox9.CharacterCasing = CharacterCasing.Upper;
             textBox9.Location = new Point(135, 297);
             textBox9.Name = "textBox9";
             textBox9.Size = new Size(200, 23);
-            textBox9.TabIndex = 5;
+            textBox9.TabIndex = 15;
             textBox9.KeyPress += textBox9_KeyPress;
             // 
             // textBox8
             // 
+            textBox8.CharacterCasing = CharacterCasing.Upper;
             textBox8.Enabled = false;
             textBox8.Location = new Point(135, 214);
             textBox8.Name = "textBox8";
             textBox8.Size = new Size(200, 23);
-            textBox8.TabIndex = 0;
+            textBox8.TabIndex = 13;
             // 
             // textBox7
             // 
+            textBox7.CharacterCasing = CharacterCasing.Upper;
             textBox7.Enabled = false;
             textBox7.Location = new Point(135, 175);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(200, 23);
-            textBox7.TabIndex = 0;
+            textBox7.TabIndex = 12;
             // 
             // textBox6
             // 
+            textBox6.CharacterCasing = CharacterCasing.Upper;
             textBox6.Enabled = false;
             textBox6.Location = new Point(135, 136);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(200, 23);
-            textBox6.TabIndex = 0;
+            textBox6.TabIndex = 11;
             // 
             // textBox5
             // 
+            textBox5.CharacterCasing = CharacterCasing.Upper;
             textBox5.Enabled = false;
             textBox5.Location = new Point(135, 95);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(200, 23);
-            textBox5.TabIndex = 0;
+            textBox5.TabIndex = 10;
             // 
             // textBox4
             // 
+            textBox4.CharacterCasing = CharacterCasing.Upper;
             textBox4.Enabled = false;
             textBox4.Location = new Point(135, 54);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(200, 23);
-            textBox4.TabIndex = 0;
+            textBox4.TabIndex = 9;
             // 
             // toolStripContainer1
             // 
@@ -614,6 +626,7 @@
             // 
             // TBCod
             // 
+            TBCod.CharacterCasing = CharacterCasing.Upper;
             TBCod.Location = new Point(135, 65);
             TBCod.Name = "TBCod";
             TBCod.Size = new Size(200, 23);
@@ -634,7 +647,7 @@
             button4.Location = new Point(182, 358);
             button4.Name = "button4";
             button4.Size = new Size(168, 23);
-            button4.TabIndex = 102;
+            button4.TabIndex = 8;
             button4.Text = "Agregar Nuevo Concepto";
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;

@@ -34,6 +34,43 @@ namespace Negocio
             eventos = ToolsDBContext.ToDataTable<SaEventoDetalle>(new DMEventoDetalle(contexto).Obtener());
             return eventos;
         }
+        public DataTable ObtenePagoEventos2(int cod)
+        {
+            EventosContext contexto = new EventosContext();
+            List<SaEventoDetalle> List = new DMEventoDetalle(contexto).Obtener(0, cod);
+
+            //DataTable eventos = ToolsDBContext.ToDataTable<SaEventoDetalle>(List);
+            DataTable eventos = new DataTable();
+            eventos.Columns.Add("COD PAQUETE");
+            eventos.Columns.Add("DES CONCEPTOS");
+            eventos.Columns.Add("COSTO DE VENTA");
+            eventos.Columns.Add("CANTIDAD");
+            eventos.Columns.Add("DESCUENTO");
+            eventos.Columns.Add("PRECIO TOTAL");
+
+            foreach (SaEventoDetalle ev in List)
+            {
+                DataRow row = eventos.NewRow();
+                int? codDetallepaq = ev.CodDetallepaq;
+
+                // Obtener la descripción del paquete si el valor no es nul-l, o un valor vacío si es null.
+                string descripcionPaquete = codDetallepaq.HasValue
+                    ? nPaquete.ObtenerDescripcione(codDetallepaq.Value)
+                    : string.Empty;
+
+                // Asignar el valor a la columna "COD PAQUETE" en la fila "row".
+                row["COD PAQUETE"] = descripcionPaquete;
+                row["DES CONCEPTOS"] = nConceptos.ObtenerDescripcione(ev.CodConceptos);  // Reemplaza "Columna2" y "Propiedad2" con los nombres reales de la columna y propiedad que deseas incluir
+                row["COSTO DE VENTA"] = ev.Costoprecio;
+                row["CANTIDAD"] = ev.Cantidad;
+                row["DESCUENTO"] = ev.Descuento;
+                row["PRECIO TOTAL"] = ev.CostoTotal;
+                eventos.Rows.Add(row);
+            }
+
+            return eventos;
+
+        }
         public DataTable ObteneEventos2(int cod)
         {
             EventosContext contexto = new EventosContext();

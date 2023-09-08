@@ -106,5 +106,108 @@ namespace DCCEVENTOS
             CSalones form = new CSalones();
             form.Show();
         }
+
+        private void tipoDeTransaccionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CTransacciones form = new CTransacciones();
+            form.Show();
+        }
+
+        private void cobrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CPagos form = new CPagos();
+            form.Show();
+        }
+
+        private void comprobanteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CComprobante form = new CComprobante();
+            form.Show();
+        }
+
+        private void tipoDePagosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CTipodePago form = new CTipodePago();
+            form.Show();
+        }
+
+        private void tipoDeCancelacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CCancelaciones form = new CCancelaciones();
+            form.Show();
+        }
+
+        private void consultaDePorcentajeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaPorcentaje form = new ConsultaPorcentaje();
+            form.Show();
+        }
+
+        private void consultaDeCategoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsulatadeCategorias form = new ConsulatadeCategorias();
+            form.Show();
+        }
+
+        private void consultaDeSalonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultadeSalones form = new ConsultadeSalones();
+            form.Show();
+        }
+
+        private void consultaDeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaTipoTrenasacciones form = new ConsultaTipoTrenasacciones();
+            form.Show();
+        }
+
+        private void consultaDeTipoDeComprobanteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Consultadetipocomprobante form = new Consultadetipocomprobante();
+            form.Show();
+        }
+
+        private void consultaDeTipoDeCancelacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultadeCancelaciones form = new ConsultadeCancelaciones();
+            form.Show();
+        }
+
+        private void consultaDeTipoDePagoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultadeTipoPago form = new ConsultadeTipoPago();
+            form.Show();
+        }
+
+        private void consultaDeConceptoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultadeConceptos form = new ConsultadeConceptos();
+            form.Show();
+        }
+
+        private void consultaDePaqueteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultadePaquete form = new ConsultadePaquete();
+            form.Show();
+        }
+
+        private void consultaDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaClientes form = new ConsultaClientes();
+            form.Show();
+
+        }
+
+        private void consultaDeTerceroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaTerceros form = new ConsultaTerceros();
+            form.Show();
+        }
+
+        private void consultaDeEventosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaDeEventos form = new ConsultaDeEventos();
+            form.Show();
+        }
     }
 }

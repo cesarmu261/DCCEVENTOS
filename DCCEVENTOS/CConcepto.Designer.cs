@@ -202,6 +202,7 @@
             // 
             // TBCantidad
             // 
+            TBCantidad.CharacterCasing = CharacterCasing.Upper;
             TBCantidad.Location = new Point(107, 170);
             TBCantidad.Name = "TBCantidad";
             TBCantidad.Size = new Size(264, 23);
@@ -210,6 +211,7 @@
             // 
             // TbDes
             // 
+            TbDes.CharacterCasing = CharacterCasing.Upper;
             TbDes.Location = new Point(107, 107);
             TbDes.Name = "TbDes";
             TbDes.Size = new Size(264, 23);
@@ -217,6 +219,7 @@
             // 
             // TbPrecio
             // 
+            TbPrecio.CharacterCasing = CharacterCasing.Upper;
             TbPrecio.Location = new Point(107, 237);
             TbPrecio.Name = "TbPrecio";
             TbPrecio.Size = new Size(264, 23);
@@ -224,6 +227,7 @@
             // 
             // TbIVA
             // 
+            TbIVA.CharacterCasing = CharacterCasing.Upper;
             TbIVA.Location = new Point(107, 266);
             TbIVA.Name = "TbIVA";
             TbIVA.Size = new Size(264, 23);
@@ -231,6 +235,7 @@
             // 
             // TbTotal
             // 
+            TbTotal.CharacterCasing = CharacterCasing.Upper;
             TbTotal.Location = new Point(107, 298);
             TbTotal.Name = "TbTotal";
             TbTotal.Size = new Size(264, 23);
@@ -361,6 +366,7 @@
             // 
             // textBox2
             // 
+            textBox2.CharacterCasing = CharacterCasing.Upper;
             textBox2.Location = new Point(107, 208);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(264, 23);

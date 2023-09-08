@@ -10,6 +10,7 @@ namespace Negocio
     public class NEventos
     {
         DataTable eventos;
+        public static int SSCod = 1;
         public NEventos()
         {
             eventos = new DataTable();
@@ -151,10 +152,6 @@ namespace Negocio
             EventosContext context = new EventosContext();
             return new DMEventoDetalle(context).Obtener(0,codeven);
         }
-
-
-
-        
     }
 }
 

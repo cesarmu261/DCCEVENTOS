@@ -37,10 +37,11 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(87, 6);
+            textBox1.CharacterCasing = CharacterCasing.Upper;
+            textBox1.Location = new Point(84, 18);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(267, 23);
-            textBox1.TabIndex = 72;
+            textBox1.TabIndex = 1;
             textBox1.KeyPress += textBox1_KeyPress;
             // 
             // dataGridView1
@@ -57,15 +58,15 @@
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(804, 271);
-            dataGridView1.TabIndex = 71;
+            dataGridView1.TabIndex = 0;
             dataGridView1.DoubleClick += dataGridView1_DoubleClick;
             // 
             // BTNBus
             // 
-            BTNBus.Location = new Point(371, 6);
+            BTNBus.Location = new Point(368, 18);
             BTNBus.Name = "BTNBus";
             BTNBus.Size = new Size(144, 23);
-            BTNBus.TabIndex = 70;
+            BTNBus.TabIndex = 2;
             BTNBus.Text = "Buscar";
             BTNBus.UseVisualStyleBackColor = true;
             BTNBus.Click += BTNBus_Click;
@@ -73,10 +74,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(3, 7);
+            label1.Location = new Point(0, 19);
             label1.Name = "label1";
             label1.Size = new Size(69, 15);
-            label1.TabIndex = 69;
+            label1.TabIndex = 0;
             label1.Text = "Descripcion";
             // 
             // ConsultadePaquete

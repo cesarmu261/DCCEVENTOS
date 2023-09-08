@@ -75,6 +75,7 @@
             // 
             // TBClientes
             // 
+            TBClientes.CharacterCasing = CharacterCasing.Upper;
             TBClientes.Enabled = false;
             TBClientes.Location = new Point(149, 157);
             TBClientes.Name = "TBClientes";
@@ -92,6 +93,7 @@
             // 
             // dateTimePicker1
             // 
+            dateTimePicker1.Format = DateTimePickerFormat.Short;
             dateTimePicker1.Location = new Point(149, 76);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(200, 23);
@@ -109,6 +111,7 @@
             // 
             // dateTimePicker2
             // 
+            dateTimePicker2.Format = DateTimePickerFormat.Short;
             dateTimePicker2.Location = new Point(149, 112);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(200, 23);
@@ -134,6 +137,7 @@
             // 
             // TBDescripcion
             // 
+            TBDescripcion.CharacterCasing = CharacterCasing.Upper;
             TBDescripcion.Location = new Point(149, 201);
             TBDescripcion.Name = "TBDescripcion";
             TBDescripcion.Size = new Size(200, 23);
@@ -389,7 +393,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1212, 616);
+            ClientSize = new Size(1212, 628);
             Controls.Add(pictureBox5);
             Controls.Add(button6);
             Controls.Add(pictureBox4);

@@ -181,6 +181,7 @@
             // 
             // TbDes
             // 
+            TbDes.CharacterCasing = CharacterCasing.Upper;
             TbDes.Location = new Point(93, 71);
             TbDes.Name = "TbDes";
             TbDes.Size = new Size(200, 23);
@@ -220,7 +221,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(18, 74);
+            label1.Location = new Point(12, 74);
             label1.Name = "label1";
             label1.Size = new Size(69, 15);
             label1.TabIndex = 0;
@@ -228,6 +229,7 @@
             // 
             // textBox1
             // 
+            textBox1.CharacterCasing = CharacterCasing.Upper;
             textBox1.Location = new Point(93, 108);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(200, 23);
@@ -236,11 +238,11 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(18, 111);
+            label2.Location = new Point(12, 111);
             label2.Name = "label2";
-            label2.Size = new Size(69, 15);
+            label2.Size = new Size(78, 15);
             label2.TabIndex = 0;
-            label2.Text = "Descripcion";
+            label2.Text = "Descripcion L";
             // 
             // CSalones
             // 

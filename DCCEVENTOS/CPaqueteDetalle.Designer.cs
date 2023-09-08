@@ -137,6 +137,7 @@
             // 
             // Coddp
             // 
+            Coddp.CharacterCasing = CharacterCasing.Upper;
             Coddp.Location = new Point(90, 71);
             Coddp.Name = "Coddp";
             Coddp.Size = new Size(248, 23);
@@ -196,7 +197,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripNuevo, toolStripGuardar, toolStripButton1, toolStripSeparator1, toolStripBuscar, toolStripSeparator2, toolStripSalir });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(556, 31);
+            toolStrip1.Size = new Size(568, 31);
             toolStrip1.TabIndex = 81;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -267,7 +268,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { opcionesToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(556, 24);
+            menuStrip1.Size = new Size(568, 24);
             menuStrip1.TabIndex = 80;
             menuStrip1.Text = "Opciones";
             // 
@@ -317,7 +318,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(556, 480);
+            ClientSize = new Size(568, 480);
             Controls.Add(toolStrip1);
             Controls.Add(menuStrip1);
             Controls.Add(pictureBox2);

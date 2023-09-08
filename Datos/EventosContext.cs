@@ -1,10 +1,13 @@
-﻿using Coneccion;
-using Entidades;
-using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
+using Coneccion;
 using System.Data.Common;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Data.SqlClient;
+using Entidades;
 
 namespace Datos;
+
 
 public partial class EventosContext : DbContext
 {
@@ -17,7 +20,7 @@ public partial class EventosContext : DbContext
     public void TransaccionBR(DbConnection coneccion, DbTransaction transaction)
     {
         this.coneccion = coneccion;
-        this.Database.UseTransaction(transaction);
+        Database.UseTransaction(transaction);
     }
     public EventosContext(DbContextOptions<EventosContext> options)
         : base(options)
@@ -28,17 +31,27 @@ public partial class EventosContext : DbContext
 
     public virtual DbSet<SaCodReg> SaCodRegs { get; set; }
 
+    public virtual DbSet<SaEvTipoTransaccion> SaEvTipoTransaccions { get; set; }
+
+    public virtual DbSet<SaEveCancelacione> SaEveCancelaciones { get; set; }
+
     public virtual DbSet<SaEveCategoriaimp> SaEveCategoriaimps { get; set; }
 
     public virtual DbSet<SaEveCliente> SaEveClientes { get; set; }
 
     public virtual DbSet<SaEveConcepto> SaEveConceptos { get; set; }
 
+    public virtual DbSet<SaEvePago> SaEvePagos { get; set; }
+
     public virtual DbSet<SaEvePaquete> SaEvePaquetes { get; set; }
 
     public virtual DbSet<SaEvePaqueteDetalle> SaEvePaqueteDetalles { get; set; }
 
     public virtual DbSet<SaEvePorcentaje> SaEvePorcentajes { get; set; }
+
+    public virtual DbSet<SaEveTipoComprobante> SaEveTipoComprobantes { get; set; }
+
+    public virtual DbSet<SaEveTipoPago> SaEveTipoPagos { get; set; }
 
     public virtual DbSet<SaEvento> SaEventos { get; set; }
 
@@ -51,11 +64,12 @@ public partial class EventosContext : DbContext
         if (!optionsBuilder.IsConfigured)
         {
             optionsBuilder.UseSqlServer(coneccion);
-
         }
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.UseCollation("Modern_Spanish_CI_AS");
+
         modelBuilder.Entity<SaCodEstado>(entity =>
         {
             entity.HasKey(e => e.CodEstado).HasName("PK_SA_COD_ESTUSU");
@@ -94,6 +108,40 @@ public partial class EventosContext : DbContext
                 .HasMaxLength(100)
                 .IsUnicode(false)
                 .HasColumnName("DES_REG");
+        });
+
+        modelBuilder.Entity<SaEvTipoTransaccion>(entity =>
+        {
+            entity.HasKey(e => e.CodTipoTransaccion).HasName("PK_SA_COD_TIPO_TRANSACCION");
+
+            entity.ToTable("SA_EV_TIPO_TRANSACCION");
+
+            entity.Property(e => e.CodTipoTransaccion).HasColumnName("COD_TIPO_TRANSACCION");
+            entity.Property(e => e.DesTipoTransaccion)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("DES_TIPO_TRANSACCION");
+        });
+
+        modelBuilder.Entity<SaEveCancelacione>(entity =>
+        {
+            entity.HasKey(e => e.CodCancelacion);
+
+            entity.ToTable("SA_EVE_CANCELACIONES");
+
+            entity.Property(e => e.CodCancelacion).HasColumnName("COD_CANCELACION");
+            entity.Property(e => e.CodEstado)
+                .HasMaxLength(1)
+                .IsUnicode(false)
+                .HasColumnName("COD_ESTADO");
+            entity.Property(e => e.DesCancelacion)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("DES_CANCELACION");
+
+            entity.HasOne(d => d.CodEstadoNavigation).WithMany(p => p.SaEveCancelaciones)
+                .HasForeignKey(d => d.CodEstado)
+                .HasConstraintName("FK_SA_EVE_CANCELACIONES_SA_COD_ESTADO");
         });
 
         modelBuilder.Entity<SaEveCategoriaimp>(entity =>
@@ -237,6 +285,68 @@ public partial class EventosContext : DbContext
                 .HasConstraintName("FK_SA_EVE_CONCEPTOS_SA_EVE_PORCENTAJE");
         });
 
+        modelBuilder.Entity<SaEvePago>(entity =>
+        {
+            entity.HasKey(e => e.CodPagos).HasName("SA_EVE_PAGO");
+
+            entity.ToTable("SA_EVE_PAGOS");
+
+            entity.Property(e => e.CodPagos).HasColumnName("COD_PAGOS");
+            entity.Property(e => e.CodComprobante).HasColumnName("COD_COMPROBANTE");
+            entity.Property(e => e.CodEstado)
+                .HasMaxLength(1)
+                .IsUnicode(false)
+                .HasColumnName("COD_ESTADO");
+            entity.Property(e => e.CodEvento).HasColumnName("COD_EVENTO");
+            entity.Property(e => e.CodPago).HasColumnName("COD_PAGO");
+            entity.Property(e => e.CodTipoTransaccion).HasColumnName("COD_TIPO_TRANSACCION");
+            entity.Property(e => e.FechaDeCancelacion)
+                .HasColumnType("datetime")
+                .HasColumnName("FECHA_DE_CANCELACION");
+            entity.Property(e => e.FechaDeFactura)
+                .HasColumnType("datetime")
+                .HasColumnName("FECHA_DE_FACTURA");
+            entity.Property(e => e.FechaDePago)
+                .HasColumnType("datetime")
+                .HasColumnName("FECHA_DE_PAGO");
+            entity.Property(e => e.Montoapagar)
+                .HasColumnType("decimal(10, 2)")
+                .HasColumnName("MONTOAPAGAR");
+            entity.Property(e => e.Observacion)
+                .HasMaxLength(250)
+                .IsUnicode(false)
+                .HasColumnName("OBSERVACION");
+            entity.Property(e => e.Observacionpago)
+                .HasMaxLength(250)
+                .IsUnicode(false)
+                .HasColumnName("OBSERVACIONPAGO");
+            entity.Property(e => e.Recibo).HasColumnName("RECIBO");
+            entity.Property(e => e.Referencia)
+                .HasMaxLength(250)
+                .IsUnicode(false)
+                .HasColumnName("REFERENCIA");
+
+            entity.HasOne(d => d.CodComprobanteNavigation).WithMany(p => p.SaEvePagos)
+                .HasForeignKey(d => d.CodComprobante)
+                .HasConstraintName("FK_SA_EVE_PAGOS_SA_EVE_TIPO_COMPROBANTE");
+
+            entity.HasOne(d => d.CodEstadoNavigation).WithMany(p => p.SaEvePagos)
+                .HasForeignKey(d => d.CodEstado)
+                .HasConstraintName("FK_SA_EVE_PAGOS_SA_COD_ESTADO");
+
+            entity.HasOne(d => d.CodEventoNavigation).WithMany(p => p.SaEvePagos)
+                .HasForeignKey(d => d.CodEvento)
+                .HasConstraintName("FK_SA_EVE_PAGOS_SA_EVENTOS");
+
+            entity.HasOne(d => d.CodPagoNavigation).WithMany(p => p.SaEvePagos)
+                .HasForeignKey(d => d.CodPago)
+                .HasConstraintName("FK_SA_EVE_PAGOS_SA_EVE_TIPO_PAGO");
+
+            entity.HasOne(d => d.CodTipoTransaccionNavigation).WithMany(p => p.SaEvePagos)
+                .HasForeignKey(d => d.CodTipoTransaccion)
+                .HasConstraintName("FK_SA_EVE_PAGOS_SA_EV_TIPO_TRANSACCION");
+        });
+
         modelBuilder.Entity<SaEvePaquete>(entity =>
         {
             entity.HasKey(e => e.CodPaquete);
@@ -310,6 +420,48 @@ public partial class EventosContext : DbContext
                 .HasConstraintName("FK_SA_EVE_PORCENTAJE_SA_COD_ESTADO");
         });
 
+        modelBuilder.Entity<SaEveTipoComprobante>(entity =>
+        {
+            entity.HasKey(e => e.CodComprobante);
+
+            entity.ToTable("SA_EVE_TIPO_COMPROBANTE");
+
+            entity.Property(e => e.CodComprobante).HasColumnName("COD_COMPROBANTE");
+            entity.Property(e => e.CodEstado)
+                .HasMaxLength(1)
+                .IsUnicode(false)
+                .HasColumnName("COD_ESTADO");
+            entity.Property(e => e.DesComprobante)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("DES_COMPROBANTE");
+
+            entity.HasOne(d => d.CodEstadoNavigation).WithMany(p => p.SaEveTipoComprobantes)
+                .HasForeignKey(d => d.CodEstado)
+                .HasConstraintName("FK_SA_TIPO_COMPROBANTE_SA_COD_ESTADO");
+        });
+
+        modelBuilder.Entity<SaEveTipoPago>(entity =>
+        {
+            entity.HasKey(e => e.CodPago);
+
+            entity.ToTable("SA_EVE_TIPO_PAGO");
+
+            entity.Property(e => e.CodPago).HasColumnName("COD_PAGO");
+            entity.Property(e => e.CodEstado)
+                .HasMaxLength(1)
+                .IsUnicode(false)
+                .HasColumnName("COD_ESTADO");
+            entity.Property(e => e.DesPago)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("DES_PAGO");
+
+            entity.HasOne(d => d.CodEstadoNavigation).WithMany(p => p.SaEveTipoPagos)
+                .HasForeignKey(d => d.CodEstado)
+                .HasConstraintName("FK_SA_EVE_TIPO_PAGO_SA_COD_ESTADO");
+        });
+
         modelBuilder.Entity<SaEvento>(entity =>
         {
             entity.HasKey(e => e.CodEvento);
@@ -358,10 +510,10 @@ public partial class EventosContext : DbContext
             entity.Property(e => e.Cantidad)
                 .HasColumnType("decimal(18, 0)")
                 .HasColumnName("CANTIDAD");
+            entity.Property(e => e.CodCategoria).HasColumnName("COD_CATEGORIA");
             entity.Property(e => e.CodConceptos).HasColumnName("COD_CONCEPTOS");
             entity.Property(e => e.CodDetallepaq).HasColumnName("COD_DETALLEPAQ");
             entity.Property(e => e.CodEvento).HasColumnName("COD_EVENTO");
-            entity.Property(e => e.CodCategoria).HasColumnName("COD_CATEGORIA");
             entity.Property(e => e.CostoTotal).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.Costoprecio)
                 .HasColumnType("decimal(18, 2)")

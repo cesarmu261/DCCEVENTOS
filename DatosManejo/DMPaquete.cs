@@ -119,7 +119,14 @@ namespace DatosManejo
         }
         public string? Obtenedescripcion(int? cod)
         {
-            return contexto.SaEvePaquetes.Where(a => a.CodPaquete == cod).FirstOrDefault().DesPaquete;
+            if (cod == null)
+            {
+                return null;
+            }
+            else
+            {
+                return contexto.SaEvePaquetes.Where(a => a.CodPaquete == cod).FirstOrDefault().DesPaquete;
+            }
         }
     }
 }

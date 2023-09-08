@@ -12,7 +12,6 @@ namespace DCCEVENTOS.CBusqueda
         {
             InitializeComponent();
             ncategoria = new NCategoria();
-            CPrincipal.CambiarMaysucula(textBox1);
         }
         private void CargarInformacion()
         {

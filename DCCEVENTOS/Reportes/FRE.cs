@@ -14,6 +14,7 @@ using Coneccion;
 using Microsoft.ReportingServices.Diagnostics.Internal;
 using System.Data.Common;
 using System.Data.SqlClient;
+using System.Drawing.Printing;
 
 namespace DCCEVENTOS.Reportes
 {
@@ -39,18 +40,28 @@ namespace DCCEVENTOS.Reportes
             coneccion = new SqlConnection(con.ObtenerConeccion("FRE"));
             tableAdapter.Connection = (SqlConnection)coneccion;
             tableAdapter1.Connection = (SqlConnection)coneccion;
-            
+
             //int VALOR;
             //VALOR = Cod_Evento;
             // Llenar el DataSet con datos desde la fuente de datos
+            //reportViewer1.PrinterSettings.PrintToFile
+    
             tableAdapter1.Fill(dataSet.sp_Eventos, VALOR);
             tableAdapter.Fill(dataSet.sp_DetalleEvento, VALOR);
             //reportViewer1.LocalReport.DataSources.Clear();
             ReportDataSource reportDataSource = new ReportDataSource("DataSet1", dataSet.Tables["sp_DetalleEvento"]);
             ReportDataSource reportDataSource1 = new ReportDataSource("DataSet2", dataSet.Tables["sp_Eventos"]);
+            
             reportViewer1.LocalReport.DataSources.Add(reportDataSource);
             reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+
             reportViewer1.LocalReport.ReportEmbeddedResource = "DCCEVENTOS.Reportes.Report1.rdlc";
+
+            PageSettings pageSettings = new PageSettings();
+            pageSettings.Margins = new Margins(1, 1, 1, 1); // Márgenes en pulgadas
+            pageSettings.Landscape = true; // Cambiar a true si deseas orientación horizontal
+            pageSettings.PaperSize = new PaperSize("Letter", 850, 950); // Tamaño del papel en puntos
+            reportViewer1.SetPageSettings(pageSettings);
             reportViewer1.RefreshReport();
 
         }
