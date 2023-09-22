@@ -62,6 +62,7 @@
             reportesToolStripMenuItem = new ToolStripMenuItem();
             reporteEventoToolStripMenuItem = new ToolStripMenuItem();
             panel1 = new Panel();
+            reportePagosToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -84,14 +85,14 @@
             // UsuarioToolStripMenuItem
             // 
             UsuarioToolStripMenuItem.Name = "UsuarioToolStripMenuItem";
-            UsuarioToolStripMenuItem.Size = new Size(180, 22);
+            UsuarioToolStripMenuItem.Size = new Size(122, 22);
             UsuarioToolStripMenuItem.Text = "Usuario";
             // 
             // CatalogoToolStripMenuItem
             // 
             CatalogoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { porcentajeToolStripMenuItem1, categoriaToolStripMenuItem1, salonToolStripMenuItem1, tipoDeTransaccionesToolStripMenuItem1, comprobanteToolStripMenuItem, tipoDeCancelacionesToolStripMenuItem, tipoDePagosToolStripMenuItem, conceptoToolStripMenuItem1, paqueteToolStripMenuItem1, paqueteDetalleToolStripMenuItem1, clientesToolStripMenuItem1, eventoToolStripMenuItem });
             CatalogoToolStripMenuItem.Name = "CatalogoToolStripMenuItem";
-            CatalogoToolStripMenuItem.Size = new Size(180, 22);
+            CatalogoToolStripMenuItem.Size = new Size(122, 22);
             CatalogoToolStripMenuItem.Text = "Catalogo";
             // 
             // porcentajeToolStripMenuItem1
@@ -285,7 +286,7 @@
             // 
             // reportesToolStripMenuItem
             // 
-            reportesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { reporteEventoToolStripMenuItem });
+            reportesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { reporteEventoToolStripMenuItem, reportePagosToolStripMenuItem });
             reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             reportesToolStripMenuItem.Size = new Size(65, 20);
             reportesToolStripMenuItem.Text = "Reportes";
@@ -293,7 +294,7 @@
             // reporteEventoToolStripMenuItem
             // 
             reporteEventoToolStripMenuItem.Name = "reporteEventoToolStripMenuItem";
-            reporteEventoToolStripMenuItem.Size = new Size(154, 22);
+            reporteEventoToolStripMenuItem.Size = new Size(180, 22);
             reporteEventoToolStripMenuItem.Text = "Reporte Evento";
             reporteEventoToolStripMenuItem.Click += reporteEventoToolStripMenuItem_Click;
             // 
@@ -303,6 +304,13 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1940, 926);
             panel1.TabIndex = 1;
+            // 
+            // reportePagosToolStripMenuItem
+            // 
+            reportePagosToolStripMenuItem.Name = "reportePagosToolStripMenuItem";
+            reportePagosToolStripMenuItem.Size = new Size(180, 22);
+            reportePagosToolStripMenuItem.Text = "Reporte Pagos";
+            reportePagosToolStripMenuItem.Click += reportePagosToolStripMenuItem_Click;
             // 
             // CPrincipal
             // 
@@ -359,5 +367,6 @@
         private ToolStripMenuItem consultaDeClientesToolStripMenuItem;
         private ToolStripMenuItem consultaDeTerceroToolStripMenuItem;
         private ToolStripMenuItem consultaDeEventosToolStripMenuItem;
+        private ToolStripMenuItem reportePagosToolStripMenuItem;
     }
 }

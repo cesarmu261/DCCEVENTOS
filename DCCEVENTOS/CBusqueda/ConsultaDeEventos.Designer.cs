@@ -43,7 +43,6 @@
             toolStrip1 = new ToolStrip();
             toolStripNuevo = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
-            toolStripBuscar = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
             toolStripSalir = new ToolStripButton();
             menuStrip1 = new MenuStrip();
@@ -142,6 +141,7 @@
             TBDescripcion.Name = "TBDescripcion";
             TBDescripcion.Size = new Size(200, 23);
             TBDescripcion.TabIndex = 2;
+            TBDescripcion.KeyPress += TBDescripcion_KeyPress;
             // 
             // DTGEventos
             // 
@@ -187,7 +187,7 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(24, 24);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripNuevo, toolStripSeparator1, toolStripBuscar, toolStripSeparator2, toolStripSalir });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripNuevo, toolStripSeparator1, toolStripSeparator2, toolStripSalir });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(1212, 31);
@@ -208,16 +208,6 @@
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
             toolStripSeparator1.Size = new Size(6, 31);
-            // 
-            // toolStripBuscar
-            // 
-            toolStripBuscar.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripBuscar.Image = (Image)resources.GetObject("toolStripBuscar.Image");
-            toolStripBuscar.ImageTransparentColor = Color.Magenta;
-            toolStripBuscar.Name = "toolStripBuscar";
-            toolStripBuscar.Size = new Size(28, 28);
-            toolStripBuscar.Text = "toolStripButton4";
-            toolStripBuscar.ToolTipText = "Buscar";
             // 
             // toolStripSeparator2
             // 
@@ -452,7 +442,6 @@
         private ToolStrip toolStrip1;
         private ToolStripButton toolStripNuevo;
         private ToolStripSeparator toolStripSeparator1;
-        private ToolStripButton toolStripBuscar;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripButton toolStripSalir;
         private MenuStrip menuStrip1;

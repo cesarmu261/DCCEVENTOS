@@ -294,7 +294,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripNuevo, toolStripGuardar, toolStripSeparator1, toolStripBuscar, toolStripButton1, toolStripSeparator2, toolStripSalir });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1284, 31);
+            toolStrip1.Size = new Size(1402, 31);
             toolStrip1.TabIndex = 74;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -365,7 +365,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { opcionesToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1284, 24);
+            menuStrip1.Size = new Size(1402, 24);
             menuStrip1.TabIndex = 73;
             menuStrip1.Text = "Opciones";
             // 
@@ -413,7 +413,7 @@
             flowLayoutPanel3.Controls.Add(ConceptosUni);
             flowLayoutPanel3.Location = new Point(314, 358);
             flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(969, 319);
+            flowLayoutPanel3.Size = new Size(1088, 319);
             flowLayoutPanel3.TabIndex = 75;
             // 
             // ConceptosUni
@@ -425,7 +425,7 @@
             ConceptosUni.Location = new Point(3, 3);
             ConceptosUni.Name = "ConceptosUni";
             ConceptosUni.RowTemplate.Height = 25;
-            ConceptosUni.Size = new Size(954, 304);
+            ConceptosUni.Size = new Size(1073, 304);
             ConceptosUni.TabIndex = 0;
             ConceptosUni.CellValueChanged += ConceptosUni_CellValueChanged;
             // 
@@ -543,7 +543,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1284, 758);
+            ClientSize = new Size(1402, 758);
             Controls.Add(label14);
             Controls.Add(label13);
             Controls.Add(label12);

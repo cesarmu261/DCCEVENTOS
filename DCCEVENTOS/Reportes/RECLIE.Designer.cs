@@ -49,6 +49,7 @@
             Name = "RECLIE";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RECLIE";
+            WindowState = FormWindowState.Maximized;
             Load += RECLIE_Load;
             ResumeLayout(false);
         }

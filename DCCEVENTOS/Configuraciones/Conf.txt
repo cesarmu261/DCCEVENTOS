@@ -1,0 +1,1 @@
+Server=WSDEVELOP00\\WSDEVELOP00;Database=eventos;UID=sa; PWD=Usuario1;TrustServerCertificate=True;

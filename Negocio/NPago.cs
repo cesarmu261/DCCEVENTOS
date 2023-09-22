@@ -7,6 +7,7 @@ using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,11 +20,13 @@ namespace Negocio
         NTipoPago nTipoPago;
         NTrans NTrans;
         DataTable table;
+        NEventos nevento;
         public NPago()
         {
-            table = new DataTable();
+
             nTipoPago = new NTipoPago();
             NTrans = new NTrans();
+            nevento = new NEventos();
         }
         public DataTable Obtener()
         {
@@ -31,11 +34,15 @@ namespace Negocio
             table = ToolsDBContext.ToDataTable<SaEvePago>(new DMPagos(contexto).Obtener());
             return table;
         }
-
+        public int? ObtenerDescripcionesCod()
+        {
+            EventosContext context = new EventosContext();
+            return new DMPagos(context).ObtenerUltimoCodigo();
+        }
         public DataTable ObtenerPago(int cod)
         {
             EventosContext contexto = new EventosContext();
-            List<SaEvePago> List = new DMPagos(contexto).Obtener(0,cod);
+            List<SaEvePago> List = new DMPagos(contexto).Obtener(0, cod);
             DataTable Table = new DataTable();
             Table.Columns.Add("FOLIO");  // Reemplaza "Columna1" con el nombre de la columna real que deseas incluir
             Table.Columns.Add("COD EVENTO");
@@ -91,7 +98,101 @@ namespace Negocio
             }
             return Table;
         }
+        public DataTable ObtenerPagoTodos(int cod)
+        {
+            EventosContext contexto = new EventosContext();
+            List<SaEvePago> List = new DMPagos(contexto).Obtener(0, cod);
+            DataTable Table = new DataTable();
+            Table.Columns.Add("FOLIO");
+            Table.Columns.Add("COD EVENTO");
+            Table.Columns.Add("DESCRIPCION EVENTO");
+            Table.Columns.Add("TIPO TRANS");
+            Table.Columns.Add("FECHA DE PAGO");
+            Table.Columns.Add("COD PAGO");
+            Table.Columns.Add("MONTO A PAGADO");
+            Table.Columns.Add("ESTADO");
 
+            foreach (SaEvePago Entidad in List)
+            {
+                DataRow row = Table.NewRow();
+                row["FOLIO"] = Entidad.CodPagos;  // Reemplaza "Columna1" y "Propiedad1" con los nombres reales de la columna y propiedad que deseas incluir
+                row["COD EVENTO"] = Entidad.CodEvento;
+                row["DESCRIPCION EVENTO"] = nevento.ObtenerDescripcione(Entidad.CodEvento);
+                row["TIPO TRANS"] = NTrans.ObtenerDescripcione(Entidad.CodTipoTransaccion);
+                row["FECHA DE PAGO"] = Entidad.FechaDePago;
+                row["COD PAGO"] = nTipoPago.ObtenerDescripcione(Entidad.CodPago);
+                row["MONTO A PAGADO"] = Entidad.Montoapagar;
+                row["ESTADO"] = ObtenerNombreTipoestado(Entidad.CodEstado);
+                Table.Rows.Add(row);
+            }
+            return Table;
+        }
+        public DataTable ObtenerPagosFecha(DateTime fechaInicial, DateTime fechaFinal)
+        {
+            EventosContext contexto = new EventosContext();
+            List<SaEvePago> List = new DMPagos(contexto).Obtener2(0, 0, 0, fechaInicial);
+            DataTable Table = new DataTable();
+            Table.Columns.Add("FOLIO");
+            Table.Columns.Add("COD EVENTO");
+            Table.Columns.Add("DESCRIPCION EVENTO");
+            Table.Columns.Add("TIPO TRANS");
+            Table.Columns.Add("FECHA DE PAGO");
+            Table.Columns.Add("COD PAGO");
+            Table.Columns.Add("MONTO A PAGADO");
+            Table.Columns.Add("ESTADO");
+
+            foreach (SaEvePago Entidad in List)
+            {
+
+                if (Entidad.FechaDePago >= fechaInicial && Entidad.FechaDePago <= fechaFinal)
+                {
+                    DataRow row = Table.NewRow();
+                    row["FOLIO"] = Entidad.CodPagos;  // Reemplaza "Columna1" y "Propiedad1" con los nombres reales de la columna y propiedad que deseas incluir
+                    row["COD EVENTO"] = Entidad.CodEvento;
+                    row["DESCRIPCION EVENTO"] = nevento.ObtenerDescripcione(Entidad.CodEvento);
+                    row["TIPO TRANS"] = NTrans.ObtenerDescripcione(Entidad.CodTipoTransaccion);
+                    row["FECHA DE PAGO"] = Entidad.FechaDePago;
+                    row["COD PAGO"] = nTipoPago.ObtenerDescripcione(Entidad.CodPago);
+                    row["MONTO A PAGADO"] = Entidad.Montoapagar;
+                    row["ESTADO"] = ObtenerNombreTipoestado(Entidad.CodEstado);
+                    Table.Rows.Add(row);
+                }
+            }
+            return Table;
+        }
+        public DataTable ObtenerCancelaciones(DateTime fechaInicial, DateTime fechaFinal)
+        {
+            EventosContext contexto = new EventosContext();
+            List<SaEvePago> List = new DMPagos(contexto).Obtener3(0, 0, 0, fechaInicial);
+            DataTable Table = new DataTable();
+            Table.Columns.Add("FOLIO");
+            Table.Columns.Add("COD EVENTO");
+            Table.Columns.Add("DESCRIPCION EVENTO");
+            Table.Columns.Add("TIPO TRANS");
+            Table.Columns.Add("FECHA DE PAGO");
+            Table.Columns.Add("COD PAGO");
+            Table.Columns.Add("MONTO A PAGADO");
+            Table.Columns.Add("ESTADO");
+
+            foreach (SaEvePago Entidad in List)
+            {
+
+                if (Entidad.FechaDeCancelacion >= fechaInicial && Entidad.FechaDeCancelacion <= fechaFinal)
+                {
+                    DataRow row = Table.NewRow();
+                    row["FOLIO"] = Entidad.CodPagos;  // Reemplaza "Columna1" y "Propiedad1" con los nombres reales de la columna y propiedad que deseas incluir
+                    row["COD EVENTO"] = Entidad.CodEvento;
+                    row["DESCRIPCION EVENTO"] = nevento.ObtenerDescripcione(Entidad.CodEvento);
+                    row["TIPO TRANS"] = NTrans.ObtenerDescripcione(Entidad.CodTipoTransaccion);
+                    row["FECHA DE PAGO"] = Entidad.FechaDePago;
+                    row["COD PAGO"] = nTipoPago.ObtenerDescripcione(Entidad.CodPago);
+                    row["MONTO A PAGADO"] = Entidad.Montoapagar;
+                    row["ESTADO"] = ObtenerNombreTipoestado(Entidad.CodEstado);
+                    Table.Rows.Add(row);
+                }
+            }
+            return Table;
+        }
         public InfoCompartidaCapas Guardar(SaEvePago comp)
         {
 
@@ -139,6 +240,7 @@ namespace Negocio
                 }
             }
         }
+
        
 
     }

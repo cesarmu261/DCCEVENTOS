@@ -49,6 +49,7 @@
             Name = "REDES";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "REDES";
+            WindowState = FormWindowState.Maximized;
             Load += REDES_Load;
             ResumeLayout(false);
         }

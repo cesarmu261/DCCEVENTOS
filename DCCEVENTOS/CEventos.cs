@@ -88,6 +88,7 @@ namespace DCCEVENTOS
             CBEstado.SelectedIndex = 0;
             //dataGridView1.DataSource = string.Empty;
             CBPaquete.Text = string.Empty;
+            dateTimePicker1.Text = string.Empty;
             ConceptosPaquetes.Rows.Clear();
             ConceptosUni.Rows.Clear();
         }

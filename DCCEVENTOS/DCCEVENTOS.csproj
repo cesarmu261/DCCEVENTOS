@@ -12,16 +12,23 @@
   <ItemGroup>
     <None Remove="Reportes\Report1.rdlc" />
     <None Remove="Reportes\Report2.rdlc" />
+    <None Remove="Reportes\Report3.rdlc" />
+    <None Remove="Reportes\Report4.rdlc" />
+    <None Remove="Reportes\Report5.rdlc" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Reportes\Report1.rdlc" />
     <EmbeddedResource Include="Reportes\Report2.rdlc" />
+    <EmbeddedResource Include="Reportes\Report3.rdlc" />
+    <EmbeddedResource Include="Reportes\Report4.rdlc" />
+    <EmbeddedResource Include="Reportes\Report5.rdlc" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="ReportViewerCore.NETCore" Version="15.1.17" />
     <PackageReference Include="ReportViewerCore.WinForms" Version="15.1.17" />
+    <PackageReference Include="System.Data.Odbc" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -55,6 +62,10 @@
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Configuraciones\" />
   </ItemGroup>
 
 </Project>

@@ -1,8 +1,6 @@
-﻿using Microsoft.Reporting.WinForms;
-
-namespace DCCEVENTOS.Reportes
+﻿namespace DCCEVENTOS.Reportes
 {
-    partial class Recibo
+    partial class RecibosFechas
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +28,7 @@ namespace DCCEVENTOS.Reportes
         /// </summary>
         private void InitializeComponent()
         {
-            reportViewer1 = new ReportViewer();
+            reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             SuspendLayout();
             // 
             // reportViewer1
@@ -39,25 +37,25 @@ namespace DCCEVENTOS.Reportes
             reportViewer1.Location = new Point(0, 0);
             reportViewer1.Name = "ReportViewer";
             reportViewer1.ServerReport.BearerToken = null;
-            reportViewer1.Size = new Size(902, 571);
+            reportViewer1.Size = new Size(859, 536);
             reportViewer1.TabIndex = 0;
             // 
-            // Recibo
+            // RecibosFechas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(902, 571);
+            ClientSize = new Size(859, 536);
             Controls.Add(reportViewer1);
-            Name = "Recibo";
+            Name = "RecibosFechas";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "RecibosFechas";
             WindowState = FormWindowState.Maximized;
-            Load += FRE_Load;
+            Load += RecibosFechas_Load;
             ResumeLayout(false);
         }
 
         #endregion
 
-        private ReportViewer reportViewer1;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

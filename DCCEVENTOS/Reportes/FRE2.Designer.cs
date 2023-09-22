@@ -50,6 +50,7 @@
             Name = "FRE2";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FRE2";
+            WindowState = FormWindowState.Maximized;
             Load += FRE2_Load;
             ResumeLayout(false);
             PerformLayout();

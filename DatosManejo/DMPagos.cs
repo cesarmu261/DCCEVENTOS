@@ -17,6 +17,11 @@ namespace DatosManejo
         {
             this.contexto = contexto;
         }
+        public int? ObtenerUltimoCodigo()
+        {
+            int? ultimoCodigoEvento = contexto.SaEvePagos.Max(a => a.CodPagos);
+            return ultimoCodigoEvento;
+        }
         public List<SaEvePago> Obtener(int Codpagos = 0, int CodEvento = 0, int codtransa = 0
             , DateTime fechadepago = new DateTime(), DateTime fechadefact = new DateTime(), string codestado = ""
             , string obseve = "", int codcomprobante = 0, int codpago = 0, string referencia = ""
@@ -171,7 +176,7 @@ namespace DatosManejo
                     }
                 }
             }
-            else if (fechadepago > new DateTime(1900, 01, 01))
+            else if (fechadepago! > new DateTime(1900, 01, 01))
             {
                 pago = contexto.SaEvePagos.AsNoTracking().Where(a => a.FechaDePago >= fechadepago).ToList();
                 if (pago.Count > 1 && fechadefact > new DateTime(1900, 01, 01))
@@ -211,7 +216,7 @@ namespace DatosManejo
                     }
                 }
             }
-            else if (fechadefact > new DateTime(1900, 01, 01))
+            else if (fechadefact! > new DateTime(1900, 01, 01))
             {
                 pago = contexto.SaEvePagos.AsNoTracking().Where(a => a.FechaDeFactura >= fechadefact).ToList();
 
@@ -398,6 +403,313 @@ namespace DatosManejo
             }
             return pago;
         }
+        public List<SaEvePago> Obtener2(int Codpagos = 0, int CodEvento = 0, int codtransa = 0
+            , DateTime fechadepago = new DateTime(), string codestado = ""
+            , string obseve = "", int codcomprobante = 0, int codpago = 0, string referencia = ""
+            , int recibo = 0, string obspago = "", decimal montosapagar = 0)
+        {
+            List<SaEvePago> pago = new List<SaEvePago>();
+            if (Codpagos != 0)
+            {
+                pago = contexto.SaEvePagos.AsNoTracking().Where(a => a.CodPagos == Codpagos).ToList();
+
+                if (CodEvento != 0)
+                {
+                    pago = pago.Where(a => a.CodEvento == (CodEvento)).ToList();
+                    if (codtransa != 0)
+                    {
+                        pago = pago.Where(a => a.CodTipoTransaccion == (codtransa)).ToList();
+                        if (pago.Count > 1 && fechadepago > new DateTime(1900, 01, 01))
+                        {
+                            pago = pago.Where(a => a.FechaDePago == fechadepago).ToList();
+
+                            if (pago.Count > 1 && !String.IsNullOrEmpty(codestado))
+                            {
+                                pago = pago.Where(a => a.CodEstado.Contains(codestado)).ToList();
+                                if (pago.Count > 1 && !String.IsNullOrEmpty(obseve))
+                                {
+                                    pago = pago.Where(a => a.Observacion.Contains(obseve)).ToList();
+                                    if (codcomprobante != 0)
+                                    {
+                                        pago = pago.Where(a => a.CodComprobante == (codcomprobante)).ToList();
+                                        if (codpago != 0)
+                                        {
+                                            pago = pago.Where(a => a.CodPago == (codpago)).ToList();
+                                            if (pago.Count > 1 && !String.IsNullOrEmpty(referencia))
+                                            {
+                                                pago = pago.Where(a => a.Referencia.Contains(referencia)).ToList();
+                                                if (recibo != 0)
+                                                {
+                                                    pago = pago.Where(a => a.Recibo == (recibo)).ToList();
+                                                    if (pago.Count > 1 && !String.IsNullOrEmpty(obspago))
+                                                    {
+                                                        pago = pago.Where(a => a.Observacionpago.Contains(obspago)).ToList();
+                                                        if (montosapagar != 0)
+                                                        {
+                                                            pago = pago.Where(a => a.Montoapagar == (montosapagar)).ToList();
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (CodEvento != 0)
+            {
+                pago = contexto.SaEvePagos.AsNoTracking().Where(a => a.CodEvento == CodEvento).ToList();
+                if (codtransa != 0)
+                {
+                    pago = pago.Where(a => a.CodTipoTransaccion == (codtransa)).ToList();
+                    if (pago.Count > 1 && fechadepago > new DateTime(1900, 01, 01))
+                    {
+                        pago = pago.Where(a => a.FechaDePago == fechadepago).ToList();
+                        if (pago.Count > 1 && !String.IsNullOrEmpty(codestado))
+                        {
+                            pago = pago.Where(a => a.CodEstado.Contains(codestado)).ToList();
+                            if (pago.Count > 1 && !String.IsNullOrEmpty(obseve))
+                            {
+                                pago = pago.Where(a => a.Observacion.Contains(obseve)).ToList();
+                                if (codcomprobante != 0)
+                                {
+                                    pago = pago.Where(a => a.CodComprobante == (codcomprobante)).ToList();
+                                    if (codpago != 0)
+                                    {
+                                        pago = pago.Where(a => a.CodPago == (codpago)).ToList();
+                                        if (pago.Count > 1 && !String.IsNullOrEmpty(referencia))
+                                        {
+                                            pago = pago.Where(a => a.Referencia.Contains(referencia)).ToList();
+                                            if (recibo != 0)
+                                            {
+                                                pago = pago.Where(a => a.Recibo == (recibo)).ToList();
+                                                if (pago.Count > 1 && !String.IsNullOrEmpty(obspago))
+                                                {
+                                                    pago = pago.Where(a => a.Observacionpago.Contains(obspago)).ToList();
+                                                    if (montosapagar != 0)
+                                                    {
+                                                        pago = pago.Where(a => a.Montoapagar == (montosapagar)).ToList();
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (codtransa != 0)
+            {
+                pago = contexto.SaEvePagos.AsNoTracking().Where(a => a.CodTipoTransaccion == (codtransa)).ToList();
+
+                if (pago.Count > 1 && fechadepago > new DateTime(1900, 01, 01))
+                {
+                    pago = pago.Where(a => a.FechaDePago == fechadepago).ToList();
+
+                    if (pago.Count > 1 && !String.IsNullOrEmpty(codestado))
+                    {
+                        pago = pago.Where(a => a.CodEstado.Contains(codestado)).ToList();
+                        if (pago.Count > 1 && !String.IsNullOrEmpty(obseve))
+                        {
+                            pago = pago.Where(a => a.Observacion.Contains(obseve)).ToList();
+                            if (codcomprobante != 0)
+                            {
+                                pago = pago.Where(a => a.CodComprobante == (codcomprobante)).ToList();
+                                if (codpago != 0)
+                                {
+                                    pago = pago.Where(a => a.CodPago == (codpago)).ToList();
+                                    if (pago.Count > 1 && !String.IsNullOrEmpty(referencia))
+                                    {
+                                        pago = pago.Where(a => a.Referencia.Contains(referencia)).ToList();
+                                        if (recibo != 0)
+                                        {
+                                            pago = pago.Where(a => a.Recibo == (recibo)).ToList();
+                                            if (pago.Count > 1 && !String.IsNullOrEmpty(obspago))
+                                            {
+                                                pago = pago.Where(a => a.Observacionpago.Contains(obspago)).ToList();
+                                                if (montosapagar != 0)
+                                                {
+                                                    pago = pago.Where(a => a.Montoapagar == (montosapagar)).ToList();
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (fechadepago! == new DateTime(1900, 01, 01))
+            {
+                pago = contexto.SaEvePagos.AsNoTracking().Where(a => a.FechaDePago >= fechadepago).ToList();
+                
+            }
+            else
+            {
+                return contexto.SaEvePagos.AsNoTracking().ToList();
+            }
+            return pago;
+        }
+        public List<SaEvePago> Obtener3(int Codpagos = 0, int CodEvento = 0, int codtransa = 0
+            , DateTime fechacancelacion = new DateTime(), string codestado = ""
+            , string obseve = "", int codcomprobante = 0, int codpago = 0, string referencia = ""
+            , int recibo = 0, string obspago = "", decimal montosapagar = 0)
+        {
+            List<SaEvePago> pago = new List<SaEvePago>();
+            if (Codpagos != 0)
+            {
+                pago = contexto.SaEvePagos.AsNoTracking().Where(a => a.CodPagos == Codpagos).ToList();
+
+                if (CodEvento != 0)
+                {
+                    pago = pago.Where(a => a.CodEvento == (CodEvento)).ToList();
+                    if (codtransa != 0)
+                    {
+                        pago = pago.Where(a => a.CodTipoTransaccion == (codtransa)).ToList();
+                        if (pago.Count > 1 && fechacancelacion > new DateTime(1900, 01, 01))
+                        {
+                            pago = pago.Where(a => a.FechaDePago == fechacancelacion).ToList();
+
+                            if (pago.Count > 1 && !String.IsNullOrEmpty(codestado))
+                            {
+                                pago = pago.Where(a => a.CodEstado.Contains(codestado)).ToList();
+                                if (pago.Count > 1 && !String.IsNullOrEmpty(obseve))
+                                {
+                                    pago = pago.Where(a => a.Observacion.Contains(obseve)).ToList();
+                                    if (codcomprobante != 0)
+                                    {
+                                        pago = pago.Where(a => a.CodComprobante == (codcomprobante)).ToList();
+                                        if (codpago != 0)
+                                        {
+                                            pago = pago.Where(a => a.CodPago == (codpago)).ToList();
+                                            if (pago.Count > 1 && !String.IsNullOrEmpty(referencia))
+                                            {
+                                                pago = pago.Where(a => a.Referencia.Contains(referencia)).ToList();
+                                                if (recibo != 0)
+                                                {
+                                                    pago = pago.Where(a => a.Recibo == (recibo)).ToList();
+                                                    if (pago.Count > 1 && !String.IsNullOrEmpty(obspago))
+                                                    {
+                                                        pago = pago.Where(a => a.Observacionpago.Contains(obspago)).ToList();
+                                                        if (montosapagar != 0)
+                                                        {
+                                                            pago = pago.Where(a => a.Montoapagar == (montosapagar)).ToList();
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (CodEvento != 0)
+            {
+                pago = contexto.SaEvePagos.AsNoTracking().Where(a => a.CodEvento == CodEvento).ToList();
+                if (codtransa != 0)
+                {
+                    pago = pago.Where(a => a.CodTipoTransaccion == (codtransa)).ToList();
+                    if (pago.Count > 1 && fechacancelacion > new DateTime(1900, 01, 01))
+                    {
+                        pago = pago.Where(a => a.FechaDePago == fechacancelacion).ToList();
+                        if (pago.Count > 1 && !String.IsNullOrEmpty(codestado))
+                        {
+                            pago = pago.Where(a => a.CodEstado.Contains(codestado)).ToList();
+                            if (pago.Count > 1 && !String.IsNullOrEmpty(obseve))
+                            {
+                                pago = pago.Where(a => a.Observacion.Contains(obseve)).ToList();
+                                if (codcomprobante != 0)
+                                {
+                                    pago = pago.Where(a => a.CodComprobante == (codcomprobante)).ToList();
+                                    if (codpago != 0)
+                                    {
+                                        pago = pago.Where(a => a.CodPago == (codpago)).ToList();
+                                        if (pago.Count > 1 && !String.IsNullOrEmpty(referencia))
+                                        {
+                                            pago = pago.Where(a => a.Referencia.Contains(referencia)).ToList();
+                                            if (recibo != 0)
+                                            {
+                                                pago = pago.Where(a => a.Recibo == (recibo)).ToList();
+                                                if (pago.Count > 1 && !String.IsNullOrEmpty(obspago))
+                                                {
+                                                    pago = pago.Where(a => a.Observacionpago.Contains(obspago)).ToList();
+                                                    if (montosapagar != 0)
+                                                    {
+                                                        pago = pago.Where(a => a.Montoapagar == (montosapagar)).ToList();
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (codtransa != 0)
+            {
+                pago = contexto.SaEvePagos.AsNoTracking().Where(a => a.CodTipoTransaccion == (codtransa)).ToList();
+
+                if (pago.Count > 1 && fechacancelacion > new DateTime(1900, 01, 01))
+                {
+                    pago = pago.Where(a => a.FechaDePago == fechacancelacion).ToList();
+
+                    if (pago.Count > 1 && !String.IsNullOrEmpty(codestado))
+                    {
+                        pago = pago.Where(a => a.CodEstado.Contains(codestado)).ToList();
+                        if (pago.Count > 1 && !String.IsNullOrEmpty(obseve))
+                        {
+                            pago = pago.Where(a => a.Observacion.Contains(obseve)).ToList();
+                            if (codcomprobante != 0)
+                            {
+                                pago = pago.Where(a => a.CodComprobante == (codcomprobante)).ToList();
+                                if (codpago != 0)
+                                {
+                                    pago = pago.Where(a => a.CodPago == (codpago)).ToList();
+                                    if (pago.Count > 1 && !String.IsNullOrEmpty(referencia))
+                                    {
+                                        pago = pago.Where(a => a.Referencia.Contains(referencia)).ToList();
+                                        if (recibo != 0)
+                                        {
+                                            pago = pago.Where(a => a.Recibo == (recibo)).ToList();
+                                            if (pago.Count > 1 && !String.IsNullOrEmpty(obspago))
+                                            {
+                                                pago = pago.Where(a => a.Observacionpago.Contains(obspago)).ToList();
+                                                if (montosapagar != 0)
+                                                {
+                                                    pago = pago.Where(a => a.Montoapagar == (montosapagar)).ToList();
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (fechacancelacion! == new DateTime(1900, 01, 01))
+            {
+                pago = contexto.SaEvePagos.AsNoTracking().Where(a => a.FechaDeCancelacion >= fechacancelacion).ToList();
+
+            }
+            else
+            {
+                return contexto.SaEvePagos.AsNoTracking().ToList();
+            }
+            return pago;
+        }
+
         public InfoCompartidaCapas Crear(SaEvePago pago)
         {
             try
@@ -469,7 +781,6 @@ namespace DatosManejo
         {
             contexto.Database.CloseConnection();
         }
-        
     }
 }
     

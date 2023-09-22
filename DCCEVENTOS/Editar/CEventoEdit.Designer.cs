@@ -93,11 +93,9 @@
             label12 = new Label();
             label11 = new Label();
             label9 = new Label();
-            label10 = new Label();
             label22 = new Label();
             button1 = new Button();
             label23 = new Label();
-            label24 = new Label();
             pictureBox1 = new PictureBox();
             toolStrip1.SuspendLayout();
             menuStrip1.SuspendLayout();
@@ -698,15 +696,6 @@
             label9.TabIndex = 104;
             label9.Text = "Ingreso Total";
             // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(956, 766);
-            label10.Name = "label10";
-            label10.Size = new Size(66, 15);
-            label10.TabIndex = 103;
-            label10.Text = "Costo Total";
-            // 
             // label22
             // 
             label22.AutoSize = true;
@@ -737,15 +726,6 @@
             label23.TabIndex = 111;
             label23.Text = "Ingreso Total";
             // 
-            // label24
-            // 
-            label24.AutoSize = true;
-            label24.Location = new Point(884, 766);
-            label24.Name = "label24";
-            label24.Size = new Size(66, 15);
-            label24.TabIndex = 112;
-            label24.Text = "Costo Total";
-            // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
@@ -763,7 +743,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1501, 841);
             Controls.Add(pictureBox1);
-            Controls.Add(label24);
             Controls.Add(label23);
             Controls.Add(button1);
             Controls.Add(label22);
@@ -772,7 +751,6 @@
             Controls.Add(label12);
             Controls.Add(label11);
             Controls.Add(label9);
-            Controls.Add(label10);
             Controls.Add(button4);
             Controls.Add(pictureBox2);
             Controls.Add(TBCod);
@@ -872,7 +850,6 @@
         private Label label12;
         private Label label11;
         private Label label9;
-        private Label label10;
         private Label label8;
         private Label label7;
         private Label label21;
@@ -885,7 +862,6 @@
         private Label label22;
         private Button button1;
         private Label label23;
-        private Label label24;
         private PictureBox pictureBox1;
     }
 }

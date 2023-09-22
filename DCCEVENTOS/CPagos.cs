@@ -1,11 +1,18 @@
 ﻿using Datos;
 using DatosManejo;
 using DCCEVENTOS.CBusqueda;
+using DCCEVENTOS.Reportes;
 using Entidades;
 using InfoCompartidaCaps;
 using Microsoft.CodeAnalysis.VisualBasic.Syntax;
+using System;
+using System.Data.Odbc;
+using System.Data;
+using System.Windows.Forms;
 using Negocio;
 using System.Data;
+using System.Data.Common;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 namespace DCCEVENTOS
@@ -18,6 +25,7 @@ namespace DCCEVENTOS
         NEstado nestado;
         NEventoDetalle neventod;
         NPago Npago;
+        NFacturacion Nfacturacion;
         public CPagos()
         {
             InitializeComponent();
@@ -27,12 +35,14 @@ namespace DCCEVENTOS
             neventod = new NEventoDetalle();
             nestado = new NEstado();
             Npago = new NPago();
+            Nfacturacion =new NFacturacion();
             CargarInformacion();
         }
         public void Nuevo()
         {
             //toolStripGuardar.Enabled = true;
-
+            toolStripGuardar.Enabled = true;
+            toolStripButton1.Enabled = false;
             TBFolio.Text = string.Empty;
             TBEvento.Text = string.Empty;
             CBTransaccion.SelectedIndex = 0;
@@ -41,7 +51,8 @@ namespace DCCEVENTOS
 
             TBClientes.Text = string.Empty;
             TBDescripcion.Text = string.Empty;
-
+            dateTimePicker1.Text = string.Empty;
+            dateTimePicker2.Text = string.Empty;
             CBComprante.SelectedIndex = 0;
             CBPago.SelectedIndex = 0;
             TBReferencia.Text = string.Empty;
@@ -87,6 +98,7 @@ namespace DCCEVENTOS
         }
         public void Buscar()
         {
+            toolStripButton1.Enabled = true;
             toolStripGuardar.Enabled = false;
             ConsultadePagos consulta = new ConsultadePagos();
             consulta.ShowDialog();
@@ -212,28 +224,28 @@ namespace DCCEVENTOS
 
                 foreach (var t in List)
                 {
-                    decimal? pagar = Convert.ToDecimal(MontoaPagar.Text);
-
-                    resultados = resultados - t.Montoapagar;
-                    montos = t.Montoapagar;
-                    CostoEvento.Text = resultadoFinal.ToString();
-
-                    if (pagar == t.Montoapagar)
+                    decimal? folio = Convert.ToInt32(TBFolio.Text);
+                    if (codeve == t.CodEvento && t.CodPagos == folio)
                     {
-                        break;
-                    }
-                    MontoPagado.Text = montos.ToString();
-                    SaldoPendiente.Text = resultados.ToString();
-                    SaldoaFavor.Text = "0.00";
-                    Penalizacion.Text = "0.00";
-                    Iva.Text = "0.00";
-                    SaldoActual.Text = "0.00";
+                        decimal? pagar = Convert.ToDecimal(MontoaPagar.Text);
 
-                    //decimal pagar = Convert.ToDecimal(MontoaPagar.Text);
-                    //if (pagar == montos)
-                    //{
-                    //    break;
-                    //}
+                        resultados = resultados - t.Montoapagar;
+                        montos = t.Montoapagar;
+                        CostoEvento.Text = resultadoFinal.ToString();
+                        //TBFolio.Text==t.CodPagos.ToString();
+
+                        if (pagar == t.Montoapagar)
+                        {
+                            break;
+                        }
+                        MontoPagado.Text = montos.ToString();
+                        SaldoPendiente.Text = resultados.ToString();
+                        SaldoaFavor.Text = "0.00";
+                        Penalizacion.Text = "0.00";
+                        TBIva.Text = "0.00";
+                        SaldoActual.Text = "0.00";
+
+                    }
                 }
             }
         }
@@ -277,7 +289,7 @@ namespace DCCEVENTOS
                 {
                     sumatoriaEgresos += precioTotalDescuento;
                 }
-                else if(categoria.ToUpper() == "GARANTIA")
+                else if (categoria.ToUpper() == "GARANTIA")
                 {
                     sumatoriaGarantia += sumatoriaGarantia;
                 }
@@ -294,7 +306,7 @@ namespace DCCEVENTOS
                 MontoaPagar.Text = (0.00).ToString();
                 SaldoaFavor.Text = (0.00).ToString();
                 Penalizacion.Text = (0.00).ToString();
-                Iva.Text = (0.00).ToString();
+                TBIva.Text = (0.00).ToString();
                 SaldoActual.Text = (0.00).ToString();
             }
 
@@ -318,7 +330,7 @@ namespace DCCEVENTOS
                         MontoaPagar.Text = (0.00).ToString();
                         SaldoaFavor.Text = (0.00).ToString();
                         Penalizacion.Text = (0.00).ToString();
-                        Iva.Text = (0.00).ToString();
+                        TBIva.Text = (0.00).ToString();
                         SaldoActual.Text = (0.00).ToString();
                     }
 
@@ -362,7 +374,7 @@ namespace DCCEVENTOS
             if (!er.Match(TBEvento.Text).Success)
             {
                 label22.Visible = true;
-                this.label22.Text = "El campo debe ser un número entero positivo o negativo";
+                this.label22.Text = "El campo debe ser un número entero positivo";
             }
             else
             {
@@ -398,7 +410,6 @@ namespace DCCEVENTOS
                     return; // Salir del método sin agregar el registro
                 }
                 //decimal importe = Convert.ToDecimal(textBox2.Text);
-                //textBox2.Text = String.Format("{0:0.00}", importe);
 
                 // Si todos los campos están completos, proceder con la creación del objeto concepto y su guardado
                 SaEvePago pago = new SaEvePago();
@@ -424,6 +435,7 @@ namespace DCCEVENTOS
                 pago.Observacionpago = TBObservacionesPago.Text;
                 pago.Montoapagar = Convert.ToDecimal(MontoaPagar.Text);
 
+
                 InfoCompartidaCapas rGuardar = Npago.Guardar(pago);
                 if (!String.IsNullOrEmpty(rGuardar.error))
                 {
@@ -431,6 +443,11 @@ namespace DCCEVENTOS
                 }
 
                 CargarInformacion();
+
+                int cod = Convert.ToInt32(Npago.ObtenerDescripcionesCod());
+                Recibo rE = new Recibo(cod);
+                //rE.Cod_Evento = cod;
+                rE.Show();
             }
             catch (Exception e)
             {
@@ -449,10 +466,20 @@ namespace DCCEVENTOS
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)13)
+                System.Text.RegularExpressions.Regex er = new System.Text.RegularExpressions.Regex("^(?:\\+|-)?\\d+$");
+            if (!er.Match(TBEvento.Text).Success)
             {
-                CargarEvento();
-                Calculos();
+                this.label22.Text = "El campo debe ser un número entero positivo";
+                label22.Visible = true;
+            }
+            else
+            {
+                if (e.KeyChar == (char)13)
+                {
+                    label22.Visible = false;
+                    CargarEvento();
+                    Calculos();
+                }
             }
         }
 
@@ -476,6 +503,8 @@ namespace DCCEVENTOS
         private void toolStripGuardar_Click(object sender, EventArgs e)
         {
             AgregarInformacion();
+
+            Nuevo();
         }
 
         private void toolStripBuscar_Click(object sender, EventArgs e)
@@ -483,6 +512,7 @@ namespace DCCEVENTOS
             Nuevo();
             Buscar();
             CalculosdePago();
+
         }
 
         private void toolStripNuevo_Click(object sender, EventArgs e)
@@ -499,6 +529,28 @@ namespace DCCEVENTOS
         private void Calcular_Click(object sender, EventArgs e)
         {
             CalculosdePago();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            //int cod = Convert.ToInt32(Npago.ObtenerDescripcionesCod());
+            int cod = Convert.ToInt32(TBFolio.Text);
+            Recibo rE = new Recibo(cod);
+            //rE.Cod_Evento = cod;
+            rE.Show();
+        }
+
+        private void facturaElectroniToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Nfacturacion.GenerarFactura(TBClientes.Text,MontoaPagar.Text,TBIva.Text,TBSubtotal.Text);
+                MessageBox.Show("Factura Electronica almacenada.", "Informe", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (OdbcException ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -261,13 +261,13 @@ namespace DCCEVENTOS
         private void toolStripGuardar_Click(object sender, EventArgs e)
         {
             AgregarRegistro();
-            Buscar();
+            Nuevo();
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             AgregarRegistro();
-            Buscar();
+            Nuevo();
         }
 
         private void toolStripBuscar_Click(object sender, EventArgs e)
@@ -291,13 +291,13 @@ namespace DCCEVENTOS
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AgregarRegistro();
-            Buscar();
+            Nuevo();
         }
 
         private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AgregarRegistro();
-            Buscar();
+            Nuevo();
         }
 
         private void buscarToolStripMenuItem_Click(object sender, EventArgs e)

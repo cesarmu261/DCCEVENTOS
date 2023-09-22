@@ -50,37 +50,8 @@ namespace DCCEVENTOS.Reportes
 
             // Refrescar el informe después de agregar todos los conjuntos de datos
             reportViewer1.LocalReport.ReportEmbeddedResource = "DCCEVENTOS.Reportes.Report2.rdlc";
+            reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
             reportViewer1.RefreshReport();
-
-
-
-
-
-            //DataSet1 dataSet = new DataSet1();
-            //DataSet1TableAdapters.sp_DetalleEvento2TableAdapter tableAdapter = new DataSet1TableAdapters.sp_DetalleEvento2TableAdapter();
-
-            //coneccion = new SqlConnection(con.ObtenerConeccion("FRE2"));
-            //tableAdapter.Connection = (SqlConnection)coneccion;
-
-            //// Crear una lista para almacenar los ReportDataSource
-            //List<ReportDataSource> reportDataSources = new List<ReportDataSource>();
-
-            ////foreach (int valor in valores)
-            ////{
-            //    tableAdapter.Fill(dataSet.sp_DetalleEvento2, valores);
-            //    // Agregar los datos a las fuentes de datos
-            //    reportDataSources.Add(new ReportDataSource("DataSet1", dataSet.Tables["sp_DetalleEvento2"]));
-            ////}
-            //// Asignar las fuentes de datos al ReportViewer1
-            //foreach (ReportDataSource rds in reportDataSources)
-            //{
-            //    reportViewer1.LocalReport.DataSources.Add(rds);
-
-            //}
-            //// Refrescar el informe después de agregar todos los conjuntos de datos
-            //reportViewer1.LocalReport.ReportEmbeddedResource = "DCCEVENTOS.Reportes.Report2.rdlc";
-            //reportViewer1.RefreshReport();
-
         }
     }
 }

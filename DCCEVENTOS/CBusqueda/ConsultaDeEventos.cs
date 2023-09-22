@@ -51,7 +51,8 @@ namespace DCCEVENTOS.CBusqueda
             button4.Enabled = false;
             button5.Enabled = false;
             button6.Enabled = false;
-
+            dateTimePicker1.Text = string.Empty;
+            dateTimePicker2.Text = string.Empty;
             //DTGEventos.Rows.Clear();
             //DTGEventos.Rows.Clear();
         }
@@ -64,11 +65,10 @@ namespace DCCEVENTOS.CBusqueda
             table = nevento.Obtener2(startDate, FINALDATE);
             DTGEventos.DataSource = table;
             DTGEventos.Refresh();
-
         }
         public void cliente()
         {
-            table = nevento.Obtener3(NTercero.SSCod, "");
+            table = nevento.Obtener3(NCliente.SSCod, "");
             DTGEventos.DataSource = table;
             DTGEventos.Refresh();
         }
@@ -162,22 +162,6 @@ namespace DCCEVENTOS.CBusqueda
             this.Close();
         }
 
-        //private List<int> GetAllColumnValues()
-        //{
-        //    List<int> valores = new List<int>();
-
-        //    foreach (DataGridViewRow row in DTGEventos.Rows)
-        //    {
-        //        if (!row.IsNewRow && row.Cells[0].Value != null)
-        //        {
-        //            int valor = Convert.ToInt32(row.Cells[0].Value);
-        //            valores.Add(valor);
-        //        }
-        //    }
-
-        //    return valores;
-        //}
-
         private void button3_Click(object sender, EventArgs e)
         {
             DateTime selectedDate = dateTimePicker1.Value.Date;
@@ -247,7 +231,7 @@ namespace DCCEVENTOS.CBusqueda
         private void button4_Click(object sender, EventArgs e)
         {
 
-            RECLIE reportForm = new RECLIE(NTercero.SSCod);
+            RECLIE reportForm = new RECLIE(NCliente.SSCod);
             reportForm.Show();
         }
 
@@ -262,6 +246,18 @@ namespace DCCEVENTOS.CBusqueda
         {
             REDES reportForm = new REDES(TBDescripcion.Text);
             reportForm.Show();
+        }
+
+        private void TBDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(TBDescripcion.Text))
+            {
+                if (e.KeyChar == (char)13)
+                {
+                    descripcion();
+                    button5.Enabled = true;
+                }
+            }
         }
     }
 }

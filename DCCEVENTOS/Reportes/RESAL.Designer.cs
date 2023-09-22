@@ -49,6 +49,7 @@
             Name = "RESAL";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RESAL";
+            WindowState = FormWindowState.Maximized;
             Load += RESAL_Load;
             ResumeLayout(false);
         }

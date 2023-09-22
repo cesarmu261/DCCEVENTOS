@@ -37,6 +37,7 @@
             toolStripBuscar = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
             toolStripSalir = new ToolStripButton();
+            toolStripButton2 = new ToolStripButton();
             menuStrip1 = new MenuStrip();
             opcionesToolStripMenuItem = new ToolStripMenuItem();
             nuevoToolStripMenuItem = new ToolStripMenuItem();
@@ -85,7 +86,7 @@
             MontoaPagar = new TextBox();
             SaldoaFavor = new TextBox();
             Penalizacion = new TextBox();
-            Iva = new TextBox();
+            TBIva = new TextBox();
             SaldoActual = new TextBox();
             label22 = new Label();
             dataGridView1 = new DataGridView();
@@ -94,6 +95,10 @@
             MontoPagado = new TextBox();
             label23 = new Label();
             Calcular = new Button();
+            TBSubtotal = new TextBox();
+            label24 = new Label();
+            fcaturaToolStripMenuItem = new ToolStripMenuItem();
+            facturaElectroniToolStripMenuItem = new ToolStripMenuItem();
             toolStrip1.SuspendLayout();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DTGDetalleEvento).BeginInit();
@@ -105,10 +110,10 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(24, 24);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripNuevo, toolStripGuardar, toolStripButton1, toolStripSeparator1, toolStripBuscar, toolStripSeparator2, toolStripSalir });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripNuevo, toolStripGuardar, toolStripButton1, toolStripSeparator1, toolStripBuscar, toolStripSeparator2, toolStripSalir, toolStripButton2 });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(930, 31);
+            toolStrip1.Size = new Size(908, 31);
             toolStrip1.TabIndex = 67;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -173,12 +178,22 @@
             toolStripSalir.Text = "toolStripButton5";
             toolStripSalir.ToolTipText = "Salir";
             // 
+            // toolStripButton2
+            // 
+            toolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton2.Image = (Image)resources.GetObject("toolStripButton2.Image");
+            toolStripButton2.ImageTransparentColor = Color.Magenta;
+            toolStripButton2.Name = "toolStripButton2";
+            toolStripButton2.Size = new Size(28, 28);
+            toolStripButton2.Text = "toolStripButton2";
+            toolStripButton2.Click += toolStripButton2_Click;
+            // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { opcionesToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { opcionesToolStripMenuItem, fcaturaToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(930, 24);
+            menuStrip1.Size = new Size(908, 24);
             menuStrip1.TabIndex = 66;
             menuStrip1.Text = "Opciones";
             // 
@@ -192,31 +207,31 @@
             // nuevoToolStripMenuItem
             // 
             nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            nuevoToolStripMenuItem.Size = new Size(126, 22);
+            nuevoToolStripMenuItem.Size = new Size(180, 22);
             nuevoToolStripMenuItem.Text = "Nuevo";
             // 
             // guardarToolStripMenuItem
             // 
             guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            guardarToolStripMenuItem.Size = new Size(126, 22);
+            guardarToolStripMenuItem.Size = new Size(180, 22);
             guardarToolStripMenuItem.Text = "Guardar";
             // 
             // actualizarToolStripMenuItem
             // 
             actualizarToolStripMenuItem.Name = "actualizarToolStripMenuItem";
-            actualizarToolStripMenuItem.Size = new Size(126, 22);
+            actualizarToolStripMenuItem.Size = new Size(180, 22);
             actualizarToolStripMenuItem.Text = "Actualizar";
             // 
             // buscarToolStripMenuItem
             // 
             buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
-            buscarToolStripMenuItem.Size = new Size(126, 22);
+            buscarToolStripMenuItem.Size = new Size(180, 22);
             buscarToolStripMenuItem.Text = "Buscar";
             // 
             // salirToolStripMenuItem
             // 
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            salirToolStripMenuItem.Size = new Size(126, 22);
+            salirToolStripMenuItem.Size = new Size(180, 22);
             salirToolStripMenuItem.Text = "Salir";
             // 
             // label1
@@ -358,7 +373,7 @@
             DTGDetalleEvento.Name = "DTGDetalleEvento";
             DTGDetalleEvento.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             DTGDetalleEvento.RowTemplate.Height = 25;
-            DTGDetalleEvento.Size = new Size(878, 222);
+            DTGDetalleEvento.Size = new Size(878, 196);
             DTGDetalleEvento.TabIndex = 0;
             // 
             // label9
@@ -510,7 +525,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(17, 885);
+            label11.Location = new Point(17, 862);
             label11.Name = "label11";
             label11.Size = new Size(92, 15);
             label11.TabIndex = 109;
@@ -520,7 +535,7 @@
             // 
             label12.AutoSize = true;
             label12.ForeColor = Color.Red;
-            label12.Location = new Point(19, 929);
+            label12.Location = new Point(19, 906);
             label12.Name = "label12";
             label12.Size = new Size(85, 15);
             label12.TabIndex = 110;
@@ -529,7 +544,7 @@
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(404, 820);
+            label18.Location = new Point(404, 797);
             label18.Name = "label18";
             label18.Size = new Size(77, 15);
             label18.TabIndex = 111;
@@ -538,7 +553,7 @@
             // label19
             // 
             label19.AutoSize = true;
-            label19.Location = new Point(404, 853);
+            label19.Location = new Point(404, 827);
             label19.Name = "label19";
             label19.Size = new Size(112, 15);
             label19.TabIndex = 112;
@@ -547,7 +562,7 @@
             // label20
             // 
             label20.AutoSize = true;
-            label20.Location = new Point(404, 893);
+            label20.Location = new Point(654, 802);
             label20.Name = "label20";
             label20.Size = new Size(24, 15);
             label20.TabIndex = 113;
@@ -556,7 +571,7 @@
             // label21
             // 
             label21.AutoSize = true;
-            label21.Location = new Point(404, 929);
+            label21.Location = new Point(404, 867);
             label21.Name = "label21";
             label21.Size = new Size(112, 15);
             label21.TabIndex = 114;
@@ -565,7 +580,7 @@
             // SaldoPendiente
             // 
             SaldoPendiente.Enabled = false;
-            SaldoPendiente.Location = new Point(130, 882);
+            SaldoPendiente.Location = new Point(130, 859);
             SaldoPendiente.Name = "SaldoPendiente";
             SaldoPendiente.Size = new Size(100, 23);
             SaldoPendiente.TabIndex = 115;
@@ -573,7 +588,7 @@
             // 
             // MontoaPagar
             // 
-            MontoaPagar.Location = new Point(130, 924);
+            MontoaPagar.Location = new Point(130, 901);
             MontoaPagar.Name = "MontoaPagar";
             MontoaPagar.Size = new Size(100, 23);
             MontoaPagar.TabIndex = 116;
@@ -582,28 +597,28 @@
             // 
             // SaldoaFavor
             // 
-            SaldoaFavor.Location = new Point(522, 817);
+            SaldoaFavor.Location = new Point(522, 794);
             SaldoaFavor.Name = "SaldoaFavor";
             SaldoaFavor.Size = new Size(100, 23);
             SaldoaFavor.TabIndex = 117;
             // 
             // Penalizacion
             // 
-            Penalizacion.Location = new Point(522, 850);
+            Penalizacion.Location = new Point(522, 824);
             Penalizacion.Name = "Penalizacion";
             Penalizacion.Size = new Size(100, 23);
             Penalizacion.TabIndex = 118;
             // 
-            // Iva
+            // TBIva
             // 
-            Iva.Location = new Point(522, 885);
-            Iva.Name = "Iva";
-            Iva.Size = new Size(100, 23);
-            Iva.TabIndex = 119;
+            TBIva.Location = new Point(772, 794);
+            TBIva.Name = "TBIva";
+            TBIva.Size = new Size(100, 23);
+            TBIva.TabIndex = 119;
             // 
             // SaldoActual
             // 
-            SaldoActual.Location = new Point(522, 926);
+            SaldoActual.Location = new Point(522, 864);
             SaldoActual.Name = "SaldoActual";
             SaldoActual.Size = new Size(100, 23);
             SaldoActual.TabIndex = 120;
@@ -619,7 +634,7 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(19, 656);
+            dataGridView1.Location = new Point(19, 633);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(878, 150);
@@ -628,7 +643,7 @@
             // CostoEvento
             // 
             CostoEvento.Enabled = false;
-            CostoEvento.Location = new Point(130, 817);
+            CostoEvento.Location = new Point(130, 794);
             CostoEvento.Name = "CostoEvento";
             CostoEvento.Size = new Size(100, 23);
             CostoEvento.TabIndex = 124;
@@ -636,7 +651,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(17, 820);
+            label4.Location = new Point(17, 797);
             label4.Name = "label4";
             label4.Size = new Size(96, 15);
             label4.TabIndex = 123;
@@ -645,7 +660,7 @@
             // MontoPagado
             // 
             MontoPagado.Enabled = false;
-            MontoPagado.Location = new Point(130, 850);
+            MontoPagado.Location = new Point(130, 827);
             MontoPagado.Name = "MontoPagado";
             MontoPagado.Size = new Size(100, 23);
             MontoPagado.TabIndex = 126;
@@ -654,7 +669,7 @@
             // label23
             // 
             label23.AutoSize = true;
-            label23.Location = new Point(17, 853);
+            label23.Location = new Point(17, 830);
             label23.Name = "label23";
             label23.Size = new Size(86, 15);
             label23.TabIndex = 125;
@@ -662,7 +677,7 @@
             // 
             // Calcular
             // 
-            Calcular.Location = new Point(795, 924);
+            Calcular.Location = new Point(791, 903);
             Calcular.Name = "Calcular";
             Calcular.Size = new Size(75, 23);
             Calcular.TabIndex = 127;
@@ -670,11 +685,43 @@
             Calcular.UseVisualStyleBackColor = true;
             Calcular.Click += Calcular_Click;
             // 
+            // TBSubtotal
+            // 
+            TBSubtotal.Location = new Point(772, 827);
+            TBSubtotal.Name = "TBSubtotal";
+            TBSubtotal.Size = new Size(100, 23);
+            TBSubtotal.TabIndex = 129;
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Location = new Point(654, 835);
+            label24.Name = "label24";
+            label24.Size = new Size(55, 15);
+            label24.TabIndex = 128;
+            label24.Text = "Sub Total";
+            // 
+            // fcaturaToolStripMenuItem
+            // 
+            fcaturaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { facturaElectroniToolStripMenuItem });
+            fcaturaToolStripMenuItem.Name = "fcaturaToolStripMenuItem";
+            fcaturaToolStripMenuItem.Size = new Size(31, 20);
+            fcaturaToolStripMenuItem.Text = "ca";
+            // 
+            // facturaElectroniToolStripMenuItem
+            // 
+            facturaElectroniToolStripMenuItem.Name = "facturaElectroniToolStripMenuItem";
+            facturaElectroniToolStripMenuItem.Size = new Size(180, 22);
+            facturaElectroniToolStripMenuItem.Text = "Factura Electroni";
+            facturaElectroniToolStripMenuItem.Click += facturaElectroniToolStripMenuItem_Click;
+            // 
             // CPagos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(930, 1014);
+            ClientSize = new Size(908, 961);
+            Controls.Add(TBSubtotal);
+            Controls.Add(label24);
             Controls.Add(Calcular);
             Controls.Add(MontoPagado);
             Controls.Add(label23);
@@ -683,7 +730,7 @@
             Controls.Add(dataGridView1);
             Controls.Add(label22);
             Controls.Add(SaldoActual);
-            Controls.Add(Iva);
+            Controls.Add(TBIva);
             Controls.Add(Penalizacion);
             Controls.Add(SaldoaFavor);
             Controls.Add(MontoaPagar);
@@ -799,7 +846,7 @@
         private TextBox MontoaPagar;
         private TextBox SaldoaFavor;
         private TextBox Penalizacion;
-        private TextBox Iva;
+        private TextBox TBIva;
         private TextBox SaldoActual;
         private Label label22;
         private DataGridView dataGridView1;
@@ -809,5 +856,10 @@
         private Label label23;
         private ToolStripButton toolStripButton1;
         private Button Calcular;
+        private ToolStripButton toolStripButton2;
+        private TextBox TBSubtotal;
+        private Label label24;
+        private ToolStripMenuItem fcaturaToolStripMenuItem;
+        private ToolStripMenuItem facturaElectroniToolStripMenuItem;
     }
 }

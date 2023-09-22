@@ -2,659 +2,58 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Tablix Name="Tablix1">
-        <TablixBody>
-          <TablixColumns>
-            <TablixColumn>
-              <Width>1.872cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>2.87369cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>2.96036cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>3.83295cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>2.92333cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>2.17383cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1.6682cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>2.38292cm</Width>
-            </TablixColumn>
-          </TablixColumns>
-          <TablixRows>
-            <TablixRow>
-              <Height>0.94396cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox1">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>ID EVENTO</Value>
-                              <Style>
-                                <FontSize>8pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox1</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox3">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>SALON EVENTO</Value>
-                              <Style>
-                                <FontSize>8pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox3</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox5">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>NOMBRE CLIENTE</Value>
-                              <Style>
-                                <FontSize>8pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox5</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox7">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>DESCRIPCION DEL  EVENTO</Value>
-                              <Style>
-                                <FontSize>8pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox7</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox9">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>FECHA EVENTO</Value>
-                              <Style>
-                                <FontSize>8pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox9</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox17">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>COSTO DE RENTA</Value>
-                              <Style>
-                                <FontSize>8pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox17</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox21">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>EGRESO</Value>
-                              <Style>
-                                <FontSize>8pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox21</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox34">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value> INGRESO TOTAL</Value>
-                              <Style>
-                                <FontSize>8pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox34</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
-            <TablixRow>
-              <Height>0.6cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="COD_EVENTO1">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!COD_EVENTO.Value</Value>
-                              <Style>
-                                <FontSize>8pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>COD_EVENTO1</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="DES_SALON_EVENTO1">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!DES_SALON_EVENTO.Value</Value>
-                              <Style>
-                                <FontSize>8pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>DES_SALON_EVENTO1</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="NOM_CLIENTE1">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!NOM_CLIENTE.Value</Value>
-                              <Style>
-                                <FontSize>8pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>NOM_CLIENTE1</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="DES_EVENTO1">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!DES_EVENTO.Value</Value>
-                              <Style>
-                                <FontSize>8pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>DES_EVENTO1</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="FECHA1">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!FECHA.Value</Value>
-                              <Style>
-                                <FontSize>8pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Right</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>FECHA1</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="SumaIngresos">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!SumaIngresos.Value</Value>
-                              <Style>
-                                <FontSize>8pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>SumaIngresos</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="SumaEgresos">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!SumaEgresos.Value</Value>
-                              <Style>
-                                <FontSize>8pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>SumaEgresos</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox35">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!SumaIngresos.Value - Fields!SumaEgresos.Value</Value>
-                              <Style>
-                                <FontSize>8pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Right</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox35</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
-          </TablixRows>
-        </TablixBody>
-        <TablixColumnHierarchy>
-          <TablixMembers>
-            <TablixMember />
-            <TablixMember />
-            <TablixMember />
-            <TablixMember />
-            <TablixMember />
-            <TablixMember />
-            <TablixMember />
-            <TablixMember />
-          </TablixMembers>
-        </TablixColumnHierarchy>
-        <TablixRowHierarchy>
-          <TablixMembers>
-            <TablixMember>
-              <KeepWithGroup>After</KeepWithGroup>
-            </TablixMember>
-            <TablixMember>
-              <Group Name="Detalles2">
-                <GroupExpressions>
-                  <GroupExpression>=Fields!COD_EVENTO.Value</GroupExpression>
-                </GroupExpressions>
-              </Group>
-              <TablixMembers>
-                <TablixMember />
-              </TablixMembers>
-            </TablixMember>
-          </TablixMembers>
-        </TablixRowHierarchy>
-        <DataSetName>DataSet1</DataSetName>
-        <Top>0.61983cm</Top>
-        <Left>1.32292cm</Left>
-        <Height>1.54396cm</Height>
-        <Width>20.68728cm</Width>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <FontSize>5pt</FontSize>
-        </Style>
-      </Tablix>
-      <Textbox Name="Textbox29">
+      <Textbox Name="COD_PAGOS">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Sum(Fields!SumaIngresos.Value, "DataSet1")</Value>
+                <Value>=Fields!COD_PAGOS.Value</Value>
                 <Style>
                   <FontSize>8pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style>
-              <TextAlign>Right</TextAlign>
-            </Style>
+            <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox29</rd:DefaultName>
-        <Top>2.85444cm</Top>
-        <Left>19.62728cm</Left>
+        <rd:DefaultName>COD_PAGOS</rd:DefaultName>
+        <Top>1.45203cm</Top>
+        <Left>2.97007cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.31236cm</Width>
+        <Width>1.33583cm</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="DES_EVENTO">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!DES_EVENTO.Value</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>DES_EVENTO</rd:DefaultName>
+        <Top>5.31467cm</Top>
+        <Left>1.58132cm</Left>
+        <Height>0.6cm</Height>
+        <Width>9.64375cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -666,29 +65,27 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Textbox30">
+      <Textbox Name="NOM_CLIENTE">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Sum(Fields!SumaEgresos.Value, "DataSet1")</Value>
+                <Value>=Fields!NOM_CLIENTE.Value</Value>
                 <Style>
                   <FontSize>8pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style>
-              <TextAlign>Right</TextAlign>
-            </Style>
+            <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox29</rd:DefaultName>
-        <Top>3.59555cm</Top>
-        <Left>19.66255cm</Left>
+        <rd:DefaultName>NOM_CLIENTE</rd:DefaultName>
+        <Top>6.26745cm</Top>
+        <Left>1.58132cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.27709cm</Width>
+        <Width>9.64375cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -700,14 +97,14 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Textbox41">
+      <Textbox Name="MONTOAPAGAR">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>COSTO DE RENTA TOTAL</Value>
+                <Value>=Fields!MONTOAPAGAR.Value</Value>
                 <Style>
                   <FontSize>8pt</FontSize>
                 </Style>
@@ -716,11 +113,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox41</rd:DefaultName>
-        <Top>2.85444cm</Top>
-        <Left>14.81343cm</Left>
+        <rd:DefaultName>MONTOAPAGAR</rd:DefaultName>
+        <Top>2.56328cm</Top>
+        <Left>7.08466cm</Left>
         <Height>0.6cm</Height>
-        <Width>4.77858cm</Width>
+        <Width>2.65875cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -732,29 +129,27 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Textbox32">
+      <Textbox Name="DES_TIPO_TRANSACCION">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Sum(Fields!SumaIngresos.Value, "DataSet1") - Sum(Fields!SumaEgresos.Value, "DataSet1")</Value>
+                <Value>=Fields!DES_TIPO_TRANSACCION.Value</Value>
                 <Style>
                   <FontSize>8pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style>
-              <TextAlign>Right</TextAlign>
-            </Style>
+            <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox29</rd:DefaultName>
-        <Top>4.42431cm</Top>
-        <Left>19.69783cm</Left>
+        <rd:DefaultName>DES_TIPO_TRANSACCION</rd:DefaultName>
+        <Top>2.56328cm</Top>
+        <Left>3.41987cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.24181cm</Width>
+        <Width>3.21437cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -766,14 +161,14 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Textbox44">
+      <Textbox Name="Column1">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>EGRESOS TOTAL</Value>
+                <Value>=Fields!Column1.Value</Value>
                 <Style>
                   <FontSize>8pt</FontSize>
                 </Style>
@@ -782,11 +177,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox41</rd:DefaultName>
-        <Top>3.59555cm</Top>
-        <Left>16.08343cm</Left>
+        <rd:DefaultName>Column1</rd:DefaultName>
+        <Top>1.45203cm</Top>
+        <Left>13.07747cm</Left>
         <Height>0.6cm</Height>
-        <Width>3.50858cm</Width>
+        <Width>2.31479cm</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
@@ -798,14 +193,14 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Textbox45">
+      <Textbox Name="Textbox1">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>INGRESOS TOTAL</Value>
+                <Value>FOLIO</Value>
                 <Style>
                   <FontSize>8pt</FontSize>
                 </Style>
@@ -814,11 +209,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox41</rd:DefaultName>
-        <Top>4.42431cm</Top>
-        <Left>16.08343cm</Left>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>1.45203cm</Top>
+        <Left>1.58132cm</Left>
         <Height>0.6cm</Height>
-        <Width>3.43802cm</Width>
+        <Width>1.28292cm</Width>
         <ZIndex>6</ZIndex>
         <Style>
           <Border>
@@ -830,14 +225,302 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=String.Format("MONTO:{0}", Code.ConvertirCadena(Fields!MONTOAPAGAR.Value)).ToUpper()</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox3</rd:DefaultName>
+        <Top>3.33967cm</Top>
+        <Left>3.41987cm</Left>
+        <Height>1.55251cm</Height>
+        <Width>9.73666cm</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="COD_PAGOS2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!COD_PAGOS.Value</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>COD_PAGOS</rd:DefaultName>
+        <Top>11.66124cm</Top>
+        <Left>2.97006cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.33583cm</Width>
+        <ZIndex>8</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="DES_EVENTO2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!DES_EVENTO.Value</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>DES_EVENTO</rd:DefaultName>
+        <Top>15.52388cm</Top>
+        <Left>1.58131cm</Left>
+        <Height>0.6cm</Height>
+        <Width>9.64375cm</Width>
+        <ZIndex>9</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="NOM_CLIENTE2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!NOM_CLIENTE.Value</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>NOM_CLIENTE</rd:DefaultName>
+        <Top>16.47666cm</Top>
+        <Left>1.58131cm</Left>
+        <Height>0.6cm</Height>
+        <Width>9.64375cm</Width>
+        <ZIndex>10</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="MONTOAPAGAR2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!MONTOAPAGAR.Value</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>MONTOAPAGAR</rd:DefaultName>
+        <Top>12.77249cm</Top>
+        <Left>7.08465cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.65875cm</Width>
+        <ZIndex>11</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="DES_TIPO_TRANSACCION2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!DES_TIPO_TRANSACCION.Value</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>DES_TIPO_TRANSACCION</rd:DefaultName>
+        <Top>12.77249cm</Top>
+        <Left>3.41986cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.21437cm</Width>
+        <ZIndex>12</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Column2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!Column1.Value</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Column1</rd:DefaultName>
+        <Top>11.66124cm</Top>
+        <Left>13.07746cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.31479cm</Width>
+        <ZIndex>13</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>FOLIO</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>11.66124cm</Top>
+        <Left>1.58131cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.28292cm</Width>
+        <ZIndex>14</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox5">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=String.Format("MONTO:{0}", Code.ConvertirCadena(Fields!MONTOAPAGAR.Value)).ToUpper()</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox3</rd:DefaultName>
+        <Top>13.54888cm</Top>
+        <Left>3.41986cm</Left>
+        <Height>1.55251cm</Height>
+        <Width>9.73666cm</Width>
+        <ZIndex>15</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>2.49186in</Height>
+    <Height>7.35602in</Height>
     <Style />
   </Body>
-  <Width>9.00438in</Width>
+  <Width>6.78801in</Width>
   <Page>
     <PageHeader>
-      <Height>3.23674cm</Height>
+      <Height>2.37243cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -845,8 +528,8 @@
           <Source>Embedded</Source>
           <Value>qtq_95</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.29986cm</Top>
-          <Left>1.85405cm</Left>
+          <Top>0.03969cm</Top>
+          <Left>1.58132cm</Left>
           <Height>2.24896cm</Height>
           <Width>2.35479cm</Width>
           <Style>
@@ -864,7 +547,7 @@
                 <TextRun>
                   <Value>DELICIAS COUNTRY CLUB, S.C.</Value>
                   <Style>
-                    <FontSize>28pt</FontSize>
+                    <FontSize>18pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -872,10 +555,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>0.29986cm</Top>
-          <Left>5.02497cm</Left>
+          <Left>4.04194cm</Left>
           <Height>1.27882cm</Height>
-          <Width>15.33171cm</Width>
+          <Width>10.54276cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -887,18 +569,6 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Line Name="Line2">
-          <Top>2.91924cm</Top>
-          <Left>0.7413cm</Left>
-          <Height>0cm</Height>
-          <Width>21.70605cm</Width>
-          <ZIndex>2</ZIndex>
-          <Style>
-            <Border>
-              <Style>Solid</Style>
-            </Border>
-          </Style>
-        </Line>
         <Textbox Name="Textbox10">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -906,7 +576,18 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Reporte Eventos</Value>
+                  <Value>Reporte Recibo</Value>
+                  <Style>
+                    <FontSize>14pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value />
                   <Style>
                     <FontSize>14pt</FontSize>
                   </Style>
@@ -916,11 +597,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>1.75507cm</Top>
-          <Left>9.78959cm</Left>
+          <Top>1.41993cm</Top>
+          <Left>6.62772cm</Left>
           <Height>0.84667cm</Height>
           <Width>3.98109cm</Width>
-          <ZIndex>3</ZIndex>
+          <ZIndex>2</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -939,7 +620,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>2.73098cm</Height>
+      <Height>2.54cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -963,10 +644,10 @@ administracion@deliciascountryclub.com.mx</Value>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox6</rd:DefaultName>
-          <Top>0.89654cm</Top>
-          <Left>1.32292cm</Left>
+          <Top>0.35278cm</Top>
+          <Left>0.79375cm</Left>
           <Height>1.83444cm</Height>
-          <Width>14.27396cm</Width>
+          <Width>10.46396cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -977,7 +658,7 @@ administracion@deliciascountryclub.com.mx</Value>
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="Textbox8">
+        <Textbox Name="PageNumber">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
@@ -993,9 +674,9 @@ administracion@deliciascountryclub.com.mx</Value>
               <Style />
             </Paragraph>
           </Paragraphs>
-          <rd:DefaultName>Textbox8</rd:DefaultName>
-          <Top>1.34938cm</Top>
-          <Left>19.5102cm</Left>
+          <rd:DefaultName>PageNumber</rd:DefaultName>
+          <Top>1.13453cm</Top>
+          <Left>13.51433cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>1</ZIndex>
@@ -1009,18 +690,6 @@ administracion@deliciascountryclub.com.mx</Value>
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Line Name="Line3">
-          <Top>0.17639cm</Top>
-          <Left>0.7413cm</Left>
-          <Height>0cm</Height>
-          <Width>21.70605cm</Width>
-          <ZIndex>2</ZIndex>
-          <Style>
-            <Border>
-              <Style>Solid</Style>
-            </Border>
-          </Style>
-        </Line>
       </ReportItems>
       <Style>
         <Border>
@@ -1028,8 +697,10 @@ administracion@deliciascountryclub.com.mx</Value>
         </Border>
       </Style>
     </PageFooter>
-    <PageHeight>21.59cm</PageHeight>
-    <PageWidth>27.94cm</PageWidth>
+    <PageHeight>27.94cm</PageHeight>
+    <PageWidth>21.59cm</PageWidth>
+    <InteractiveHeight>27.94cm</InteractiveHeight>
+    <InteractiveWidth>21.59cm</InteractiveWidth>
     <LeftMargin>2cm</LeftMargin>
     <RightMargin>2cm</RightMargin>
     <TopMargin>2cm</TopMargin>
@@ -1044,7 +715,7 @@ administracion@deliciascountryclub.com.mx</Value>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>8f4a577d-bf50-4f27-bae6-2ba728301dfa</rd:DataSourceID>
+      <rd:DataSourceID>d14a12e0-27b7-48fe-ae06-25e516999f52</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -1054,45 +725,232 @@ administracion@deliciascountryclub.com.mx</Value>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="COD_EVENTO">
-          <DataField>COD_EVENTO</DataField>
+        <Field Name="COD_PAGOS">
+          <DataField>COD_PAGOS</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="DES_SALON_EVENTO">
-          <DataField>DES_SALON_EVENTO</DataField>
+        <Field Name="DES_EVENTO">
+          <DataField>DES_EVENTO</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="NOM_CLIENTE">
           <DataField>NOM_CLIENTE</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="DES_EVENTO">
-          <DataField>DES_EVENTO</DataField>
+        <Field Name="DES_TIPO_TRANSACCION">
+          <DataField>DES_TIPO_TRANSACCION</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="FECHA">
-          <DataField>FECHA</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="SumaIngresos">
-          <DataField>SumaIngresos</DataField>
+        <Field Name="MONTOAPAGAR">
+          <DataField>MONTOAPAGAR</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="SumaEgresos">
-          <DataField>SumaEgresos</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
+        <Field Name="Column1">
+          <DataField>Column1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1</rd:DataSetName>
         <rd:SchemaPath>C:\Users\Cesar.Muniz\source\repos\DCCEVENTOS\DCCEVENTOS\DCCEVENTOS\Reportes\DataSet1.xsd</rd:SchemaPath>
-        <rd:TableName>sp_DetalleEvento2</rd:TableName>
+        <rd:TableName>sp_recibo</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>sp_DetalleEvento2TableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>sp_reciboTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
+  <Code>Dim sUnidades() As String =
+    {"", "un", "dos", "tres", "cuatro", "cinco",
+    "seis", "siete", "ocho", "nueve", "diez",
+    "once", "doce", "trece", "catorce",
+    "quince", "dieciseis",
+    "diecisiete", "dieciocho", "diecinueve", "veinte",
+    "veintiún", "veintidos", "veintitres", "veinticuatro",
+    "veinticinco", "veintiseis", "veintisiete",
+    "veintiocho", "veintinueve"}
+
+    Dim sDecenas() As String =
+    {"", "diez", "veinte", "treinta", "cuarenta", "cincuenta",
+    "sesenta", "setenta", "ochenta", "noventa"}
+
+    Dim sCentenas() As String =
+    {"", "ciento", "doscientos", "trescientos",
+    "cuatrocientos",
+    "quinientos", "seiscientos", "setecientos",
+    "ochocientos", "novecientos"}
+    Dim sResultado As String = ""
+
+
+    Public Function ConvertirCadena(ByVal sNumero As String) As String
+        Dim dNumero As Double
+        Dim dNumAux As Double = 0
+        Dim x As Char
+        Dim sAux As String
+
+        sResultado = " "
+        Try
+            dNumero = Convert.ToDouble(sNumero)
+
+        Catch
+            Return ""
+        End Try
+
+        If (dNumero &gt; 999999999999) Then
+            Return ""
+        End If
+        If (dNumero &gt; 999999999) Then
+            dNumAux = dNumero Mod 1000000000000
+            sResultado += Numeros(dNumAux, 1000000000) + " mil "
+        End If
+
+        If (dNumero &gt; 999999) Then
+            dNumAux = dNumero Mod 1000000000
+            sResultado += Numeros(dNumAux, 1000000) + " millones "
+        End If
+
+        If (dNumero &gt; 999) Then
+            dNumAux = dNumero Mod 1000000
+            sResultado += Numeros(dNumAux, 1000) + " mil "
+        End If
+
+        dNumAux = dNumero Mod 1000
+        sResultado += Numeros(dNumAux, 1)
+
+        ''Enseguida verificamos si contiene punto, 
+        ''si es así, los convertimos a texto.
+        sAux = dNumero.ToString()
+
+        If (sAux.IndexOf(".") &gt;= 0) Then
+            sResultado += ObtenerDecimales(sAux)
+        End If
+        ''Las siguientes líneas convierten 
+        ''el primer caracter a mayúscula.
+        sAux = sResultado
+        x = Char.ToUpper(sResultado(1))
+        sResultado = x.ToString()
+
+        For i As Integer = 2 To sAux.Length - 1 Step 1
+            sResultado += sAux(i).ToString()
+        Next
+
+        Return sResultado
+    End Function
+
+
+    Public Function ConvertirNumero(ByVal dNumero As Double) As String
+        Dim dNumAux As Double = 0
+        Dim x As Char
+        Dim sAux As String
+
+        sResultado = " "
+
+        If (dNumero &gt; 999999999999) Then
+            Return ""
+        End If
+        If (dNumero &gt; 999999999) Then
+            dNumAux = dNumero Mod 1000000000000
+            sResultado += Numeros(dNumAux, 1000000000) + " mil "
+        End If
+
+        If (dNumero &gt; 999999) Then
+            dNumAux = dNumero Mod 1000000000
+            sResultado += Numeros(dNumAux, 1000000) + " millones "
+        End If
+
+        If (dNumero &gt; 999) Then
+            dNumAux = dNumero Mod 1000000
+            sResultado += Numeros(dNumAux, 1000) + " mil "
+        End If
+
+        dNumAux = dNumero Mod 1000
+        sResultado += Numeros(dNumAux, 1)
+
+
+        ''Enseguida verificamos si contiene punto, 
+        ''si es así, los convertimos a texto.
+        sAux = dNumero.ToString()
+        Dim varDecimales As String = ""
+        If (sAux.IndexOf(".") &gt;= 0) Then
+            varDecimales = ObtenerDecimales(sAux)
+
+        Else
+            varDecimales = ""
+        End If
+        sResultado += varDecimales
+        ''Las siguientes líneas convierten 
+        ''el primer caracter a mayúscula.
+        sAux = sResultado
+        x = Char.ToUpper(sResultado(1))
+        sResultado = x.ToString()
+        For i As Integer = 2 To sAux.Length - 1 Step 1
+            sResultado += sAux(i).ToString()
+        Next
+
+        Return sResultado
+    End Function
+
+
+    Private Function Numeros(ByVal dNumAux As Double, _
+                             ByVal dFactor As Double) As String
+        Dim dCociente As Double = dNumAux / dFactor
+        Dim dNumero As Double = 0
+        Dim iNumero As Integer = 0
+        Dim sNumero As String = ""
+        Dim sTexto As String = ""
+
+        If (dCociente &gt;= 100) Then
+            dNumero = dCociente / 100
+            sNumero = dNumero.ToString()
+            iNumero = Integer.Parse(sNumero(0).ToString())
+            sTexto += Me.sCentenas(iNumero) + " "
+        End If
+
+        dCociente = dCociente Mod 100
+        If (dCociente &gt;= 30) Then
+            dNumero = dCociente / 10
+            sNumero = dNumero.ToString()
+            iNumero = Integer.Parse(sNumero(0).ToString())
+            If (iNumero &gt; 0) Then
+                sTexto += Me.sDecenas(iNumero) + " "
+            End If
+
+            dNumero = dCociente Mod 10
+            sNumero = dNumero.ToString()
+            iNumero = Integer.Parse(sNumero(0).ToString())
+            If (iNumero &gt; 0) Then
+                sTexto += "y " + Me.sUnidades(iNumero) + " "
+            End If
+
+        Else
+            dNumero = dCociente
+            sNumero = dNumero.ToString()
+            If (sNumero.Length &gt; 1) Then
+                If (sNumero(1) &lt;&gt; ".") Then
+                    iNumero = Integer.Parse(sNumero(0).ToString() +
+                        sNumero(1).ToString())
+                Else
+                    iNumero = Integer.Parse(sNumero(0).ToString())
+                End If
+            Else
+                iNumero = Integer.Parse(sNumero(0).ToString())
+                sTexto += Me.sUnidades(iNumero) + " "
+            End If
+        End If
+
+        Return sTexto
+    End Function
+
+
+    Private Function ObtenerDecimales(ByVal sNumero As String) As String
+        Dim sNumPuntos() As String
+        Dim sTexto As String = ""
+        Dim dNumero As Double = 0
+        sNumPuntos = sNumero.Split(".")
+        dNumero = Convert.ToDouble(sNumPuntos(1))
+        sTexto = "punto " + Numeros(dNumero, 1)
+        Return sTexto
+    End Function</Code>
   <EmbeddedImages>
     <EmbeddedImage Name="qtq_95">
       <MIMEType>image/jpeg</MIMEType>
@@ -1120,5 +978,5 @@ o7thRRRWxkFFFFABRRRQAUUUUAFFFFAARkVgeNfhd4d+IsCx65o2n6mFxtaeEM6Yz0b7w69jRRUVKcZx
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>0c671963-8e17-4da3-829e-1f0fea214585</rd:ReportID>
+  <rd:ReportID>ca6a7b67-7cfd-4c6a-b953-1aa2508e5c8c</rd:ReportID>
 </Report>

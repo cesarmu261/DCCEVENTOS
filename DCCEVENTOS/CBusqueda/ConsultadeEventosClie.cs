@@ -73,14 +73,7 @@ namespace DCCEVENTOS.CBusqueda
 
         private void BTNBus_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(textBox1.Text))
-            {
-                CargarCliente();
-            }
-            else
-            {
-                MessageBox.Show("Debe ingresar al menos un valor para buscar.");
-            }
+            CargarCliente();
         }
     }
 }

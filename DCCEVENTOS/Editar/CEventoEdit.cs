@@ -90,7 +90,6 @@ namespace DCCEVENTOS.Editar
             label11.Text = string.Empty;
             label12.Text = string.Empty;
             label9.Text = string.Empty;
-            label10.Text = string.Empty;
             panel1.Visible = true;
 
 
@@ -107,6 +106,7 @@ namespace DCCEVENTOS.Editar
             textBox10.Text = string.Empty;
             textBox12.Text = string.Empty;
             textBox13.Text = string.Empty;
+            panel1.Visible = false;
         }
         public void CargarDTG()
         {
@@ -142,7 +142,7 @@ namespace DCCEVENTOS.Editar
             label9.Text = resultadoFinal.ToString();
 
             //Actualizar la etiqueta de la sumatoria de precio total
-            label10.Text = sumatoriaPrecioTotal.ToString("N2");
+            //label10.Text = sumatoriaPrecioTotal.ToString("N2");
 
 
         }
@@ -412,16 +412,23 @@ namespace DCCEVENTOS.Editar
         }
         public void Calculos()
         {
-            decimal Cantidad, CostoPrecio, Descuento, CostoTotal;
-            Cantidad = Convert.ToDecimal(textBox10.Text);
-            CostoPrecio = Convert.ToDecimal(textBox9.Text);
-            Descuento = Convert.ToDecimal(textBox12.Text);
+            try
+            {
+                decimal Cantidad, CostoPrecio, Descuento, CostoTotal;
+                Cantidad = Convert.ToDecimal(textBox10.Text);
+                CostoPrecio = Convert.ToDecimal(textBox9.Text);
+                Descuento = Convert.ToDecimal(textBox12.Text);
 
-            decimal Total = CostoPrecio * Cantidad;
-            decimal Descuentototal = Total * (Descuento / 100);
-            CostoTotal = Total - Descuentototal;
+                decimal Total = CostoPrecio * Cantidad;
+                decimal Descuentototal = Total * (Descuento / 100);
+                CostoTotal = Total - Descuentototal;
 
-            textBox13.Text = CostoTotal.ToString("N2");
+                textBox13.Text = CostoTotal.ToString("N2");
+            }
+            catch
+            {
+                MessageBox.Show("POR VAFOR INGRESE UN IMPORTE CORRECTO");
+            }
         }
         private void TBCod_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -491,7 +498,6 @@ namespace DCCEVENTOS.Editar
         private void toolStripNuevo_Click(object sender, EventArgs e)
         {
             NuevoFormulario();
-
         }
 
         private void toolStripSalir_Click(object sender, EventArgs e)
@@ -510,57 +516,19 @@ namespace DCCEVENTOS.Editar
 
         private void toolStripBuscar_Click(object sender, EventArgs e)
         {
-
+            ConsultadeEventosClie form = new ConsultadeEventosClie();
+            form.ShowDialog();
+            TBCod.Text = Convert.ToString(NEventos.SSCod);
+            CargarEvento();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             ConsultadeEventosDes form = new ConsultadeEventosDes();
             form.ShowDialog();
-            TBCod.Text = Convert.ToString(NSalones.SSCod);
-            System.Text.RegularExpressions.Regex er = new System.Text.RegularExpressions.Regex("^(?:\\+|-)?\\d+$");
-            if (!er.Match(TBCod.Text).Success)
-            {
-                label22.Visible = true;
-                this.label22.Text = "El campo debe ser un número entero positivo o negativo";
-            }
+            TBCod.Text = Convert.ToString(NEventos.SSCod);
+            CargarEvento();
 
-            else
-            {
-                label22.Visible = false;
-                EventosContext contexto = new EventosContext();
-                int cod = Convert.ToInt32(TBCod.Text);
-                List<SaEvento> List = new DMEvento(contexto).Obtener(cod);
-
-                foreach (var t in List)
-                {
-                    List<SaEveCliente> List2 = new DMCliente(contexto).Obtener(Convert.ToInt32(t.CodCliente));
-                    foreach (var t2 in List2)
-                    {
-                        textBox1.Text = t2.NomCliente.ToString();
-                    }
-                    textBox2.Text = t.DesEvento.ToString();
-                    CBSalones.Text = nsalones.ObtenerNombreTipoSalon((int)t.CodSalon);
-                    string valorDeseado2 = nsalones.ObtenerDescripcioneCod(t.CodSalon); // Valor que deseas seleccionar
-
-                    int indice2 = CBSalones.FindStringExact(valorDeseado2);
-                    if (indice2 != -1)
-                    {
-                        CBSalones.SelectedIndex = indice2; // Establecer el índice seleccionado
-                    }
-                    dateTimePicker1.Value = (DateTime)t.Fecha;
-                    textBox3.Text = t.Observaciones.ToString();
-                    string valorDeseado = nestado.ObtenerDescripcione(t.CodEstado); // Valor que deseas seleccionar
-
-                    int indice = CBEstado.FindStringExact(valorDeseado);
-                    if (indice != -1)
-                    {
-                        CBEstado.SelectedIndex = indice; // Establecer el índice seleccionado
-                    }
-                    CBEstado.Text = nsalones.ObtenerNombreTipoestado(t.CodEstado);
-                    CargarDTG();
-                }
-            }
         }
     }
 }

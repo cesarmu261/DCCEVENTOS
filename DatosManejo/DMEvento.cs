@@ -208,6 +208,10 @@ namespace DatosManejo
         {
             contexto.Database.CloseConnection();
         }
+        public string? Obtenedescripcion(int? cod)
+        {
+            return contexto.SaEventos.Where(a => a.CodEvento == cod).FirstOrDefault().DesEvento;
+        }
     }
 }
 

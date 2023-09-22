@@ -44,6 +44,7 @@ namespace DCCEVENTOS.Reportes
 
             // Refrescar el informe después de agregar todos los conjuntos de datos
             reportViewer1.LocalReport.ReportEmbeddedResource = "DCCEVENTOS.Reportes.Report2.rdlc";
+            reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
             reportViewer1.RefreshReport();
         }
     }

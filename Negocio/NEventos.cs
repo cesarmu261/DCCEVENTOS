@@ -152,6 +152,11 @@ namespace Negocio
             EventosContext context = new EventosContext();
             return new DMEventoDetalle(context).Obtener(0,codeven);
         }
+        public string ObtenerDescripcione(int? cod = 0)
+        {
+            EventosContext context = new EventosContext();
+            return new DMEvento(context).Obtenedescripcion(cod);
+        }
     }
 }
 

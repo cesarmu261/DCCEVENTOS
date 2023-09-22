@@ -1,4 +1,5 @@
 using DCCEVENTOS.CBusqueda;
+using DCCEVENTOS.CReporte;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.VisualBasic;
 using Negocio;
@@ -207,6 +208,12 @@ namespace DCCEVENTOS
         private void consultaDeEventosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConsultaDeEventos form = new ConsultaDeEventos();
+            form.Show();
+        }
+
+        private void reportePagosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReportePagos form = new ReportePagos();
             form.Show();
         }
     }

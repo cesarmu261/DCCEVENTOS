@@ -49,6 +49,7 @@
             Name = "FRE";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Reporte";
+            WindowState = FormWindowState.Maximized;
             Load += FRE_Load;
             ResumeLayout(false);
         }
