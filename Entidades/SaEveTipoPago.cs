@@ -7,6 +7,8 @@ public partial class SaEveTipoPago
 {
     public int CodPago { get; set; }
 
+    public string Valor { get; set; } = null!;
+
     public string DesPago { get; set; } = null!;
 
     public string? CodEstado { get; set; }

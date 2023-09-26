@@ -17,13 +17,28 @@ namespace DatosManejo
         {
             this.contexto = contexto;
         }
-        public List<SaEveTipoPago> Obtener(int Cod = 0, string Des = "", string CodEstado = "")
+        public List<SaEveTipoPago> Obtener(int Cod = 0, string valor = "", string Des = "", string CodEstado = "")
         {
             List<SaEveTipoPago> pago = new List<SaEveTipoPago>();
             if (Cod != 0)
             {
                 pago = contexto.SaEveTipoPagos.AsNoTracking().Where(a => a.CodPago == Cod).ToList();
-
+                if (pago.Count > 1 && !String.IsNullOrEmpty(valor))
+                {
+                    pago = pago.Where(a => a.Valor.Contains(valor)).ToList();
+                    if (pago.Count > 1 && !String.IsNullOrEmpty(Des))
+                    {
+                        pago = pago.Where(a => a.DesPago.Contains(Des)).ToList();
+                        if (pago.Count > 1 && !String.IsNullOrEmpty(CodEstado))
+                        {
+                            pago = pago.Where(a => a.DesPago.Contains(CodEstado)).ToList();
+                        }
+                    }
+                }
+            }
+            else if (!String.IsNullOrEmpty(valor))
+            {
+                pago = contexto.SaEveTipoPagos.AsNoTracking().Where(a => a.Valor.Contains(valor)).ToList();
                 if (pago.Count > 1 && !String.IsNullOrEmpty(Des))
                 {
                     pago = pago.Where(a => a.DesPago.Contains(Des)).ToList();
@@ -54,6 +69,10 @@ namespace DatosManejo
         public string? Obtenedescripcion(int? cod)
         {
             return contexto.SaEveTipoPagos.Where(a => a.CodPago == cod).FirstOrDefault().DesPago;
+        }
+        public string? Obtenefac(string des)
+        {
+            return contexto.SaEveTipoPagos.Where(a => a.DesPago ==des).FirstOrDefault().Valor;
         }
         public InfoCompartidaCapas Crear(SaEveTipoPago pago)
         {

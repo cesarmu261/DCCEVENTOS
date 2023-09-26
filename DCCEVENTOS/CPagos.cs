@@ -35,7 +35,7 @@ namespace DCCEVENTOS
             neventod = new NEventoDetalle();
             nestado = new NEstado();
             Npago = new NPago();
-            Nfacturacion =new NFacturacion();
+            Nfacturacion = new NFacturacion();
             CargarInformacion();
         }
         public void Nuevo()
@@ -86,8 +86,6 @@ namespace DCCEVENTOS
             Object[] estado = nestado.ObtenerDescripciones();
             CBEstado.DataSource = estado;
             CBEstado.Refresh();
-
-
         }
         private void DTG()
         {
@@ -100,7 +98,9 @@ namespace DCCEVENTOS
         {
             toolStripButton1.Enabled = true;
             toolStripGuardar.Enabled = false;
-            ConsultadePagos consulta = new ConsultadePagos();
+            //ConsultadePagos consulta = new ConsultadePagos();
+            //consulta.ShowDialog();
+            ConsultadePagoDesc consulta = new ConsultadePagoDesc();
             consulta.ShowDialog();
             EventosContext contexto = new EventosContext();
             List<SaEvePago> List = new DMPagos(contexto).Obtener(NPago.SSCod);
@@ -109,7 +109,6 @@ namespace DCCEVENTOS
                 TBFolio.Text = Convert.ToString(NPago.SSCod);
                 TBEvento.Text = Convert.ToString(Entidades.CodEvento);
                 CargarEvento();
-
 
                 string valortrans = nTrans.ObtenerDescripcione(Entidades.CodTipoTransaccion); // Valor que deseas seleccionar
 
@@ -151,9 +150,7 @@ namespace DCCEVENTOS
                 TBObservacionesPago.Text = Entidades.Observacionpago;
                 MontoaPagar.Text = Entidades.Montoapagar.ToString();
                 CalculosBus();
-
             }
-
         }
         public void ModificarRegistro()
         {
@@ -197,26 +194,30 @@ namespace DCCEVENTOS
             decimal sumatoriaPrecioTotal = 0;
             decimal sumatoriaIngresos = 0;
             decimal sumatoriaEgresos = 0;
+            decimal sumatoriaGarantia = 0;
             foreach (DataRow row in table.Rows)
             {
                 decimal precioTotalDescuento = Convert.ToDecimal(row["Precio Total"]);
                 sumatoriaPrecioTotal += precioTotalDescuento;
 
                 string categoria = row["Categoria"].ToString();
-                if (categoria.ToLower() == "ingresos")
+                if (categoria.ToUpper() == "INGRESOS")
                 {
                     sumatoriaIngresos += precioTotalDescuento;
                 }
-                else if (categoria.ToLower() == "egresos")
+                else if (categoria.ToUpper() == "EGRESOS")
                 {
                     sumatoriaEgresos += precioTotalDescuento;
+                }
+                else if (categoria.ToUpper() == "GARANTIA")
+                {
+                    sumatoriaGarantia += sumatoriaGarantia;
                 }
             }
 
             decimal resultadoFinal = sumatoriaIngresos - sumatoriaEgresos;
             if (List.Count >= 1)
             {
-
                 resultado = resultadoFinal;
 
                 decimal? resultados = resultado;
@@ -240,7 +241,7 @@ namespace DCCEVENTOS
                         }
                         MontoPagado.Text = montos.ToString();
                         SaldoPendiente.Text = resultados.ToString();
-                        SaldoaFavor.Text = "0.00";
+                        SaldoaFavor.Text = sumatoriaGarantia.ToString();
                         Penalizacion.Text = "0.00";
                         TBIva.Text = "0.00";
                         SaldoActual.Text = "0.00";
@@ -259,7 +260,6 @@ namespace DCCEVENTOS
             DTGDetalleEvento.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DTGDetalleEvento.MultiSelect = false;
             CBTransaccion.Enabled = true;
-
         }
         decimal resultado;
         decimal monto;
@@ -291,7 +291,7 @@ namespace DCCEVENTOS
                 }
                 else if (categoria.ToUpper() == "GARANTIA")
                 {
-                    sumatoriaGarantia += sumatoriaGarantia;
+                    sumatoriaGarantia += precioTotalDescuento;
                 }
             }
 
@@ -304,36 +304,41 @@ namespace DCCEVENTOS
                 MontoPagado.Text = (0.00).ToString();
                 SaldoPendiente.Text = (0.00).ToString();
                 MontoaPagar.Text = (0.00).ToString();
-                SaldoaFavor.Text = (0.00).ToString();
+                SaldoaFavor.Text = sumatoriaGarantia.ToString();
                 Penalizacion.Text = (0.00).ToString();
                 TBIva.Text = (0.00).ToString();
                 SaldoActual.Text = (0.00).ToString();
             }
-
             else
             {
                 resultado = resultadoFinal;
-
                 decimal? resultados = resultado;
                 decimal? montos = monto;
                 foreach (var t in List)
                 {
-                    if (codeve == t.CodEvento && t.CodEstado == "A")
+                    if (codeve == t.CodEvento && t.CodEstado == "A" && t.CodTipoTransaccion == 3)
                     {
-                        resultados = resultados - t.Montoapagar;
-
-                        montos = montos + t.Montoapagar;
-
                         CostoEvento.Text = resultadoFinal.ToString();
-                        MontoPagado.Text = montos.ToString();
-                        SaldoPendiente.Text = resultados.ToString();
+                        MontoPagado.Text = (0.00).ToString();
+                        SaldoPendiente.Text = resultadoFinal.ToString();
                         MontoaPagar.Text = (0.00).ToString();
-                        SaldoaFavor.Text = (0.00).ToString();
+                        SaldoaFavor.Text = sumatoriaGarantia.ToString();
                         Penalizacion.Text = (0.00).ToString();
                         TBIva.Text = (0.00).ToString();
                         SaldoActual.Text = (0.00).ToString();
                     }
-
+                    if (codeve == t.CodEvento && t.CodEstado == "A" && t.CodTipoTransaccion == 1)
+                    {
+                        resultados = resultados - t.Montoapagar;
+                        montos = montos + t.Montoapagar;
+                        CostoEvento.Text = resultadoFinal.ToString();
+                        MontoPagado.Text = montos.ToString();
+                        SaldoPendiente.Text = resultados.ToString();
+                        MontoaPagar.Text = (0.00).ToString();
+                        Penalizacion.Text = (0.00).ToString();
+                        TBIva.Text = (0.00).ToString();
+                        SaldoActual.Text = (0.00).ToString();
+                    }
                 }
             }
         }
@@ -345,12 +350,6 @@ namespace DCCEVENTOS
                 decimal resultado = Convert.ToDecimal(CostoEvento.Text);
                 decimal monto = Convert.ToDecimal(MontoaPagar.Text);
                 restamonto = resultado - monto;
-                //if (CBComprante.SelectedIndex == 0)
-                //{
-                //    decimal iva = 0;
-                //    iva = restamonto * (decimal)0.16;
-
-                //}
                 SaldoActual.Text = restamonto.ToString();
             }
             else
@@ -359,12 +358,6 @@ namespace DCCEVENTOS
                 decimal resultado = Convert.ToDecimal(SaldoPendiente.Text);
                 decimal monto = Convert.ToDecimal(MontoaPagar.Text);
                 restamonto = resultado - monto;
-                //if (CBComprante.SelectedIndex == 0)
-                //{
-                //    decimal iva = 0;
-                //    iva = restamonto * (decimal)0.16;
-
-                //}
                 SaldoActual.Text = restamonto.ToString();
             }
         }
@@ -391,12 +384,9 @@ namespace DCCEVENTOS
                         TBClientes.Text = t2.NomCliente.ToString();
                     }
                     TBDescripcion.Text = t.DesEvento.ToString();
-
-
                 }
                 CargarDTG();
                 DTG();
-
             }
         }
         public void AgregarInformacion()
@@ -454,7 +444,6 @@ namespace DCCEVENTOS
                 MessageBox.Show("DEBE CAPTURAR TODOS LOS DATOS PARA EL REGISTRO");
             }
         }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             ConsultadeEventosDes form = new ConsultadeEventosDes();
@@ -463,10 +452,9 @@ namespace DCCEVENTOS
             CargarEvento();
             Calculos();
         }
-
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
-                System.Text.RegularExpressions.Regex er = new System.Text.RegularExpressions.Regex("^(?:\\+|-)?\\d+$");
+            System.Text.RegularExpressions.Regex er = new System.Text.RegularExpressions.Regex("^(?:\\+|-)?\\d+$");
             if (!er.Match(TBEvento.Text).Success)
             {
                 this.label22.Text = "El campo debe ser un número entero positivo";
@@ -482,7 +470,6 @@ namespace DCCEVENTOS
                 }
             }
         }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             ConsultadeEventosClie form = new ConsultadeEventosClie();
@@ -491,7 +478,6 @@ namespace DCCEVENTOS
             CargarEvento();
             Calculos();
         }
-
         private void MontoaPagar_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
@@ -499,14 +485,11 @@ namespace DCCEVENTOS
                 CalculosdePago();
             }
         }
-
         private void toolStripGuardar_Click(object sender, EventArgs e)
         {
             AgregarInformacion();
-
             Nuevo();
         }
-
         private void toolStripBuscar_Click(object sender, EventArgs e)
         {
             Nuevo();
@@ -514,23 +497,19 @@ namespace DCCEVENTOS
             CalculosdePago();
 
         }
-
         private void toolStripNuevo_Click(object sender, EventArgs e)
         {
             Nuevo();
         }
-
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             ModificarRegistro();
             Nuevo();
         }
-
         private void Calcular_Click(object sender, EventArgs e)
         {
             CalculosdePago();
         }
-
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             //int cod = Convert.ToInt32(Npago.ObtenerDescripcionesCod());
@@ -539,12 +518,17 @@ namespace DCCEVENTOS
             //rE.Cod_Evento = cod;
             rE.Show();
         }
-
+        public void ObtenerTipoPago()
+        {
+            MetododePago form = new MetododePago();
+            form.ShowDialog();
+        }
         private void facturaElectroniToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                Nfacturacion.GenerarFactura(TBClientes.Text,MontoaPagar.Text,TBIva.Text,TBSubtotal.Text);
+                ObtenerTipoPago();
+                Nfacturacion.GenerarFactura(TBClientes.Text, textBox1.Text, TBIva.Text, TBSubtotal.Text);
                 MessageBox.Show("Factura Electronica almacenada.", "Informe", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (OdbcException ex)

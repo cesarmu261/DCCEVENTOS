@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using Coneccion;
 using System.Data.Common;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Data.SqlClient;
+using System.Data.SqlClient;
 using Entidades;
 
 namespace Datos;
-
 
 public partial class EventosContext : DbContext
 {
@@ -68,8 +67,6 @@ public partial class EventosContext : DbContext
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.UseCollation("Modern_Spanish_CI_AS");
-
         modelBuilder.Entity<SaCodEstado>(entity =>
         {
             entity.HasKey(e => e.CodEstado).HasName("PK_SA_COD_ESTUSU");
@@ -456,6 +453,10 @@ public partial class EventosContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("DES_PAGO");
+            entity.Property(e => e.Valor)
+                .HasMaxLength(5)
+                .IsUnicode(false)
+                .HasColumnName("VALOR");
 
             entity.HasOne(d => d.CodEstadoNavigation).WithMany(p => p.SaEveTipoPagos)
                 .HasForeignKey(d => d.CodEstado)

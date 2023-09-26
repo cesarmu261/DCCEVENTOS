@@ -25,14 +25,16 @@ namespace Negocio
             List<SaEveTipoPago> List = new DMTipoPago(contexto).Obtener();
 
             DataTable Table = new DataTable();
-            Table.Columns.Add("CODIGO");  // Reemplaza "Columna1" con el nombre de la columna real que deseas incluir
+            Table.Columns.Add("CODIGO");
+            Table.Columns.Add("VALOR");
             Table.Columns.Add("DESCRIPCION");
             Table.Columns.Add("ESTADO");
 
             foreach (SaEveTipoPago datos in List)
             {
                 DataRow row = Table.NewRow();
-                row["CODIGO"] = datos.CodPago;  // Reemplaza "Columna1" y "Propiedad1" con los nombres reales de la columna y propiedad que deseas incluir
+                row["CODIGO"] = datos.CodPago;
+                row["VALOR"] = datos.Valor;
                 row["DESCRIPCION"] = datos.DesPago;  // Reemplaza "Columna2" y "Propiedad2" con los nombres reales de la columna y propiedad que deseas incluir
                 row["ESTADO"] = ObtenerNombreTipoestado(datos.CodEstado);
                 Table.Rows.Add(row);
@@ -43,24 +45,26 @@ namespace Negocio
         public DataTable Obtener(string Descripcion)
         {
             EventosContext contexto = new EventosContext();
-            List<SaEveTipoPago> List = new DMTipoPago(contexto).Obtener(0, Descripcion);
+            List<SaEveTipoPago> List = new DMTipoPago(contexto).Obtener(0,"", Descripcion);
 
             DataTable Table = new DataTable();
-            Table.Columns.Add("CODIGO");  // Reemplaza "Columna1" con el nombre de la columna real que deseas incluir
+            Table.Columns.Add("CODIGO");
+            Table.Columns.Add("VALOR");
             Table.Columns.Add("DESCRIPCION");
             Table.Columns.Add("ESTADO");
 
             foreach (SaEveTipoPago datos in List)
             {
                 DataRow row = Table.NewRow();
-                row["CODIGO"] = datos.CodPago;  // Reemplaza "Columna1" y "Propiedad1" con los nombres reales de la columna y propiedad que deseas incluir
+                row["CODIGO"] = datos.CodPago;
+                row["VALOR"] = datos.Valor;
                 row["DESCRIPCION"] = datos.DesPago;  // Reemplaza "Columna2" y "Propiedad2" con los nombres reales de la columna y propiedad que deseas incluir
                 row["ESTADO"] = ObtenerNombreTipoestado(datos.CodEstado);
                 Table.Rows.Add(row);
             }
+
             return Table;
         }
-
 
         public InfoCompartidaCapas Guardar(SaEveTipoPago comp)
         {
@@ -124,6 +128,11 @@ namespace Negocio
         {
             EventosContext context = new EventosContext();
             return new DMTipoPago(context).Obtenedescripcion(cod);
+        }
+        public string Obtenerfac(string  des = "")
+        {
+            EventosContext context = new EventosContext();
+            return new DMTipoPago(context).Obtenefac(des);
         }
     }
 }

@@ -45,6 +45,8 @@
             actualizarToolStripMenuItem = new ToolStripMenuItem();
             buscarToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
+            fcaturaToolStripMenuItem = new ToolStripMenuItem();
+            facturaElectroniToolStripMenuItem = new ToolStripMenuItem();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -97,14 +99,16 @@
             Calcular = new Button();
             TBSubtotal = new TextBox();
             label24 = new Label();
-            fcaturaToolStripMenuItem = new ToolStripMenuItem();
-            facturaElectroniToolStripMenuItem = new ToolStripMenuItem();
+            panel1 = new Panel();
+            label25 = new Label();
+            textBox1 = new TextBox();
             toolStrip1.SuspendLayout();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DTGDetalleEvento).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // toolStrip1
@@ -207,32 +211,46 @@
             // nuevoToolStripMenuItem
             // 
             nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            nuevoToolStripMenuItem.Size = new Size(180, 22);
+            nuevoToolStripMenuItem.Size = new Size(126, 22);
             nuevoToolStripMenuItem.Text = "Nuevo";
             // 
             // guardarToolStripMenuItem
             // 
             guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            guardarToolStripMenuItem.Size = new Size(180, 22);
+            guardarToolStripMenuItem.Size = new Size(126, 22);
             guardarToolStripMenuItem.Text = "Guardar";
             // 
             // actualizarToolStripMenuItem
             // 
             actualizarToolStripMenuItem.Name = "actualizarToolStripMenuItem";
-            actualizarToolStripMenuItem.Size = new Size(180, 22);
+            actualizarToolStripMenuItem.Size = new Size(126, 22);
             actualizarToolStripMenuItem.Text = "Actualizar";
             // 
             // buscarToolStripMenuItem
             // 
             buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
-            buscarToolStripMenuItem.Size = new Size(180, 22);
+            buscarToolStripMenuItem.Size = new Size(126, 22);
             buscarToolStripMenuItem.Text = "Buscar";
             // 
             // salirToolStripMenuItem
             // 
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            salirToolStripMenuItem.Size = new Size(180, 22);
+            salirToolStripMenuItem.Size = new Size(126, 22);
             salirToolStripMenuItem.Text = "Salir";
+            // 
+            // fcaturaToolStripMenuItem
+            // 
+            fcaturaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { facturaElectroniToolStripMenuItem });
+            fcaturaToolStripMenuItem.Name = "fcaturaToolStripMenuItem";
+            fcaturaToolStripMenuItem.Size = new Size(81, 20);
+            fcaturaToolStripMenuItem.Text = "Facturacion";
+            // 
+            // facturaElectroniToolStripMenuItem
+            // 
+            facturaElectroniToolStripMenuItem.Name = "facturaElectroniToolStripMenuItem";
+            facturaElectroniToolStripMenuItem.Size = new Size(174, 22);
+            facturaElectroniToolStripMenuItem.Text = "Factura Electronica";
+            facturaElectroniToolStripMenuItem.Click += facturaElectroniToolStripMenuItem_Click;
             // 
             // label1
             // 
@@ -535,7 +553,7 @@
             // 
             label12.AutoSize = true;
             label12.ForeColor = Color.Red;
-            label12.Location = new Point(19, 906);
+            label12.Location = new Point(19, 894);
             label12.Name = "label12";
             label12.Size = new Size(85, 15);
             label12.TabIndex = 110;
@@ -544,16 +562,16 @@
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(404, 797);
+            label18.Location = new Point(354, 797);
             label18.Name = "label18";
-            label18.Size = new Size(77, 15);
+            label18.Size = new Size(117, 15);
             label18.TabIndex = 111;
-            label18.Text = "Saldo a Favor";
+            label18.Text = "Deposito en Garantia";
             // 
             // label19
             // 
             label19.AutoSize = true;
-            label19.Location = new Point(404, 827);
+            label19.Location = new Point(354, 830);
             label19.Name = "label19";
             label19.Size = new Size(112, 15);
             label19.TabIndex = 112;
@@ -562,7 +580,7 @@
             // label20
             // 
             label20.AutoSize = true;
-            label20.Location = new Point(654, 802);
+            label20.Location = new Point(99, 41);
             label20.Name = "label20";
             label20.Size = new Size(24, 15);
             label20.TabIndex = 113;
@@ -571,7 +589,7 @@
             // label21
             // 
             label21.AutoSize = true;
-            label21.Location = new Point(404, 867);
+            label21.Location = new Point(354, 862);
             label21.Name = "label21";
             label21.Size = new Size(112, 15);
             label21.TabIndex = 114;
@@ -582,14 +600,16 @@
             SaldoPendiente.Enabled = false;
             SaldoPendiente.Location = new Point(130, 859);
             SaldoPendiente.Name = "SaldoPendiente";
+            SaldoPendiente.RightToLeft = RightToLeft.Yes;
             SaldoPendiente.Size = new Size(100, 23);
             SaldoPendiente.TabIndex = 115;
             SaldoPendiente.Text = "0";
             // 
             // MontoaPagar
             // 
-            MontoaPagar.Location = new Point(130, 901);
+            MontoaPagar.Location = new Point(131, 891);
             MontoaPagar.Name = "MontoaPagar";
+            MontoaPagar.RightToLeft = RightToLeft.Yes;
             MontoaPagar.Size = new Size(100, 23);
             MontoaPagar.TabIndex = 116;
             MontoaPagar.Text = "0";
@@ -597,29 +617,33 @@
             // 
             // SaldoaFavor
             // 
-            SaldoaFavor.Location = new Point(522, 794);
+            SaldoaFavor.Location = new Point(472, 794);
             SaldoaFavor.Name = "SaldoaFavor";
+            SaldoaFavor.RightToLeft = RightToLeft.Yes;
             SaldoaFavor.Size = new Size(100, 23);
             SaldoaFavor.TabIndex = 117;
             // 
             // Penalizacion
             // 
-            Penalizacion.Location = new Point(522, 824);
+            Penalizacion.Location = new Point(472, 827);
             Penalizacion.Name = "Penalizacion";
+            Penalizacion.RightToLeft = RightToLeft.Yes;
             Penalizacion.Size = new Size(100, 23);
             Penalizacion.TabIndex = 118;
             // 
             // TBIva
             // 
-            TBIva.Location = new Point(772, 794);
+            TBIva.Location = new Point(129, 38);
             TBIva.Name = "TBIva";
+            TBIva.RightToLeft = RightToLeft.Yes;
             TBIva.Size = new Size(100, 23);
             TBIva.TabIndex = 119;
             // 
             // SaldoActual
             // 
-            SaldoActual.Location = new Point(522, 864);
+            SaldoActual.Location = new Point(472, 859);
             SaldoActual.Name = "SaldoActual";
+            SaldoActual.RightToLeft = RightToLeft.Yes;
             SaldoActual.Size = new Size(100, 23);
             SaldoActual.TabIndex = 120;
             // 
@@ -645,6 +669,7 @@
             CostoEvento.Enabled = false;
             CostoEvento.Location = new Point(130, 794);
             CostoEvento.Name = "CostoEvento";
+            CostoEvento.RightToLeft = RightToLeft.Yes;
             CostoEvento.Size = new Size(100, 23);
             CostoEvento.TabIndex = 124;
             // 
@@ -662,6 +687,7 @@
             MontoPagado.Enabled = false;
             MontoPagado.Location = new Point(130, 827);
             MontoPagado.Name = "MontoPagado";
+            MontoPagado.RightToLeft = RightToLeft.Yes;
             MontoPagado.Size = new Size(100, 23);
             MontoPagado.TabIndex = 126;
             MontoPagado.Text = "0";
@@ -677,7 +703,7 @@
             // 
             // Calcular
             // 
-            Calcular.Location = new Point(791, 903);
+            Calcular.Location = new Point(801, 905);
             Calcular.Name = "Calcular";
             Calcular.Size = new Size(75, 23);
             Calcular.TabIndex = 127;
@@ -687,59 +713,75 @@
             // 
             // TBSubtotal
             // 
-            TBSubtotal.Location = new Point(772, 827);
+            TBSubtotal.Location = new Point(129, 70);
             TBSubtotal.Name = "TBSubtotal";
+            TBSubtotal.RightToLeft = RightToLeft.Yes;
             TBSubtotal.Size = new Size(100, 23);
             TBSubtotal.TabIndex = 129;
             // 
             // label24
             // 
             label24.AutoSize = true;
-            label24.Location = new Point(654, 835);
+            label24.Location = new Point(68, 73);
             label24.Name = "label24";
             label24.Size = new Size(55, 15);
             label24.TabIndex = 128;
             label24.Text = "Sub Total";
             // 
-            // fcaturaToolStripMenuItem
+            // panel1
             // 
-            fcaturaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { facturaElectroniToolStripMenuItem });
-            fcaturaToolStripMenuItem.Name = "fcaturaToolStripMenuItem";
-            fcaturaToolStripMenuItem.Size = new Size(31, 20);
-            fcaturaToolStripMenuItem.Text = "ca";
+            panel1.Controls.Add(label25);
+            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(TBSubtotal);
+            panel1.Controls.Add(label20);
+            panel1.Controls.Add(label24);
+            panel1.Controls.Add(TBIva);
+            panel1.Location = new Point(647, 789);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(250, 110);
+            panel1.TabIndex = 130;
             // 
-            // facturaElectroniToolStripMenuItem
+            // label25
             // 
-            facturaElectroniToolStripMenuItem.Name = "facturaElectroniToolStripMenuItem";
-            facturaElectroniToolStripMenuItem.Size = new Size(180, 22);
-            facturaElectroniToolStripMenuItem.Text = "Factura Electroni";
-            facturaElectroniToolStripMenuItem.Click += facturaElectroniToolStripMenuItem_Click;
+            label25.AutoSize = true;
+            label25.ForeColor = Color.Red;
+            label25.Location = new Point(38, 11);
+            label25.Name = "label25";
+            label25.Size = new Size(85, 15);
+            label25.TabIndex = 131;
+            label25.Text = "Monto a Pagar";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(129, 8);
+            textBox1.Name = "textBox1";
+            textBox1.RightToLeft = RightToLeft.Yes;
+            textBox1.Size = new Size(100, 23);
+            textBox1.TabIndex = 132;
+            textBox1.Text = "0";
             // 
             // CPagos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(908, 961);
-            Controls.Add(TBSubtotal);
-            Controls.Add(label24);
+            ClientSize = new Size(908, 938);
+            Controls.Add(label12);
+            Controls.Add(panel1);
             Controls.Add(Calcular);
             Controls.Add(MontoPagado);
+            Controls.Add(MontoaPagar);
             Controls.Add(label23);
             Controls.Add(CostoEvento);
             Controls.Add(label4);
             Controls.Add(dataGridView1);
             Controls.Add(label22);
             Controls.Add(SaldoActual);
-            Controls.Add(TBIva);
             Controls.Add(Penalizacion);
             Controls.Add(SaldoaFavor);
-            Controls.Add(MontoaPagar);
             Controls.Add(SaldoPendiente);
             Controls.Add(label21);
-            Controls.Add(label20);
             Controls.Add(label19);
             Controls.Add(label18);
-            Controls.Add(label12);
             Controls.Add(label11);
             Controls.Add(TBObservacionesPago);
             Controls.Add(label17);
@@ -785,6 +827,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -861,5 +905,8 @@
         private Label label24;
         private ToolStripMenuItem fcaturaToolStripMenuItem;
         private ToolStripMenuItem facturaElectroniToolStripMenuItem;
+        private Panel panel1;
+        private Label label25;
+        private TextBox textBox1;
     }
 }

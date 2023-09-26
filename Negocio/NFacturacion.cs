@@ -14,8 +14,10 @@ namespace Negocio
 {
     public class NFacturacion
     {
+        public static string tipoPago;
         public void GenerarFactura(string Nombrecliente, string montotxt, string ivatxt, string Subtotaltxt)
         {
+            NCliente nCliente = new NCliente ();
             string DSFecha = DateTime.Today.Month.ToString() + "/" + DateTime.Today.Day.ToString() + "/" + DateTime.Today.Year.ToString();
             string DSHora = DateTime.Today.Hour.ToString() + ":" + DateTime.Today.Minute.ToString() + ":" + DateTime.Today.Second.ToString();
             string DSCadenaConexion = "Driver={Microsoft Visual FoxPro Driver};SourceType=DBF;SourceDB= C:\\Compacw\\Empresas\\DCC040820K65 ;Exclusive=No; Collate=Machine;NULL=NO;DELETED=YES;BACKGROUNDFETCH=NO;";
@@ -40,22 +42,22 @@ namespace Negocio
 
             string subtotal = Subtotaltxt;
             string DSCEmail = "";
-
             DDTotal = Convert.ToDecimal(total);
             DDIva = Convert.ToDecimal(iva);
             DDSubtotal = Convert.ToDecimal(subtotal);
 
-
+            int codclientes = nCliente.ObtenerDescripcione(Nombrecliente);
             EventosContext contexto = new EventosContext();
-            List<SaEveCliente> List = new DMCliente(contexto).Obtener(0, "", Nombrecliente);
+
+            List<SaEveCliente> List = new DMCliente(contexto).Obtener(codclientes);
             foreach (var t in List)
             {
-
-                DSRazonSocial = t.RazonSocial.ToString();
-                DSRFC = t.Rfc.ToString();
-                DSCodigoCliente = t.CodTercero.ToString();
-                DSCEmail = t.Correo.ToString();
-                DSRF = t.CodRegimenfiscal.ToString();
+                    DSCodigoCliente = t.CodTercero.ToString();
+                    DSRazonSocial = t.RazonSocial.ToString();
+                    DSRFC = t.Rfc.ToString();
+                    DSCodigoCliente = t.CodTercero.ToString();
+                    DSCEmail = t.Correo.ToString();
+                    DSRF = t.CodRegimenfiscal.ToString();
             }
 
             DSCadenaComando = "SELECT MAX(cfolio) FROM MGW10008";
@@ -117,7 +119,7 @@ namespace Negocio
             }
 
             //metododepago   '" & tipoPago & "'
-            string DSColumnas5 = ID + ", 4, 3007, '', " + DIIdDocumento + ", {" + DSFecha + "}, " + DIIdCliente + ", '" + DSRazonSocial + "', '" + DSRFC + "', {" + DSFecha + "}, {" + DSFecha + "}, 0, 1, 1, 1, 1, 1, " + DDSubtotal + ", " + DDIva + ", " + DDTotal + ", " + DDTotal + ", 1, 1, 202, 1, 1,{'01/01/1900 00:00:00:000'}, {'01/01/1900 00:00:00:000'}, '', '',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'','','',{'01/01/1900 00:00:00:000'},0,0,0,0,'','','','',0,0,0,0,0,0,{'12/30/1899 00:00:00:000'},0, 0, 0, 1, 0, '01','', '', '33000',0,0 ";
+            string DSColumnas5 = ID + ", 4, 3007, '', " + DIIdDocumento + ", {" + DSFecha + "}, " + DIIdCliente + ", '" + DSRazonSocial + "', '" + DSRFC + "', {" + DSFecha + "}, {" + DSFecha + "}, 0, 1, 1, 1, 1, 1, " + DDSubtotal + ", " + DDIva + ", " + DDTotal + ", " + DDTotal + ", 1, 1, 202, 1, 1,{'01/01/1900 00:00:00:000'}, {'01/01/1900 00:00:00:000'}, '', '',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'','','',{'01/01/1900 00:00:00:000'},0,0,0,0,'','','','',0,0,0,0,0,0,{'12/30/1899 00:00:00:000'},0, 0, 0, 1, 0, '" + tipoPago + "','', '', '33000',0,0 ";
             string DSCadenaComando5 = "INSERT INTO MGW10008 (CIDDOCUM01, CIDDOCUM02, CIDCONCE01, CSERIEDO01, CFOLIO, CFECHA, CIDCLIEN01, CRAZONSO01, CRFC, CFECHAVE01, CFECHAPR01, CIDAGENTE, CIDMONEDA, CTIPOCAM01, CUSACLIE01, CAFECTADO, CESTADOC01, CNETO, CIMPUESTO1, CTOTAL, CPENDIENTE,CTOTALUN01,CUNIDADE01, CSISTORIG, CNUMPARCIA, CCANTPARCI,CFECHAEN01, CFECHAUL01, CREFEREN01, COBSERVA01,CNATURAL01, CIDDOCUM03, CPLANTILLA,CUSAPROV01, CIMPRESO, CCANCELADO, CDEVUELTO, CIDPREPO01,CIDPREPO02, CIMPUESTO2, CIMPUESTO3, CRETENCI01, CRETENCI02,CDESCUEN01, CDESCUEN02, CDESCUEN03, CGASTO1, CGASTO2,CGASTO3, CDESCUEN04, CPORCENT01, CPORCENT02, CPORCENT03, CPORCENT04, CPORCENT05, CPORCENT06,CTEXTOEX01, CTEXTOEX02, CTEXTOEX03,CFECHAEX01,CIMPORTE01, CIMPORTE02, CIMPORTE03, CIMPORTE04,CDESTINA01, CNUMEROG01, CMENSAJE01, CCUENTAM01,CNUMEROC01, CPESO, CBANOBSE01, CBANDATO01, CBANCOND01, CBANGASTOS,CTIMESTAMP,CIMPCHEQ01, CIDMONEDCA, CTIPOCAMCA, CESCFD, CTIENECFD,CMETODOPAG,CCONDIPAGO, CNUMCTAPAG, CLUGAREXPE,CIDPROYE01,CIDCUENTA) VALUES (" + DSColumnas5 + ")";
 
             using (System.Data.Odbc.OdbcConnection DConexion = new System.Data.Odbc.OdbcConnection(DSCadenaConexion))

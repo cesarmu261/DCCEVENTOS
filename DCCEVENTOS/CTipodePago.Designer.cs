@@ -49,6 +49,8 @@
             CBESTADO = new ComboBox();
             label3 = new Label();
             label1 = new Label();
+            TBValor = new TextBox();
+            label2 = new Label();
             toolStrip1.SuspendLayout();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Existencia).BeginInit();
@@ -180,7 +182,7 @@
             // TbDes
             // 
             TbDes.CharacterCasing = CharacterCasing.Upper;
-            TbDes.Location = new Point(92, 75);
+            TbDes.Location = new Point(87, 108);
             TbDes.Name = "TbDes";
             TbDes.Size = new Size(200, 23);
             TbDes.TabIndex = 1;
@@ -202,7 +204,7 @@
             // 
             CBESTADO.DropDownStyle = ComboBoxStyle.DropDownList;
             CBESTADO.FormattingEnabled = true;
-            CBESTADO.Location = new Point(89, 111);
+            CBESTADO.Location = new Point(84, 144);
             CBESTADO.Name = "CBESTADO";
             CBESTADO.Size = new Size(121, 23);
             CBESTADO.TabIndex = 2;
@@ -210,7 +212,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(17, 111);
+            label3.Location = new Point(12, 144);
             label3.Name = "label3";
             label3.Size = new Size(42, 15);
             label3.TabIndex = 0;
@@ -219,17 +221,36 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(17, 75);
+            label1.Location = new Point(12, 108);
             label1.Name = "label1";
             label1.Size = new Size(69, 15);
             label1.TabIndex = 0;
             label1.Text = "Descripcion";
+            // 
+            // TBValor
+            // 
+            TBValor.CharacterCasing = CharacterCasing.Upper;
+            TBValor.Location = new Point(87, 75);
+            TBValor.Name = "TBValor";
+            TBValor.Size = new Size(200, 23);
+            TBValor.TabIndex = 71;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(12, 75);
+            label2.Name = "label2";
+            label2.Size = new Size(33, 15);
+            label2.TabIndex = 70;
+            label2.Text = "Valor";
             // 
             // CTipodePago
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(805, 336);
+            Controls.Add(TBValor);
+            Controls.Add(label2);
             Controls.Add(TbDes);
             Controls.Add(Existencia);
             Controls.Add(CBESTADO);
@@ -271,5 +292,7 @@
         private ComboBox CBESTADO;
         private Label label3;
         private Label label1;
+        private TextBox TBValor;
+        private Label label2;
     }
 }

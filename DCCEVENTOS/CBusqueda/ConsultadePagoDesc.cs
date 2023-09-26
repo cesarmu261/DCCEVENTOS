@@ -18,7 +18,6 @@ namespace DCCEVENTOS.CBusqueda
         private NEventoDetalle neventod;
         private NPago npago;
 
-        private bool tablaCargada = false;
 
         public ConsultadePagoDesc()
         {
@@ -29,47 +28,60 @@ namespace DCCEVENTOS.CBusqueda
         }
         DataTable table, table2;
 
-        public void CargarInfomacion()
+        public void CargarDes()
         {
             table = nevento.Obtener3(0, TBDescripcion.Text);
             dataGridView1.DataSource = table;
             dataGridView1.Refresh();
         }
+        private void CargarPagos()
+        {
+            table2 = npago.ObtenerPagoTodos(NEventos.SSCod);
+            dataGridView2.DataSource = table2;
+            dataGridView2.Refresh();
+        }
         private void button5_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(TBDescripcion.Text))
-            {
-                CargarInfomacion();
-                button5.Enabled = true;
-            }
+            CargarDes();
 
-            else
-            {
-                MessageBox.Show("Debe ingresar al menos un valor para buscar.");
-            }
         }
 
         private void TBDescripcion_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
             {
-                CargarInfomacion();
+                CargarDes();
             }
         }
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            //DataSet dataSet = new DataSet();
+            DataSet dataSet = new DataSet();
 
-            //if (DTGEventos.CurrentRow.Index >= 0)
-            //{
-            //    SSCod = DTGEventos.SelectedRows[0].Cells[0].Value.ToString();
-            //    int cod = Convert.ToInt32(SSCod);
-            //    table = npago.ObtenerPagoTodos(cod);
-            //    DTGDetalles.DataSource = table;
-            //    DTGDetalles.Refresh();
-            //}
-            //button2.Enabled = true;
+            string SSCodcon, SSDescon, SScan;
+
+            if (dataGridView1.CurrentRow.Index >= 0)
+            {
+                SSCodcon = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                NEventos.SSCod = Convert.ToInt32(SSCodcon);
+
+            }
+            CargarPagos();
+        }
+
+        private void dataGridView2_DoubleClick(object sender, EventArgs e)
+        {
+            string SSCod;
+            DataSet dataSet = new DataSet();
+
+            if (dataGridView2.CurrentRow.Index >= 0)
+            {
+                SSCod = dataGridView2.SelectedRows[0].Cells[0].Value.ToString();
+
+                NPago.SSCod = Convert.ToInt32(SSCod);
+
+                base.Close();
+            }
         }
     }
 }

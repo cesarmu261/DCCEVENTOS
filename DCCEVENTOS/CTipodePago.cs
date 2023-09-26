@@ -55,6 +55,7 @@ namespace DCCEVENTOS
             foreach (var entidad in List)
             {
                 TbDes.Text = entidad.DesPago.ToString();
+                TBValor.Text = entidad.Valor.ToString();
                 string valorDeseado = nestado.ObtenerDescripcione(entidad.CodEstado); // Valor que deseas seleccionar
 
                 int indice = CBESTADO.FindStringExact(valorDeseado);
@@ -75,6 +76,7 @@ namespace DCCEVENTOS
                 }
                 SaEveTipoPago comp = new SaEveTipoPago();
                 comp.CodPago = NTipoPago.SSCod;
+                comp.Valor = TBValor.Text;
                 comp.DesPago = TbDes.Text;
                 comp.CodEstado = nestado.ObtenerDescripcionesCod(CBESTADO.SelectedItem.ToString());
 
@@ -103,6 +105,7 @@ namespace DCCEVENTOS
                     return; // Salir del método sin agregar el registro
                 }
                 SaEveTipoPago comp = new SaEveTipoPago();
+                comp.Valor = TBValor.Text;
                 comp.DesPago = TbDes.Text;
                 comp.CodEstado = nestado.ObtenerDescripcionesCod(CBESTADO.SelectedItem.ToString());
 

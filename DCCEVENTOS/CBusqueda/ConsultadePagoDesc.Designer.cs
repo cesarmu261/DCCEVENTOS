@@ -57,7 +57,6 @@
             // 
             // button5
             // 
-            button5.Enabled = false;
             button5.Location = new Point(475, 30);
             button5.Name = "button5";
             button5.Size = new Size(117, 23);
@@ -68,34 +67,42 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(21, 82);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(502, 265);
             dataGridView1.TabIndex = 104;
             dataGridView1.DoubleClick += dataGridView1_DoubleClick;
             // 
             // dataGridView2
             // 
+            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView2.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView2.Location = new Point(539, 82);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowTemplate.Height = 25;
+            dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView2.Size = new Size(502, 265);
             dataGridView2.TabIndex = 105;
+            dataGridView2.DoubleClick += dataGridView2_DoubleClick;
             // 
             // ConsultadePagoDesc
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1050, 391);
+            ClientSize = new Size(1050, 360);
             Controls.Add(dataGridView2);
             Controls.Add(dataGridView1);
             Controls.Add(button5);
             Controls.Add(TBDescripcion);
             Controls.Add(label4);
             Name = "ConsultadePagoDesc";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ConsultadePagoDesc";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();

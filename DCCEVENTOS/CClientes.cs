@@ -128,7 +128,7 @@ namespace DCCEVENTOS
                     return; // Salir del método sin agregar el registro
                 }
                 SaEveCliente cliente = new SaEveCliente();
-                cliente.CodCliente = NTercero.SSCod;
+                cliente.CodCliente = NCliente.SSCod;
                 cliente.CodTercero = TbCodter.Text;
                 cliente.NomCliente = textBox1.Text;
                 cliente.Domicilio = textBox2.Text;
