@@ -31,6 +31,12 @@ public partial class SaEvePago
 
     public string? Observacionpago { get; set; }
 
+    public decimal? Montoacobrar { get; set; }
+
+    public decimal? Subtotal { get; set; }
+
+    public decimal? Ivaevento { get; set; }
+
     public decimal? Montoapagar { get; set; }
 
     public virtual SaEveTipoComprobante? CodComprobanteNavigation { get; set; }

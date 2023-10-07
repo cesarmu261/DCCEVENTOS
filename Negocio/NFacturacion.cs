@@ -15,7 +15,8 @@ namespace Negocio
     public class NFacturacion
     {
         public static string tipoPago;
-        public void GenerarFactura(string Nombrecliente, string montotxt, string ivatxt, string Subtotaltxt)
+        public bool ContinuarEjecucion { get; set; } = true;
+        public void GenerarFactura(string Nombrecliente,string ivatxt, string Subtotaltxt)
         {
             NCliente nCliente = new NCliente ();
             string DSFecha = DateTime.Today.Month.ToString() + "/" + DateTime.Today.Day.ToString() + "/" + DateTime.Today.Year.ToString();
@@ -37,14 +38,14 @@ namespace Negocio
             decimal DDSubtotal = 0;
             decimal DDIva = 0;
             decimal DDTotal = 0;
-            string total = montotxt;
             string iva = ivatxt;
 
             string subtotal = Subtotaltxt;
             string DSCEmail = "";
-            DDTotal = Convert.ToDecimal(total);
+            
             DDIva = Convert.ToDecimal(iva);
             DDSubtotal = Convert.ToDecimal(subtotal);
+            DDTotal = (DDIva) + (DDSubtotal);
 
             int codclientes = nCliente.ObtenerDescripcione(Nombrecliente);
             EventosContext contexto = new EventosContext();
@@ -55,10 +56,10 @@ namespace Negocio
                     DSCodigoCliente = t.CodTercero.ToString();
                     DSRazonSocial = t.RazonSocial.ToString();
                     DSRFC = t.Rfc.ToString();
-                    DSCodigoCliente = t.CodTercero.ToString();
                     DSCEmail = t.Correo.ToString();
                     DSRF = t.CodRegimenfiscal.ToString();
             }
+            
 
             DSCadenaComando = "SELECT MAX(cfolio) FROM MGW10008";
             using (OdbcConnection DConexion = new OdbcConnection(DSCadenaConexion))
@@ -91,6 +92,19 @@ namespace Negocio
             DIIdDocumento++;
             ID++;
 
+            //DSCadenaComando = "SELECT CIDCLIEN01 FROM MGW10002 WHERE CCODIGOC01 = '" + DSCodigoCliente + "'";
+            //using (OdbcConnection DConexion = new OdbcConnection(DSCadenaConexion))
+            //{
+            //    using (OdbcCommand DComando = new OdbcCommand())
+            //    {
+            //        DComando.Connection = DConexion;
+            //        DComando.CommandText = DSCadenaComando;
+            //        DConexion.Open();
+            //        int DSRenAfe = DComando.ExecuteNonQuery();
+            //        DIIdCliente = Convert.ToInt32(DComando.ExecuteScalar());
+            //        DConexion.Close();
+            //    }
+            //}
             DSCadenaComando = "SELECT CIDCLIEN01 FROM MGW10002 WHERE CCODIGOC01 = '" + DSCodigoCliente + "'";
             using (OdbcConnection DConexion = new OdbcConnection(DSCadenaConexion))
             {
@@ -99,8 +113,18 @@ namespace Negocio
                     DComando.Connection = DConexion;
                     DComando.CommandText = DSCadenaComando;
                     DConexion.Open();
-                    int DSRenAfe = DComando.ExecuteNonQuery();
-                    DIIdCliente = Convert.ToInt32(DComando.ExecuteScalar());
+
+                    object resultado = DComando.ExecuteScalar();
+
+                    if (resultado != null)
+                    {
+                        DIIdCliente = Convert.ToInt32(resultado);
+                    }
+                    else
+                    {
+                        ContinuarEjecucion = false;
+                        return;
+                    }
                     DConexion.Close();
                 }
             }

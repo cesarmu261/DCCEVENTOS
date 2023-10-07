@@ -19,8 +19,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>COD_PAGOS</rd:DefaultName>
-        <Top>1.45203cm</Top>
-        <Left>2.97007cm</Left>
+        <Top>0.78872cm</Top>
+        <Left>3.21945cm</Left>
         <Height>0.6cm</Height>
         <Width>1.33583cm</Width>
         <Style>
@@ -50,8 +50,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>DES_EVENTO</rd:DefaultName>
-        <Top>5.31467cm</Top>
-        <Left>1.58132cm</Left>
+        <Top>6.04427cm</Top>
+        <Left>1.83069cm</Left>
         <Height>0.6cm</Height>
         <Width>9.64375cm</Width>
         <ZIndex>1</ZIndex>
@@ -82,8 +82,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>NOM_CLIENTE</rd:DefaultName>
-        <Top>6.26745cm</Top>
-        <Left>1.58132cm</Left>
+        <Top>6.99705cm</Top>
+        <Left>1.83069cm</Left>
         <Height>0.6cm</Height>
         <Width>9.64375cm</Width>
         <ZIndex>2</ZIndex>
@@ -114,8 +114,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>MONTOAPAGAR</rd:DefaultName>
-        <Top>2.56328cm</Top>
-        <Left>7.08466cm</Left>
+        <Top>3.29288cm</Top>
+        <Left>7.33403cm</Left>
         <Height>0.6cm</Height>
         <Width>2.65875cm</Width>
         <ZIndex>3</ZIndex>
@@ -146,8 +146,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>DES_TIPO_TRANSACCION</rd:DefaultName>
-        <Top>2.56328cm</Top>
-        <Left>3.41987cm</Left>
+        <Top>3.29288cm</Top>
+        <Left>3.66924cm</Left>
         <Height>0.6cm</Height>
         <Width>3.21437cm</Width>
         <ZIndex>4</ZIndex>
@@ -178,8 +178,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Column1</rd:DefaultName>
-        <Top>1.45203cm</Top>
-        <Left>13.07747cm</Left>
+        <Top>0.78872cm</Top>
+        <Left>13.32685cm</Left>
         <Height>0.6cm</Height>
         <Width>2.31479cm</Width>
         <ZIndex>5</ZIndex>
@@ -210,8 +210,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>1.45203cm</Top>
-        <Left>1.58132cm</Left>
+        <Top>0.78872cm</Top>
+        <Left>1.8307cm</Left>
         <Height>0.6cm</Height>
         <Width>1.28292cm</Width>
         <ZIndex>6</ZIndex>
@@ -232,7 +232,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=String.Format("MONTO:{0}", Code.ConvertirCadena(Fields!MONTOAPAGAR.Value)).ToUpper()</Value>
+                <Value>=String.Format("MONTO:{0} PESOS M.N.", Code.ConvertirCadena(Fields!MONTOAPAGAR.Value)).ToUpper()</Value>
                 <Style>
                   <FontSize>8pt</FontSize>
                 </Style>
@@ -242,11 +242,139 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>3.33967cm</Top>
-        <Left>3.41987cm</Left>
-        <Height>1.55251cm</Height>
-        <Width>9.73666cm</Width>
+        <Top>3.96344cm</Top>
+        <Left>3.66924cm</Left>
+        <Height>0.67939cm</Height>
+        <Width>7.8052cm</Width>
         <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox7">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>SUBTOTAL</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>1.77538cm</Top>
+        <Left>4.69509cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.18852cm</Width>
+        <ZIndex>8</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox8">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>IVA(EVENTO)</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>2.51649cm</Top>
+        <Left>4.21884cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.66477cm</Width>
+        <ZIndex>9</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="SUBTOTAL">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!SUBTOTAL.Value</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>SUBTOTAL</rd:DefaultName>
+        <Top>1.77538cm</Top>
+        <Left>7.33403cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.65875cm</Width>
+        <ZIndex>10</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="IVAEVENTO">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!IVAEVENTO.Value</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>IVAEVENTO</rd:DefaultName>
+        <Top>2.51649cm</Top>
+        <Left>7.33403cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.65875cm</Width>
+        <ZIndex>11</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -274,11 +402,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>COD_PAGOS</rd:DefaultName>
-        <Top>11.66124cm</Top>
-        <Left>2.97006cm</Left>
+        <Top>10.59466cm</Top>
+        <Left>3.21947cm</Left>
         <Height>0.6cm</Height>
         <Width>1.33583cm</Width>
-        <ZIndex>8</ZIndex>
+        <ZIndex>12</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -306,11 +434,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>DES_EVENTO</rd:DefaultName>
-        <Top>15.52388cm</Top>
-        <Left>1.58131cm</Left>
+        <Top>15.85021cm</Top>
+        <Left>1.83071cm</Left>
         <Height>0.6cm</Height>
         <Width>9.64375cm</Width>
-        <ZIndex>9</ZIndex>
+        <ZIndex>13</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -338,11 +466,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>NOM_CLIENTE</rd:DefaultName>
-        <Top>16.47666cm</Top>
-        <Left>1.58131cm</Left>
+        <Top>16.80299cm</Top>
+        <Left>1.83071cm</Left>
         <Height>0.6cm</Height>
         <Width>9.64375cm</Width>
-        <ZIndex>10</ZIndex>
+        <ZIndex>14</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -370,11 +498,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>MONTOAPAGAR</rd:DefaultName>
-        <Top>12.77249cm</Top>
-        <Left>7.08465cm</Left>
+        <Top>13.09882cm</Top>
+        <Left>7.33405cm</Left>
         <Height>0.6cm</Height>
         <Width>2.65875cm</Width>
-        <ZIndex>11</ZIndex>
+        <ZIndex>15</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -402,11 +530,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>DES_TIPO_TRANSACCION</rd:DefaultName>
-        <Top>12.77249cm</Top>
-        <Left>3.41986cm</Left>
+        <Top>13.09882cm</Top>
+        <Left>3.66926cm</Left>
         <Height>0.6cm</Height>
         <Width>3.21437cm</Width>
-        <ZIndex>12</ZIndex>
+        <ZIndex>16</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -434,11 +562,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Column1</rd:DefaultName>
-        <Top>11.66124cm</Top>
-        <Left>13.07746cm</Left>
+        <Top>10.59466cm</Top>
+        <Left>13.32687cm</Left>
         <Height>0.6cm</Height>
         <Width>2.31479cm</Width>
-        <ZIndex>13</ZIndex>
+        <ZIndex>17</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -466,11 +594,139 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>11.66124cm</Top>
-        <Left>1.58131cm</Left>
+        <Top>10.59466cm</Top>
+        <Left>1.83072cm</Left>
         <Height>0.6cm</Height>
         <Width>1.28292cm</Width>
-        <ZIndex>14</ZIndex>
+        <ZIndex>18</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox9">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>SUBTOTAL</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>11.58132cm</Top>
+        <Left>4.69511cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.18852cm</Width>
+        <ZIndex>19</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox11">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>IVA(EVENTO)</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>12.32243cm</Top>
+        <Left>4.21886cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.66477cm</Width>
+        <ZIndex>20</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="SUBTOTAL2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!SUBTOTAL.Value</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>SUBTOTAL</rd:DefaultName>
+        <Top>11.58132cm</Top>
+        <Left>7.33405cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.65875cm</Width>
+        <ZIndex>21</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="IVAEVENTO2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!IVAEVENTO.Value</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>IVAEVENTO</rd:DefaultName>
+        <Top>12.32243cm</Top>
+        <Left>7.33405cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.65875cm</Width>
+        <ZIndex>22</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -488,7 +744,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=String.Format("MONTO:{0}", Code.ConvertirCadena(Fields!MONTOAPAGAR.Value)).ToUpper()</Value>
+                <Value>=String.Format("MONTO:{0} PESOS M.N.", Code.ConvertirCadena(Fields!MONTOAPAGAR.Value)).ToUpper()</Value>
                 <Style>
                   <FontSize>8pt</FontSize>
                 </Style>
@@ -498,43 +754,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>13.54888cm</Top>
-        <Left>3.41986cm</Left>
-        <Height>1.55251cm</Height>
-        <Width>9.73666cm</Width>
-        <ZIndex>15</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox7">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>COPIA CLIENTE</Value>
-                <Style>
-                  <FontSize>8pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>17.12419cm</Top>
-        <Left>12.27658cm</Left>
-        <Height>0.6cm</Height>
-        <Width>3.11568cm</Width>
-        <ZIndex>16</ZIndex>
+        <Top>14.34703cm</Top>
+        <Left>3.66924cm</Left>
+        <Height>0.67939cm</Height>
+        <Width>7.8052cm</Width>
+        <ZIndex>23</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -552,7 +776,7 @@
   <Width>6.78801in</Width>
   <Page>
     <PageHeader>
-      <Height>2.37243cm</Height>
+      <Height>2.54cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -560,8 +784,8 @@
           <Source>Embedded</Source>
           <Value>qtq_95</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.03969cm</Top>
-          <Left>1.58132cm</Left>
+          <Top>0.16537cm</Top>
+          <Left>2.11908cm</Left>
           <Height>2.24896cm</Height>
           <Width>2.35479cm</Width>
           <Style>
@@ -587,7 +811,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Left>4.04194cm</Left>
+          <Top>0.12568cm</Top>
+          <Left>4.5797cm</Left>
           <Height>1.27882cm</Height>
           <Width>10.54276cm</Width>
           <ZIndex>1</ZIndex>
@@ -608,7 +833,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Reporte Recibo</Value>
+                  <Value>Factura </Value>
                   <Style>
                     <FontSize>14pt</FontSize>
                   </Style>
@@ -629,10 +854,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>1.41993cm</Top>
-          <Left>6.62772cm</Left>
+          <Top>1.5456cm</Top>
+          <Left>8.09152cm</Left>
           <Height>0.84667cm</Height>
-          <Width>3.98109cm</Width>
+          <Width>2.39359cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -677,7 +902,7 @@ administracion@deliciascountryclub.com.mx</Value>
           </Paragraphs>
           <rd:DefaultName>Textbox6</rd:DefaultName>
           <Top>0.35278cm</Top>
-          <Left>0.79375cm</Left>
+          <Left>1.01048cm</Left>
           <Height>1.83444cm</Height>
           <Width>10.46396cm</Width>
           <Style>
@@ -708,7 +933,7 @@ administracion@deliciascountryclub.com.mx</Value>
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
           <Top>1.13453cm</Top>
-          <Left>13.51433cm</Left>
+          <Left>13.73106cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>1</ZIndex>
@@ -729,10 +954,8 @@ administracion@deliciascountryclub.com.mx</Value>
         </Border>
       </Style>
     </PageFooter>
-    <PageHeight>27.94cm</PageHeight>
-    <PageWidth>21.59cm</PageWidth>
-    <InteractiveHeight>27.94cm</InteractiveHeight>
-    <InteractiveWidth>21.59cm</InteractiveWidth>
+    <PageHeight>29.7cm</PageHeight>
+    <PageWidth>21cm</PageWidth>
     <LeftMargin>2cm</LeftMargin>
     <RightMargin>2cm</RightMargin>
     <TopMargin>2cm</TopMargin>
@@ -747,7 +970,7 @@ administracion@deliciascountryclub.com.mx</Value>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>d14a12e0-27b7-48fe-ae06-25e516999f52</rd:DataSourceID>
+      <rd:DataSourceID>6c38183d-1cfc-4b37-8dbb-245c237ad831</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -773,6 +996,14 @@ administracion@deliciascountryclub.com.mx</Value>
           <DataField>DES_TIPO_TRANSACCION</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="SUBTOTAL">
+          <DataField>SUBTOTAL</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="IVAEVENTO">
+          <DataField>IVAEVENTO</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
         <Field Name="MONTOAPAGAR">
           <DataField>MONTOAPAGAR</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
@@ -785,10 +1016,10 @@ administracion@deliciascountryclub.com.mx</Value>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1</rd:DataSetName>
         <rd:SchemaPath>C:\Users\Cesar.Muniz\source\repos\DCCEVENTOS\DCCEVENTOS\DCCEVENTOS\Reportes\DataSet1.xsd</rd:SchemaPath>
-        <rd:TableName>sp_recibo</rd:TableName>
+        <rd:TableName>sp_FACTURA</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>sp_reciboTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>sp_FACTURATableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -812,118 +1043,7 @@ administracion@deliciascountryclub.com.mx</Value>
     "quinientos", "seiscientos", "setecientos",
     "ochocientos", "novecientos"}
     Dim sResultado As String = ""
-
-
-    Public Function ConvertirCadena(ByVal sNumero As String) As String
-        Dim dNumero As Double
-        Dim dNumAux As Double = 0
-        Dim x As Char
-        Dim sAux As String
-
-        sResultado = " "
-        Try
-            dNumero = Convert.ToDouble(sNumero)
-
-        Catch
-            Return ""
-        End Try
-
-        If (dNumero &gt; 999999999999) Then
-            Return ""
-        End If
-        If (dNumero &gt; 999999999) Then
-            dNumAux = dNumero Mod 1000000000000
-            sResultado += Numeros(dNumAux, 1000000000) + " mil "
-        End If
-
-        If (dNumero &gt; 999999) Then
-            dNumAux = dNumero Mod 1000000000
-            sResultado += Numeros(dNumAux, 1000000) + " millones "
-        End If
-
-        If (dNumero &gt; 999) Then
-            dNumAux = dNumero Mod 1000000
-            sResultado += Numeros(dNumAux, 1000) + " mil "
-        End If
-
-        dNumAux = dNumero Mod 1000
-        sResultado += Numeros(dNumAux, 1)
-
-        ''Enseguida verificamos si contiene punto, 
-        ''si es así, los convertimos a texto.
-        sAux = dNumero.ToString()
-
-        If (sAux.IndexOf(".") &gt;= 0) Then
-            sResultado += ObtenerDecimales(sAux)
-        End If
-        ''Las siguientes líneas convierten 
-        ''el primer caracter a mayúscula.
-        sAux = sResultado
-        x = Char.ToUpper(sResultado(1))
-        sResultado = x.ToString()
-
-        For i As Integer = 2 To sAux.Length - 1 Step 1
-            sResultado += sAux(i).ToString()
-        Next
-
-        Return sResultado
-    End Function
-
-
-    Public Function ConvertirNumero(ByVal dNumero As Double) As String
-        Dim dNumAux As Double = 0
-        Dim x As Char
-        Dim sAux As String
-
-        sResultado = " "
-
-        If (dNumero &gt; 999999999999) Then
-            Return ""
-        End If
-        If (dNumero &gt; 999999999) Then
-            dNumAux = dNumero Mod 1000000000000
-            sResultado += Numeros(dNumAux, 1000000000) + " mil "
-        End If
-
-        If (dNumero &gt; 999999) Then
-            dNumAux = dNumero Mod 1000000000
-            sResultado += Numeros(dNumAux, 1000000) + " millones "
-        End If
-
-        If (dNumero &gt; 999) Then
-            dNumAux = dNumero Mod 1000000
-            sResultado += Numeros(dNumAux, 1000) + " mil "
-        End If
-
-        dNumAux = dNumero Mod 1000
-        sResultado += Numeros(dNumAux, 1)
-
-
-        ''Enseguida verificamos si contiene punto, 
-        ''si es así, los convertimos a texto.
-        sAux = dNumero.ToString()
-        Dim varDecimales As String = ""
-        If (sAux.IndexOf(".") &gt;= 0) Then
-            varDecimales = ObtenerDecimales(sAux)
-
-        Else
-            varDecimales = ""
-        End If
-        sResultado += varDecimales
-        ''Las siguientes líneas convierten 
-        ''el primer caracter a mayúscula.
-        sAux = sResultado
-        x = Char.ToUpper(sResultado(1))
-        sResultado = x.ToString()
-        For i As Integer = 2 To sAux.Length - 1 Step 1
-            sResultado += sAux(i).ToString()
-        Next
-
-        Return sResultado
-    End Function
-
-
-    Private Function Numeros(ByVal dNumAux As Double, _
+public Function Numeros(ByVal dNumAux As Double, _
                              ByVal dFactor As Double) As String
         Dim dCociente As Double = dNumAux / dFactor
         Dim dNumero As Double = 0
@@ -972,9 +1092,61 @@ administracion@deliciascountryclub.com.mx</Value>
 
         Return sTexto
     End Function
+Public Function ConvertirCadena(ByVal sNumero As String) As String
+    Dim dNumero As Double
+    Dim dNumAux As Double = 0
+    Dim x As Char
+    Dim sAux As String
 
+    sResultado = " "
+    Try
+        dNumero = Convert.ToDouble(sNumero)
 
-    Private Function ObtenerDecimales(ByVal sNumero As String) As String
+    Catch
+        Return ""
+    End Try
+
+    If (dNumero &gt; 999999999999) Then
+        Return ""
+    End If
+    If (dNumero &gt; 999999999) Then
+        dNumAux = dNumero Mod 1000000000000
+        sResultado += Numeros(dNumAux, 1000000000) + " mil "
+    End If
+
+    If (dNumero &gt; 999999) Then
+        dNumAux = dNumero Mod 1000000000
+        sResultado += Numeros(dNumAux, 1000000) + " millones "
+    End If
+
+    If (dNumero &gt; 999) Then
+        dNumAux = dNumero Mod 1000000
+        sResultado += Numeros(dNumAux, 1000) + " mil "
+    End If
+
+    dNumAux = dNumero Mod 1000
+    sResultado += Numeros(dNumAux, 1)
+
+    ''Enseguida verificamos si contiene punto, 
+    ''si es así, los convertimos a texto.
+    sAux = dNumero.ToString()
+    Dim varDecimales As String = ""
+    If (sAux.IndexOf(".") &gt;= 0) Then
+        varDecimales = ObtenerDecimales(sAux)
+        sResultado += " " + varDecimales
+    End If
+    ''Las siguientes líneas convierten 
+    ''el primer caracter a mayúscula.
+    sAux = sResultado
+    x = Char.ToUpper(sResultado(1))
+    sResultado = x.ToString()
+    For i As Integer = 2 To sAux.Length - 1 Step 1
+        sResultado += sAux(i).ToString()
+    Next
+
+    Return sResultado
+End Function
+Public Function ObtenerDecimales(ByVal sNumero As String) As String
         Dim sNumPuntos() As String
         Dim sTexto As String = ""
         Dim dNumero As Double = 0
@@ -982,7 +1154,55 @@ administracion@deliciascountryclub.com.mx</Value>
         dNumero = Convert.ToDouble(sNumPuntos(1))
         sTexto = "punto " + Numeros(dNumero, 1)
         Return sTexto
-    End Function</Code>
+    End Function
+Public Function ConvertirNumero(ByVal dNumero As Double) As String
+    Dim dNumAux As Double = 0
+    Dim x As Char
+    Dim sAux As String
+
+    sResultado = " "
+
+    If (dNumero &gt; 999999999999) Then
+        Return ""
+    End If
+    If (dNumero &gt; 999999999) Then
+        dNumAux = dNumero Mod 1000000000000
+        sResultado += Numeros(dNumAux, 1000000000) + " mil "
+    End If
+
+    If (dNumero &gt; 999999) Then
+        dNumAux = dNumero Mod 1000000000
+        sResultado += Numeros(dNumAux, 1000000) + " millones "
+    End If
+
+    If (dNumero &gt; 999) Then
+        dNumAux = dNumero Mod 1000000
+        sResultado += Numeros(dNumAux, 1000) + " mil "
+    End If
+
+    dNumAux = dNumero Mod 1000
+    sResultado += Numeros(dNumAux, 1)
+
+
+    ''Enseguida verificamos si contiene punto, 
+    ''si es así, los convertimos a texto.
+    sAux = dNumero.ToString()
+    Dim varDecimales As String = ""
+    If (sAux.IndexOf(".") &gt;= 0) Then
+        varDecimales = ObtenerDecimales(sAux)
+        sResultado += " " + varDecimales
+    End If
+    ''Las siguientes líneas convierten 
+    ''el primer caracter a mayúscula.
+    sAux = sResultado
+    x = Char.ToUpper(sResultado(1))
+    sResultado = x.ToString()
+    For i As Integer = 2 To sAux.Length - 1 Step 1
+        sResultado += sAux(i).ToString()
+    Next
+
+    Return sResultado
+End Function</Code>
   <EmbeddedImages>
     <EmbeddedImage Name="qtq_95">
       <MIMEType>image/jpeg</MIMEType>
@@ -1010,5 +1230,5 @@ o7thRRRWxkFFFFABRRRQAUUUUAFFFFAARkVgeNfhd4d+IsCx65o2n6mFxtaeEM6Yz0b7w69jRRUVKcZx
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>ca6a7b67-7cfd-4c6a-b953-1aa2508e5c8c</rd:ReportID>
+  <rd:ReportID>12ebf506-53dd-45bb-9b22-055e24886e61</rd:ReportID>
 </Report>

@@ -10,15 +10,17 @@ using System.Data.Odbc;
 using System.Data;
 using System.Windows.Forms;
 using Negocio;
-using System.Data;
 using System.Data.Common;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-
+using ComboBox = System.Windows.Forms.ComboBox;
+using System.Diagnostics;
+using Azure;
 
 namespace DCCEVENTOS
 {
     public partial class CPagos : Form
     {
+
         NComprobante nComprobante;
         NTrans nTrans;
         NTipoPago ntipoPago;
@@ -66,6 +68,12 @@ namespace DCCEVENTOS
             MontoPagado.Text = "0";
             MontoaPagar.Text = "0";
             SaldoPendiente.Text = "0";
+            SaldoaFavor.Text = "0";
+            Penalizacion.Text = "0";
+            SaldoActual.Text = string.Empty;
+            panel1.Visible = false;
+            textBox1.Text = string.Empty;
+            activar();
             CargarInformacion();
         }
 
@@ -93,6 +101,63 @@ namespace DCCEVENTOS
             table = Npago.ObtenerPago(Convert.ToInt32(TBEvento.Text));
             dataGridView1.DataSource = table;
             dataGridView1.Refresh();
+        }
+        public void bloquear()
+        {
+            TBFolio.Enabled = false;
+            TBEvento.Enabled = false;
+            CBTransaccion.Enabled = false;
+            CBEstado.Enabled = false;
+            TBObservacion.Enabled = false;
+
+            TBClientes.Enabled = false;
+            TBDescripcion.Enabled = false;
+            dateTimePicker1.Enabled = false;
+            dateTimePicker2.Enabled = false;
+            CBComprante.Enabled = false;
+            CBPago.Enabled = false;
+            TBReferencia.Enabled = false;
+            TBRecibo.Enabled = false;
+            TBObservacionesPago.Enabled = false;
+            MontoaPagar.Enabled = false;
+
+            CostoEvento.Enabled = false;
+            MontoPagado.Enabled = false;
+            MontoaPagar.Enabled = false;
+            SaldoPendiente.Enabled = false;
+            SaldoaFavor.Enabled = false;
+            Penalizacion.Enabled = false;
+            SaldoActual.Enabled = false;
+            panel1.Visible = false;
+            textBox1.Enabled = false;
+        }
+        public void activar()
+        {
+            TBFolio.Enabled = true;
+            TBEvento.Enabled = true;
+            CBTransaccion.Enabled = true;
+            CBEstado.Enabled = true;
+            TBObservacion.Enabled = true;
+
+            TBClientes.Enabled = true;
+            TBDescripcion.Enabled = true;
+            dateTimePicker1.Enabled = true;
+            dateTimePicker2.Enabled = true;
+            CBComprante.Enabled = true;
+            CBPago.Enabled = true;
+            TBReferencia.Enabled = true;
+            TBRecibo.Enabled = true;
+            TBObservacionesPago.Enabled = true;
+            MontoaPagar.Enabled = true;
+
+            CostoEvento.Enabled = true;
+            MontoPagado.Enabled = true;
+            MontoaPagar.Enabled = true;
+            SaldoPendiente.Enabled = true;
+            SaldoaFavor.Enabled = true;
+            Penalizacion.Enabled = true;
+            SaldoActual.Enabled = true;
+            textBox1.Enabled = true;
         }
         public void Buscar()
         {
@@ -150,6 +215,25 @@ namespace DCCEVENTOS
                 TBObservacionesPago.Text = Entidades.Observacionpago;
                 MontoaPagar.Text = Entidades.Montoapagar.ToString();
                 CalculosBus();
+                bloquear();
+                if (CBComprante.SelectedIndex == 1)
+                {
+                    
+                    decimal factiva, facttotal, factsubtotal, costototalevento;
+                    facttotal = Convert.ToDecimal(textBox1.Text);
+                    costototalevento = Convert.ToDecimal(CostoEvento.Text);
+
+                    factiva = (costototalevento) * Convert.ToDecimal(0.16);
+                    TBIva.Text = factiva.ToString("N2");
+
+                    factsubtotal = facttotal - factiva;
+                    TBSubtotal.Text = factsubtotal.ToString("N2");
+                    panel1.Visible= true;
+                }
+                else
+                {
+                    return;
+                }
             }
         }
         public void ModificarRegistro()
@@ -160,7 +244,8 @@ namespace DCCEVENTOS
             pago.CodTipoTransaccion = nTrans.ObtenerDescripcionesCod(CBTransaccion.SelectedItem.ToString());
             pago.FechaDePago = dateTimePicker1.Value;
             pago.FechaDeFactura = dateTimePicker2.Value;
-            pago.CodEstado = nestado.ObtenerDescripcionesCod(CBEstado.SelectedItem.ToString());
+            pago.CodEstado = nestado.ObtenerDescripcionesCod("INACTIVO");
+            //pago.CodEstado = nestado.ObtenerDescripcionesCod(CBEstado.SelectedItem.ToString());
             pago.Observacion = TBObservacion.Text;
 
             pago.FechaDeCancelacion = DateTime.Now;
@@ -225,27 +310,55 @@ namespace DCCEVENTOS
 
                 foreach (var t in List)
                 {
+                    decimal? restagarantia;
+                    decimal? sumagarantia;
                     decimal? folio = Convert.ToInt32(TBFolio.Text);
-                    if (codeve == t.CodEvento && t.CodPagos == folio)
+                    if (codeve == t.CodEvento && t.CodEstado == "A" && t.CodTipoTransaccion == 3 && t.CodPagos == folio)
                     {
                         decimal? pagar = Convert.ToDecimal(MontoaPagar.Text);
+                        resultados = resultados - t.Montoapagar;
+                        montos = montos + t.Montoapagar;
+                        restagarantia = montos - sumatoriaGarantia;
+                        sumagarantia = resultados + sumatoriaGarantia;
+                        CostoEvento.Text = resultadoFinal.ToString();
 
+
+                        //SaldoPendiente.Text = sumagarantia.ToString();
+                        //SaldoaFavor.Text = sumatoriaGarantia.ToString();
+                        SaldoPendiente.Text = (0.00).ToString();
+                        SaldoaFavor.Text = (0.00).ToString();
+                        MontoPagado.Text = (0.00).ToString();
+                        Penalizacion.Text = (0.00).ToString();
+                        TBIva.Text = (0.00).ToString();
+                        SaldoActual.Text = (0.00).ToString();
+                        textBox1.Text = t.Montoapagar.ToString();
+                        if (pagar == t.Montoapagar)
+                        {
+                            break;
+                        }
+
+                    }
+                    else if (codeve == t.CodEvento && t.CodPagos == folio)
+                    {
+                        decimal? pagar = Convert.ToDecimal(MontoaPagar.Text);
+                        restagarantia = montos - sumatoriaGarantia;
+                        sumagarantia = resultados + sumatoriaGarantia;
                         resultados = resultados - t.Montoapagar;
                         montos = t.Montoapagar;
                         CostoEvento.Text = resultadoFinal.ToString();
                         //TBFolio.Text==t.CodPagos.ToString();
 
+                        SaldoPendiente.Text = (0.00).ToString();
+                        SaldoaFavor.Text = (0.00).ToString();
+                        MontoPagado.Text = (0.00).ToString();
+                        Penalizacion.Text = (0.00).ToString();
+                        TBIva.Text = (0.00).ToString();
+                        SaldoActual.Text = (0.00).ToString();
+                        textBox1.Text = t.Montoapagar.ToString();
                         if (pagar == t.Montoapagar)
                         {
                             break;
                         }
-                        MontoPagado.Text = montos.ToString();
-                        SaldoPendiente.Text = resultados.ToString();
-                        SaldoaFavor.Text = sumatoriaGarantia.ToString();
-                        Penalizacion.Text = "0.00";
-                        TBIva.Text = "0.00";
-                        SaldoActual.Text = "0.00";
-
                     }
                 }
             }
@@ -294,17 +407,17 @@ namespace DCCEVENTOS
                     sumatoriaGarantia += precioTotalDescuento;
                 }
             }
-
             decimal resultadoFinal = sumatoriaIngresos - sumatoriaEgresos;
             if (List.Count == 0) // La lista está vacía
             {
-
                 resultado = resultadoFinal;
                 CostoEvento.Text = resultadoFinal.ToString();
                 MontoPagado.Text = (0.00).ToString();
-                SaldoPendiente.Text = (0.00).ToString();
+                //SaldoPendiente.Text = (0.00).ToString();
+                SaldoPendiente.Text = resultadoFinal.ToString();
                 MontoaPagar.Text = (0.00).ToString();
-                SaldoaFavor.Text = sumatoriaGarantia.ToString();
+                SaldoaFavor.Text = (0.00).ToString();
+                //SaldoaFavor.Text = sumatoriaGarantia.ToString();
                 Penalizacion.Text = (0.00).ToString();
                 TBIva.Text = (0.00).ToString();
                 SaldoActual.Text = (0.00).ToString();
@@ -314,26 +427,46 @@ namespace DCCEVENTOS
                 resultado = resultadoFinal;
                 decimal? resultados = resultado;
                 decimal? montos = monto;
+                decimal? restagarantia;
+                decimal? sumagarantia;
                 foreach (var t in List)
                 {
+
                     if (codeve == t.CodEvento && t.CodEstado == "A" && t.CodTipoTransaccion == 3)
                     {
+                        resultados = resultados - t.Montoapagar;
+                        montos = montos + t.Montoapagar;
+                        restagarantia = montos - sumatoriaGarantia;
+                        sumagarantia = resultados + sumatoriaGarantia;
                         CostoEvento.Text = resultadoFinal.ToString();
-                        MontoPagado.Text = (0.00).ToString();
-                        SaldoPendiente.Text = resultadoFinal.ToString();
-                        MontoaPagar.Text = (0.00).ToString();
+                        MontoPagado.Text = restagarantia.ToString();
+                        //SaldoPendiente.Text = resultados.ToString();
+                        SaldoPendiente.Text = sumagarantia.ToString();
                         SaldoaFavor.Text = sumatoriaGarantia.ToString();
+                        MontoaPagar.Text = (0.00).ToString();
                         Penalizacion.Text = (0.00).ToString();
                         TBIva.Text = (0.00).ToString();
                         SaldoActual.Text = (0.00).ToString();
                     }
-                    if (codeve == t.CodEvento && t.CodEstado == "A" && t.CodTipoTransaccion == 1)
+                    if (codeve == t.CodEvento && t.CodEstado == "A" && t.CodTipoTransaccion == 1) /*&& SaldoaFavor.Text == "5000.00")*/
                     {
                         resultados = resultados - t.Montoapagar;
                         montos = montos + t.Montoapagar;
+                        restagarantia = montos - sumatoriaGarantia;
+                        sumagarantia = resultados + sumatoriaGarantia;
                         CostoEvento.Text = resultadoFinal.ToString();
-                        MontoPagado.Text = montos.ToString();
-                        SaldoPendiente.Text = resultados.ToString();
+                        MontoPagado.Text = restagarantia.ToString();
+                        SaldoaFavor.Text = sumatoriaGarantia.ToString();
+                        if (SaldoaFavor.Text == "5000.00")
+                        {
+                            SaldoPendiente.Text = sumagarantia.ToString();
+                        }
+                        else
+                        {
+                            SaldoPendiente.Text = resultados.ToString();
+                        }
+                        //SaldoPendiente.Text = sumagarantia.ToString();
+                        
                         MontoaPagar.Text = (0.00).ToString();
                         Penalizacion.Text = (0.00).ToString();
                         TBIva.Text = (0.00).ToString();
@@ -342,24 +475,111 @@ namespace DCCEVENTOS
                 }
             }
         }
+        public void CalculosFactura()
+        {
+            try
+            {
+                TBSubtotal.Text = MontoaPagar.Text;
+                decimal factiva, facttotal, factsubtotal, costototalevento;
+                factsubtotal = Convert.ToDecimal(TBSubtotal.Text);
+                costototalevento = Convert.ToDecimal(CostoEvento.Text);
+
+                factiva = (costototalevento) * Convert.ToDecimal(0.16);
+                TBIva.Text = factiva.ToString("N2");
+
+                facttotal = factsubtotal + factiva;
+                textBox1.Text = facttotal.ToString("N2");
+            }
+            catch
+            {
+                MessageBox.Show("Porfavor ingrese el monto total a pagar");
+            }
+
+        }
         public void CalculosdePago()
         {
-            if (SaldoPendiente.Text == "0")
+
+            if (CBComprante.SelectedIndex == 1)
             {
-                decimal restamonto = 0;
-                decimal resultado = Convert.ToDecimal(CostoEvento.Text);
-                decimal monto = Convert.ToDecimal(MontoaPagar.Text);
-                restamonto = resultado - monto;
-                SaldoActual.Text = restamonto.ToString();
+                if (SaldoPendiente.Text == "0")
+                {
+                    decimal restamonto = 0;
+                    decimal resultado = Convert.ToDecimal(CostoEvento.Text);
+                    decimal monto = Convert.ToDecimal(MontoaPagar.Text);
+                    restamonto = resultado - monto;
+                    SaldoActual.Text = restamonto.ToString();
+                    CalculosFactura();
+                }
+                else
+                {
+                    decimal restamonto = 0;
+                    decimal resultado = Convert.ToDecimal(SaldoPendiente.Text);
+                    decimal monto = Convert.ToDecimal(MontoaPagar.Text);
+                    restamonto = resultado - monto;
+                    SaldoActual.Text = restamonto.ToString();
+                    CalculosFactura();
+                }
             }
-            else
+            else if (CBComprante.SelectedIndex == 0)
             {
-                decimal restamonto = 0;
-                decimal resultado = Convert.ToDecimal(SaldoPendiente.Text);
-                decimal monto = Convert.ToDecimal(MontoaPagar.Text);
-                restamonto = resultado - monto;
-                SaldoActual.Text = restamonto.ToString();
+                if (SaldoPendiente.Text == "0")
+                {
+                    decimal restamonto = 0;
+                    decimal resultado = Convert.ToDecimal(CostoEvento.Text);
+                    decimal monto = Convert.ToDecimal(MontoaPagar.Text);
+                    restamonto = resultado - monto;
+                    SaldoActual.Text = restamonto.ToString();
+                    textBox1.Text = monto.ToString("N2");
+                }
+                else
+                {
+                    decimal restamonto = 0;
+                    decimal resultado = Convert.ToDecimal(SaldoPendiente.Text);
+                    decimal monto = Convert.ToDecimal(MontoaPagar.Text);
+                    restamonto = resultado - monto;
+                    SaldoActual.Text = restamonto.ToString();
+                    textBox1.Text = monto.ToString("N2");
+                }
             }
+
+
+            else if (CBTransaccion.SelectedIndex == 1)
+            {
+                if (SaldoPendiente.Text == "0")
+                {
+                    decimal restamonto = 0;
+                    decimal resultado = Convert.ToDecimal(CostoEvento.Text);
+                    decimal monto = Convert.ToDecimal(MontoaPagar.Text);
+                    SaldoActual.Text = (0.00).ToString();
+                }
+                else
+                {
+                    decimal restamonto = 0;
+                    decimal resultado = Convert.ToDecimal(SaldoPendiente.Text);
+                    decimal monto = Convert.ToDecimal(MontoaPagar.Text);
+                    SaldoActual.Text = (0.00).ToString();
+                }
+            }
+
+            else if (CBTransaccion.SelectedIndex == 3)
+            {
+                if (SaldoPendiente.Text == "0")
+                {
+                    decimal restamonto = 0;
+                    decimal resultado = Convert.ToDecimal(CostoEvento.Text);
+                    decimal monto = Convert.ToDecimal(MontoaPagar.Text);
+                    SaldoActual.Text = (0.00).ToString();
+                }
+                else
+                {
+                    decimal restamonto = 0;
+                    decimal resultado = Convert.ToDecimal(SaldoPendiente.Text);
+                    decimal monto = Convert.ToDecimal(MontoaPagar.Text);
+                    SaldoActual.Text = (0.00).ToString();
+                }
+            }
+
+
         }
         private void CargarEvento()
         {
@@ -423,21 +643,39 @@ namespace DCCEVENTOS
                 }
 
                 pago.Observacionpago = TBObservacionesPago.Text;
-                pago.Montoapagar = Convert.ToDecimal(MontoaPagar.Text);
-
+                //pago.Montoapagar = Convert.ToDecimal(MontoaPagar.Text);
+                pago.Montoacobrar = Convert.ToDecimal(MontoaPagar.Text);
+                if (TBSubtotal.Text == "")
+                {
+                    pago.Recibo = null;
+                }
+                else
+                {
+                    pago.Subtotal = Convert.ToDecimal(TBSubtotal.Text);
+                }
+                if (TBIva.Text == "")
+                {
+                    pago.Recibo = null;
+                }
+                else
+                {
+                    pago.Ivaevento = Convert.ToDecimal(TBIva.Text);
+                }
+                if (textBox1.Text == "")
+                {
+                    pago.Recibo = null;
+                }
+                else
+                {
+                    pago.Montoapagar = Convert.ToDecimal(textBox1.Text);
+                }
 
                 InfoCompartidaCapas rGuardar = Npago.Guardar(pago);
                 if (!String.IsNullOrEmpty(rGuardar.error))
                 {
                     MessageBox.Show(rGuardar.error);
                 }
-
                 CargarInformacion();
-
-                int cod = Convert.ToInt32(Npago.ObtenerDescripcionesCod());
-                Recibo rE = new Recibo(cod);
-                //rE.Cod_Evento = cod;
-                rE.Show();
             }
             catch (Exception e)
             {
@@ -487,14 +725,28 @@ namespace DCCEVENTOS
         }
         private void toolStripGuardar_Click(object sender, EventArgs e)
         {
-            AgregarInformacion();
-            Nuevo();
+            if (CBComprante.SelectedIndex == 0)
+            {
+                AgregarInformacion();
+                int cod = Convert.ToInt32(Npago.ObtenerDescripcionesCod());
+                Recibo rE = new Recibo(cod);
+                rE.Show();
+                Nuevo();
+            }
+            else if (CBComprante.SelectedIndex == 1)
+            {
+                AgregarInformacion();
+                int cod = Convert.ToInt32(Npago.ObtenerDescripcionesCod());
+                Factura rE = new Factura(cod);
+                rE.Show();
+                //Nuevo();
+            }
         }
         private void toolStripBuscar_Click(object sender, EventArgs e)
         {
             Nuevo();
             Buscar();
-            CalculosdePago();
+            //CalculosdePago();
 
         }
         private void toolStripNuevo_Click(object sender, EventArgs e)
@@ -512,11 +764,25 @@ namespace DCCEVENTOS
         }
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            //int cod = Convert.ToInt32(Npago.ObtenerDescripcionesCod());
             int cod = Convert.ToInt32(TBFolio.Text);
             Recibo rE = new Recibo(cod);
-            //rE.Cod_Evento = cod;
             rE.Show();
+            //if (CBComprante.SelectedIndex == 0)
+            //{
+            //    AgregarInformacion();
+            //    int cod = Convert.ToInt32(Npago.ObtenerDescripcionesCod());
+            //    Recibo rE = new Recibo(cod);
+            //    rE.Show();
+            //    Nuevo();
+            //}
+            //else if (CBComprante.SelectedIndex == 1)
+            //{
+            //    AgregarInformacion();
+            //    int cod = Convert.ToInt32(Npago.ObtenerDescripcionesCod());
+            //    Factura rE = new Factura(cod);
+            //    rE.Show();
+            //    //Nuevo();
+            //}
         }
         public void ObtenerTipoPago()
         {
@@ -528,12 +794,35 @@ namespace DCCEVENTOS
             try
             {
                 ObtenerTipoPago();
-                Nfacturacion.GenerarFactura(TBClientes.Text, textBox1.Text, TBIva.Text, TBSubtotal.Text);
+                Nfacturacion.GenerarFactura(TBClientes.Text, TBIva.Text, CostoEvento.Text);
+                if (!Nfacturacion.ContinuarEjecucion)
+                {
+                    MessageBox.Show("Por favor ingresa el cliente en facturacion y modificar el codigo tercero en clientes eventos.", "Informe", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
                 MessageBox.Show("Factura Electronica almacenada.", "Informe", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
             catch (OdbcException ex)
             {
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void CBComprante_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (CBComprante.SelectedIndex == 0)
+            {
+                MontoaPagar.Text = (0.00).ToString();
+                //textBox1.Text = MontoaPagar.Text;
+            }
+            else if (CBComprante.SelectedIndex == 1)
+            {
+                MontoaPagar.Text = SaldoPendiente.Text;
+                MontoaPagar.Enabled = false;
+                panel1.Visible = true;
+                CBTransaccion.SelectedIndex = 1;
+                CBTransaccion.Enabled = false;
+                CalculosdePago();
             }
         }
     }

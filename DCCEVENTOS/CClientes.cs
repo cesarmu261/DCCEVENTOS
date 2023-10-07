@@ -60,6 +60,7 @@ namespace DCCEVENTOS
             CBEstado.SelectedIndex = 0;
             Cargainformacion();
             toolStripButton1.Enabled = true;
+            toolStripGuardar.Enabled = true;
         }
 
         public void AgregarInformacion()
@@ -164,45 +165,53 @@ namespace DCCEVENTOS
             ConsultaTerceros form = new ConsultaTerceros();
             form.ShowDialog();
             CuotasV100Context contexto = new CuotasV100Context();
-            List<SaTercero> List = new DMTercero(contexto).Obtener(NTercero.SSCodcon);
-            foreach (var t in List)
+            if (NTercero.SSCodcon != null)
             {
-                TbCodter.Text = t.CodTercero.ToString();
-                textBox1.Text = t.NomTercero.ToString();
-                textBox2.Text = t.Domicilio.ToString();
-                textBox3.Text = t.Poblacion.ToString();
-                textBox4.Text = t.Cp.ToString();
-                textBox5.Text = t.Telefono.ToString();
-                textBox6.Text = t.Celular.ToString();
-                textBox7.Text = t.Correo.ToString();
-                textBox8.Text = t.RazonSocial.ToString();
-                textBox9.Text = t.Rfc.ToString();
-                textBox10.Text = t.DomicioFiscal.ToString();
-                textBox11.Text = t.PoblacionFiscal.ToString();
-                textBox12.Text = t.CpFiscal.ToString();
-                dateTimePicker1.Text = t.FecNacimiento.ToString();
-
-                string valorregimen = nregimen.ObtenerDescripcione(t.Extra04); // Valor que deseas seleccionar
-
-                int ir = comboBox1.FindStringExact(valorregimen);
-                if (ir != -1)
+                List<SaTercero> List = new DMTercero(contexto).Obtener(NTercero.SSCodcon);
+                foreach (var t in List)
                 {
-                    comboBox1.SelectedIndex = ir; // Establecer el índice seleccionado
-                }  // Asigna el valor de la tercera columna al textBox3
+                    TbCodter.Text = t.CodTercero.ToString();
+                    textBox1.Text = t.NomTercero.ToString();
+                    textBox2.Text = t.Domicilio.ToString();
+                    textBox3.Text = t.Poblacion.ToString();
+                    textBox4.Text = t.Cp.ToString();
+                    textBox5.Text = t.Telefono.ToString();
+                    textBox6.Text = t.Celular.ToString();
+                    textBox7.Text = t.Correo.ToString();
+                    textBox8.Text = t.RazonSocial.ToString();
+                    textBox9.Text = t.Rfc.ToString();
+                    textBox10.Text = t.DomicioFiscal.ToString();
+                    textBox11.Text = t.PoblacionFiscal.ToString();
+                    textBox12.Text = t.CpFiscal.ToString();
+                    dateTimePicker1.Text = t.FecNacimiento.ToString();
 
-                string valorDeseado = nestado.ObtenerDescripcione(t.CodEstado); // Valor que deseas seleccionar
+                    string valorregimen = nregimen.ObtenerDescripcione(t.Extra04); // Valor que deseas seleccionar
 
-                int indice = CBEstado.FindStringExact(valorDeseado);
-                if (indice != -1)
-                {
-                    CBEstado.SelectedIndex = indice; // Establecer el índice seleccionado
-                }  // Asigna el valor de la tercera columna al textBox3
-                toolStripButton1.Enabled = false;
+                    int ir = comboBox1.FindStringExact(valorregimen);
+                    if (ir != -1)
+                    {
+                        comboBox1.SelectedIndex = ir; // Establecer el índice seleccionado
+                    }  // Asigna el valor de la tercera columna al textBox3
+
+                    string valorDeseado = nestado.ObtenerDescripcione(t.CodEstado); // Valor que deseas seleccionar
+
+                    int indice = CBEstado.FindStringExact(valorDeseado);
+                    if (indice != -1)
+                    {
+                        CBEstado.SelectedIndex = indice; // Establecer el índice seleccionado
+                    }  // Asigna el valor de la tercera columna al textBox3
+                    toolStripButton1.Enabled = false;
+                }
+            }
+            else 
+            {
+                return;
             }
         }
         private void BuscarClientes()
         {
             toolStripButton1.Enabled = true;
+            toolStripGuardar.Enabled = false;
             ConsultaClientes form = new ConsultaClientes();
             form.ShowDialog();
             EventosContext contexto = new EventosContext();

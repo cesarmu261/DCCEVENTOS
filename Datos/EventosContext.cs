@@ -306,6 +306,12 @@ public partial class EventosContext : DbContext
             entity.Property(e => e.FechaDePago)
                 .HasColumnType("datetime")
                 .HasColumnName("FECHA_DE_PAGO");
+            entity.Property(e => e.Ivaevento)
+                .HasColumnType("decimal(10, 2)")
+                .HasColumnName("IVAEVENTO");
+            entity.Property(e => e.Montoacobrar)
+                .HasColumnType("decimal(10, 2)")
+                .HasColumnName("MONTOACOBRAR");
             entity.Property(e => e.Montoapagar)
                 .HasColumnType("decimal(10, 2)")
                 .HasColumnName("MONTOAPAGAR");
@@ -322,6 +328,9 @@ public partial class EventosContext : DbContext
                 .HasMaxLength(250)
                 .IsUnicode(false)
                 .HasColumnName("REFERENCIA");
+            entity.Property(e => e.Subtotal)
+                .HasColumnType("decimal(10, 2)")
+                .HasColumnName("SUBTOTAL");
 
             entity.HasOne(d => d.CodComprobanteNavigation).WithMany(p => p.SaEvePagos)
                 .HasForeignKey(d => d.CodComprobante)

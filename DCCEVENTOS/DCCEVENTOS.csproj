@@ -15,6 +15,7 @@
     <None Remove="Reportes\Report3.rdlc" />
     <None Remove="Reportes\Report4.rdlc" />
     <None Remove="Reportes\Report5.rdlc" />
+    <None Remove="Reportes\Report6.rdlc" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +24,7 @@
     <EmbeddedResource Include="Reportes\Report3.rdlc" />
     <EmbeddedResource Include="Reportes\Report4.rdlc" />
     <EmbeddedResource Include="Reportes\Report5.rdlc" />
+    <EmbeddedResource Include="Reportes\Report6.rdlc" />
   </ItemGroup>
 
   <ItemGroup>

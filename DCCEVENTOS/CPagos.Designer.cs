@@ -36,8 +36,9 @@
             toolStripSeparator1 = new ToolStripSeparator();
             toolStripBuscar = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
-            toolStripSalir = new ToolStripButton();
             toolStripButton2 = new ToolStripButton();
+            toolStripSeparator3 = new ToolStripSeparator();
+            toolStripSalir = new ToolStripButton();
             menuStrip1 = new MenuStrip();
             opcionesToolStripMenuItem = new ToolStripMenuItem();
             nuevoToolStripMenuItem = new ToolStripMenuItem();
@@ -114,7 +115,7 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(24, 24);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripNuevo, toolStripGuardar, toolStripButton1, toolStripSeparator1, toolStripBuscar, toolStripSeparator2, toolStripSalir, toolStripButton2 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripNuevo, toolStripGuardar, toolStripButton1, toolStripSeparator1, toolStripBuscar, toolStripSeparator2, toolStripButton2, toolStripSeparator3, toolStripSalir });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(908, 31);
@@ -172,6 +173,21 @@
             toolStripSeparator2.Name = "toolStripSeparator2";
             toolStripSeparator2.Size = new Size(6, 31);
             // 
+            // toolStripButton2
+            // 
+            toolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton2.Image = (Image)resources.GetObject("toolStripButton2.Image");
+            toolStripButton2.ImageTransparentColor = Color.Magenta;
+            toolStripButton2.Name = "toolStripButton2";
+            toolStripButton2.Size = new Size(28, 28);
+            toolStripButton2.Text = "Imprimir";
+            toolStripButton2.Click += toolStripButton2_Click;
+            // 
+            // toolStripSeparator3
+            // 
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new Size(6, 31);
+            // 
             // toolStripSalir
             // 
             toolStripSalir.DisplayStyle = ToolStripItemDisplayStyle.Image;
@@ -181,16 +197,6 @@
             toolStripSalir.Size = new Size(28, 28);
             toolStripSalir.Text = "toolStripButton5";
             toolStripSalir.ToolTipText = "Salir";
-            // 
-            // toolStripButton2
-            // 
-            toolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton2.Image = (Image)resources.GetObject("toolStripButton2.Image");
-            toolStripButton2.ImageTransparentColor = Color.Magenta;
-            toolStripButton2.Name = "toolStripButton2";
-            toolStripButton2.Size = new Size(28, 28);
-            toolStripButton2.Text = "toolStripButton2";
-            toolStripButton2.Click += toolStripButton2_Click;
             // 
             // menuStrip1
             // 
@@ -420,6 +426,7 @@
             CBComprante.Name = "CBComprante";
             CBComprante.Size = new Size(121, 23);
             CBComprante.TabIndex = 91;
+            CBComprante.SelectionChangeCommitted += CBComprante_SelectionChangeCommitted;
             // 
             // CBPago
             // 
@@ -555,9 +562,9 @@
             label12.ForeColor = Color.Red;
             label12.Location = new Point(19, 894);
             label12.Name = "label12";
-            label12.Size = new Size(85, 15);
+            label12.Size = new Size(91, 15);
             label12.TabIndex = 110;
-            label12.Text = "Monto a Pagar";
+            label12.Text = "Monto a Cobrar";
             // 
             // label18
             // 
@@ -580,11 +587,11 @@
             // label20
             // 
             label20.AutoSize = true;
-            label20.Location = new Point(99, 41);
+            label20.Location = new Point(55, 41);
             label20.Name = "label20";
-            label20.Size = new Size(24, 15);
+            label20.Size = new Size(68, 15);
             label20.TabIndex = 113;
-            label20.Text = "IVA";
+            label20.Text = "IVA(Evento)";
             // 
             // label21
             // 
@@ -713,7 +720,7 @@
             // 
             // TBSubtotal
             // 
-            TBSubtotal.Location = new Point(129, 70);
+            TBSubtotal.Location = new Point(129, 5);
             TBSubtotal.Name = "TBSubtotal";
             TBSubtotal.RightToLeft = RightToLeft.Yes;
             TBSubtotal.Size = new Size(100, 23);
@@ -722,7 +729,7 @@
             // label24
             // 
             label24.AutoSize = true;
-            label24.Location = new Point(68, 73);
+            label24.Location = new Point(68, 8);
             label24.Name = "label24";
             label24.Size = new Size(55, 15);
             label24.TabIndex = 128;
@@ -730,22 +737,20 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(label25);
-            panel1.Controls.Add(textBox1);
             panel1.Controls.Add(TBSubtotal);
             panel1.Controls.Add(label20);
-            panel1.Controls.Add(label24);
             panel1.Controls.Add(TBIva);
+            panel1.Controls.Add(label24);
             panel1.Location = new Point(647, 789);
             panel1.Name = "panel1";
-            panel1.Size = new Size(250, 110);
+            panel1.Size = new Size(250, 70);
             panel1.TabIndex = 130;
             // 
             // label25
             // 
             label25.AutoSize = true;
             label25.ForeColor = Color.Red;
-            label25.Location = new Point(38, 11);
+            label25.Location = new Point(685, 867);
             label25.Name = "label25";
             label25.Size = new Size(85, 15);
             label25.TabIndex = 131;
@@ -753,7 +758,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(129, 8);
+            textBox1.Location = new Point(776, 864);
             textBox1.Name = "textBox1";
             textBox1.RightToLeft = RightToLeft.Yes;
             textBox1.Size = new Size(100, 23);
@@ -765,6 +770,8 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(908, 938);
+            Controls.Add(label25);
+            Controls.Add(textBox1);
             Controls.Add(label12);
             Controls.Add(panel1);
             Controls.Add(Calcular);
@@ -908,5 +915,6 @@
         private Panel panel1;
         private Label label25;
         private TextBox textBox1;
+        private ToolStripSeparator toolStripSeparator3;
     }
 }
