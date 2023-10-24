@@ -21,7 +21,6 @@ namespace DCCEVENTOS.Calendario
         {
             InitializeComponent();
             nevento = new NEventos();
-
         }
         private void display()
         {

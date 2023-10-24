@@ -212,6 +212,19 @@ namespace DatosManejo
         {
             return contexto.SaEventos.Where(a => a.CodEvento == cod).FirstOrDefault().DesEvento;
         }
+        public List<SaEvento> ObtenerFechas(DateTime fecha = new DateTime())
+        {
+            List<SaEvento> list = new List<SaEvento>();
+            if (fecha > new DateTime(1900, 01, 01))
+            {
+                list = contexto.SaEventos.AsNoTracking().Where(a => a.Fecha == fecha).ToList();
+            }
+            else
+            {
+                return contexto.SaEventos.AsNoTracking().ToList();
+            }
+            return list;
+        }
     }
 }
 

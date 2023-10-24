@@ -39,6 +39,7 @@ namespace DCCEVENTOS
             Npago = new NPago();
             Nfacturacion = new NFacturacion();
             CargarInformacion();
+            //this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
         }
         public void Nuevo()
         {
@@ -218,7 +219,7 @@ namespace DCCEVENTOS
                 bloquear();
                 if (CBComprante.SelectedIndex == 1)
                 {
-                    
+
                     decimal factiva, facttotal, factsubtotal, costototalevento;
                     facttotal = Convert.ToDecimal(textBox1.Text);
                     costototalevento = Convert.ToDecimal(CostoEvento.Text);
@@ -228,7 +229,7 @@ namespace DCCEVENTOS
 
                     factsubtotal = facttotal - factiva;
                     TBSubtotal.Text = factsubtotal.ToString("N2");
-                    panel1.Visible= true;
+                    panel1.Visible = true;
                 }
                 else
                 {
@@ -466,8 +467,22 @@ namespace DCCEVENTOS
                             SaldoPendiente.Text = resultados.ToString();
                         }
                         //SaldoPendiente.Text = sumagarantia.ToString();
-                        
+
                         MontoaPagar.Text = (0.00).ToString();
+                        Penalizacion.Text = (0.00).ToString();
+                        TBIva.Text = (0.00).ToString();
+                        SaldoActual.Text = (0.00).ToString();
+                    }
+                    else
+                    {
+                        resultado = resultadoFinal;
+                        CostoEvento.Text = resultadoFinal.ToString();
+                        MontoPagado.Text = (0.00).ToString();
+                        //SaldoPendiente.Text = (0.00).ToString();
+                        SaldoPendiente.Text = resultadoFinal.ToString();
+                        MontoaPagar.Text = (0.00).ToString();
+                        SaldoaFavor.Text = (0.00).ToString();
+                        //SaldoaFavor.Text = sumatoriaGarantia.ToString();
                         Penalizacion.Text = (0.00).ToString();
                         TBIva.Text = (0.00).ToString();
                         SaldoActual.Text = (0.00).ToString();
@@ -810,20 +825,43 @@ namespace DCCEVENTOS
         }
         private void CBComprante_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if (CBComprante.SelectedIndex == 0)
+            try
             {
-                MontoaPagar.Text = (0.00).ToString();
-                //textBox1.Text = MontoaPagar.Text;
+                if (CBComprante.SelectedIndex == 0)
+                {
+                    MontoaPagar.Text = (0.00).ToString();
+                    //textBox1.Text = MontoaPagar.Text;
+                }
+                else if (CBComprante.SelectedIndex == 1)
+                {
+                    MontoaPagar.Text = SaldoPendiente.Text;
+                    MontoaPagar.Enabled = false;
+                    panel1.Visible = true;
+                    CBTransaccion.SelectedIndex = 1;
+                    CBTransaccion.Enabled = false;
+                    CalculosdePago();
+                }
             }
-            else if (CBComprante.SelectedIndex == 1)
+            catch (Exception ex)
+            {
+                MessageBox.Show("Porfavor seleccione primero el evento");
+            }
+        }
+
+        private void CBTransaccion_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (CBTransaccion.SelectedIndex == 1)
             {
                 MontoaPagar.Text = SaldoPendiente.Text;
-                MontoaPagar.Enabled = false;
-                panel1.Visible = true;
-                CBTransaccion.SelectedIndex = 1;
-                CBTransaccion.Enabled = false;
                 CalculosdePago();
             }
+            if (CBTransaccion.SelectedIndex == 2)
+            {
+                MontoaPagar.Text = (5000).ToString("N2");
+                CalculosdePago();
+                SaldoActual.Text = SaldoPendiente.Text;
+            }
+
         }
     }
 }

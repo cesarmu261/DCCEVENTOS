@@ -118,7 +118,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripNuevo, toolStripGuardar, toolStripButton1, toolStripSeparator1, toolStripBuscar, toolStripSeparator2, toolStripButton2, toolStripSeparator3, toolStripSalir });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(908, 31);
+            toolStrip1.Size = new Size(916, 31);
             toolStrip1.TabIndex = 67;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -203,7 +203,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { opcionesToolStripMenuItem, fcaturaToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(908, 24);
+            menuStrip1.Size = new Size(916, 24);
             menuStrip1.TabIndex = 66;
             menuStrip1.Text = "Opciones";
             // 
@@ -261,20 +261,20 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(19, 71);
+            label1.Location = new Point(19, 63);
             label1.Name = "label1";
-            label1.Size = new Size(79, 15);
+            label1.Size = new Size(36, 15);
             label1.TabIndex = 68;
-            label1.Text = "Folio de Pago";
+            label1.Text = "Folio ";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(14, 225);
+            label2.Location = new Point(19, 218);
             label2.Name = "label2";
-            label2.Size = new Size(111, 15);
+            label2.Size = new Size(69, 30);
             label2.TabIndex = 69;
-            label2.Text = "Tipo de Transaccion";
+            label2.Text = "Tipo de \r\nTransaccion";
             // 
             // label3
             // 
@@ -314,16 +314,16 @@
             // dateTimePicker2
             // 
             dateTimePicker2.Format = DateTimePickerFormat.Short;
-            dateTimePicker2.Location = new Point(333, 263);
+            dateTimePicker2.Location = new Point(353, 264);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(145, 23);
             dateTimePicker2.TabIndex = 75;
             // 
             // TBFolio
             // 
-            TBFolio.Location = new Point(128, 65);
+            TBFolio.Location = new Point(127, 63);
             TBFolio.Name = "TBFolio";
-            TBFolio.Size = new Size(100, 23);
+            TBFolio.Size = new Size(122, 23);
             TBFolio.TabIndex = 76;
             // 
             // TBEvento
@@ -339,10 +339,11 @@
             CBTransaccion.DropDownStyle = ComboBoxStyle.DropDownList;
             CBTransaccion.Enabled = false;
             CBTransaccion.FormattingEnabled = true;
-            CBTransaccion.Location = new Point(128, 223);
+            CBTransaccion.Location = new Point(128, 225);
             CBTransaccion.Name = "CBTransaccion";
-            CBTransaccion.Size = new Size(350, 23);
+            CBTransaccion.Size = new Size(370, 23);
             CBTransaccion.TabIndex = 81;
+            CBTransaccion.SelectionChangeCommitted += CBTransaccion_SelectionChangeCommitted;
             // 
             // label7
             // 
@@ -403,7 +404,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(679, 71);
+            label9.Location = new Point(656, 76);
             label9.Name = "label9";
             label9.Size = new Size(81, 15);
             label9.TabIndex = 87;
@@ -412,7 +413,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(679, 105);
+            label10.Location = new Point(656, 110);
             label10.Name = "label10";
             label10.Size = new Size(76, 15);
             label10.TabIndex = 88;
@@ -440,7 +441,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(679, 165);
+            label13.Location = new Point(656, 172);
             label13.Name = "label13";
             label13.Size = new Size(62, 15);
             label13.TabIndex = 95;
@@ -449,7 +450,7 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(679, 202);
+            label14.Location = new Point(656, 207);
             label14.Name = "label14";
             label14.Size = new Size(43, 15);
             label14.TabIndex = 96;
@@ -474,7 +475,7 @@
             // TBDescripcion
             // 
             TBDescripcion.CharacterCasing = CharacterCasing.Upper;
-            TBDescripcion.Location = new Point(128, 179);
+            TBDescripcion.Location = new Point(148, 179);
             TBDescripcion.Name = "TBDescripcion";
             TBDescripcion.Size = new Size(350, 23);
             TBDescripcion.TabIndex = 102;
@@ -483,7 +484,7 @@
             // 
             TBClientes.CharacterCasing = CharacterCasing.Upper;
             TBClientes.Enabled = false;
-            TBClientes.Location = new Point(128, 137);
+            TBClientes.Location = new Point(148, 137);
             TBClientes.Name = "TBClientes";
             TBClientes.Size = new Size(350, 23);
             TBClientes.TabIndex = 101;
@@ -491,7 +492,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(17, 179);
+            label15.Location = new Point(19, 167);
             label15.Name = "label15";
             label15.Size = new Size(69, 30);
             label15.TabIndex = 99;
@@ -509,7 +510,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(107, 137);
+            pictureBox1.Location = new Point(127, 137);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(15, 15);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -520,7 +521,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(107, 179);
+            pictureBox2.Location = new Point(127, 179);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(15, 15);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -541,7 +542,7 @@
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(679, 237);
+            label17.Location = new Point(656, 242);
             label17.Name = "label17";
             label17.Size = new Size(87, 30);
             label17.TabIndex = 107;
@@ -569,7 +570,7 @@
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(354, 797);
+            label18.Location = new Point(283, 797);
             label18.Name = "label18";
             label18.Size = new Size(117, 15);
             label18.TabIndex = 111;
@@ -578,7 +579,7 @@
             // label19
             // 
             label19.AutoSize = true;
-            label19.Location = new Point(354, 830);
+            label19.Location = new Point(283, 830);
             label19.Name = "label19";
             label19.Size = new Size(112, 15);
             label19.TabIndex = 112;
@@ -587,7 +588,7 @@
             // label20
             // 
             label20.AutoSize = true;
-            label20.Location = new Point(55, 41);
+            label20.Location = new Point(46, 41);
             label20.Name = "label20";
             label20.Size = new Size(68, 15);
             label20.TabIndex = 113;
@@ -596,7 +597,7 @@
             // label21
             // 
             label21.AutoSize = true;
-            label21.Location = new Point(354, 862);
+            label21.Location = new Point(283, 862);
             label21.Name = "label21";
             label21.Size = new Size(112, 15);
             label21.TabIndex = 114;
@@ -605,7 +606,7 @@
             // SaldoPendiente
             // 
             SaldoPendiente.Enabled = false;
-            SaldoPendiente.Location = new Point(130, 859);
+            SaldoPendiente.Location = new Point(157, 859);
             SaldoPendiente.Name = "SaldoPendiente";
             SaldoPendiente.RightToLeft = RightToLeft.Yes;
             SaldoPendiente.Size = new Size(100, 23);
@@ -614,7 +615,7 @@
             // 
             // MontoaPagar
             // 
-            MontoaPagar.Location = new Point(131, 891);
+            MontoaPagar.Location = new Point(158, 891);
             MontoaPagar.Name = "MontoaPagar";
             MontoaPagar.RightToLeft = RightToLeft.Yes;
             MontoaPagar.Size = new Size(100, 23);
@@ -624,7 +625,7 @@
             // 
             // SaldoaFavor
             // 
-            SaldoaFavor.Location = new Point(472, 794);
+            SaldoaFavor.Location = new Point(465, 794);
             SaldoaFavor.Name = "SaldoaFavor";
             SaldoaFavor.RightToLeft = RightToLeft.Yes;
             SaldoaFavor.Size = new Size(100, 23);
@@ -632,7 +633,7 @@
             // 
             // Penalizacion
             // 
-            Penalizacion.Location = new Point(472, 827);
+            Penalizacion.Location = new Point(465, 827);
             Penalizacion.Name = "Penalizacion";
             Penalizacion.RightToLeft = RightToLeft.Yes;
             Penalizacion.Size = new Size(100, 23);
@@ -640,7 +641,7 @@
             // 
             // TBIva
             // 
-            TBIva.Location = new Point(129, 38);
+            TBIva.Location = new Point(166, 41);
             TBIva.Name = "TBIva";
             TBIva.RightToLeft = RightToLeft.Yes;
             TBIva.Size = new Size(100, 23);
@@ -648,7 +649,7 @@
             // 
             // SaldoActual
             // 
-            SaldoActual.Location = new Point(472, 859);
+            SaldoActual.Location = new Point(465, 859);
             SaldoActual.Name = "SaldoActual";
             SaldoActual.RightToLeft = RightToLeft.Yes;
             SaldoActual.Size = new Size(100, 23);
@@ -674,7 +675,7 @@
             // CostoEvento
             // 
             CostoEvento.Enabled = false;
-            CostoEvento.Location = new Point(130, 794);
+            CostoEvento.Location = new Point(157, 794);
             CostoEvento.Name = "CostoEvento";
             CostoEvento.RightToLeft = RightToLeft.Yes;
             CostoEvento.Size = new Size(100, 23);
@@ -692,7 +693,7 @@
             // MontoPagado
             // 
             MontoPagado.Enabled = false;
-            MontoPagado.Location = new Point(130, 827);
+            MontoPagado.Location = new Point(157, 827);
             MontoPagado.Name = "MontoPagado";
             MontoPagado.RightToLeft = RightToLeft.Yes;
             MontoPagado.Size = new Size(100, 23);
@@ -710,7 +711,7 @@
             // 
             // Calcular
             // 
-            Calcular.Location = new Point(801, 905);
+            Calcular.Location = new Point(776, 906);
             Calcular.Name = "Calcular";
             Calcular.Size = new Size(75, 23);
             Calcular.TabIndex = 127;
@@ -720,7 +721,7 @@
             // 
             // TBSubtotal
             // 
-            TBSubtotal.Location = new Point(129, 5);
+            TBSubtotal.Location = new Point(166, 5);
             TBSubtotal.Name = "TBSubtotal";
             TBSubtotal.RightToLeft = RightToLeft.Yes;
             TBSubtotal.Size = new Size(100, 23);
@@ -729,7 +730,7 @@
             // label24
             // 
             label24.AutoSize = true;
-            label24.Location = new Point(68, 8);
+            label24.Location = new Point(59, 8);
             label24.Name = "label24";
             label24.Size = new Size(55, 15);
             label24.TabIndex = 128;
@@ -741,16 +742,17 @@
             panel1.Controls.Add(label20);
             panel1.Controls.Add(TBIva);
             panel1.Controls.Add(label24);
-            panel1.Location = new Point(647, 789);
+            panel1.Location = new Point(594, 789);
             panel1.Name = "panel1";
-            panel1.Size = new Size(250, 70);
+            panel1.Size = new Size(288, 70);
             panel1.TabIndex = 130;
+            panel1.Visible = false;
             // 
             // label25
             // 
             label25.AutoSize = true;
             label25.ForeColor = Color.Red;
-            label25.Location = new Point(685, 867);
+            label25.Location = new Point(633, 867);
             label25.Name = "label25";
             label25.Size = new Size(85, 15);
             label25.TabIndex = 131;
@@ -758,7 +760,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(776, 864);
+            textBox1.Location = new Point(760, 864);
             textBox1.Name = "textBox1";
             textBox1.RightToLeft = RightToLeft.Yes;
             textBox1.Size = new Size(100, 23);
@@ -767,9 +769,10 @@
             // 
             // CPagos
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(908, 938);
+            AutoScaleMode = AutoScaleMode.Inherit;
+            AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            ClientSize = new Size(916, 982);
             Controls.Add(label25);
             Controls.Add(textBox1);
             Controls.Add(label12);

@@ -47,7 +47,7 @@
             // button2
             // 
             button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.Location = new Point(914, 48);
+            button2.Location = new Point(1000, 73);
             button2.Name = "button2";
             button2.Size = new Size(33, 40);
             button2.TabIndex = 34;
@@ -57,7 +57,7 @@
             // button1
             // 
             button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.Location = new Point(953, 48);
+            button1.Location = new Point(1039, 73);
             button1.Name = "button1";
             button1.Size = new Size(34, 40);
             button1.TabIndex = 33;
@@ -67,24 +67,25 @@
             // Lbfecha
             // 
             Lbfecha.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            Lbfecha.Location = new Point(415, 31);
+            Lbfecha.Location = new Point(390, 29);
             Lbfecha.Name = "Lbfecha";
-            Lbfecha.Size = new Size(196, 30);
+            Lbfecha.Size = new Size(282, 73);
             Lbfecha.TabIndex = 32;
             Lbfecha.Text = "MES       AÑO";
             // 
             // Contenedordia
             // 
-            Contenedordia.Location = new Point(28, 147);
+            Contenedordia.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            Contenedordia.Location = new Point(42, 189);
             Contenedordia.Name = "Contenedordia";
-            Contenedordia.Size = new Size(1018, 673);
+            Contenedordia.Size = new Size(1031, 911);
             Contenedordia.TabIndex = 31;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI Symbol", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(875, 101);
+            label7.Location = new Point(897, 143);
             label7.Name = "label7";
             label7.Size = new Size(88, 30);
             label7.TabIndex = 30;
@@ -94,7 +95,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Symbol", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(744, 101);
+            label6.Location = new Point(750, 143);
             label6.Name = "label6";
             label6.Size = new Size(88, 30);
             label6.TabIndex = 29;
@@ -104,7 +105,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Symbol", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(600, 101);
+            label5.Location = new Point(611, 143);
             label5.Name = "label5";
             label5.Size = new Size(80, 30);
             label5.TabIndex = 28;
@@ -114,7 +115,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Symbol", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(449, 101);
+            label4.Location = new Point(461, 143);
             label4.Name = "label4";
             label4.Size = new Size(111, 30);
             label4.TabIndex = 27;
@@ -124,7 +125,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Symbol", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(323, 101);
+            label3.Location = new Point(323, 143);
             label3.Name = "label3";
             label3.Size = new Size(83, 30);
             label3.TabIndex = 26;
@@ -134,7 +135,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Symbol", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(190, 101);
+            label2.Location = new Point(184, 143);
             label2.Name = "label2";
             label2.Size = new Size(72, 30);
             label2.TabIndex = 25;
@@ -144,7 +145,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Symbol", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(46, 101);
+            label1.Location = new Point(42, 143);
             label1.Name = "label1";
             label1.Size = new Size(106, 30);
             label1.TabIndex = 24;
@@ -157,7 +158,7 @@
             DTGEventos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             DTGEventos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             DTGEventos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DTGEventos.Location = new Point(1065, 147);
+            DTGEventos.Location = new Point(1079, 189);
             DTGEventos.Name = "DTGEventos";
             DTGEventos.ReadOnly = true;
             DTGEventos.RowTemplate.Height = 25;
@@ -168,9 +169,9 @@
             // 
             // Calendario
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1571, 833);
+            AutoScaleMode = AutoScaleMode.Inherit;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            ClientSize = new Size(1571, 862);
             Controls.Add(DTGEventos);
             Controls.Add(Contenedordia);
             Controls.Add(button2);

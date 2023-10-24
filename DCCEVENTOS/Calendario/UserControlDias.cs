@@ -20,15 +20,18 @@ namespace DCCEVENTOS.Calendario
             InitializeComponent();
             NEventos = new NEventos();
             Calendario = new Calendario();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
         }
         public void dias(int numerodias)
         {
             Lbdia.Text = numerodias + "";
+            //timer1.Start();
+            display();
         }
-        public void eventos(string evento)
-        {
-            label1.Text = evento ;
-        }
+        //public void eventos(string evento)
+        //{
+        //    label1.Text = evento;
+        //}
 
         private void UserControlDias_Load(object sender, EventArgs e)
         {
@@ -44,23 +47,33 @@ namespace DCCEVENTOS.Calendario
             form.Show();
 
         }
+
         EventosContext contexto = new EventosContext();
-        //private void display()
-        //{
-        //    int dia = DateTime.DaysInMonth(Calendario.an_estat, Calendario.mes_estat);
-        //    int mes = Calendario.mes_estat;
-        //    int anio = Calendario.an_estat;
+        private void display()
+        {
+            int dia = Convert.ToInt32(Lbdia.Text);
+            int mes = Calendario.mes_estat;
+            int anio = Calendario.an_estat;
 
-        //    DateTime fecha = new DateTime(anio, mes, dia);
+            if (anio >= DateTime.MinValue.Year && anio <= DateTime.MaxValue.Year &&
+                mes >= 1 && mes <= 12 &&
+                dia >= 1 && dia <= DateTime.DaysInMonth(anio, mes))
+            {
+                DateTime fecha = new DateTime(anio, mes, dia);
 
-        //    List<SaEvento> List = new DMEvento(contexto).Obtener(0, "", "", fecha);
-
-        //    foreach (SaEvento ev in List)
-        //    {
-        //        label1.Text = ev.DesEvento; // Reemplazar "Columna2" y "Propiedad2" con los nombres reales de la columna y propiedad que deseas incluir
-        //    }
-        //}
-
+                //List<SaEvento> List = new DMEvento(contexto).Obtener(0, 0, 0, "", fecha);
+                List<SaEvento> List = new DMEvento(contexto).ObtenerFechas(fecha);
+                foreach (SaEvento ev in List)
+                {
+                    listBox1.Visible = true;
+                    listBox1.Items.Add(ev.DesEvento);
+                }
+            }
+            else
+            {
+                // Manejar el caso en el que los valores no son válidos.
+            }
+        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {

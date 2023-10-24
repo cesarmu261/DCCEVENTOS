@@ -205,7 +205,7 @@
             CBPaquete.Size = new Size(181, 23);
             CBPaquete.TabIndex = 0;
             CBPaquete.DropDown += CBPaquete_DropDown;
-            CBPaquete.SelectedIndexChanged += CBPaquete_SelectedIndexChanged;
+            CBPaquete.SelectionChangeCommitted += CBPaquete_SelectedIndexChanged;
             // 
             // ConceptosPaquetes
             // 
@@ -541,8 +541,9 @@
             // 
             // CEventos
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.Inherit;
+            AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(1402, 758);
             Controls.Add(label14);
             Controls.Add(label13);

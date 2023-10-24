@@ -11,12 +11,9 @@ namespace DCCEVENTOS
 {
     public partial class CCategoria : Form
     {
-
         private DataTable tablacategoria = new DataTable();
         private NCategoria ncategoria;
         private NEstado nestado;
-
-
         public CCategoria()
         {
             InitializeComponent();

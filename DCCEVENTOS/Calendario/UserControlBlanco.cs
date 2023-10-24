@@ -5,6 +5,7 @@
         public UserControlBlanco()
         {
             InitializeComponent();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
         }
     }
 }

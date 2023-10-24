@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace Datos.Entidades;
+
+public partial class SaEveTipoPago
+{
+    public int CodPago { get; set; }
+
+    public string Valor { get; set; } = null!;
+
+    public string DesPago { get; set; } = null!;
+
+    public string? CodEstado { get; set; }
+
+    public virtual SaCodEstado? CodEstadoNavigation { get; set; }
+
+    public virtual ICollection<SaEvePago> SaEvePagos { get; set; } = new List<SaEvePago>();
+}

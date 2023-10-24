@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CPrincipal));
             menuStrip1 = new MenuStrip();
             Archivo = new ToolStripMenuItem();
             UsuarioToolStripMenuItem = new ToolStripMenuItem();
+            cambiarUsuarioToolStripMenuItem = new ToolStripMenuItem();
+            cambiarContraseñToolStripMenuItem = new ToolStripMenuItem();
             CatalogoToolStripMenuItem = new ToolStripMenuItem();
             porcentajeToolStripMenuItem1 = new ToolStripMenuItem();
             categoriaToolStripMenuItem1 = new ToolStripMenuItem();
@@ -44,6 +47,11 @@
             paqueteDetalleToolStripMenuItem1 = new ToolStripMenuItem();
             clientesToolStripMenuItem1 = new ToolStripMenuItem();
             eventoToolStripMenuItem = new ToolStripMenuItem();
+            configuracionToolStripMenuItem = new ToolStripMenuItem();
+            seguridadToolStripMenuItem = new ToolStripMenuItem();
+            rolToolStripMenuItem = new ToolStripMenuItem();
+            permisosToolStripMenuItem = new ToolStripMenuItem();
+            usuarioToolStripMenuItem1 = new ToolStripMenuItem();
             cobosToolStripMenuItem = new ToolStripMenuItem();
             cobrosToolStripMenuItem = new ToolStripMenuItem();
             consultasToolStripMenuItem = new ToolStripMenuItem();
@@ -61,9 +69,14 @@
             consultaDeEventosToolStripMenuItem = new ToolStripMenuItem();
             reportesToolStripMenuItem = new ToolStripMenuItem();
             reporteEventoToolStripMenuItem = new ToolStripMenuItem();
-            panel1 = new Panel();
             reportePagosToolStripMenuItem = new ToolStripMenuItem();
+            panel1 = new Panel();
+            panel2 = new Panel();
+            pictureBox1 = new PictureBox();
             menuStrip1.SuspendLayout();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -77,22 +90,37 @@
             // 
             // Archivo
             // 
-            Archivo.DropDownItems.AddRange(new ToolStripItem[] { UsuarioToolStripMenuItem, CatalogoToolStripMenuItem });
+            Archivo.DropDownItems.AddRange(new ToolStripItem[] { UsuarioToolStripMenuItem, CatalogoToolStripMenuItem, configuracionToolStripMenuItem });
             Archivo.Name = "Archivo";
             Archivo.Size = new Size(60, 20);
             Archivo.Text = "Archivo";
             // 
             // UsuarioToolStripMenuItem
             // 
+            UsuarioToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cambiarUsuarioToolStripMenuItem, cambiarContraseñToolStripMenuItem });
             UsuarioToolStripMenuItem.Name = "UsuarioToolStripMenuItem";
-            UsuarioToolStripMenuItem.Size = new Size(122, 22);
+            UsuarioToolStripMenuItem.Size = new Size(180, 22);
             UsuarioToolStripMenuItem.Text = "Usuario";
+            // 
+            // cambiarUsuarioToolStripMenuItem
+            // 
+            cambiarUsuarioToolStripMenuItem.Name = "cambiarUsuarioToolStripMenuItem";
+            cambiarUsuarioToolStripMenuItem.Size = new Size(182, 22);
+            cambiarUsuarioToolStripMenuItem.Text = "Cambiar  Usuario";
+            cambiarUsuarioToolStripMenuItem.Click += cambiarUsuarioToolStripMenuItem_Click;
+            // 
+            // cambiarContraseñToolStripMenuItem
+            // 
+            cambiarContraseñToolStripMenuItem.Name = "cambiarContraseñToolStripMenuItem";
+            cambiarContraseñToolStripMenuItem.Size = new Size(182, 22);
+            cambiarContraseñToolStripMenuItem.Text = "Cambiar Contraseña";
+            cambiarContraseñToolStripMenuItem.Click += cambiarContraseñToolStripMenuItem_Click;
             // 
             // CatalogoToolStripMenuItem
             // 
             CatalogoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { porcentajeToolStripMenuItem1, categoriaToolStripMenuItem1, salonToolStripMenuItem1, tipoDeTransaccionesToolStripMenuItem1, comprobanteToolStripMenuItem, tipoDeCancelacionesToolStripMenuItem, tipoDePagosToolStripMenuItem, conceptoToolStripMenuItem1, paqueteToolStripMenuItem1, paqueteDetalleToolStripMenuItem1, clientesToolStripMenuItem1, eventoToolStripMenuItem });
             CatalogoToolStripMenuItem.Name = "CatalogoToolStripMenuItem";
-            CatalogoToolStripMenuItem.Size = new Size(122, 22);
+            CatalogoToolStripMenuItem.Size = new Size(180, 22);
             CatalogoToolStripMenuItem.Text = "Catalogo";
             // 
             // porcentajeToolStripMenuItem1
@@ -179,6 +207,41 @@
             eventoToolStripMenuItem.Text = "Evento";
             eventoToolStripMenuItem.Click += eventosToolStripMenuItem_Click;
             // 
+            // configuracionToolStripMenuItem
+            // 
+            configuracionToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { seguridadToolStripMenuItem, rolToolStripMenuItem, permisosToolStripMenuItem, usuarioToolStripMenuItem1 });
+            configuracionToolStripMenuItem.Name = "configuracionToolStripMenuItem";
+            configuracionToolStripMenuItem.Size = new Size(180, 22);
+            configuracionToolStripMenuItem.Text = "Configuracion";
+            // 
+            // seguridadToolStripMenuItem
+            // 
+            seguridadToolStripMenuItem.Name = "seguridadToolStripMenuItem";
+            seguridadToolStripMenuItem.Size = new Size(180, 22);
+            seguridadToolStripMenuItem.Text = "Menu";
+            seguridadToolStripMenuItem.Click += seguridadToolStripMenuItem_Click;
+            // 
+            // rolToolStripMenuItem
+            // 
+            rolToolStripMenuItem.Name = "rolToolStripMenuItem";
+            rolToolStripMenuItem.Size = new Size(180, 22);
+            rolToolStripMenuItem.Text = "Rol";
+            rolToolStripMenuItem.Click += rolToolStripMenuItem_Click;
+            // 
+            // permisosToolStripMenuItem
+            // 
+            permisosToolStripMenuItem.Name = "permisosToolStripMenuItem";
+            permisosToolStripMenuItem.Size = new Size(180, 22);
+            permisosToolStripMenuItem.Text = "Permisos";
+            permisosToolStripMenuItem.Click += permisosToolStripMenuItem_Click;
+            // 
+            // usuarioToolStripMenuItem1
+            // 
+            usuarioToolStripMenuItem1.Name = "usuarioToolStripMenuItem1";
+            usuarioToolStripMenuItem1.Size = new Size(180, 22);
+            usuarioToolStripMenuItem1.Text = "Usuarios";
+            usuarioToolStripMenuItem1.Click += usuarioToolStripMenuItem1_Click;
+            // 
             // cobosToolStripMenuItem
             // 
             cobosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cobrosToolStripMenuItem });
@@ -189,7 +252,7 @@
             // cobrosToolStripMenuItem
             // 
             cobrosToolStripMenuItem.Name = "cobrosToolStripMenuItem";
-            cobrosToolStripMenuItem.Size = new Size(106, 22);
+            cobrosToolStripMenuItem.Size = new Size(180, 22);
             cobrosToolStripMenuItem.Text = "Pagos";
             cobrosToolStripMenuItem.Click += cobrosToolStripMenuItem_Click;
             // 
@@ -294,28 +357,50 @@
             // reporteEventoToolStripMenuItem
             // 
             reporteEventoToolStripMenuItem.Name = "reporteEventoToolStripMenuItem";
-            reporteEventoToolStripMenuItem.Size = new Size(180, 22);
+            reporteEventoToolStripMenuItem.Size = new Size(154, 22);
             reporteEventoToolStripMenuItem.Text = "Reporte Evento";
             reporteEventoToolStripMenuItem.Click += reporteEventoToolStripMenuItem_Click;
             // 
+            // reportePagosToolStripMenuItem
+            // 
+            reportePagosToolStripMenuItem.Name = "reportePagosToolStripMenuItem";
+            reportePagosToolStripMenuItem.Size = new Size(154, 22);
+            reportePagosToolStripMenuItem.Text = "Reporte Pagos";
+            reportePagosToolStripMenuItem.Click += reportePagosToolStripMenuItem_Click;
+            // 
             // panel1
             // 
+            panel1.Controls.Add(panel2);
             panel1.Location = new Point(0, 27);
             panel1.Name = "panel1";
             panel1.Size = new Size(1940, 926);
             panel1.TabIndex = 1;
             // 
-            // reportePagosToolStripMenuItem
+            // panel2
             // 
-            reportePagosToolStripMenuItem.Name = "reportePagosToolStripMenuItem";
-            reportePagosToolStripMenuItem.Size = new Size(180, 22);
-            reportePagosToolStripMenuItem.Text = "Reporte Pagos";
-            reportePagosToolStripMenuItem.Click += reportePagosToolStripMenuItem_Click;
+            panel2.BackColor = Color.WhiteSmoke;
+            panel2.Controls.Add(pictureBox1);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1940, 926);
+            panel2.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(658, 144);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(533, 520);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // CPrincipal
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.Inherit;
+            AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(1924, 887);
             Controls.Add(panel1);
             Controls.Add(menuStrip1);
@@ -327,14 +412,14 @@
             Load += CPrincipal_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem Archivo;
         private ToolStripMenuItem UsuarioToolStripMenuItem;
         private ToolStripMenuItem CatalogoToolStripMenuItem;
         private Panel panel1;
@@ -368,5 +453,16 @@
         private ToolStripMenuItem consultaDeTerceroToolStripMenuItem;
         private ToolStripMenuItem consultaDeEventosToolStripMenuItem;
         private ToolStripMenuItem reportePagosToolStripMenuItem;
+        private ToolStripMenuItem configuracionToolStripMenuItem;
+        private ToolStripMenuItem seguridadToolStripMenuItem;
+        private ToolStripMenuItem rolToolStripMenuItem;
+        private ToolStripMenuItem usuarioToolStripMenuItem1;
+        private ToolStripMenuItem permisosToolStripMenuItem;
+        public MenuStrip menuStrip1;
+        public ToolStripMenuItem Archivo;
+        private ToolStripMenuItem cambiarUsuarioToolStripMenuItem;
+        private ToolStripMenuItem cambiarContraseñToolStripMenuItem;
+        private Panel panel2;
+        private PictureBox pictureBox1;
     }
 }

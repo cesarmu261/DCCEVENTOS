@@ -9,6 +9,8 @@ public partial class SaCodEstado
 
     public string DesEstado { get; set; } = null!;
 
+    public virtual ICollection<Rol> Rols { get; set; } = new List<Rol>();
+
     public virtual ICollection<SaEveCancelacione> SaEveCancelaciones { get; set; } = new List<SaEveCancelacione>();
 
     public virtual ICollection<SaEveCategoriaimp> SaEveCategoriaimps { get; set; } = new List<SaEveCategoriaimp>();
@@ -32,4 +34,6 @@ public partial class SaCodEstado
     public virtual ICollection<SaEventoSalone> SaEventoSalones { get; set; } = new List<SaEventoSalone>();
 
     public virtual ICollection<SaEvento> SaEventos { get; set; } = new List<SaEvento>();
+
+    public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
 }

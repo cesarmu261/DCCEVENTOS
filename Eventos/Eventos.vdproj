@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_2CE60480D0184972BE0BE05FB523703C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_6246BAC4857E421984A53E668B7602EA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -49,6 +55,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -65,6 +87,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -96,6 +126,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2CE60480D0184972BE0BE05FB523703C"
+            {
+            "SourcePath" = "8:..\\DCCEVENTOS\\bin\\x86\\Debug\\net6.0-windows\\Conf.txt"
+            "TargetName" = "8:Conf.txt"
+            "Tag" = "8:"
+            "Folder" = "8:_FFE663418755485B892E6BD6C944CBEC"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AE7CBC088FA44227AAA375BB15999D2C"
             {
             "SourcePath" = "8:..\\img\\DCCL.jpg"
@@ -204,7 +254,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Eventos"
         "ProductCode" = "8:{BA43744F-1F0A-4957-9F75-D99A1D6386F8}"
-        "PackageCode" = "8:{A16E1620-4334-4AD4-9CA9-2CDE82C3F431}"
+        "PackageCode" = "8:{AE774716-C9E8-41B1-BE26-87711EDDF8EF}"
         "UpgradeCode" = "8:{ECCC3394-9DA7-4826-9DC3-C34FF6D22EC9}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

@@ -20,6 +20,8 @@ namespace DCCEVENTOS
         private NPaquete npaquete;
         private NEstado nestado;
         private NPaDetalle nPaDetalle;
+        private Concepto concepto;
+        
         private bool EsActualizacion;
         public CPaqueteDetalle()
         {
@@ -30,26 +32,31 @@ namespace DCCEVENTOS
             npaquete = new NPaquete();
             nestado = new NEstado();
             nPaDetalle = new NPaDetalle();
+            concepto = new Concepto();
+            
             Cargainformacion();
         }
-
         public void DTG()
         {
-            if (!DatoExisteEnDataGridView(NConceptos.SSCodcon))
+            foreach (Concepto concepto in Concepto.listaConceptos)
             {
-                int index1 = dataGridView1.Rows.Add();
-                dataGridView1.Rows[index1].Cells["Codigo"].Value = NConceptos.SSCodcon;
-                dataGridView1.Rows[index1].Cells["Descripcion"].Value = NConceptos.SSDescon;
-                dataGridView1.Rows[index1].Cells["Cantidad"].Value = NConceptos.SScantidad;
-                dataGridView1.Update();
-                dataGridView1.Refresh();
-            }
-            else
-            {
-                // Mostrar un mensaje de aviso o realizar alguna acción para indicar que el dato ya existe
-                MessageBox.Show("EL CONCEPTO YA EXISTE NO SE PUEDEN REPETIR");
+                if (!DatoExisteEnDataGridView(concepto.SSCodcon))
+                {
+                    int index1 = dataGridView1.Rows.Add();
+                    dataGridView1.Rows[index1].Cells["Codigo"].Value = concepto.SSCodcon;
+                    dataGridView1.Rows[index1].Cells["Descripcion"].Value = concepto.SSDescon;
+                    dataGridView1.Rows[index1].Cells["Cantidad"].Value = concepto.SScantidad;
+                    dataGridView1.Update();
+                    dataGridView1.Refresh();
+                }
+                else
+                {
+                    MessageBox.Show("EL CONCEPTO YA EXISTE, NO SE PUEDEN REPETIR");
+                }
             }
         }
+
+
         private void Nuevo()
         {
             Coddp.Text = Convert.ToString(nPaDetalle.ObtenerDescripcionesCod()); ;
@@ -248,7 +255,7 @@ namespace DCCEVENTOS
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            ConsultadeConceptos form = new ConsultadeConceptos();
+            ConsultaConceptosagrupados form = new ConsultaConceptosagrupados();
             form.ShowDialog();
             DTG();
         }

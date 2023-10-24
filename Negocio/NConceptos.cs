@@ -13,7 +13,6 @@ namespace Negocio
         public static int SSCod =1;
         public static string SSCodcon, SSDescon, SScantidad, SSCategoria, SSCostos;
         public static Action<object, object> PropertyChanged;
-
         public NConceptos()
         {
             conceptos = new DataTable();

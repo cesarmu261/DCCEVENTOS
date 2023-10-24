@@ -31,7 +31,7 @@
             components = new System.ComponentModel.Container();
             Lbdia = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
-            label1 = new Label();
+            listBox1 = new ListBox();
             SuspendLayout();
             // 
             // Lbdia
@@ -48,24 +48,24 @@
             // 
             timer1.Tick += timer1_Tick;
             // 
-            // label1
+            // listBox1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Variable Text", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(17, 66);
-            label1.Name = "label1";
-            label1.Size = new Size(0, 20);
-            label1.TabIndex = 2;
+            listBox1.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            listBox1.FormattingEnabled = true;
+            listBox1.Location = new Point(10, 38);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(120, 56);
+            listBox1.TabIndex = 2;
+            listBox1.Visible = false;
             // 
             // UserControlDias
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.Inherit;
             BorderStyle = BorderStyle.Fixed3D;
-            Controls.Add(label1);
+            Controls.Add(listBox1);
             Controls.Add(Lbdia);
             Name = "UserControlDias";
-            Size = new Size(133, 100);
+            Size = new Size(133, 103);
             Load += UserControlDias_Load;
             Click += UserControlDias_Click;
             ResumeLayout(false);
@@ -76,6 +76,6 @@
 
         private Label Lbdia;
         private System.Windows.Forms.Timer timer1;
-        private Label label1;
+        private ListBox listBox1;
     }
 }

@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Data.SqlClient;
 using Entidades;
 
+
 namespace Datos;
 
 public partial class EventosContext : DbContext
@@ -21,10 +22,12 @@ public partial class EventosContext : DbContext
         this.coneccion = coneccion;
         Database.UseTransaction(transaction);
     }
-    public EventosContext(DbContextOptions<EventosContext> options)
-        : base(options)
-    {
-    }
+
+    public virtual DbSet<Menu> Menus { get; set; }
+
+    public virtual DbSet<Permiso> Permisos { get; set; }
+
+    public virtual DbSet<Rol> Rols { get; set; }
 
     public virtual DbSet<SaCodEstado> SaCodEstados { get; set; }
 
@@ -58,6 +61,8 @@ public partial class EventosContext : DbContext
 
     public virtual DbSet<SaEventoSalone> SaEventoSalones { get; set; }
 
+    public virtual DbSet<Usuario> Usuarios { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
@@ -67,6 +72,51 @@ public partial class EventosContext : DbContext
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Menu>(entity =>
+        {
+            entity.HasKey(e => e.IdMenu).HasName("PK__MENU__4D7EA8E1171FEE78");
+
+            entity.ToTable("MENU");
+
+            entity.Property(e => e.Nombre)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.NombreFormulario)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<Permiso>(entity =>
+        {
+            entity.HasKey(e => e.IdPermiso).HasName("PK__PERMISO__0D626EC8439EBE62");
+
+            entity.ToTable("PERMISO");
+
+           
+            entity.HasOne(d => d.IdRolNavigation).WithMany(p => p.Permisos)
+                .HasForeignKey(d => d.IdRol)
+                .HasConstraintName("FK__PERMISO__IdRol__7A672E12");
+        });
+
+        modelBuilder.Entity<Rol>(entity =>
+        {
+            entity.HasKey(e => e.IdRol).HasName("PK__ROL__2A49584C62A75562");
+
+            entity.ToTable("ROL");
+
+            entity.Property(e => e.CodEstado)
+                .HasMaxLength(1)
+                .IsUnicode(false)
+                .HasColumnName("COD_ESTADO");
+            entity.Property(e => e.Nombre)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+
+            entity.HasOne(d => d.CodEstadoNavigation).WithMany(p => p.Rols)
+                .HasForeignKey(d => d.CodEstado)
+                .HasConstraintName("FK_ROL_SA_COD_ESTADO");
+        });
+
         modelBuilder.Entity<SaCodEstado>(entity =>
         {
             entity.HasKey(e => e.CodEstado).HasName("PK_SA_COD_ESTUSU");
@@ -565,8 +615,38 @@ public partial class EventosContext : DbContext
                 .HasConstraintName("FK_SA_EVENTO_SALONES_SA_COD_ESTADO");
         });
 
-        OnModelCreatingPartial(modelBuilder);
-    }
+        modelBuilder.Entity<Usuario>(entity =>
+        {
+            entity.HasKey(e => e.IdUsuario).HasName("PK__USUARIOS__5B65BF97CCCB5A8F");
 
+            entity.ToTable("USUARIOS");
+
+            entity.Property(e => e.Apellidos)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Clave)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.CodEstado)
+                .HasMaxLength(1)
+                .IsUnicode(false)
+                .HasColumnName("COD_ESTADO");
+            entity.Property(e => e.Nombres)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Usuario1)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("Usuario");
+
+            entity.HasOne(d => d.CodEstadoNavigation).WithMany(p => p.Usuarios)
+                .HasForeignKey(d => d.CodEstado)
+                .HasConstraintName("FK_USUARIOS_SA_COD_ESTADO");
+
+            entity.HasOne(d => d.IdRolNavigation).WithMany(p => p.Usuarios)
+                .HasForeignKey(d => d.IdRol)
+                .HasConstraintName("FK__USUARIOS__IdRol__7E37BEF6");
+        });
+    }
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
