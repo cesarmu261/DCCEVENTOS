@@ -34,6 +34,7 @@ namespace DCCEVENTOS
         {
             try
             {
+                
                 if (string.IsNullOrWhiteSpace(TbDes.Text) || string.IsNullOrWhiteSpace(TbPor.Text)
                    || string.IsNullOrWhiteSpace(CBESTADO.Text))
                 {
@@ -49,6 +50,10 @@ namespace DCCEVENTOS
                 if (!String.IsNullOrEmpty(rGuardar.error))
                 {
                     MessageBox.Show(rGuardar.error);
+                }
+                else
+                {
+                    MessageBox.Show("SE GUARDO CORRECTAMENTE EL PORCENTAJE");
                 }
                 CargarInformacion();
             }
@@ -80,6 +85,10 @@ namespace DCCEVENTOS
                 {
                     MessageBox.Show(rGuardar.error);
                 }
+                else
+                {
+                    MessageBox.Show("SE ACTUALIZO CORRECTAMENTE EL PORCENTAJE");
+                }
                 CargarInformacion();
             }
             catch (Exception e)
@@ -91,6 +100,7 @@ namespace DCCEVENTOS
         private void Nuevo()
         {
             toolStripGuardar.Enabled = true;
+            toolStripButton1.Enabled = false;
             TbDes.Text = string.Empty;
             TbPor.Text = string.Empty;
             CBESTADO.SelectedIndex = 0;
@@ -99,6 +109,7 @@ namespace DCCEVENTOS
         private void Buscar()
         {
             toolStripGuardar.Enabled = false;
+            toolStripButton1.Enabled = true;
             ConsultaPorcentaje consultaPorcentaje = new ConsultaPorcentaje();
             consultaPorcentaje.ShowDialog();
             EventosContext contexto = new EventosContext();

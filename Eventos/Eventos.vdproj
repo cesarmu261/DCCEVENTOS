@@ -94,6 +94,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -254,7 +262,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Eventos"
         "ProductCode" = "8:{BA43744F-1F0A-4957-9F75-D99A1D6386F8}"
-        "PackageCode" = "8:{AE774716-C9E8-41B1-BE26-87711EDDF8EF}"
+        "PackageCode" = "8:{09F3A4F8-B4EA-4E1F-B9D0-81CD2E418BA8}"
         "UpgradeCode" = "8:{ECCC3394-9DA7-4826-9DC3-C34FF6D22EC9}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -262,12 +270,12 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:Witty Software"
+        "Manufacturer" = "8:WittySoftware"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:Eventos"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Witty Software"
+        "ARPCONTACT" = "8:WittySoftware"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"

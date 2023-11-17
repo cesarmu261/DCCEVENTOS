@@ -43,6 +43,23 @@ namespace DatosManejo
             }
             return categoria;
         }
+        public List<SaEvePaquete> Obtener2(string DesPaquete = "", string CodEstado = "")
+        {
+            List<SaEvePaquete> categoria = new List<SaEvePaquete>();
+            if (!String.IsNullOrEmpty(DesPaquete))
+            {
+                categoria = contexto.SaEvePaquetes.AsNoTracking().Where(a => a.DesPaquete.Contains(DesPaquete)).ToList();
+                if (categoria.Count > 1 && !String.IsNullOrEmpty(CodEstado))
+                {
+                    categoria = categoria.Where(a => a.CodEstado.Contains(CodEstado)).ToList();
+                }
+            }
+            else
+            {
+                return contexto.SaEvePaquetes.AsNoTracking().ToList();
+            }
+            return categoria;
+        }
         public decimal? ObtenerCodigo(string descripcion)
         {
             return contexto.SaEvePaquetes.Where(a => a.DesPaquete == descripcion).FirstOrDefault().CodPaquete;

@@ -31,6 +31,7 @@ namespace DCCEVENTOS
         private void Nuevo()
         {
             toolStripGuardar.Enabled = true;
+            toolStripButton1.Enabled = false;
             TbDes.Text = string.Empty;
             textBox1.Text = string.Empty;
             CBESTADO.SelectedIndex = 0;
@@ -49,6 +50,7 @@ namespace DCCEVENTOS
         public void Buscar()
         {
             toolStripGuardar.Enabled = false;
+            toolStripButton1.Enabled = true;
             ConsultaTipoTrenasacciones consulta = new ConsultaTipoTrenasacciones();
             consulta.ShowDialog();
             EventosContext contexto = new EventosContext();
@@ -88,6 +90,10 @@ namespace DCCEVENTOS
                 {
                     MessageBox.Show(rGuardar.error);
                 }
+                else
+                {
+                    MessageBox.Show("SE ACTUALIZO CORRECTAMENTE EL SALON");
+                }
                 CargarInformacion();
             }
             catch (Exception e)
@@ -117,6 +123,10 @@ namespace DCCEVENTOS
                 if (!String.IsNullOrEmpty(rGuardar.error))
                 {
                     MessageBox.Show(rGuardar.error);
+                }
+                else
+                {
+                    MessageBox.Show("SE GUARDO CORRECTAMENTE EL SALON");
                 }
                 CargarInformacion();
             }

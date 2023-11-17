@@ -17,6 +17,7 @@ namespace DatosManejo
             int? ultimoCodigoEvento = contexto.SaEvePaqueteDetalles.Max(a => a.CodDp);
             return ultimoCodigoEvento + 1;
         }
+        
         public List<SaEvePaqueteDetalle> Obtener(int coddetallepaq = 0, int coddp = 0, int codpaquete = 0, int codconceptos = 0, string codestado = "")
         {
             List<SaEvePaqueteDetalle> porcentajes = new List<SaEvePaqueteDetalle>();
@@ -222,7 +223,7 @@ namespace DatosManejo
             }
             catch (Exception)
             {
-                return new InfoCompartidaCapas() { error = $"Error al eliminar {paquetes.CodDp}" };
+                return new InfoCompartidaCapas() { error = $"Error al eliminar {paquetes.CodConceptos}" };
             }
         }
         public void Dispose()

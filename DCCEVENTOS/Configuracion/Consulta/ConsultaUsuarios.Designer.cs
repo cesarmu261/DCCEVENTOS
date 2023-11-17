@@ -91,6 +91,7 @@
             Controls.Add(BTNBus);
             Controls.Add(label1);
             Name = "ConsultaUsuarios";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ConsultaUsuarios";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);

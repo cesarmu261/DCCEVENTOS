@@ -158,10 +158,10 @@
             conceptosexistentes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             conceptosexistentes.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             conceptosexistentes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            conceptosexistentes.Location = new Point(411, 73);
+            conceptosexistentes.Location = new Point(389, 73);
             conceptosexistentes.Name = "conceptosexistentes";
             conceptosexistentes.RowTemplate.Height = 25;
-            conceptosexistentes.Size = new Size(723, 281);
+            conceptosexistentes.Size = new Size(797, 281);
             conceptosexistentes.TabIndex = 0;
             // 
             // CBEstado
@@ -224,6 +224,7 @@
             TbPrecio.Name = "TbPrecio";
             TbPrecio.Size = new Size(264, 23);
             TbPrecio.TabIndex = 6;
+            TbPrecio.KeyPress += textBox2_KeyPress;
             // 
             // TbIVA
             // 
@@ -232,6 +233,7 @@
             TbIVA.Name = "TbIVA";
             TbIVA.Size = new Size(264, 23);
             TbIVA.TabIndex = 7;
+            TbIVA.KeyPress += textBox2_KeyPress;
             // 
             // TbTotal
             // 
@@ -247,7 +249,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripNuevo, toolStripGuardar, toolStripButton1, toolStripSeparator1, toolStripBuscar, toolStripSeparator2, toolStripSalir });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1134, 31);
+            toolStrip1.Size = new Size(1198, 31);
             toolStrip1.TabIndex = 68;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -274,6 +276,7 @@
             // toolStripButton1
             // 
             toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton1.Enabled = false;
             toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
             toolStripButton1.ImageTransparentColor = Color.Magenta;
             toolStripButton1.Name = "toolStripButton1";
@@ -318,7 +321,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { opcionesToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1134, 24);
+            menuStrip1.Size = new Size(1198, 24);
             menuStrip1.TabIndex = 67;
             menuStrip1.Text = "Opciones";
             // 
@@ -386,7 +389,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1134, 384);
+            ClientSize = new Size(1198, 368);
             Controls.Add(textBox2);
             Controls.Add(label11);
             Controls.Add(toolStrip1);

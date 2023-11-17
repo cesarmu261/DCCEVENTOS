@@ -3,6 +3,7 @@ using DatosManejo;
 using DCCEVENTOS.CBusqueda;
 using Entidades;
 using InfoCompartidaCaps;
+using Microsoft.ReportingServices.RdlExpressions.ExpressionHostObjectModel;
 using Negocio;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,7 @@ namespace DCCEVENTOS
         private void Nuevo()
         {
             toolStripGuardar.Enabled = true;
+            toolStripButton1.Enabled = false;
             TbDes.Text = string.Empty;
             CBESTADO.SelectedIndex = 0;
             CargarInformacion();
@@ -48,6 +50,7 @@ namespace DCCEVENTOS
         public void Buscar()
         {
             toolStripGuardar.Enabled = false;
+            toolStripButton1.Enabled = true;
             ConsultadeCancelaciones consulta = new ConsultadeCancelaciones();
             consulta.ShowDialog();
             EventosContext contexto = new EventosContext();
@@ -83,6 +86,10 @@ namespace DCCEVENTOS
                 {
                     MessageBox.Show(rGuardar.error);
                 }
+                else
+                {
+                    MessageBox.Show("SE ACTUALIZO CORRECTAMENTE EL TIPO DE CANCELACIONES");
+                }
                 CargarInformacion();
             }
             catch (Exception e)
@@ -110,6 +117,10 @@ namespace DCCEVENTOS
                 if (!String.IsNullOrEmpty(rGuardar.error))
                 {
                     MessageBox.Show(rGuardar.error);
+                }
+                else
+                {
+                    MessageBox.Show("SE GUARDO CORRECTAMENTE EL TIPO DE CANCELACIONES");
                 }
                 CargarInformacion();
             }

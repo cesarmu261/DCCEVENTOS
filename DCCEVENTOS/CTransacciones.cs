@@ -31,6 +31,7 @@ namespace DCCEVENTOS
         private void Nuevo()
         {
             toolStripGuardar.Enabled = true;
+            toolStripButton1.Enabled = false;
             TbDes.Text = string.Empty;
             CargarInformacion();
         }
@@ -43,6 +44,7 @@ namespace DCCEVENTOS
         public void Buscar()
         {
             toolStripGuardar.Enabled = false;
+            toolStripButton1.Enabled = true;
             ConsultaTipoTrenasacciones consulta = new ConsultaTipoTrenasacciones();
             consulta.ShowDialog();
             EventosContext contexto = new EventosContext();
@@ -71,14 +73,16 @@ namespace DCCEVENTOS
                 {
                     MessageBox.Show(rGuardar.error);
                 }
+                else
+                {
+                    MessageBox.Show("SE ACTUALIZO CORRECTAMENTE LA TRANSSACION");
+                }
                 CargarInformacion();
             }
             catch (Exception e)
             {
-
                 MessageBox.Show("DEBE CAPTURAR TODOS LOS DATOS PARA EL REGISTRO");
             }
-            toolStripGuardar.Enabled = true;
         }
 
         private void AgregarRegistro()
@@ -97,6 +101,10 @@ namespace DCCEVENTOS
                 if (!String.IsNullOrEmpty(rGuardar.error))
                 {
                     MessageBox.Show(rGuardar.error);
+                }
+                else
+                {
+                    MessageBox.Show("SE GUARDO CORRECTAMENTE LA TRANSSACION");
                 }
                 CargarInformacion();
             }

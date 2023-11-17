@@ -58,11 +58,13 @@
             actualizarToolStripMenuItem = new ToolStripMenuItem();
             buscarToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
+            pictureBox3 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             toolStrip1.SuspendLayout();
             menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -104,6 +106,7 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -121,23 +124,27 @@
             // 
             Codigo.HeaderText = "Codigo";
             Codigo.Name = "Codigo";
+            Codigo.ReadOnly = true;
             Codigo.Width = 71;
             // 
             // Descripcion
             // 
             Descripcion.HeaderText = "Descripcion";
             Descripcion.Name = "Descripcion";
+            Descripcion.ReadOnly = true;
             Descripcion.Width = 94;
             // 
             // Cantidad
             // 
             Cantidad.HeaderText = "Cantidad";
             Cantidad.Name = "Cantidad";
+            Cantidad.ReadOnly = true;
             Cantidad.Width = 80;
             // 
             // Coddp
             // 
             Coddp.CharacterCasing = CharacterCasing.Upper;
+            Coddp.Enabled = false;
             Coddp.Location = new Point(90, 71);
             Coddp.Name = "Coddp";
             Coddp.Size = new Size(248, 23);
@@ -189,6 +196,7 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 79;
             pictureBox2.TabStop = false;
+            pictureBox2.Visible = false;
             pictureBox2.Click += pictureBox2_Click;
             // 
             // toolStrip1
@@ -224,6 +232,7 @@
             // toolStripButton1
             // 
             toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton1.Enabled = false;
             toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
             toolStripButton1.ImageTransparentColor = Color.Magenta;
             toolStripButton1.Name = "toolStripButton1";
@@ -314,11 +323,23 @@
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(25, 218);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(23, 20);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 82;
+            pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
+            // 
             // CPaqueteDetalle
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(568, 480);
+            Controls.Add(pictureBox3);
             Controls.Add(toolStrip1);
             Controls.Add(menuStrip1);
             Controls.Add(pictureBox2);
@@ -341,6 +362,7 @@
             toolStrip1.PerformLayout();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -375,5 +397,6 @@
         private ToolStripMenuItem actualizarToolStripMenuItem;
         private ToolStripMenuItem buscarToolStripMenuItem;
         private ToolStripMenuItem salirToolStripMenuItem;
+        private PictureBox pictureBox3;
     }
 }

@@ -44,7 +44,7 @@ namespace DCCEVENTOS
             }
             catch (Exception e)
             {
-                MessageBox.Show("DEBE CAPTURAR TODOS LOS DATOS PARA hacer claculos");
+                MessageBox.Show("DEBE CAPTURAR EL IMPORTE Y LA CANTIDAD PARA PODER HACER EL CALCULO");
             }
         }
 
@@ -104,7 +104,10 @@ namespace DCCEVENTOS
                 {
                     MessageBox.Show(rGuardar.error);
                 }
-
+                else
+                {
+                    MessageBox.Show("SE GUARDO CORRECTAMENTE EL CONCEPTO");
+                }
                 CargarInformacion();
             }
             catch (Exception e)
@@ -125,10 +128,12 @@ namespace DCCEVENTOS
             CBCodPor.SelectedIndex = 0;
             textBox1.Text = string.Empty;
             toolStripGuardar.Enabled = true;
+            toolStripButton1.Enabled = false;
             CargarInformacion();
         }
         private void Buscar()
         {
+            toolStripButton1.Enabled = true;
             toolStripGuardar.Enabled = false;
             ConsultadeConceptos consulta = new ConsultadeConceptos();
             consulta.ShowDialog();
@@ -192,6 +197,10 @@ namespace DCCEVENTOS
             if (!String.IsNullOrEmpty(rGuardar.error))
             {
                 MessageBox.Show(rGuardar.error);
+            }
+            else
+            {
+                MessageBox.Show("SE ACTUALIZO CORRECTAMENTE EL CONCEPTO");
             }
             CargarInformacion();
             toolStripGuardar.Enabled = true;

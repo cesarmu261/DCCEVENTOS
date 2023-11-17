@@ -23,7 +23,6 @@ namespace DCCEVENTOS
         private NMenu nmenu;
         private Calendario.Calendario calendario;
         public static int CodUsu = 0;
-
         public CPrincipal()
         {
             InitializeComponent();

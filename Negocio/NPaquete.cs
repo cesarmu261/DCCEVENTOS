@@ -39,18 +39,18 @@ namespace Negocio
         public DataTable ObtenerPaquete(string Descripcion)
         {
             EventosContext contexto = new EventosContext();
-            List<SaEvePaquete> conceptosList = new DMPaquete(contexto).Obtener(0, Descripcion);
+            List<SaEvePaquete> conceptosList = new DMPaquete(contexto).Obtener2(Descripcion);
 
             DataTable conceptosTable = new DataTable();
-            conceptosTable.Columns.Add("CODIGO");  // Reemplaza "Columna1" con el nombre de la columna real que deseas incluir
+            conceptosTable.Columns.Add("CODIGO"); 
             conceptosTable.Columns.Add("DESCRIPCION");
             conceptosTable.Columns.Add("ESTADO");
 
             foreach (SaEvePaquete concepto in conceptosList)
             {
                 DataRow row = conceptosTable.NewRow();
-                row["CODIGO"] = concepto.CodPaquete;  // Reemplaza "Columna1" y "Propiedad1" con los nombres reales de la columna y propiedad que deseas incluir
-                row["DESCRIPCION"] = concepto.DesPaquete;  // Reemplaza "Columna2" y "Propiedad2" con los nombres reales de la columna y propiedad que deseas incluir
+                row["CODIGO"] = concepto.CodPaquete;  
+                row["DESCRIPCION"] = concepto.DesPaquete;  
                 row["ESTADO"] = ObtenerNombreTipoestado(concepto.CodEstado);
                 conceptosTable.Rows.Add(row);
             }

@@ -99,7 +99,7 @@
             // 
             UsuarioToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cambiarUsuarioToolStripMenuItem, cambiarContraseñToolStripMenuItem });
             UsuarioToolStripMenuItem.Name = "UsuarioToolStripMenuItem";
-            UsuarioToolStripMenuItem.Size = new Size(180, 22);
+            UsuarioToolStripMenuItem.Size = new Size(150, 22);
             UsuarioToolStripMenuItem.Text = "Usuario";
             // 
             // cambiarUsuarioToolStripMenuItem
@@ -120,7 +120,7 @@
             // 
             CatalogoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { porcentajeToolStripMenuItem1, categoriaToolStripMenuItem1, salonToolStripMenuItem1, tipoDeTransaccionesToolStripMenuItem1, comprobanteToolStripMenuItem, tipoDeCancelacionesToolStripMenuItem, tipoDePagosToolStripMenuItem, conceptoToolStripMenuItem1, paqueteToolStripMenuItem1, paqueteDetalleToolStripMenuItem1, clientesToolStripMenuItem1, eventoToolStripMenuItem });
             CatalogoToolStripMenuItem.Name = "CatalogoToolStripMenuItem";
-            CatalogoToolStripMenuItem.Size = new Size(180, 22);
+            CatalogoToolStripMenuItem.Size = new Size(150, 22);
             CatalogoToolStripMenuItem.Text = "Catalogo";
             // 
             // porcentajeToolStripMenuItem1
@@ -211,34 +211,34 @@
             // 
             configuracionToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { seguridadToolStripMenuItem, rolToolStripMenuItem, permisosToolStripMenuItem, usuarioToolStripMenuItem1 });
             configuracionToolStripMenuItem.Name = "configuracionToolStripMenuItem";
-            configuracionToolStripMenuItem.Size = new Size(180, 22);
+            configuracionToolStripMenuItem.Size = new Size(150, 22);
             configuracionToolStripMenuItem.Text = "Configuracion";
             // 
             // seguridadToolStripMenuItem
             // 
             seguridadToolStripMenuItem.Name = "seguridadToolStripMenuItem";
-            seguridadToolStripMenuItem.Size = new Size(180, 22);
+            seguridadToolStripMenuItem.Size = new Size(122, 22);
             seguridadToolStripMenuItem.Text = "Menu";
             seguridadToolStripMenuItem.Click += seguridadToolStripMenuItem_Click;
             // 
             // rolToolStripMenuItem
             // 
             rolToolStripMenuItem.Name = "rolToolStripMenuItem";
-            rolToolStripMenuItem.Size = new Size(180, 22);
+            rolToolStripMenuItem.Size = new Size(122, 22);
             rolToolStripMenuItem.Text = "Rol";
             rolToolStripMenuItem.Click += rolToolStripMenuItem_Click;
             // 
             // permisosToolStripMenuItem
             // 
             permisosToolStripMenuItem.Name = "permisosToolStripMenuItem";
-            permisosToolStripMenuItem.Size = new Size(180, 22);
+            permisosToolStripMenuItem.Size = new Size(122, 22);
             permisosToolStripMenuItem.Text = "Permisos";
             permisosToolStripMenuItem.Click += permisosToolStripMenuItem_Click;
             // 
             // usuarioToolStripMenuItem1
             // 
             usuarioToolStripMenuItem1.Name = "usuarioToolStripMenuItem1";
-            usuarioToolStripMenuItem1.Size = new Size(180, 22);
+            usuarioToolStripMenuItem1.Size = new Size(122, 22);
             usuarioToolStripMenuItem1.Text = "Usuarios";
             usuarioToolStripMenuItem1.Click += usuarioToolStripMenuItem1_Click;
             // 
@@ -252,7 +252,7 @@
             // cobrosToolStripMenuItem
             // 
             cobrosToolStripMenuItem.Name = "cobrosToolStripMenuItem";
-            cobrosToolStripMenuItem.Size = new Size(180, 22);
+            cobrosToolStripMenuItem.Size = new Size(106, 22);
             cobrosToolStripMenuItem.Text = "Pagos";
             cobrosToolStripMenuItem.Click += cobrosToolStripMenuItem_Click;
             // 
@@ -389,7 +389,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(658, 144);
+            pictureBox1.Location = new Point(439, 114);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(533, 520);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;

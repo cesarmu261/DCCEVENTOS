@@ -717,6 +717,7 @@
             Calcular.TabIndex = 127;
             Calcular.Text = "Calcular";
             Calcular.UseVisualStyleBackColor = true;
+            Calcular.Visible = false;
             Calcular.Click += Calcular_Click;
             // 
             // TBSubtotal

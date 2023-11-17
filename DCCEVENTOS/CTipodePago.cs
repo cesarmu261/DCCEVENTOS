@@ -32,6 +32,8 @@ namespace DCCEVENTOS
         private void Nuevo()
         {
             toolStripGuardar.Enabled = true;
+            toolStripButton1.Enabled = false;
+            TBValor.Text = string.Empty;
             TbDes.Text = string.Empty;
             CBESTADO.SelectedIndex = 0;
             CargarInformacion();
@@ -48,6 +50,7 @@ namespace DCCEVENTOS
         public void Buscar()
         {
             toolStripGuardar.Enabled = false;
+            toolStripButton1.Enabled = true;
             ConsultadeTipoPago consulta = new ConsultadeTipoPago();
             consulta.ShowDialog();
             EventosContext contexto = new EventosContext();
@@ -85,6 +88,10 @@ namespace DCCEVENTOS
                 {
                     MessageBox.Show(rGuardar.error);
                 }
+                else
+                {
+                    MessageBox.Show("SE ACTUALIZO EL TIPO DE PAGO");
+                }
                 CargarInformacion();
             }
             catch (Exception e)
@@ -113,6 +120,10 @@ namespace DCCEVENTOS
                 if (!String.IsNullOrEmpty(rGuardar.error))
                 {
                     MessageBox.Show(rGuardar.error);
+                }
+                else
+                {
+                    MessageBox.Show("SE GUARDO EL TIPO DE PAGO");
                 }
                 CargarInformacion();
             }

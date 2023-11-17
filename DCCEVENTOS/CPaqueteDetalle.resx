@@ -256,4 +256,13 @@
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACwAAAAjCAYAAADv0ujUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wgAADsIBFShKgAAAAJxJREFUWEftz4sKgDAIQFH//6cXwQyRteaLmPOABNXyBm0zFRytgqPlDAaAZzxY
+        vpc/mI+E5SwSneIL6cxI3v2SO5jiETjU6J7VOcGIxr6Np/OCUXQoOi94FMrHk/pro7B7qNkzrfzBPAJn
+        RvLul9zBfLF0ueYMV8ErTGf7dQkNNS21nO3XZZZlHvIHe9L8+K/BGhUcrYKjbRbc2gVLtvot+xmmYQAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
 </root>

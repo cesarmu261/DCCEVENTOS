@@ -66,10 +66,9 @@ namespace Negocio
                 row["ESTADO"] = nEstado.ObtenerDescripcione(dat.CodEstado);
                 Table.Rows.Add(row);
             }
-
             return Table;
-
         }
+        
         public InfoCompartidaCapas Guardar(SaEvePaqueteDetalle paquete)
         {
             EventosContext contexto = new EventosContext();

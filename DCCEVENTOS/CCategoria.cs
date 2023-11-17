@@ -4,6 +4,7 @@ using DCCEVENTOS.CBusqueda;
 using DCCEVENTOS.Reportes;
 using Entidades;
 using InfoCompartidaCaps;
+using Microsoft.ReportingServices.RdlExpressions.ExpressionHostObjectModel;
 using Negocio;
 using System.Data;
 
@@ -25,6 +26,7 @@ namespace DCCEVENTOS
         private void Nuevo()
         {
             toolStripGuardar.Enabled = true;
+            toolStripButton1.Enabled = false;
             TbDes.Text = string.Empty;
             CBESTADO.SelectedIndex = 0;
             CargarInformacion();
@@ -42,6 +44,7 @@ namespace DCCEVENTOS
         public void Buscar()
         {
             toolStripGuardar.Enabled = false;
+            toolStripButton1.Enabled = true;
             ConsulatadeCategorias consulta = new ConsulatadeCategorias();
             consulta.ShowDialog();
             EventosContext contexto = new EventosContext();
@@ -79,6 +82,10 @@ namespace DCCEVENTOS
                 {
                     MessageBox.Show(rGuardar.error);
                 }
+                else
+                {
+                    MessageBox.Show("SE ACTUALIZO CORRECTAMENTE EL CATEGORIA");
+                }
                 CargarInformacion();
             }
             catch (Exception e)
@@ -108,6 +115,12 @@ namespace DCCEVENTOS
                 {
                     MessageBox.Show(rGuardar.error);
                 }
+
+                else
+                {
+                    MessageBox.Show("SE GUARDO CORRECTAMENTE EL CATEGORIA");
+                }
+                
                 CargarInformacion();
             }
             catch (Exception e)

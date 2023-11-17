@@ -51,6 +51,10 @@ namespace DCCEVENTOS
                 {
                     MessageBox.Show(rGuardar.error);
                 }
+                else
+                {
+                    MessageBox.Show("SE ACTUALIZO CORRECTAMENTE EL PAQUETE");
+                }
                 CargarInformacion();
             }
             catch (Exception e)
@@ -61,6 +65,7 @@ namespace DCCEVENTOS
         }
         private void Nuevo()
         {
+            toolStripButton1.Enabled = false;
             toolStripGuardar.Enabled = true;
             TbDes.Text = string.Empty;
             CBESTADO.SelectedIndex = 0;
@@ -84,6 +89,10 @@ namespace DCCEVENTOS
                 {
                     MessageBox.Show(rGuardar.error);
                 }
+                else
+                {
+                    MessageBox.Show("SE GUARDO CORRECTAMENTE EL PAQUETE");
+                }
                 CargarInformacion();
             }
             catch (Exception e)
@@ -94,6 +103,7 @@ namespace DCCEVENTOS
         private void Buscar()
         {
             toolStripGuardar.Enabled = false;
+            toolStripButton1.Enabled = true;
             ConsultadePaquete consulta = new ConsultadePaquete();
             consulta.ShowDialog();
             EventosContext context = new EventosContext();

@@ -14,8 +14,6 @@ namespace DCCEVENTOS
         private NEstado nestado;
         private NRegimen nregimen;
         private NCliente nCliente;
-
-
         public CClientes()
         {
             InitializeComponent();
@@ -23,7 +21,6 @@ namespace DCCEVENTOS
             nCliente = new NCliente();
             nregimen = new NRegimen();
             Cargainformacion();
-            
         }
         public void Cargainformacion()
         {
@@ -59,8 +56,9 @@ namespace DCCEVENTOS
             comboBox1.SelectedIndex = 0;
             CBEstado.SelectedIndex = 0;
             Cargainformacion();
-            toolStripButton1.Enabled = true;
+            toolStripButton1.Enabled = false;
             toolStripGuardar.Enabled = true;
+            
         }
 
         public void AgregarInformacion()
@@ -103,6 +101,10 @@ namespace DCCEVENTOS
                 if (!String.IsNullOrEmpty(rGuardar.error))
                 {
                     MessageBox.Show(rGuardar.error);
+                }
+                else
+                {
+                    MessageBox.Show("SE GUARDO CORRECTAMENTE EL CLIENTE");
                 }
             }
             catch (Exception e)
@@ -153,6 +155,11 @@ namespace DCCEVENTOS
                 {
                     MessageBox.Show(rGuardar.error);
                 }
+                else
+                {
+                    MessageBox.Show("SE ACTUALIZO CORRECTAMENTE EL CLIENTE");
+                }
+
             }
             catch (Exception e)
             {
@@ -203,7 +210,7 @@ namespace DCCEVENTOS
                     toolStripButton1.Enabled = false;
                 }
             }
-            else 
+            else
             {
                 return;
             }
