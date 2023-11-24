@@ -22,29 +22,23 @@ namespace Negocio
 
             return eventos;
         }
+        public List<SaEvento> ObtenerFechas(DateTime fechaInicial,int cod)
+        {
+            EventosContext contexto = new EventosContext();
+            List<SaEvento> list = new DMEvento(contexto).Obtener(0, 0, 0, "", fechaInicial);
 
-        //public DataTable Obtener2( DateTime fecha)
-        //{
-        //    EventosContext contexto = new EventosContext();
-        //    List<SaEvento> List = new DMEvento(contexto).Obtener(0, 0,0, "", fecha);
+            
+            foreach (SaEvento ev in list)
+            {
+                // Check if the event date is within the specified range
+                if (ev.Fecha == fechaInicial)
+                {
+                    cod = ev.CodEvento;
+                }
+            }
+            return list;
+        }
 
-        //    DataTable Table = new DataTable();
-        //    Table.Columns.Add("CODIGO");  // Reemplaza "Columna1" con el nombre de la columna real que deseas incluir
-        //    Table.Columns.Add("DESCRIPCION");
-        //    Table.Columns.Add("FECHA");
-
-        //    foreach (SaEvento ev in List)
-        //    {
-        //        DataRow row = Table.NewRow();
-        //        row["CODIGO"] = ev.CodEvento;  // Reemplaza "Columna1" y "Propiedad1" con los nombres reales de la columna y propiedad que deseas incluir
-        //        row["DESCRIPCION"] = ev.DesEvento;  // Reemplaza "Columna2" y "Propiedad2" con los nombres reales de la columna y propiedad que deseas incluir
-        //        row["FECHA"] = ev.Fecha;
-        //        Table.Rows.Add(row);
-        //    }
-
-        //    return Table;
-
-        //}
         public DataTable Obtener2(DateTime fechaInicial, DateTime fechaFinal)
         {
             EventosContext contexto = new EventosContext();

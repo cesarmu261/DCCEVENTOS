@@ -36,7 +36,6 @@
   <ItemGroup>
     <ProjectReference Include="..\DatosManejo\DatosManejo.csproj" />
     <ProjectReference Include="..\Negocio\Negocio.csproj" />
-    <ProjectReference Include="..\TextLabel\TextLabel.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -44,6 +43,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Update="Reportes\DataSet1.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -60,6 +64,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Update="Reportes\DataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>

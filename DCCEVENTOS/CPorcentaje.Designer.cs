@@ -283,8 +283,6 @@
         private Label label3;
         private Label label1;
         private Label label2;
-        private TextLabel.ControlTextoEtiqueta TBDesPor;
-        private TextLabel.ControlTextoEtiqueta TBPorciento;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem opcionesToolStripMenuItem;
         private ToolStripMenuItem nuevoToolStripMenuItem;

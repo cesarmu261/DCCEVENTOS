@@ -255,7 +255,6 @@
         private Label label3;
         private Label label1;
         private DataGridView CategoriaExistencia;
-        private TextLabel.ControlTextoEtiqueta TBDESCAT;
         private TextBox TbDes;
         private ToolStrip toolStrip1;
         private ToolStripButton toolStripNuevo;

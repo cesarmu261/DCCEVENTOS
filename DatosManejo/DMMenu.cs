@@ -47,9 +47,24 @@ namespace DatosManejo
             }
             return datos;
         }
+        //public int? ObtenerCodigo(string descripcion)
+        //{
+        //    return contexto.Menus.Where(a => a.Nombre == descripcion).FirstOrDefault().IdMenu;
+        //}
         public int? ObtenerCodigo(string descripcion)
         {
-            return contexto.Menus.Where(a => a.Nombre == descripcion).FirstOrDefault().IdMenu;
+            var menu = contexto.Menus.FirstOrDefault(a => a.Nombre == descripcion);
+
+            // Verificar si el menú existe
+            if (menu != null)
+            {
+                return menu.IdMenu;
+            }
+            else
+            {
+                // El menú no existe, puedes devolver null o algún otro valor predeterminado
+                return null;
+            }
         }
         public string? Obtenedescripcion(int? cod)
         {

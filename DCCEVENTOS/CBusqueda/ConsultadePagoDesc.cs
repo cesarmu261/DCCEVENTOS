@@ -79,7 +79,6 @@ namespace DCCEVENTOS.CBusqueda
                 SSCod = dataGridView2.SelectedRows[0].Cells[0].Value.ToString();
 
                 NPago.SSCod = Convert.ToInt32(SSCod);
-
                 base.Close();
             }
         }

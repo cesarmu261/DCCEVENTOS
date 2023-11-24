@@ -7,13 +7,11 @@ namespace DatosManejo
 {
     public class DMEvento : IDisposable
     {
-
         private EventosContext contexto { get; set; }
         public DMEvento(EventosContext contexto)
         {
             this.contexto = contexto;
         }
-
         public List<SaEvento> Obtener(int CodEvento = 0, int CodSalon=0, int Codcliente = 0, string descripcionEvento = ""
             , DateTime fecha = new DateTime(), string observaciones = "", string codestado = "")
         {

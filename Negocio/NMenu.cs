@@ -109,12 +109,21 @@ namespace Negocio
             EventosContext context = new EventosContext();
             return (from c in new DMMenu(context).Obtener(Cod, Descripcion) select c.Nombre).ToArray();
         }
+        //public int ObtenerDescripcionesCod(string descripcion = "")
+        //{
+        //    EventosContext context = new EventosContext();
+        //    return (int)new DMMenu(context).ObtenerCodigo(descripcion);
+        //}
         public int ObtenerDescripcionesCod(string descripcion = "")
         {
             EventosContext context = new EventosContext();
-            return (int)new DMMenu(context).ObtenerCodigo(descripcion);
+
+            // Obtén el valor nullable y usa ?? para proporcionar un valor predeterminado (en este caso, 0).
+            int? codigoNullable = new DMMenu(context).ObtenerCodigo(descripcion) ?? 0;
+
+            // Ahora puedes convertir el valor nullable a un entero sin problemas.
+            return (int)codigoNullable;
         }
-      
         public string ObtenerDescripcione(int? cod = 0)
         {
             EventosContext context = new EventosContext();

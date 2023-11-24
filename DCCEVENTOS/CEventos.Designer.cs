@@ -600,9 +600,6 @@
         private Label label4;
         private ComboBox CBEstado;
         private Label label5;
-        private TextLabel.ControlTextoEtiqueta codigoBarras;
-        private TextLabel.ControlTextoEtiqueta descripcion;
-        private TextLabel.ControlTextoEtiqueta codigoCliente;
         private FlowLayoutPanel flowLayoutPanel1;
         private Label lblCajas;
         private ComboBox CBPaquete;

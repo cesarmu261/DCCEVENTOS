@@ -251,7 +251,6 @@
 
         #endregion
 
-        private TextLabel.ControlTextoEtiqueta TBDesPaq;
         private DataGridView PaqueteExistencia;
         private ComboBox CBESTADO;
         private Label label3;

@@ -440,11 +440,6 @@
         private ComboBox CBEstado;
         private Label label3;
         private Label label2;
-        private TextLabel.ControlTextoEtiqueta TBDesCon;
-        private TextLabel.ControlTextoEtiqueta TBCostosCon;
-        private TextLabel.ControlTextoEtiqueta controlTextoEtiqueta3;
-        private TextLabel.ControlTextoEtiqueta controlTextoEtiqueta4;
-        private TextLabel.ControlTextoEtiqueta TBCostosprecio;
         private Label label10;
         private TextBox TBCantidad;
         private TextBox TbDes;

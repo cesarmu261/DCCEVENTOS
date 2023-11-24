@@ -39,25 +39,7 @@ namespace DCCEVENTOS
             pictureBox1.Top = (this.ClientSize.Height - pictureBox1.Height) / 2;
         }
         public List<Permiso> Permisos { get; set; }
-        // Función para habilitar o deshabilitar elementos del menú
-        //public void ActualizarMenu()
-        //{
-        //    if (Permisos != null)
-        //    {
-        //        foreach (ToolStripMenuItem menuItem in menuStrip1.Items)
-        //        {
-        //            string nombreMenu = menuItem.Text;
-        //            int men = nmenu.ObtenerDescripcionesCod(nombreMenu);
-        //            Permiso permiso = Permisos.FirstOrDefault(p => p.IdMenu == men);
-
-        //            if (permiso != null)
-        //            {
-        //                //menuItem.Enabled = (bool)permiso.Activo;
-        //                menuItem.Visible = (bool)permiso.Activo;
-        //            }
-        //        }
-        //    }
-        //}
+        
         public void ActualizarMenu(ToolStripItemCollection items)
         {
             if (Permisos != null)
@@ -67,12 +49,18 @@ namespace DCCEVENTOS
                     if (menuItem is ToolStripMenuItem)
                     {
                         string nombreMenu = menuItem.Text;
-                        int men = nmenu.ObtenerDescripcionesCod(nombreMenu);
-                        Permiso permiso = Permisos.FirstOrDefault(p => p.IdMenu == men);
-                        if (permiso != null)
+                        int? men = nmenu.ObtenerDescripcionesCod(nombreMenu);
+
+                        // Verificar si se obtuvo un código de menú válido
+                        if (men.HasValue)
                         {
-                            //menuItem.Enabled = (bool)permiso.Activo;
-                            menuItem.Visible = (bool)permiso.Activo;
+                            Permiso permiso = Permisos.FirstOrDefault(p => p.IdMenu == men.Value);
+
+                            if (permiso != null)
+                            {
+                                //menuItem.Enabled = (bool)permiso.Activo;
+                                menuItem.Visible = (bool)permiso.Activo;
+                            }
                         }
                         // Llama a la función de manera recursiva para manejar los submenús.
                         ActualizarMenu(menuItem.DropDownItems);
@@ -115,6 +103,7 @@ namespace DCCEVENTOS
             CEventos form = new CEventos();
             form.Show();
         }
+
         private void CPrincipal_Load(object sender, EventArgs e)
         {
             Calendario.Calendario formSecundario = new Calendario.Calendario();
