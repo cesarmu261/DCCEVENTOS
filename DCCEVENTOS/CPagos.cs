@@ -41,7 +41,6 @@ namespace DCCEVENTOS
             CBTransaccion.SelectedIndex = 0;
             CBEstado.SelectedIndex = 0;
             TBObservacion.Text = string.Empty;
-
             TBClientes.Text = string.Empty;
             TBDescripcion.Text = string.Empty;
             dateTimePicker1.Text = string.Empty;
@@ -136,26 +135,21 @@ namespace DCCEVENTOS
                                 montos = montos + t.Montoapagar;
                                 restagarantia = montos - sumatoriaGarantia;
                                 sumagarantia = resultados + sumatoriaGarantia;
-
                                 CostoEvento.Text = resultadoFinal.ToString();
                                 resultado -= montos; // Resta el monto del anticipo
                                 MontoPagado.Text = montos.ToString();  // Actualiza el monto pagado
                                 SaldoPendiente.Text = (resultados > 0 ? resultados : 0).ToString();
-
                                 Penalizacion.Text = sumatoriaPenalizacion.ToString();
                                 break;
-
                             case 2: // Abono
                                 resultados = resultados - t.Montoapagar;
                                 montos = montos + t.Montoapagar;
                                 restagarantia = montos - sumatoriaGarantia;
                                 sumagarantia = resultados + sumatoriaGarantia;
-
                                 CostoEvento.Text = resultadoFinal.ToString();
                                 resultado -= montos; // Resta el monto del anticipo
                                 MontoPagado.Text = montos.ToString();  // Actualiza el monto pagado
                                 SaldoPendiente.Text = (resultados > 0 ? resultados : 0).ToString();
-
                                 Penalizacion.Text = sumatoriaPenalizacion.ToString();
                                 break;
 
@@ -164,56 +158,44 @@ namespace DCCEVENTOS
                                 montos = montos + t.Montoapagar;
                                 restagarantia = montos - sumatoriaGarantia;
                                 sumagarantia = resultados + sumatoriaGarantia;
-
                                 CostoEvento.Text = resultadoFinal.ToString();
                                 resultado = montos; // Seteamos el monto a cobrar como saldo pendiente
                                 MontoPagado.Text = montos.ToString();  // Actualiza el monto pagado
-                                //SaldoPendiente.Text = resultado.ToString(); // Actualiza el saldo pendiente
                                 SaldoPendiente.Text = (resultados > 0 ? resultados : 0).ToString();
-
                                 Penalizacion.Text = sumatoriaPenalizacion.ToString();
                                 break;
-
                             case 4: // Garantía
                                 restagarantia = montos - sumatoriaGarantia;
                                 sumagarantia = montos + sumatoriaGarantia;
-
                                 CostoEvento.Text = resultadoFinal.ToString();
                                 MontoPagado.Text = montos.ToString();
                                 label27.Text = "PAGADO";
                                 SaldoPendiente.Text = (resultados > 0 ? resultados : 0).ToString(); // Actualiza el saldo pendiente
                                 SaldoaFavor.Text = 5000.ToString("N2");
-
                                 Penalizacion.Text = sumatoriaPenalizacion.ToString();
                                 break;
                             case 5: // GASTOS
                                 restagarantia = montos - sumatoriaGarantia;
                                 sumagarantia = montos + sumatoriaGarantia;
-
                                 CostoEvento.Text = resultadoFinal.ToString();
                                 MontoPagado.Text = montos.ToString();
                                 SaldoPendiente.Text = (resultados > 0 ? resultados : 0).ToString(); // Actualiza el saldo pendiente
-
                                 Penalizacion.Text = sumatoriaPenalizacion.ToString();
                                 break;
                             case 6: // Devoluciones
                                 restagarantia = montos - sumatoriaGarantia;
                                 sumagarantia = montos + sumatoriaGarantia;
-
                                 CostoEvento.Text = resultadoFinal.ToString();
                                 MontoPagado.Text = montos.ToString();
                                 SaldoPendiente.Text = (resultados > 0 ? resultados : 0).ToString(); // Actualiza el saldo pendiente
-
                                 Penalizacion.Text = sumatoriaPenalizacion.ToString();
                                 break;
-                            default:
+                            default://Por Defecto
                                 restagarantia = montos - sumatoriaGarantia;
                                 sumagarantia = montos + sumatoriaGarantia;
-
                                 CostoEvento.Text = resultadoFinal.ToString();
                                 MontoPagado.Text = montos.ToString();
                                 SaldoPendiente.Text = (resultados > 0 ? resultados : 0).ToString(); // Actualiza el saldo pendiente
-
                                 Penalizacion.Text = sumatoriaPenalizacion.ToString();
                                 break;
                         }
@@ -638,14 +620,12 @@ namespace DCCEVENTOS
                 int cod = Convert.ToInt32(Npago.ObtenerDescripcionesCod());
                 Factura rE = new Factura(cod);
                 rE.Show();
-                //Nuevo();
             }
         }
         private void toolStripBuscar_Click(object sender, EventArgs e)
         {
             Nuevo();
             Buscar();
-            //CalculosdePago();
         }
         private void toolStripNuevo_Click(object sender, EventArgs e)
         {
@@ -704,7 +684,6 @@ namespace DCCEVENTOS
                 if (CBComprante.SelectedIndex == 0)
                 {
                     MontoaCobrar.Text = (0.00).ToString();
-                    //textBox1.Text = MontoaPagar.Text;
                 }
                 else if (CBComprante.SelectedIndex == 1)
                 {
@@ -727,7 +706,6 @@ namespace DCCEVENTOS
             {
                 MontoaCobrar.Text = SaldoPendiente.Text;
                 CalculosdePago();
-
             }
             if (CBTransaccion.SelectedIndex == 3)
             {
@@ -772,7 +750,6 @@ namespace DCCEVENTOS
                 devolucion.Montoacobrar = Convert.ToDecimal(SaldoaFavor.Text);
                 devolucion.Penalizacion = Convert.ToDecimal(Penalizacion.Text);
                 devolucion.Montoapagar = Convert.ToDecimal(montoPenalizacion.ToString("N2"));
-
                 // Guarda la devolución en la base de datos
                 InfoCompartidaCapas rGuardar = Npago.Guardar(devolucion);
                 if (!String.IsNullOrEmpty(rGuardar.error))

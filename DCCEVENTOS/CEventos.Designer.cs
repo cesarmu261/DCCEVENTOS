@@ -273,7 +273,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(800, 705);
+            label9.Location = new Point(833, 705);
             label9.Name = "label9";
             label9.Size = new Size(79, 15);
             label9.TabIndex = 72;
@@ -284,9 +284,9 @@
             label10.AutoSize = true;
             label10.Location = new Point(720, 705);
             label10.Name = "label10";
-            label10.Size = new Size(74, 15);
+            label10.Size = new Size(93, 15);
             label10.TabIndex = 71;
-            label10.Text = "Ingreso Total";
+            label10.Text = "Costo de Evento";
             // 
             // toolStrip1
             // 
