@@ -40,7 +40,7 @@
             Lbdia.Font = new Font("Segoe UI Variable Text", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             Lbdia.Location = new Point(17, 15);
             Lbdia.Name = "Lbdia";
-            Lbdia.Size = new Size(25, 20);
+            Lbdia.Size = new Size(38, 31);
             Lbdia.TabIndex = 1;
             Lbdia.Text = "00";
             // 
@@ -52,20 +52,21 @@
             // 
             listBox1.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
             listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 21;
             listBox1.Location = new Point(10, 38);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(120, 56);
+            listBox1.Size = new Size(120, 46);
             listBox1.TabIndex = 2;
             listBox1.Visible = false;
             // 
             // UserControlDias
             // 
-            AutoScaleMode = AutoScaleMode.Inherit;
+            AutoScaleMode = AutoScaleMode.None;
             BorderStyle = BorderStyle.Fixed3D;
             Controls.Add(listBox1);
             Controls.Add(Lbdia);
             Name = "UserControlDias";
-            Size = new Size(133, 103);
+            Size = new Size(135, 100);
             Load += UserControlDias_Load;
             Click += UserControlDias_Click;
             ResumeLayout(false);

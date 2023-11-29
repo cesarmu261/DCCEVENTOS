@@ -38,6 +38,7 @@ public partial class SaEvePago
     public decimal? Ivaevento { get; set; }
 
     public decimal? Montoapagar { get; set; }
+    public decimal? Penalizacion { get; set; }
 
     public virtual SaEveTipoComprobante? CodComprobanteNavigation { get; set; }
 

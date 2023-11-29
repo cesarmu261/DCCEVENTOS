@@ -3,7 +3,10 @@ using DatosManejo;
 using Entidades;
 using InfoCompartidaCaps;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic;
+using System.ComponentModel;
 using System.Data;
+using System.Runtime.Serialization;
 
 namespace Negocio
 {
@@ -57,7 +60,8 @@ namespace Negocio
                     DataRow row = table.NewRow();
                     row["CODIGO"] = ev.CodEvento;
                     row["DESCRIPCION"] = ev.DesEvento;
-                    row["FECHA"] = ev.Fecha;
+                    //row["FECHA"] = ev.Fecha;
+                    row["FECHA"] = ((DateTime)ev.Fecha).ToString("dd/MM/yyyy"); 
                     table.Rows.Add(row);
                 }
             }

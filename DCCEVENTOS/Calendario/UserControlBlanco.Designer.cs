@@ -32,10 +32,9 @@
             // 
             // UserControlBlanco
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             Name = "UserControlBlanco";
-            Size = new Size(133, 100);
+            Size = new Size(135, 100);
             ResumeLayout(false);
         }
 

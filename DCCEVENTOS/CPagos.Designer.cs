@@ -33,6 +33,7 @@
             toolStripNuevo = new ToolStripButton();
             toolStripGuardar = new ToolStripButton();
             toolStripButton1 = new ToolStripButton();
+            toolStripButton3 = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
             toolStripBuscar = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
@@ -106,6 +107,7 @@
             pictureBox3 = new PictureBox();
             label26 = new Label();
             dateTimePicker3 = new DateTimePicker();
+            label27 = new Label();
             toolStrip1.SuspendLayout();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DTGDetalleEvento).BeginInit();
@@ -119,10 +121,10 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(24, 24);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripNuevo, toolStripGuardar, toolStripButton1, toolStripSeparator1, toolStripBuscar, toolStripSeparator2, toolStripButton2, toolStripSeparator3, toolStripSalir });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripNuevo, toolStripGuardar, toolStripButton1, toolStripButton3, toolStripSeparator1, toolStripBuscar, toolStripSeparator2, toolStripButton2, toolStripSeparator3, toolStripSalir });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(913, 31);
+            toolStrip1.Size = new Size(905, 31);
             toolStrip1.TabIndex = 67;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -155,6 +157,16 @@
             toolStripButton1.Size = new Size(28, 28);
             toolStripButton1.Text = "Cancelar";
             toolStripButton1.Click += toolStripButton1_Click;
+            // 
+            // toolStripButton3
+            // 
+            toolStripButton3.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton3.Image = Properties.Resources.devoluciones_faciles;
+            toolStripButton3.ImageTransparentColor = Color.Magenta;
+            toolStripButton3.Name = "toolStripButton3";
+            toolStripButton3.Size = new Size(28, 28);
+            toolStripButton3.Text = "Devolucion";
+            toolStripButton3.Click += toolStripButton3_Click;
             // 
             // toolStripSeparator1
             // 
@@ -207,7 +219,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { opcionesToolStripMenuItem, fcaturaToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(913, 24);
+            menuStrip1.Size = new Size(905, 24);
             menuStrip1.TabIndex = 66;
             menuStrip1.Text = "Opciones";
             // 
@@ -265,7 +277,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(279, 68);
+            label1.Location = new Point(310, 71);
             label1.Name = "label1";
             label1.Size = new Size(36, 15);
             label1.TabIndex = 68;
@@ -284,7 +296,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(13, 71);
+            label3.Location = new Point(15, 71);
             label3.Name = "label3";
             label3.Size = new Size(43, 15);
             label3.TabIndex = 70;
@@ -326,7 +338,7 @@
             // 
             // TBFolio
             // 
-            TBFolio.Location = new Point(387, 68);
+            TBFolio.Location = new Point(370, 68);
             TBFolio.Name = "TBFolio";
             TBFolio.Size = new Size(122, 23);
             TBFolio.TabIndex = 76;
@@ -588,9 +600,9 @@
             label19.AutoSize = true;
             label19.Location = new Point(278, 612);
             label19.Name = "label19";
-            label19.Size = new Size(112, 15);
+            label19.Size = new Size(73, 15);
             label19.TabIndex = 112;
-            label19.Text = "Penalizacion Evento";
+            label19.Text = "Penalizacion";
             // 
             // label20
             // 
@@ -628,7 +640,7 @@
             MontoaCobrar.Size = new Size(100, 23);
             MontoaCobrar.TabIndex = 116;
             MontoaCobrar.Text = "0";
-            MontoaCobrar.KeyPress += MontoaPagar_KeyPress;
+            MontoaCobrar.KeyPress += MontoaCobrar_KeyPress;
             // 
             // SaldoaFavor
             // 
@@ -672,8 +684,10 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(11, 388);
+            dataGridView1.Location = new Point(11, 395);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(878, 150);
@@ -750,9 +764,9 @@
             panel1.Controls.Add(label20);
             panel1.Controls.Add(TBIva);
             panel1.Controls.Add(label24);
-            panel1.Location = new Point(589, 571);
+            panel1.Location = new Point(583, 571);
             panel1.Name = "panel1";
-            panel1.Size = new Size(288, 70);
+            panel1.Size = new Size(294, 70);
             panel1.TabIndex = 130;
             panel1.Visible = false;
             // 
@@ -803,11 +817,19 @@
             dateTimePicker3.Size = new Size(204, 23);
             dateTimePicker3.TabIndex = 136;
             // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Location = new Point(566, 579);
+            label27.Name = "label27";
+            label27.Size = new Size(0, 15);
+            label27.TabIndex = 137;
+            // 
             // CPagos
             // 
-            AutoScaleDimensions = new SizeF(96F, 96F);
-            AutoScaleMode = AutoScaleMode.Dpi;
-            ClientSize = new Size(913, 740);
+            AutoScaleMode = AutoScaleMode.Inherit;
+            ClientSize = new Size(905, 740);
+            Controls.Add(label27);
             Controls.Add(dateTimePicker3);
             Controls.Add(pictureBox3);
             Controls.Add(label26);
@@ -961,5 +983,7 @@
         private PictureBox pictureBox3;
         private Label label26;
         private DateTimePicker dateTimePicker3;
+        private ToolStripButton toolStripButton3;
+        private Label label27;
     }
 }

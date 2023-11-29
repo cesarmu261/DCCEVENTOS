@@ -30,13 +30,12 @@ namespace DCCEVENTOS
             nmenu = new NMenu();
             calendario = new Calendario.Calendario();
             calendario.WindowState = FormWindowState.Maximized;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            Centroimagen();
+            
         }
         private void Centroimagen()
         {
-            pictureBox1.Left = (this.ClientSize.Width - pictureBox1.Width) / 2;
-            pictureBox1.Top = (this.ClientSize.Height - pictureBox1.Height) / 2;
+            pictureBox1.Left = (this.ClientSize.Width - pictureBox1.Width)/2 ;
+            pictureBox1.Top = (this.ClientSize.Height- pictureBox1.Height) /2;
         }
         public List<Permiso> Permisos { get; set; }
         
@@ -106,12 +105,13 @@ namespace DCCEVENTOS
 
         private void CPrincipal_Load(object sender, EventArgs e)
         {
-            Calendario.Calendario formSecundario = new Calendario.Calendario();
+            Calendario.Calendario2 formSecundario = new Calendario.Calendario2();
             formSecundario.TopLevel = false;
             formSecundario.FormBorderStyle = FormBorderStyle.None;
             formSecundario.Dock = DockStyle.Fill;
             panel1.Controls.Add(formSecundario);
             formSecundario.Show();
+            Centroimagen();
             cambiarUsuarioToolStripMenuItem_Click(sender, e);
         }
         private void reporteEventoToolStripMenuItem_Click(object sender, EventArgs e)

@@ -373,6 +373,9 @@ public partial class EventosContext : DbContext
                 .HasMaxLength(250)
                 .IsUnicode(false)
                 .HasColumnName("OBSERVACIONPAGO");
+            entity.Property(e => e.Penalizacion)
+                .HasColumnType("decimal(10, 2)")
+                .HasColumnName("PENALIZACION");
             entity.Property(e => e.Recibo).HasColumnName("RECIBO");
             entity.Property(e => e.Referencia)
                 .HasMaxLength(250)

@@ -19,138 +19,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>COD_PAGOS</rd:DefaultName>
-        <Top>1.45203cm</Top>
-        <Left>2.97007cm</Left>
+        <Top>0.36696cm</Top>
+        <Left>3.14206cm</Left>
         <Height>0.6cm</Height>
-        <Width>1.33583cm</Width>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="DES_EVENTO">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Fields!DES_EVENTO.Value</Value>
-                <Style>
-                  <FontSize>8pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>DES_EVENTO</rd:DefaultName>
-        <Top>5.31467cm</Top>
-        <Left>1.58132cm</Left>
-        <Height>0.6cm</Height>
-        <Width>9.64375cm</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="NOM_CLIENTE">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Fields!NOM_CLIENTE.Value</Value>
-                <Style>
-                  <FontSize>8pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>NOM_CLIENTE</rd:DefaultName>
-        <Top>6.26745cm</Top>
-        <Left>1.58132cm</Left>
-        <Height>0.6cm</Height>
-        <Width>9.64375cm</Width>
-        <ZIndex>2</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="MONTOAPAGAR">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Fields!MONTOAPAGAR.Value</Value>
-                <Style>
-                  <FontSize>8pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>MONTOAPAGAR</rd:DefaultName>
-        <Top>2.56328cm</Top>
-        <Left>7.08466cm</Left>
-        <Height>0.6cm</Height>
-        <Width>2.65875cm</Width>
-        <ZIndex>3</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="DES_TIPO_TRANSACCION">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Fields!DES_TIPO_TRANSACCION.Value</Value>
-                <Style>
-                  <FontSize>8pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>DES_TIPO_TRANSACCION</rd:DefaultName>
-        <Top>2.56328cm</Top>
-        <Left>3.41987cm</Left>
-        <Height>0.6cm</Height>
-        <Width>3.21437cm</Width>
-        <ZIndex>4</ZIndex>
+        <Width>1.17708cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -178,10 +50,138 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Column1</rd:DefaultName>
-        <Top>1.45203cm</Top>
-        <Left>13.07747cm</Left>
+        <Top>0.36696cm</Top>
+        <Left>11.95599cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.31479cm</Width>
+        <Width>2.5cm</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="MONTOAPAGAR">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!MONTOAPAGAR.Value</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>MONTOAPAGAR</rd:DefaultName>
+        <Top>2.92516cm</Top>
+        <Left>3.14206cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="PENALIZACION">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!PENALIZACION.Value</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>PENALIZACION</rd:DefaultName>
+        <Top>2.14877cm</Top>
+        <Left>7.68263cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="MONTOACOBRAR">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!MONTOACOBRAR.Value</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>MONTOACOBRAR</rd:DefaultName>
+        <Top>1.37238cm</Top>
+        <Left>7.70909cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="DES_EVENTO">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!DES_EVENTO.Value</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>DES_EVENTO</rd:DefaultName>
+        <Top>5.68509cm</Top>
+        <Left>1.75331cm</Left>
+        <Height>0.6cm</Height>
+        <Width>6.24685cm</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
@@ -193,14 +193,14 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Textbox1">
+      <Textbox Name="NOM_CLIENTE">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>FOLIO</Value>
+                <Value>=Fields!NOM_CLIENTE.Value</Value>
                 <Style>
                   <FontSize>8pt</FontSize>
                 </Style>
@@ -209,12 +209,108 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>1.45203cm</Top>
-        <Left>1.58132cm</Left>
+        <rd:DefaultName>NOM_CLIENTE</rd:DefaultName>
+        <Top>6.63759cm</Top>
+        <Left>1.75331cm</Left>
         <Height>0.6cm</Height>
-        <Width>1.28292cm</Width>
+        <Width>6.24685cm</Width>
         <ZIndex>6</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="DES_TIPO_TRANSACCION">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!DES_TIPO_TRANSACCION.Value</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>DES_TIPO_TRANSACCION</rd:DefaultName>
+        <Top>0.36696cm</Top>
+        <Left>6.48221cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="PENALIZACION2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>PENALIZACION</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>PENALIZACION</rd:DefaultName>
+        <Top>2.14877cm</Top>
+        <Left>4.96627cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>8</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="MONTOACOBRAR2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>DEPOSITO EN GARANTIA</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>MONTOACOBRAR</rd:DefaultName>
+        <Top>1.37238cm</Top>
+        <Left>3.92289cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.56984cm</Width>
+        <ZIndex>9</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -242,11 +338,43 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>3.33967cm</Top>
-        <Left>3.41987cm</Left>
+        <Top>3.56044cm</Top>
+        <Left>3.14206cm</Left>
         <Height>1.55251cm</Height>
         <Width>9.73666cm</Width>
-        <ZIndex>7</ZIndex>
+        <ZIndex>10</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>FOLIO</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>0.36696cm</Top>
+        <Left>1.75331cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.28292cm</Width>
+        <ZIndex>11</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -274,138 +402,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>COD_PAGOS</rd:DefaultName>
-        <Top>11.66124cm</Top>
-        <Left>2.97006cm</Left>
+        <Top>8.8809cm</Top>
+        <Left>3.14207cm</Left>
         <Height>0.6cm</Height>
-        <Width>1.33583cm</Width>
-        <ZIndex>8</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="DES_EVENTO2">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Fields!DES_EVENTO.Value</Value>
-                <Style>
-                  <FontSize>8pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>DES_EVENTO</rd:DefaultName>
-        <Top>15.52388cm</Top>
-        <Left>1.58131cm</Left>
-        <Height>0.6cm</Height>
-        <Width>9.64375cm</Width>
-        <ZIndex>9</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="NOM_CLIENTE2">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Fields!NOM_CLIENTE.Value</Value>
-                <Style>
-                  <FontSize>8pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>NOM_CLIENTE</rd:DefaultName>
-        <Top>16.47666cm</Top>
-        <Left>1.58131cm</Left>
-        <Height>0.6cm</Height>
-        <Width>9.64375cm</Width>
-        <ZIndex>10</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="MONTOAPAGAR2">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Fields!MONTOAPAGAR.Value</Value>
-                <Style>
-                  <FontSize>8pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>MONTOAPAGAR</rd:DefaultName>
-        <Top>12.77249cm</Top>
-        <Left>7.08465cm</Left>
-        <Height>0.6cm</Height>
-        <Width>2.65875cm</Width>
-        <ZIndex>11</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="DES_TIPO_TRANSACCION2">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Fields!DES_TIPO_TRANSACCION.Value</Value>
-                <Style>
-                  <FontSize>8pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>DES_TIPO_TRANSACCION</rd:DefaultName>
-        <Top>12.77249cm</Top>
-        <Left>3.41986cm</Left>
-        <Height>0.6cm</Height>
-        <Width>3.21437cm</Width>
+        <Width>1.17708cm</Width>
         <ZIndex>12</ZIndex>
         <Style>
           <Border>
@@ -434,11 +434,267 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Column1</rd:DefaultName>
-        <Top>11.66124cm</Top>
-        <Left>13.07746cm</Left>
+        <Top>8.8809cm</Top>
+        <Left>11.956cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.31479cm</Width>
+        <Width>2.5cm</Width>
         <ZIndex>13</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="MONTOAPAGAR2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!MONTOAPAGAR.Value</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>MONTOAPAGAR</rd:DefaultName>
+        <Top>11.4391cm</Top>
+        <Left>3.14207cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>14</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="PENALIZACION3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!PENALIZACION.Value</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>PENALIZACION</rd:DefaultName>
+        <Top>10.66271cm</Top>
+        <Left>7.68264cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>15</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="MONTOACOBRAR3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!MONTOACOBRAR.Value</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>MONTOACOBRAR</rd:DefaultName>
+        <Top>9.88632cm</Top>
+        <Left>7.7091cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>16</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="DES_EVENTO2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!DES_EVENTO.Value</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>DES_EVENTO</rd:DefaultName>
+        <Top>14.19903cm</Top>
+        <Left>1.75332cm</Left>
+        <Height>0.6cm</Height>
+        <Width>6.24685cm</Width>
+        <ZIndex>17</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="NOM_CLIENTE2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!NOM_CLIENTE.Value</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>NOM_CLIENTE</rd:DefaultName>
+        <Top>15.15153cm</Top>
+        <Left>1.75332cm</Left>
+        <Height>0.6cm</Height>
+        <Width>6.24685cm</Width>
+        <ZIndex>18</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="DES_TIPO_TRANSACCION2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!DES_TIPO_TRANSACCION.Value</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>DES_TIPO_TRANSACCION</rd:DefaultName>
+        <Top>8.8809cm</Top>
+        <Left>6.48222cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>19</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="PENALIZACION4">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>PENALIZACION</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>PENALIZACION</rd:DefaultName>
+        <Top>10.66271cm</Top>
+        <Left>4.96628cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>20</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="MONTOACOBRAR4">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>DEPOSITO EN GARANTIA</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>MONTOACOBRAR</rd:DefaultName>
+        <Top>9.88632cm</Top>
+        <Left>3.9229cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.56984cm</Width>
+        <ZIndex>21</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -466,11 +722,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>11.66124cm</Top>
-        <Left>1.58131cm</Left>
+        <Top>8.8809cm</Top>
+        <Left>1.75332cm</Left>
         <Height>0.6cm</Height>
         <Width>1.28292cm</Width>
-        <ZIndex>14</ZIndex>
+        <ZIndex>22</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -498,43 +754,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>13.54888cm</Top>
-        <Left>3.41986cm</Left>
+        <Top>12.47013cm</Top>
+        <Left>3.14206cm</Left>
         <Height>1.55251cm</Height>
         <Width>9.73666cm</Width>
-        <ZIndex>15</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox7">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>COPIA CLIENTE</Value>
-                <Style>
-                  <FontSize>8pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>17.12419cm</Top>
-        <Left>12.27658cm</Left>
-        <Height>0.6cm</Height>
-        <Width>3.11568cm</Width>
-        <ZIndex>16</ZIndex>
+        <ZIndex>23</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -546,13 +770,13 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>7.35602in</Height>
+    <Height>6.25694in</Height>
     <Style />
   </Body>
-  <Width>6.78801in</Width>
+  <Width>6.5in</Width>
   <Page>
     <PageHeader>
-      <Height>2.37243cm</Height>
+      <Height>2.54cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -560,8 +784,8 @@
           <Source>Embedded</Source>
           <Value>qtq_95</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.03969cm</Top>
-          <Left>1.58132cm</Left>
+          <Top>0.16537cm</Top>
+          <Left>1.75331cm</Left>
           <Height>2.24896cm</Height>
           <Width>2.35479cm</Width>
           <Style>
@@ -587,7 +811,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Left>4.04194cm</Left>
+          <Top>0.12568cm</Top>
+          <Left>4.21393cm</Left>
           <Height>1.27882cm</Height>
           <Width>10.54276cm</Width>
           <ZIndex>1</ZIndex>
@@ -608,7 +833,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Reporte Recibo</Value>
+                  <Value>Reporte Devolucion</Value>
                   <Style>
                     <FontSize>14pt</FontSize>
                   </Style>
@@ -629,10 +854,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>1.41993cm</Top>
-          <Left>6.62772cm</Left>
+          <Top>1.56766cm</Top>
+          <Left>6.79971cm</Left>
           <Height>0.84667cm</Height>
-          <Width>3.98109cm</Width>
+          <Width>4.8013cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -652,7 +877,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>2.54cm</Height>
+      <Height>2.38125cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -677,7 +902,7 @@ administracion@deliciascountryclub.com.mx</Value>
           </Paragraphs>
           <rd:DefaultName>Textbox6</rd:DefaultName>
           <Top>0.35278cm</Top>
-          <Left>0.79375cm</Left>
+          <Left>0.64471cm</Left>
           <Height>1.83444cm</Height>
           <Width>10.46396cm</Width>
           <Style>
@@ -708,7 +933,7 @@ administracion@deliciascountryclub.com.mx</Value>
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
           <Top>1.13453cm</Top>
-          <Left>13.51433cm</Left>
+          <Left>13.36529cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>1</ZIndex>
@@ -729,10 +954,8 @@ administracion@deliciascountryclub.com.mx</Value>
         </Border>
       </Style>
     </PageFooter>
-    <PageHeight>27.94cm</PageHeight>
-    <PageWidth>21.59cm</PageWidth>
-    <InteractiveHeight>27.94cm</InteractiveHeight>
-    <InteractiveWidth>21.59cm</InteractiveWidth>
+    <PageHeight>29.7cm</PageHeight>
+    <PageWidth>21cm</PageWidth>
     <LeftMargin>2cm</LeftMargin>
     <RightMargin>2cm</RightMargin>
     <TopMargin>2cm</TopMargin>
@@ -747,7 +970,7 @@ administracion@deliciascountryclub.com.mx</Value>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>d14a12e0-27b7-48fe-ae06-25e516999f52</rd:DataSourceID>
+      <rd:DataSourceID>342f90d4-30fc-43d2-bf06-29802e51c9a7</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -773,6 +996,14 @@ administracion@deliciascountryclub.com.mx</Value>
           <DataField>DES_TIPO_TRANSACCION</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="MONTOACOBRAR">
+          <DataField>MONTOACOBRAR</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="PENALIZACION">
+          <DataField>PENALIZACION</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
         <Field Name="MONTOAPAGAR">
           <DataField>MONTOAPAGAR</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
@@ -785,10 +1016,10 @@ administracion@deliciascountryclub.com.mx</Value>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1</rd:DataSetName>
         <rd:SchemaPath>C:\Users\Cesar.Muniz\source\repos\DCCEVENTOS\DCCEVENTOS\DCCEVENTOS\Reportes\DataSet1.xsd</rd:SchemaPath>
-        <rd:TableName>sp_recibo</rd:TableName>
+        <rd:TableName>sp_devolucion</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>sp_reciboTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>sp_devolucionTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -988,7 +1219,8 @@ End Function
         dNumero = Convert.ToDouble(sNumPuntos(1))
         sTexto = "punto " + Numeros(dNumero, 1)
         Return sTexto
-    End Function</Code>
+    End Function
+</Code>
   <EmbeddedImages>
     <EmbeddedImage Name="qtq_95">
       <MIMEType>image/jpeg</MIMEType>
@@ -1016,5 +1248,5 @@ o7thRRRWxkFFFFABRRRQAUUUUAFFFFAARkVgeNfhd4d+IsCx65o2n6mFxtaeEM6Yz0b7w69jRRUVKcZx
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>ca6a7b67-7cfd-4c6a-b953-1aa2508e5c8c</rd:ReportID>
+  <rd:ReportID>f57993f1-3a17-4994-9574-512ba1e9bc88</rd:ReportID>
 </Report>
