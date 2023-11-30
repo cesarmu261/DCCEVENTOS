@@ -2,6 +2,7 @@
 using DatosManejo;
 using Entidades;
 using InfoCompartidaCaps;
+using Microsoft.EntityFrameworkCore;
 using System.Data;
 
 namespace Negocio
@@ -13,7 +14,6 @@ namespace Negocio
         NPaquete nPaquete;
         NConceptos nConceptos;
         NEstado nEstado;
-
         public NPaDetalle()
         {
             paquete = new DataTable();
@@ -27,13 +27,11 @@ namespace Negocio
         {
             EventosContext contexto = new EventosContext();
             List<SaEvePaqueteDetalle> paquetelist = new DMPaDetalle(contexto).Obtener();
-
             DataTable Table = new DataTable();
             Table.Columns.Add("CODIGO");  // Reemplaza "Columna1" con el nombre de la columna real que deseas incluir
             Table.Columns.Add("PAQUETE");
             Table.Columns.Add("CONCEPTOS");
             Table.Columns.Add("ESTADO");
-
             foreach (SaEvePaqueteDetalle dat in paquetelist)
             {
                 DataRow row = Table.NewRow();
@@ -43,14 +41,12 @@ namespace Negocio
                 row["ESTADO"] = nEstado.ObtenerDescripcione(dat.CodEstado);
                 Table.Rows.Add(row);
             }
-
             return Table;
         }
         public DataTable Obtener(int codpaquete)
         {
             EventosContext contexto = new EventosContext();
             List<SaEvePaqueteDetalle> paquetelist = new DMPaDetalle(contexto).Obtener(0, 0, codpaquete);
-
             DataTable Table = new DataTable();
             Table.Columns.Add("CODIGO");  // Reemplaza "Columna1" con el nombre de la columna real que deseas incluir
             Table.Columns.Add("PAQUETE");
@@ -68,7 +64,6 @@ namespace Negocio
             }
             return Table;
         }
-        
         public InfoCompartidaCapas Guardar(SaEvePaqueteDetalle paquete)
         {
             EventosContext contexto = new EventosContext();
@@ -83,7 +78,6 @@ namespace Negocio
         {
             // Aquí debes escribir la lógica para verificar si existe un registro con los mismos valores en la base de datos
             // Puedes utilizar una consulta LINQ o realizar una consulta a través de tu ORM o método preferido
-
             // Ejemplo de verificación utilizando LINQ y Entity Framework
             using (var context = new EventosContext())
             {
@@ -92,11 +86,9 @@ namespace Negocio
                     d.CodPaquete == concepto.CodPaquete &&
                     d.CodConceptos == concepto.CodConceptos &&
                     d.CodEstado == concepto.CodEstado);
-
                 return existe;
             }
         }
-
         public InfoCompartidaCapas Eliminar(SaEvePaqueteDetalle paquete)
         {
             EventosContext contexto = new EventosContext();
@@ -121,9 +113,7 @@ namespace Negocio
         {
             EventosContext contexto = new EventosContext();
             paquete = ToolsDBContext.ToDataTable<SaEvePaqueteDetalle>(new DMPaDetalle(contexto).Obtener2(codpa));
-
             return paquete;
         }
-
     }
 }

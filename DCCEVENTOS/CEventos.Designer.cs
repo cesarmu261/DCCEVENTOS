@@ -273,7 +273,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(833, 705);
+            label9.Location = new Point(833, 690);
             label9.Name = "label9";
             label9.Size = new Size(79, 15);
             label9.TabIndex = 72;
@@ -282,7 +282,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(720, 705);
+            label10.Location = new Point(720, 690);
             label10.Name = "label10";
             label10.Size = new Size(93, 15);
             label10.TabIndex = 71;
@@ -502,7 +502,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(411, 705);
+            label11.Location = new Point(411, 690);
             label11.Name = "label11";
             label11.Size = new Size(51, 15);
             label11.TabIndex = 79;
@@ -511,7 +511,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(593, 705);
+            label12.Location = new Point(593, 690);
             label12.Name = "label12";
             label12.Size = new Size(47, 15);
             label12.TabIndex = 80;
@@ -520,7 +520,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(318, 705);
+            label13.Location = new Point(318, 690);
             label13.Name = "label13";
             label13.Size = new Size(87, 15);
             label13.TabIndex = 81;
@@ -529,7 +529,7 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(540, 705);
+            label14.Location = new Point(540, 690);
             label14.Name = "label14";
             label14.Size = new Size(47, 15);
             label14.TabIndex = 82;
@@ -544,7 +544,7 @@
             AutoScaleMode = AutoScaleMode.Inherit;
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(1402, 758);
+            ClientSize = new Size(1402, 738);
             Controls.Add(label14);
             Controls.Add(label13);
             Controls.Add(label12);

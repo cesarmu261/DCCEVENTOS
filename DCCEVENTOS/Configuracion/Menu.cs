@@ -41,14 +41,14 @@ namespace DCCEVENTOS.Usuario
         }
         private void BorrarTodosLosRegistros()
         {
-            using (var context = new EventosContext()) 
+            using (var context = new EventosContext())
             {
                 var registros = context.Menus.ToList();
                 foreach (var registro in registros)
                 {
                     context.Menus.Remove(registro);
                 }
-            context.SaveChanges();
+                context.SaveChanges();
             }
         }
         public void CopyMenuItemToTreeNode(ToolStripItem menuItem, TreeNodeCollection parentNodes)
@@ -99,6 +99,8 @@ namespace DCCEVENTOS.Usuario
         }
         public void CopyMenuToTreeView2(ToolStripItemCollection menuItems, TreeNodeCollection treeNodes)
         {
+            EventosContext context = new EventosContext();
+            context.Database.ExecuteSqlRaw("DBCC CHECKIDENT('MENU', RESEED, 0)");
             foreach (ToolStripItem menuItem in menuItems)
             {
                 CopyMenuItemToTreeNode2(menuItem, treeNodes);
@@ -242,7 +244,7 @@ namespace DCCEVENTOS.Usuario
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //BorrarTodosLosRegistros();
+            BorrarTodosLosRegistros();
             CopyMenuToTreeView2(principal.menuStrip1.Items, treeView1.Nodes);
             Nuevo();
         }

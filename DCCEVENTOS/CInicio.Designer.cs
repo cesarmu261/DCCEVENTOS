@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CInicio));
             TBUsuario = new TextBox();
             TBCon = new TextBox();
             label1 = new Label();
@@ -104,6 +105,7 @@
             Controls.Add(label1);
             Controls.Add(TBCon);
             Controls.Add(TBUsuario);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "CInicio";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Inicio de sesion";

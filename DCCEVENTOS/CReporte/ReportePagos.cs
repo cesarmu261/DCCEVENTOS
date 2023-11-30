@@ -22,16 +22,13 @@ namespace DCCEVENTOS.CReporte
         private NEventos nevento;
         private NEventoDetalle neventod;
         private NPago npago;
-
         private bool tablaCargada = false;
         public ReportePagos()
         {
-            InitializeComponent();
-
             nevento = new NEventos();
             neventod = new NEventoDetalle();
             npago = new NPago();
-
+            InitializeComponent();
         }
         private void Nuevo()
         {
@@ -50,7 +47,6 @@ namespace DCCEVENTOS.CReporte
             dateTimePicker5.Text = string.Empty;
             dateTimePicker6.Text = string.Empty;
         }
-
         public void fecha()
         {
             DateTime selectedDate = dateTimePicker1.Value.Date;
@@ -59,7 +55,6 @@ namespace DCCEVENTOS.CReporte
             table = nevento.Obtener2(startDate, FINALDATE);
             DTGEventos.DataSource = table;
             DTGEventos.Refresh();
-
         }
         public void fechapagos()
         {
@@ -70,7 +65,6 @@ namespace DCCEVENTOS.CReporte
             table = npago.ObtenerPagosFecha(startDate, FINALDATE);
             DTGDetalles.DataSource = table;
             DTGDetalles.Refresh();
-
         }
         public void fechaCancelaciones()
         {
@@ -81,7 +75,6 @@ namespace DCCEVENTOS.CReporte
             table = npago.ObtenerCancelaciones(startDate, FINALDATE);
             DTGDetalles.DataSource = table;
             DTGDetalles.Refresh();
-
         }
         public void cliente()
         {
@@ -95,19 +88,10 @@ namespace DCCEVENTOS.CReporte
             DTGEventos.DataSource = table;
             DTGEventos.Refresh();
         }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(dateTimePicker1.Text))
-            {
-                fecha();
-            }
-            else
-            {
-                MessageBox.Show("Debe ingresar al menos un valor para buscar.");
-            }
+            fecha();
         }
-
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(TBClientes.Text))
@@ -120,7 +104,6 @@ namespace DCCEVENTOS.CReporte
                 MessageBox.Show("Debe ingresar al menos un valor para buscar.");
             }
         }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             ConsultaClientes form = new ConsultaClientes();
@@ -132,14 +115,12 @@ namespace DCCEVENTOS.CReporte
                 TBClientes.Text = t.NomCliente.ToString();
             }
         }
-
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(TBDescripcion.Text))
             {
                 descripcion();
             }
-
             else
             {
                 MessageBox.Show("Debe ingresar al menos un valor para buscar.");
@@ -160,41 +141,28 @@ namespace DCCEVENTOS.CReporte
             }
             button2.Enabled = true;
         }
-
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(dateTimePicker4.Text))
-            {
-                fechapagos();
-                button1.Enabled = true;
-            }
-
-            else
-            {
-                MessageBox.Show("Debe ingresar al menos un valor para buscar.");
-            }
+            fechapagos();
+            button1.Enabled = true;
         }
-
         private void toolStripNuevo_Click(object sender, EventArgs e)
         {
             Nuevo();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             DateTime selectedDate = dateTimePicker4.Value.Date;
             DateTime startDate = selectedDate.Date;
             DateTime FINALDATE = dateTimePicker3.Value.Date;
-            DateTime finDate = FINALDATE.Date;
+            DateTime finDate = FINALDATE.Date.AddDays(1); 
             RecibosFechas reportForm = new RecibosFechas(startDate, finDate);
             reportForm.Show();
         }
-
         private void DTGDetalles_DoubleClick(object sender, EventArgs e)
         {
             string SSCod;
             DataSet dataSet = new DataSet();
-
             if (DTGDetalles.CurrentRow.Index >= 0)
             {
                 SSCod = DTGDetalles.SelectedRows[0].Cells[0].Value.ToString();
@@ -203,29 +171,24 @@ namespace DCCEVENTOS.CReporte
                 rE.Show();
             }
         }
-
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-
             fechaCancelaciones();
             button6.Enabled = true;
         }
-
         private void button6_Click(object sender, EventArgs e)
         {
             DateTime selectedDate = dateTimePicker6.Value.Date;
             DateTime startDate = selectedDate.Date;
             DateTime FINALDATE = dateTimePicker5.Value.Date;
-            DateTime finDate = FINALDATE.Date;
+            DateTime finDate = FINALDATE.Date.AddDays(1);
             ReciboCancelaciones reportForm = new ReciboCancelaciones(startDate, finDate);
             reportForm.Show();
         }
-
         private void toolStripSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void TBDescripcion_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(TBDescripcion.Text))
@@ -236,7 +199,6 @@ namespace DCCEVENTOS.CReporte
                 }
             }
         }
-
         private void buscarClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConsultaClientes form = new ConsultaClientes();
@@ -248,16 +210,13 @@ namespace DCCEVENTOS.CReporte
                 TBClientes.Text = t.NomCliente.ToString();
             }
         }
-
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Nuevo();
         }
-
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
     }
-
 }

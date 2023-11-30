@@ -188,7 +188,7 @@ namespace DCCEVENTOS.Editar
         {
             panel1.Visible = true;
             toolStripButton4.Enabled = true;
-            toolStripButton2.Enabled =false;
+            toolStripButton2.Enabled = false;
             EventosContext contexto = new EventosContext();
             string SSCod = DTGDetalles.SelectedRows[0].Cells[0].Value.ToString();
             int cod = Convert.ToInt32(SSCod);
@@ -244,7 +244,7 @@ namespace DCCEVENTOS.Editar
                 || string.IsNullOrWhiteSpace(textBox10.Text) || string.IsNullOrWhiteSpace(textBox12.Text))
             {
                 MessageBox.Show("DEBE CARGAR TODOS LOS DATOS PARA EL REGISTRO");
-                return; 
+                return;
             }
             EventosContext contexto = new EventosContext();
             DMEventoDetalle dm = new DMEventoDetalle(contexto);
@@ -281,7 +281,7 @@ namespace DCCEVENTOS.Editar
                 || string.IsNullOrWhiteSpace(textBox10.Text) || string.IsNullOrWhiteSpace(textBox12.Text))
             {
                 MessageBox.Show("DEBE SELLECIONAR PRIMERO EL CONCEPTO A EDITAR");
-                return; 
+                return;
             }
             EventosContext contexto = new EventosContext();
             DMEventoDetalle dm = new DMEventoDetalle(contexto);
@@ -397,7 +397,7 @@ namespace DCCEVENTOS.Editar
             }
             catch
             {
-                MessageBox.Show("POR VAFOR INGRESE UN IMPORTE CORRECTO");
+                MessageBox.Show("INGRESE UN IMPORTE CORRECTO");
             }
         }
         private void TBCod_KeyPress(object sender, KeyPressEventArgs e)
@@ -411,7 +411,14 @@ namespace DCCEVENTOS.Editar
         {
             if (e.KeyChar == (char)13)
             {
-                Calculos();
+                if (string.IsNullOrWhiteSpace(textBox9.Text))
+                {
+                    MessageBox.Show("INGRESE UN IMPORTE");
+                }
+                else
+                {
+                    Calculos();
+                }
             }
         }
         private void toolStripButton3_Click(object sender, EventArgs e)
@@ -486,6 +493,36 @@ namespace DCCEVENTOS.Editar
             form.ShowDialog();
             TBCod.Text = Convert.ToString(NEventos.SSCod);
             CargarEvento();
+        }
+
+        private void textBox10_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                if (string.IsNullOrWhiteSpace(textBox10.Text))
+                {
+                    MessageBox.Show("INGRESE UNA CANTIDAD");
+                }
+                else
+                {
+                    Calculos();
+                }
+            }
+        }
+
+        private void textBox12_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                if (string.IsNullOrWhiteSpace(textBox12.Text))
+                {
+                    MessageBox.Show("INGRESE UN DESCUENTO");
+                }
+                else
+                {
+                    Calculos();
+                }
+            }
         }
     }
 }

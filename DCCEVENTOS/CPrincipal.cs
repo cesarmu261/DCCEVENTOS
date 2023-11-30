@@ -30,12 +30,11 @@ namespace DCCEVENTOS
             nmenu = new NMenu();
             calendario = new Calendario.Calendario();
             calendario.WindowState = FormWindowState.Maximized;
-            
         }
         private void Centroimagen()
         {
             pictureBox1.Left = (this.ClientSize.Width - pictureBox1.Width)/2 ;
-            pictureBox1.Top = (this.ClientSize.Height- pictureBox1.Height) /2;
+            pictureBox1.Top = (this.ClientSize.Height- pictureBox1.Height)/2;
         }
         public List<Permiso> Permisos { get; set; }
         
@@ -49,7 +48,6 @@ namespace DCCEVENTOS
                     {
                         string nombreMenu = menuItem.Text;
                         int? men = nmenu.ObtenerDescripcionesCod(nombreMenu);
-
                         // Verificar si se obtuvo un código de menú válido
                         if (men.HasValue)
                         {
@@ -102,10 +100,9 @@ namespace DCCEVENTOS
             CEventos form = new CEventos();
             form.Show();
         }
-
         private void CPrincipal_Load(object sender, EventArgs e)
         {
-            Calendario.Calendario2 formSecundario = new Calendario.Calendario2();
+            Calendario.Calendario formSecundario = new Calendario.Calendario();
             formSecundario.TopLevel = false;
             formSecundario.FormBorderStyle = FormBorderStyle.None;
             formSecundario.Dock = DockStyle.Fill;
@@ -149,7 +146,6 @@ namespace DCCEVENTOS
             CCancelaciones form = new CCancelaciones();
             form.Show();
         }
-
         private void consultaDePorcentajeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConsultaPorcentaje form = new ConsultaPorcentaje();
@@ -160,19 +156,16 @@ namespace DCCEVENTOS
             ConsulatadeCategorias form = new ConsulatadeCategorias();
             form.Show();
         }
-
         private void consultaDeSalonToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConsultadeSalones form = new ConsultadeSalones();
             form.Show();
         }
-
         private void consultaDeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConsultaTipoTrenasacciones form = new ConsultaTipoTrenasacciones();
             form.Show();
         }
-
         private void consultaDeTipoDeComprobanteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Consultadetipocomprobante form = new Consultadetipocomprobante();
@@ -184,7 +177,6 @@ namespace DCCEVENTOS
             ConsultadeCancelaciones form = new ConsultadeCancelaciones();
             form.Show();
         }
-
         private void consultaDeTipoDePagoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConsultadeTipoPago form = new ConsultadeTipoPago();
@@ -215,7 +207,6 @@ namespace DCCEVENTOS
             ConsultaDeEventos form = new ConsultaDeEventos();
             form.Show();
         }
-
         private void reportePagosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ReportePagos form = new ReportePagos();
@@ -236,19 +227,16 @@ namespace DCCEVENTOS
             FPermisos form = new FPermisos();
             form.Show();
         }
-
         private void usuarioToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FUsuarios form = new FUsuarios();
             form.Show();
         }
-
         private void cambiarContraseñToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FCambiarContrasena form = new FCambiarContrasena();
             form.Show();
         }
-
         private void cambiarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CInicio form = new CInicio();

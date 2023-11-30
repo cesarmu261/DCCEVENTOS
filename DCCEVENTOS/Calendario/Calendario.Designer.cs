@@ -83,70 +83,70 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI Symbol", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Font = new Font("Segoe UI Symbol", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label7.Location = new Point(897, 143);
             label7.Name = "label7";
-            label7.Size = new Size(88, 30);
+            label7.Size = new Size(81, 25);
             label7.TabIndex = 30;
             label7.Text = "Sabado";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI Symbol", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Font = new Font("Segoe UI Symbol", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label6.Location = new Point(750, 143);
             label6.Name = "label6";
-            label6.Size = new Size(88, 30);
+            label6.Size = new Size(82, 25);
             label6.TabIndex = 29;
             label6.Text = "Viernes";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI Symbol", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Font = new Font("Segoe UI Symbol", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label5.Location = new Point(611, 143);
             label5.Name = "label5";
-            label5.Size = new Size(80, 30);
+            label5.Size = new Size(73, 25);
             label5.TabIndex = 28;
             label5.Text = "Jueves";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Symbol", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Font = new Font("Segoe UI Symbol", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label4.Location = new Point(461, 143);
             label4.Name = "label4";
-            label4.Size = new Size(111, 30);
+            label4.Size = new Size(103, 25);
             label4.TabIndex = 27;
             label4.Text = "Miercoles";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Symbol", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Font = new Font("Segoe UI Symbol", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label3.Location = new Point(323, 143);
             label3.Name = "label3";
-            label3.Size = new Size(83, 30);
+            label3.Size = new Size(76, 25);
             label3.TabIndex = 26;
             label3.Text = "Martes";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Symbol", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Font = new Font("Segoe UI Symbol", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label2.Location = new Point(184, 143);
             label2.Name = "label2";
-            label2.Size = new Size(72, 30);
+            label2.Size = new Size(66, 25);
             label2.TabIndex = 25;
             label2.Text = "Lunes";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Symbol", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI Symbol", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(42, 143);
             label1.Name = "label1";
-            label1.Size = new Size(106, 30);
+            label1.Size = new Size(97, 25);
             label1.TabIndex = 24;
             label1.Text = "Domingo";
             // 

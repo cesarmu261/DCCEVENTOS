@@ -108,6 +108,7 @@
             label26 = new Label();
             dateTimePicker3 = new DateTimePicker();
             label27 = new Label();
+            label28 = new Label();
             toolStrip1.SuspendLayout();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DTGDetalleEvento).BeginInit();
@@ -151,6 +152,7 @@
             // toolStripButton1
             // 
             toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton1.Enabled = false;
             toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
             toolStripButton1.ImageTransparentColor = Color.Magenta;
             toolStripButton1.Name = "toolStripButton1";
@@ -161,6 +163,7 @@
             // toolStripButton3
             // 
             toolStripButton3.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton3.Enabled = false;
             toolStripButton3.Image = Properties.Resources.devoluciones_faciles;
             toolStripButton3.ImageTransparentColor = Color.Magenta;
             toolStripButton3.Name = "toolStripButton3";
@@ -192,6 +195,7 @@
             // toolStripButton2
             // 
             toolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton2.Enabled = false;
             toolStripButton2.Image = (Image)resources.GetObject("toolStripButton2.Image");
             toolStripButton2.ImageTransparentColor = Color.Magenta;
             toolStripButton2.Name = "toolStripButton2";
@@ -213,6 +217,7 @@
             toolStripSalir.Size = new Size(28, 28);
             toolStripSalir.Text = "toolStripButton5";
             toolStripSalir.ToolTipText = "Salir";
+            toolStripSalir.Click += toolStripSalir_Click;
             // 
             // menuStrip1
             // 
@@ -441,6 +446,7 @@
             // CBComprante
             // 
             CBComprante.DropDownStyle = ComboBoxStyle.DropDownList;
+            CBComprante.Enabled = false;
             CBComprante.FormattingEnabled = true;
             CBComprante.Location = new Point(702, 65);
             CBComprante.Name = "CBComprante";
@@ -451,11 +457,13 @@
             // CBPago
             // 
             CBPago.DropDownStyle = ComboBoxStyle.DropDownList;
+            CBPago.Enabled = false;
             CBPago.FormattingEnabled = true;
             CBPago.Location = new Point(704, 108);
             CBPago.Name = "CBPago";
             CBPago.Size = new Size(187, 23);
             CBPago.TabIndex = 92;
+            CBPago.SelectionChangeCommitted += CBPago_SelectionChangeCommitted;
             // 
             // label13
             // 
@@ -474,6 +482,7 @@
             label14.Size = new Size(43, 15);
             label14.TabIndex = 96;
             label14.Text = "Recibo";
+            label14.Visible = false;
             // 
             // TBReferencia
             // 
@@ -490,6 +499,7 @@
             TBRecibo.Name = "TBRecibo";
             TBRecibo.Size = new Size(187, 23);
             TBRecibo.TabIndex = 98;
+            TBRecibo.Visible = false;
             // 
             // TBDescripcion
             // 
@@ -634,6 +644,7 @@
             // 
             // MontoaCobrar
             // 
+            MontoaCobrar.Enabled = false;
             MontoaCobrar.Location = new Point(153, 673);
             MontoaCobrar.Name = "MontoaCobrar";
             MontoaCobrar.RightToLeft = RightToLeft.Yes;
@@ -644,6 +655,7 @@
             // 
             // SaldoaFavor
             // 
+            SaldoaFavor.Enabled = false;
             SaldoaFavor.Location = new Point(460, 576);
             SaldoaFavor.Name = "SaldoaFavor";
             SaldoaFavor.RightToLeft = RightToLeft.Yes;
@@ -652,6 +664,7 @@
             // 
             // Penalizacion
             // 
+            Penalizacion.Enabled = false;
             Penalizacion.Location = new Point(460, 609);
             Penalizacion.Name = "Penalizacion";
             Penalizacion.RightToLeft = RightToLeft.Yes;
@@ -660,6 +673,7 @@
             // 
             // TBIva
             // 
+            TBIva.Enabled = false;
             TBIva.Location = new Point(166, 41);
             TBIva.Name = "TBIva";
             TBIva.RightToLeft = RightToLeft.Yes;
@@ -668,6 +682,7 @@
             // 
             // SaldoActual
             // 
+            SaldoActual.Enabled = false;
             SaldoActual.Location = new Point(460, 641);
             SaldoActual.Name = "SaldoActual";
             SaldoActual.RightToLeft = RightToLeft.Yes;
@@ -732,7 +747,7 @@
             // 
             // Calcular
             // 
-            Calcular.Location = new Point(771, 688);
+            Calcular.Location = new Point(774, 692);
             Calcular.Name = "Calcular";
             Calcular.Size = new Size(75, 23);
             Calcular.TabIndex = 127;
@@ -743,6 +758,7 @@
             // 
             // TBSubtotal
             // 
+            TBSubtotal.Enabled = false;
             TBSubtotal.Location = new Point(166, 5);
             TBSubtotal.Name = "TBSubtotal";
             TBSubtotal.RightToLeft = RightToLeft.Yes;
@@ -774,7 +790,7 @@
             // 
             label25.AutoSize = true;
             label25.ForeColor = Color.Red;
-            label25.Location = new Point(628, 649);
+            label25.Location = new Point(629, 649);
             label25.Name = "label25";
             label25.Size = new Size(85, 15);
             label25.TabIndex = 131;
@@ -782,7 +798,8 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(755, 646);
+            textBox1.Enabled = false;
+            textBox1.Location = new Point(749, 646);
             textBox1.Name = "textBox1";
             textBox1.RightToLeft = RightToLeft.Yes;
             textBox1.Size = new Size(100, 23);
@@ -825,10 +842,20 @@
             label27.Size = new Size(0, 15);
             label27.TabIndex = 137;
             // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.Enabled = false;
+            label28.Location = new Point(259, 676);
+            label28.Name = "label28";
+            label28.Size = new Size(0, 15);
+            label28.TabIndex = 138;
+            // 
             // CPagos
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
             ClientSize = new Size(905, 740);
+            Controls.Add(label28);
             Controls.Add(label27);
             Controls.Add(dateTimePicker3);
             Controls.Add(pictureBox3);
@@ -985,5 +1012,6 @@
         private DateTimePicker dateTimePicker3;
         private ToolStripButton toolStripButton3;
         private Label label27;
+        private Label label28;
     }
 }

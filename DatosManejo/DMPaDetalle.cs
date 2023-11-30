@@ -17,7 +17,6 @@ namespace DatosManejo
             int? ultimoCodigoEvento = contexto.SaEvePaqueteDetalles.Max(a => a.CodDp);
             return ultimoCodigoEvento + 1;
         }
-        
         public List<SaEvePaqueteDetalle> Obtener(int coddetallepaq = 0, int coddp = 0, int codpaquete = 0, int codconceptos = 0, string codestado = "")
         {
             List<SaEvePaqueteDetalle> porcentajes = new List<SaEvePaqueteDetalle>();

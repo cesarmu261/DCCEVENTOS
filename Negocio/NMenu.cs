@@ -40,13 +40,13 @@ namespace Negocio
             List<Menu> List = new DMMenu(contexto).Obtener();
 
             DataTable Table = new DataTable();
-            Table.Columns.Add("CODIGO");  
+            Table.Columns.Add("CODIGO");
             Table.Columns.Add("NOMBRE");
             Table.Columns.Add("NOMBRE DE FORMULARIO");
             foreach (Menu datos in List)
             {
                 DataRow row = Table.NewRow();
-                row["CODIGO"] = datos.IdMenu;  
+                row["CODIGO"] = datos.IdMenu;
                 row["NOMBRE"] = datos.Nombre;
                 row["NOMBRE DE FORMULARIO"] = datos.NombreFormulario;
                 Table.Rows.Add(row);
@@ -76,7 +76,7 @@ namespace Negocio
         {
 
             EventosContext contexto = new EventosContext();
-            InfoCompartidaCapas r = new DMMenu (contexto).Crear(datos);
+            InfoCompartidaCapas r = new DMMenu(contexto).Crear(datos);
             if (String.IsNullOrEmpty(r.error))
             {
                 contexto.SaveChanges();
@@ -96,14 +96,14 @@ namespace Negocio
         public InfoCompartidaCapas Eliminar(Menu datos)
         {
             EventosContext contexto = new EventosContext();
-            InfoCompartidaCapas r= new DMMenu(contexto).Eliminar(datos);
+            InfoCompartidaCapas r = new DMMenu(contexto).Eliminar(datos);
             if (String.IsNullOrEmpty(r.error))
             {
                 contexto.SaveChanges();
             }
             return r;
         }
-       
+
         public Object[] ObtenerDescripciones(int Cod = 0, string Descripcion = "")
         {
             EventosContext context = new EventosContext();

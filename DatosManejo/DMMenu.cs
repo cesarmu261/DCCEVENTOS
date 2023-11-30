@@ -17,7 +17,7 @@ namespace DatosManejo
         {
             this.contexto = contexto;
         }
-        public List<Menu> Obtener(int Codmenu = 0, string Des = "", string Formalurio ="")
+        public List<Menu> Obtener(int Codmenu = 0, string Des = "", string Formalurio = "")
         {
             List<Menu> datos = new List<Menu>();
             if (Codmenu != 0)
@@ -66,6 +66,7 @@ namespace DatosManejo
                 return null;
             }
         }
+
         public string? Obtenedescripcion(int? cod)
         {
             return contexto.Menus.Where(a => a.IdMenu == cod).FirstOrDefault().Nombre;
@@ -142,5 +143,5 @@ namespace DatosManejo
             contexto.Database.CloseConnection();
         }
     }
-    
+
 }

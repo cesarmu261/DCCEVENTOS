@@ -16,7 +16,7 @@ namespace Negocio
 {
     public class NPago
     {
-        public static int SSCod = 1;
+        public static int SSCod = 0;
         NTipoPago nTipoPago;
         NTrans NTrans;
         DataTable table;
@@ -143,8 +143,7 @@ namespace Negocio
 
             foreach (SaEvePago Entidad in List)
             {
-
-                if (Entidad.FechaDePago >= fechaInicial && Entidad.FechaDePago <= fechaFinal)
+                if ((Entidad.FechaDePago.Date >= fechaInicial.Date && Entidad.FechaDePago.Date <= fechaFinal.Date) && Entidad.CodEstado == "A")
                 {
                     DataRow row = Table.NewRow();
                     row["FOLIO"] = Entidad.CodPagos;  // Reemplaza "Columna1" y "Propiedad1" con los nombres reales de la columna y propiedad que deseas incluir
@@ -176,8 +175,7 @@ namespace Negocio
 
             foreach (SaEvePago Entidad in List)
             {
-
-                if (Entidad.FechaDeCancelacion >= fechaInicial && Entidad.FechaDeCancelacion <= fechaFinal)
+                if ((Entidad.FechaDeCancelacion >= fechaInicial.Date && Entidad.FechaDeCancelacion <= fechaFinal.Date) && Entidad.CodEstado == "I")
                 {
                     DataRow row = Table.NewRow();
                     row["FOLIO"] = Entidad.CodPagos;  // Reemplaza "Columna1" y "Propiedad1" con los nombres reales de la columna y propiedad que deseas incluir

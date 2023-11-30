@@ -454,6 +454,7 @@
             textBox12.Name = "textBox12";
             textBox12.Size = new Size(200, 23);
             textBox12.TabIndex = 17;
+            textBox12.KeyPress += textBox12_KeyPress;
             // 
             // textBox13
             // 
@@ -470,6 +471,7 @@
             textBox10.Name = "textBox10";
             textBox10.Size = new Size(200, 23);
             textBox10.TabIndex = 16;
+            textBox10.KeyPress += textBox10_KeyPress;
             // 
             // textBox9
             // 
@@ -741,7 +743,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1501, 841);
+            ClientSize = new Size(1501, 852);
             Controls.Add(pictureBox1);
             Controls.Add(label23);
             Controls.Add(button1);

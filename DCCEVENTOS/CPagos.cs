@@ -4,6 +4,7 @@ using DCCEVENTOS.CBusqueda;
 using DCCEVENTOS.Reportes;
 using Entidades;
 using InfoCompartidaCaps;
+using Microsoft.CodeAnalysis.VisualBasic.Syntax;
 using Negocio;
 using System.Data;
 using System.Data.Odbc;
@@ -36,6 +37,15 @@ namespace DCCEVENTOS
         {
             toolStripGuardar.Enabled = true;
             toolStripButton1.Enabled = false;
+            toolStripButton3.Enabled = false;
+            toolStripButton2.Enabled = false;
+            CBComprante.Enabled = false;
+            CBPago.Enabled = false;
+            TBReferencia.Enabled = false;
+            TBRecibo.Enabled = false;
+            TBObservacionesPago.Enabled = false;
+            CBTransaccion.Enabled = false;
+            MontoaCobrar.Enabled = false;
             TBFolio.Text = string.Empty;
             TBEvento.Text = string.Empty;
             CBTransaccion.SelectedIndex = 0;
@@ -106,14 +116,14 @@ namespace DCCEVENTOS
             if (List.Count == 0) // La lista está vacía
             {
                 resultado = resultadoFinal;
-                CostoEvento.Text = resultadoFinal.ToString();
+                CostoEvento.Text = resultadoFinal.ToString("N2");
                 MontoPagado.Text = (0.00).ToString();
                 //SaldoPendiente.Text = (0.00).ToString();
-                SaldoPendiente.Text = resultadoFinal.ToString();
+                SaldoPendiente.Text = resultadoFinal.ToString("N2");
                 MontoaCobrar.Text = (0.00).ToString();
                 SaldoaFavor.Text = (0.00).ToString();
                 //SaldoaFavor.Text = sumatoriaGarantia.ToString();
-                Penalizacion.Text = sumatoriaPenalizacion.ToString();
+                Penalizacion.Text = sumatoriaPenalizacion.ToString("N2");
                 TBIva.Text = (0.00).ToString();
                 SaldoActual.Text = (0.00).ToString();
             }
@@ -135,7 +145,7 @@ namespace DCCEVENTOS
                                 montos = montos + t.Montoapagar;
                                 restagarantia = montos - sumatoriaGarantia;
                                 sumagarantia = resultados + sumatoriaGarantia;
-                                CostoEvento.Text = resultadoFinal.ToString();
+                                CostoEvento.Text = resultadoFinal.ToString("N2");
                                 resultado -= montos; // Resta el monto del anticipo
                                 MontoPagado.Text = montos.ToString();  // Actualiza el monto pagado
                                 SaldoPendiente.Text = (resultados > 0 ? resultados : 0).ToString();
@@ -146,7 +156,7 @@ namespace DCCEVENTOS
                                 montos = montos + t.Montoapagar;
                                 restagarantia = montos - sumatoriaGarantia;
                                 sumagarantia = resultados + sumatoriaGarantia;
-                                CostoEvento.Text = resultadoFinal.ToString();
+                                CostoEvento.Text = resultadoFinal.ToString("N2");
                                 resultado -= montos; // Resta el monto del anticipo
                                 MontoPagado.Text = montos.ToString();  // Actualiza el monto pagado
                                 SaldoPendiente.Text = (resultados > 0 ? resultados : 0).ToString();
@@ -158,7 +168,7 @@ namespace DCCEVENTOS
                                 montos = montos + t.Montoapagar;
                                 restagarantia = montos - sumatoriaGarantia;
                                 sumagarantia = resultados + sumatoriaGarantia;
-                                CostoEvento.Text = resultadoFinal.ToString();
+                                CostoEvento.Text = resultadoFinal.ToString("N2");
                                 resultado = montos; // Seteamos el monto a cobrar como saldo pendiente
                                 MontoPagado.Text = montos.ToString();  // Actualiza el monto pagado
                                 SaldoPendiente.Text = (resultados > 0 ? resultados : 0).ToString();
@@ -167,7 +177,7 @@ namespace DCCEVENTOS
                             case 4: // Garantía
                                 restagarantia = montos - sumatoriaGarantia;
                                 sumagarantia = montos + sumatoriaGarantia;
-                                CostoEvento.Text = resultadoFinal.ToString();
+                                CostoEvento.Text = resultadoFinal.ToString("N2");
                                 MontoPagado.Text = montos.ToString();
                                 label27.Text = "PAGADO";
                                 SaldoPendiente.Text = (resultados > 0 ? resultados : 0).ToString(); // Actualiza el saldo pendiente
@@ -177,32 +187,46 @@ namespace DCCEVENTOS
                             case 5: // GASTOS
                                 restagarantia = montos - sumatoriaGarantia;
                                 sumagarantia = montos + sumatoriaGarantia;
-                                CostoEvento.Text = resultadoFinal.ToString();
+                                CostoEvento.Text = resultadoFinal.ToString("N2");
                                 MontoPagado.Text = montos.ToString();
                                 SaldoPendiente.Text = (resultados > 0 ? resultados : 0).ToString(); // Actualiza el saldo pendiente
-                                Penalizacion.Text = sumatoriaPenalizacion.ToString();
+                                Penalizacion.Text = sumatoriaPenalizacion.ToString("N2");
                                 break;
                             case 6: // Devoluciones
                                 restagarantia = montos - sumatoriaGarantia;
                                 sumagarantia = montos + sumatoriaGarantia;
-                                CostoEvento.Text = resultadoFinal.ToString();
+                                CostoEvento.Text = resultadoFinal.ToString("N2");
                                 MontoPagado.Text = montos.ToString();
                                 SaldoPendiente.Text = (resultados > 0 ? resultados : 0).ToString(); // Actualiza el saldo pendiente
-                                Penalizacion.Text = sumatoriaPenalizacion.ToString();
+                                Penalizacion.Text = sumatoriaPenalizacion.ToString("N2");
                                 break;
                             default://Por Defecto
+                                resultados = resultados - t.Montoapagar;
+                                montos = montos + t.Montoapagar;
                                 restagarantia = montos - sumatoriaGarantia;
-                                sumagarantia = montos + sumatoriaGarantia;
-                                CostoEvento.Text = resultadoFinal.ToString();
-                                MontoPagado.Text = montos.ToString();
-                                SaldoPendiente.Text = (resultados > 0 ? resultados : 0).ToString(); // Actualiza el saldo pendiente
-                                Penalizacion.Text = sumatoriaPenalizacion.ToString();
+                                sumagarantia = resultados + sumatoriaGarantia;
+                                CostoEvento.Text = resultadoFinal.ToString("N2");
+                                resultado -= montos; // Resta el monto del anticipo
+                                MontoPagado.Text = montos.ToString();  // Actualiza el monto pagado
+                                SaldoPendiente.Text = (resultados > 0 ? resultados : 0).ToString();
+                                Penalizacion.Text = sumatoriaPenalizacion.ToString("N2");
                                 break;
                         }
                     }
                     else
                     {
-                        //MessageBox.Show("ERROR EN LA LISTA DE  BUSQUEDA");
+                        resultado = resultadoFinal;
+                        CostoEvento.Text = resultadoFinal.ToString("N2");
+                        MontoPagado.Text = (0.00).ToString("N2");
+                        //SaldoPendiente.Text = (0.00).ToString();
+                        SaldoPendiente.Text = resultadoFinal.ToString("N2");
+                        MontoaCobrar.Text = (0.00).ToString();
+                        SaldoaFavor.Text = (0.00).ToString();
+                        //SaldoaFavor.Text = sumatoriaGarantia.ToString();
+                        Penalizacion.Text = sumatoriaPenalizacion.ToString("N2");
+                        TBIva.Text = (0.00).ToString();
+                        SaldoActual.Text = (0.00).ToString();
+
                     }
                 }
             }
@@ -236,7 +260,7 @@ namespace DCCEVENTOS
             CBTransaccion.Enabled = false;
             CBEstado.Enabled = false;
             TBObservacion.Enabled = false;
-
+            dateTimePicker3.Enabled = false;
             TBClientes.Enabled = false;
             TBDescripcion.Enabled = false;
             dateTimePicker1.Enabled = false;
@@ -247,7 +271,6 @@ namespace DCCEVENTOS
             TBRecibo.Enabled = false;
             TBObservacionesPago.Enabled = false;
             MontoaCobrar.Enabled = false;
-
             CostoEvento.Enabled = false;
             MontoPagado.Enabled = false;
             MontoaCobrar.Enabled = false;
@@ -262,29 +285,12 @@ namespace DCCEVENTOS
         {
             TBFolio.Enabled = true;
             TBEvento.Enabled = true;
-            CBTransaccion.Enabled = true;
             CBEstado.Enabled = true;
             TBObservacion.Enabled = true;
-
             TBClientes.Enabled = true;
             TBDescripcion.Enabled = true;
             dateTimePicker1.Enabled = true;
             dateTimePicker2.Enabled = true;
-            CBComprante.Enabled = true;
-            CBPago.Enabled = true;
-            TBReferencia.Enabled = true;
-            TBRecibo.Enabled = true;
-            TBObservacionesPago.Enabled = true;
-            MontoaCobrar.Enabled = true;
-
-            CostoEvento.Enabled = true;
-            MontoPagado.Enabled = true;
-            MontoaCobrar.Enabled = true;
-            SaldoPendiente.Enabled = true;
-            SaldoaFavor.Enabled = true;
-            Penalizacion.Enabled = true;
-            SaldoActual.Enabled = true;
-            textBox1.Enabled = true;
         }
         public void Buscar()
         {
@@ -299,7 +305,8 @@ namespace DCCEVENTOS
                 TBFolio.Text = Convert.ToString(NPago.SSCod);
                 TBEvento.Text = Convert.ToString(Entidades.CodEvento);
                 CargarEvento();
-
+                toolStripButton3.Enabled = false;
+                toolStripButton2.Enabled = true;
                 string valortrans = nTrans.ObtenerDescripcione(Entidades.CodTipoTransaccion); // Valor que deseas seleccionar
                 int indicetra = CBTransaccion.FindStringExact(valortrans);
                 if (indicetra != -1)
@@ -378,11 +385,25 @@ namespace DCCEVENTOS
                 }
                 pago.Observacionpago = TBObservacionesPago.Text;
                 pago.Montoacobrar = Convert.ToDecimal(MontoaCobrar.Text);
-                pago.Montoapagar = Convert.ToDecimal(textBox1.Text);
+                //pago.Montoapagar = Convert.ToDecimal(textBox1.Text);
+                if (textBox1.Text == "")
+                {
+                    pago.Montoapagar = null;
+                }
+                else
+                {
+                    pago.Montoapagar = Convert.ToDecimal(textBox1.Text);
+                }
                 InfoCompartidaCapas rModificar = Npago.Modificar(pago);
                 if (!String.IsNullOrEmpty(rModificar.error))
                 {
                     MessageBox.Show(rModificar.error);
+                }
+                else
+                {
+                    int cod = Convert.ToInt32(Npago.ObtenerDescripcionesCod());
+                    Recibo rE = new Recibo(cod);
+                    rE.Show();
                 }
             }
             catch (Exception ex)
@@ -413,7 +434,16 @@ namespace DCCEVENTOS
                 }
                 else
                 {
+                    toolStripButton3.Enabled = true;
                     label22.Visible = false;
+                    MontoaCobrar.Enabled = true;
+
+                    CBComprante.Enabled = true;
+                    CBPago.Enabled = true;
+                    TBReferencia.Enabled = true;
+                    TBRecibo.Enabled = true;
+                    TBObservacionesPago.Enabled = true;
+                    CBTransaccion.Enabled = true;
                     EventosContext contexto = new EventosContext();
                     int cod = Convert.ToInt32(TBEvento.Text);
                     List<SaEvento> List = new DMEvento(contexto).Obtener(cod);
@@ -441,7 +471,8 @@ namespace DCCEVENTOS
             try
             {
                 if (string.IsNullOrWhiteSpace(TBClientes.Text) || string.IsNullOrWhiteSpace(TBDescripcion.Text) ||
-                    string.IsNullOrWhiteSpace(MontoaCobrar.Text))
+                    string.IsNullOrWhiteSpace(MontoaCobrar.Text) || string.IsNullOrWhiteSpace(SaldoActual.Text) ||
+                    string.IsNullOrWhiteSpace(textBox1.Text))
                 {
                     MessageBox.Show("DEBE CAPTURAR TODOS LOS DATOS PARA EL REGISTRO");
                     return;
@@ -496,6 +527,12 @@ namespace DCCEVENTOS
                 if (!String.IsNullOrEmpty(rGuardar.error))
                 {
                     MessageBox.Show(rGuardar.error);
+                }
+                else
+                {
+                    int cod = Convert.ToInt32(Npago.ObtenerDescripcionesCod());
+                    Recibo rE = new Recibo(cod);
+                    rE.Show();
                 }
                 CargarInformacion();
             }
@@ -559,6 +596,12 @@ namespace DCCEVENTOS
         }
         public void CalculosdePago()
         {
+            if (string.IsNullOrWhiteSpace(MontoaCobrar.Text))
+            {
+                MontoaCobrar.Text = 0.ToString();
+                return;
+            }
+
             decimal resultado = Convert.ToDecimal(CostoEvento.Text);
             decimal monto = Convert.ToDecimal(MontoaCobrar.Text);
 
@@ -599,19 +642,30 @@ namespace DCCEVENTOS
         }
         private void MontoaCobrar_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)13)
+            System.Text.RegularExpressions.Regex er = new System.Text.RegularExpressions.Regex("^(?:\\+|-)?\\d+$");
+            if (!er.Match(MontoaCobrar.Text).Success)
             {
-                CalculosdePago();
+                this.label28.Text = "El campo debe ser un número entero";
+                label28.Visible = true;
             }
+            else
+            {
+                if (e.KeyChar == (char)13)
+                {
+                    label28.Visible = false;
+                    CalculosdePago();
+                }
+            }
+
         }
         private void toolStripGuardar_Click(object sender, EventArgs e)
         {
             if (CBComprante.SelectedIndex == 0)
             {
                 AgregarInformacion();
-                int cod = Convert.ToInt32(Npago.ObtenerDescripcionesCod());
-                Recibo rE = new Recibo(cod);
-                rE.Show();
+                //int cod = Convert.ToInt32(Npago.ObtenerDescripcionesCod());
+                //Recibo rE = new Recibo(cod);
+                //rE.Show();
                 Nuevo();
             }
             else if (CBComprante.SelectedIndex == 1)
@@ -692,6 +746,7 @@ namespace DCCEVENTOS
                     panel1.Visible = true;
                     CBTransaccion.SelectedIndex = 2;
                     CBTransaccion.Enabled = false;
+
                     CalculosFactura();
                 }
             }
@@ -707,9 +762,10 @@ namespace DCCEVENTOS
                 MontoaCobrar.Text = SaldoPendiente.Text;
                 CalculosdePago();
             }
-            if (CBTransaccion.SelectedIndex == 3)
+            else if (CBTransaccion.SelectedIndex == 3)
             {
                 MontoaCobrar.Text = (5000).ToString("N2");
+                MontoaCobrar.Enabled = false;
                 CalculosdePago();
             }
         }
@@ -768,16 +824,56 @@ namespace DCCEVENTOS
         }
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            CBTransaccion.SelectedIndex = 5;
-            int cod = Convert.ToInt32(TBEvento.Text);
-            decimal pen = Convert.ToDecimal(Penalizacion.Text);
-            decimal garantia = Convert.ToDecimal(SaldoaFavor.Text);
-            decimal resstagarantia = garantia - pen;
-            RealizarDevolucion(cod, resstagarantia);
-            int cods = Convert.ToInt32(Npago.ObtenerDescripcionesCod());
-            Devolucion rE = new Devolucion(cods);
-            rE.Show();
-            Nuevo();
+            if (SaldoPendiente.Text != 0.ToString() || string.IsNullOrWhiteSpace(SaldoaFavor.Text))
+            {
+                MessageBox.Show("EL EVENTO DEBE DE ESTAR FINIQUITADO");
+            }
+            else
+            {
+                CBTransaccion.SelectedIndex = 5;
+                int cod = Convert.ToInt32(TBEvento.Text);
+                decimal pen = Convert.ToDecimal(Penalizacion.Text);
+                decimal garantia = Convert.ToDecimal(SaldoaFavor.Text);
+                decimal resstagarantia = garantia - pen;
+                RealizarDevolucion(cod, resstagarantia);
+                int cods = Convert.ToInt32(Npago.ObtenerDescripcionesCod());
+                Devolucion rE = new Devolucion(cods);
+                rE.Show();
+                Nuevo();
+            }
+        }
+        private void toolStripSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void CBPago_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (CBPago.SelectedIndex == 0)
+            {
+                // Obtener la fuente de datos actual
+                object[] pago = nTrans.ObtenerDescripciones();
+                // Crear una nueva lista para la fuente de datos modificada
+                List<object> nuevaFuente = new List<object>(pago);
+                // Remover el elemento "DEVOLUCIONES" de la lista
+                nuevaFuente.Remove("DEVOLUCIONES");
+                // Establecer la nueva fuente de datos
+                CBTransaccion.DataSource = nuevaFuente.ToArray();
+                // Refrescar el ComboBox
+                CBTransaccion.Refresh();
+            }
+            else if (CBPago.SelectedIndex == 1)
+            {
+                object[] pago = nTrans.ObtenerDescripciones();
+                // Crear una nueva lista para la fuente de datos modificada
+                List<object> nuevaFuente = new List<object>(pago);
+                // Remover el elemento "DEVOLUCIONES" de la lista
+                nuevaFuente.Remove("DEVOLUCIONES");
+                // Establecer la nueva fuente de datos
+                CBTransaccion.DataSource = nuevaFuente.ToArray();
+                // Refrescar el ComboBox
+                CBTransaccion.Refresh();
+
+            }
         }
     }
 }
