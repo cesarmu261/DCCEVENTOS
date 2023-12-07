@@ -109,6 +109,7 @@
             dateTimePicker3 = new DateTimePicker();
             label27 = new Label();
             label28 = new Label();
+            label29 = new Label();
             toolStrip1.SuspendLayout();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DTGDetalleEvento).BeginInit();
@@ -295,7 +296,7 @@
             label2.Location = new Point(615, 145);
             label2.Name = "label2";
             label2.Size = new Size(69, 30);
-            label2.TabIndex = 69;
+            label2.TabIndex = 0;
             label2.Text = "Tipo de \r\nTransaccion";
             // 
             // label3
@@ -304,7 +305,7 @@
             label3.Location = new Point(15, 71);
             label3.Name = "label3";
             label3.Size = new Size(43, 15);
-            label3.TabIndex = 70;
+            label3.TabIndex = 0;
             label3.Text = "Evento";
             // 
             // label5
@@ -313,7 +314,7 @@
             label5.Location = new Point(13, 242);
             label5.Name = "label5";
             label5.Size = new Size(68, 15);
-            label5.TabIndex = 72;
+            label5.TabIndex = 0;
             label5.Text = "Fecha Pago";
             // 
             // label6
@@ -322,7 +323,7 @@
             label6.Location = new Point(253, 242);
             label6.Name = "label6";
             label6.Size = new Size(69, 15);
-            label6.TabIndex = 73;
+            label6.TabIndex = 0;
             label6.Text = "Facturacion";
             // 
             // dateTimePicker1
@@ -331,7 +332,7 @@
             dateTimePicker1.Location = new Point(123, 237);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(121, 23);
-            dateTimePicker1.TabIndex = 74;
+            dateTimePicker1.TabIndex = 0;
             // 
             // dateTimePicker2
             // 
@@ -339,7 +340,7 @@
             dateTimePicker2.Location = new Point(349, 237);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(145, 23);
-            dateTimePicker2.TabIndex = 75;
+            dateTimePicker2.TabIndex = 0;
             // 
             // TBFolio
             // 
@@ -354,7 +355,7 @@
             TBEvento.Location = new Point(122, 68);
             TBEvento.Name = "TBEvento";
             TBEvento.Size = new Size(121, 23);
-            TBEvento.TabIndex = 80;
+            TBEvento.TabIndex = 1;
             TBEvento.KeyPress += textBox2_KeyPress;
             // 
             // CBTransaccion
@@ -365,7 +366,7 @@
             CBTransaccion.Location = new Point(704, 150);
             CBTransaccion.Name = "CBTransaccion";
             CBTransaccion.Size = new Size(187, 23);
-            CBTransaccion.TabIndex = 81;
+            CBTransaccion.TabIndex = 8;
             CBTransaccion.SelectionChangeCommitted += CBTransaccion_SelectionChangeCommitted;
             // 
             // label7
@@ -374,7 +375,7 @@
             label7.Location = new Point(15, 272);
             label7.Name = "label7";
             label7.Size = new Size(42, 15);
-            label7.TabIndex = 82;
+            label7.TabIndex = 0;
             label7.Text = "Estado";
             // 
             // CBEstado
@@ -384,7 +385,7 @@
             CBEstado.Location = new Point(123, 269);
             CBEstado.Name = "CBEstado";
             CBEstado.Size = new Size(121, 23);
-            CBEstado.TabIndex = 83;
+            CBEstado.TabIndex = 4;
             // 
             // label8
             // 
@@ -392,7 +393,7 @@
             label8.Location = new Point(15, 306);
             label8.Name = "label8";
             label8.Size = new Size(73, 15);
-            label8.TabIndex = 84;
+            label8.TabIndex = 0;
             label8.Text = "Observacion";
             // 
             // TBObservacion
@@ -402,7 +403,7 @@
             TBObservacion.Multiline = true;
             TBObservacion.Name = "TBObservacion";
             TBObservacion.Size = new Size(370, 60);
-            TBObservacion.TabIndex = 85;
+            TBObservacion.TabIndex = 5;
             // 
             // DTGDetalleEvento
             // 
@@ -431,7 +432,7 @@
             label9.Location = new Point(615, 71);
             label9.Name = "label9";
             label9.Size = new Size(81, 15);
-            label9.TabIndex = 87;
+            label9.TabIndex = 0;
             label9.Text = "Combrobante";
             // 
             // label10
@@ -440,7 +441,7 @@
             label10.Location = new Point(615, 111);
             label10.Name = "label10";
             label10.Size = new Size(76, 15);
-            label10.TabIndex = 88;
+            label10.TabIndex = 0;
             label10.Text = "Tipo de Pago";
             // 
             // CBComprante
@@ -451,7 +452,7 @@
             CBComprante.Location = new Point(702, 65);
             CBComprante.Name = "CBComprante";
             CBComprante.Size = new Size(187, 23);
-            CBComprante.TabIndex = 91;
+            CBComprante.TabIndex = 6;
             CBComprante.SelectionChangeCommitted += CBComprante_SelectionChangeCommitted;
             // 
             // CBPago
@@ -462,7 +463,7 @@
             CBPago.Location = new Point(704, 108);
             CBPago.Name = "CBPago";
             CBPago.Size = new Size(187, 23);
-            CBPago.TabIndex = 92;
+            CBPago.TabIndex = 7;
             CBPago.SelectionChangeCommitted += CBPago_SelectionChangeCommitted;
             // 
             // label13
@@ -471,7 +472,7 @@
             label13.Location = new Point(616, 242);
             label13.Name = "label13";
             label13.Size = new Size(62, 15);
-            label13.TabIndex = 95;
+            label13.TabIndex = 0;
             label13.Text = "Referencia";
             // 
             // label14
@@ -480,7 +481,7 @@
             label14.Location = new Point(616, 272);
             label14.Name = "label14";
             label14.Size = new Size(43, 15);
-            label14.TabIndex = 96;
+            label14.TabIndex = 0;
             label14.Text = "Recibo";
             label14.Visible = false;
             // 
@@ -490,7 +491,7 @@
             TBReferencia.Location = new Point(702, 239);
             TBReferencia.Name = "TBReferencia";
             TBReferencia.Size = new Size(187, 23);
-            TBReferencia.TabIndex = 97;
+            TBReferencia.TabIndex = 9;
             // 
             // TBRecibo
             // 
@@ -498,7 +499,7 @@
             TBRecibo.Location = new Point(702, 269);
             TBRecibo.Name = "TBRecibo";
             TBRecibo.Size = new Size(187, 23);
-            TBRecibo.TabIndex = 98;
+            TBRecibo.TabIndex = 0;
             TBRecibo.Visible = false;
             // 
             // TBDescripcion
@@ -507,7 +508,7 @@
             TBDescripcion.Location = new Point(142, 150);
             TBDescripcion.Name = "TBDescripcion";
             TBDescripcion.Size = new Size(350, 23);
-            TBDescripcion.TabIndex = 102;
+            TBDescripcion.TabIndex = 3;
             // 
             // TBClientes
             // 
@@ -516,7 +517,7 @@
             TBClientes.Location = new Point(142, 108);
             TBClientes.Name = "TBClientes";
             TBClientes.Size = new Size(350, 23);
-            TBClientes.TabIndex = 101;
+            TBClientes.TabIndex = 2;
             // 
             // label15
             // 
@@ -524,7 +525,7 @@
             label15.Location = new Point(13, 138);
             label15.Name = "label15";
             label15.Size = new Size(69, 30);
-            label15.TabIndex = 99;
+            label15.TabIndex = 0;
             label15.Text = "Descripcion\r\nde Evento";
             // 
             // label16
@@ -533,7 +534,7 @@
             label16.Location = new Point(11, 111);
             label16.Name = "label16";
             label16.Size = new Size(44, 15);
-            label16.TabIndex = 100;
+            label16.TabIndex = 0;
             label16.Text = "Cliente";
             // 
             // pictureBox1
@@ -565,7 +566,7 @@
             TBObservacionesPago.Multiline = true;
             TBObservacionesPago.Name = "TBObservacionesPago";
             TBObservacionesPago.Size = new Size(187, 59);
-            TBObservacionesPago.TabIndex = 108;
+            TBObservacionesPago.TabIndex = 10;
             TBObservacionesPago.Text = "\r\n\r\n\r\n";
             // 
             // label17
@@ -574,7 +575,7 @@
             label17.Location = new Point(613, 306);
             label17.Name = "label17";
             label17.Size = new Size(87, 30);
-            label17.TabIndex = 107;
+            label17.TabIndex = 0;
             label17.Text = "Observaciones \r\nde pago";
             // 
             // label11
@@ -583,7 +584,7 @@
             label11.Location = new Point(12, 644);
             label11.Name = "label11";
             label11.Size = new Size(92, 15);
-            label11.TabIndex = 109;
+            label11.TabIndex = 0;
             label11.Text = "Saldo Pendiente";
             // 
             // label12
@@ -593,7 +594,7 @@
             label12.Location = new Point(14, 676);
             label12.Name = "label12";
             label12.Size = new Size(91, 15);
-            label12.TabIndex = 110;
+            label12.TabIndex = 0;
             label12.Text = "Monto a Cobrar";
             // 
             // label18
@@ -602,7 +603,7 @@
             label18.Location = new Point(278, 579);
             label18.Name = "label18";
             label18.Size = new Size(117, 15);
-            label18.TabIndex = 111;
+            label18.TabIndex = 0;
             label18.Text = "Deposito en Garantia";
             // 
             // label19
@@ -611,7 +612,7 @@
             label19.Location = new Point(278, 612);
             label19.Name = "label19";
             label19.Size = new Size(73, 15);
-            label19.TabIndex = 112;
+            label19.TabIndex = 0;
             label19.Text = "Penalizacion";
             // 
             // label20
@@ -620,7 +621,7 @@
             label20.Location = new Point(46, 41);
             label20.Name = "label20";
             label20.Size = new Size(68, 15);
-            label20.TabIndex = 113;
+            label20.TabIndex = 0;
             label20.Text = "IVA(Evento)";
             // 
             // label21
@@ -629,7 +630,7 @@
             label21.Location = new Point(278, 644);
             label21.Name = "label21";
             label21.Size = new Size(112, 15);
-            label21.TabIndex = 114;
+            label21.TabIndex = 0;
             label21.Text = "Saldo Actual Evento";
             // 
             // SaldoPendiente
@@ -639,7 +640,7 @@
             SaldoPendiente.Name = "SaldoPendiente";
             SaldoPendiente.RightToLeft = RightToLeft.Yes;
             SaldoPendiente.Size = new Size(100, 23);
-            SaldoPendiente.TabIndex = 115;
+            SaldoPendiente.TabIndex = 0;
             SaldoPendiente.Text = "0";
             // 
             // MontoaCobrar
@@ -649,7 +650,7 @@
             MontoaCobrar.Name = "MontoaCobrar";
             MontoaCobrar.RightToLeft = RightToLeft.Yes;
             MontoaCobrar.Size = new Size(100, 23);
-            MontoaCobrar.TabIndex = 116;
+            MontoaCobrar.TabIndex = 11;
             MontoaCobrar.Text = "0";
             MontoaCobrar.KeyPress += MontoaCobrar_KeyPress;
             // 
@@ -660,7 +661,7 @@
             SaldoaFavor.Name = "SaldoaFavor";
             SaldoaFavor.RightToLeft = RightToLeft.Yes;
             SaldoaFavor.Size = new Size(100, 23);
-            SaldoaFavor.TabIndex = 117;
+            SaldoaFavor.TabIndex = 0;
             // 
             // Penalizacion
             // 
@@ -669,7 +670,7 @@
             Penalizacion.Name = "Penalizacion";
             Penalizacion.RightToLeft = RightToLeft.Yes;
             Penalizacion.Size = new Size(100, 23);
-            Penalizacion.TabIndex = 118;
+            Penalizacion.TabIndex = 0;
             // 
             // TBIva
             // 
@@ -678,7 +679,7 @@
             TBIva.Name = "TBIva";
             TBIva.RightToLeft = RightToLeft.Yes;
             TBIva.Size = new Size(100, 23);
-            TBIva.TabIndex = 119;
+            TBIva.TabIndex = 0;
             // 
             // SaldoActual
             // 
@@ -687,7 +688,7 @@
             SaldoActual.Name = "SaldoActual";
             SaldoActual.RightToLeft = RightToLeft.Yes;
             SaldoActual.Size = new Size(100, 23);
-            SaldoActual.TabIndex = 120;
+            SaldoActual.TabIndex = 0;
             // 
             // label22
             // 
@@ -706,7 +707,8 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(878, 150);
-            dataGridView1.TabIndex = 122;
+            dataGridView1.TabIndex = 0;
+            dataGridView1.TabStop = false;
             // 
             // CostoEvento
             // 
@@ -715,7 +717,7 @@
             CostoEvento.Name = "CostoEvento";
             CostoEvento.RightToLeft = RightToLeft.Yes;
             CostoEvento.Size = new Size(100, 23);
-            CostoEvento.TabIndex = 124;
+            CostoEvento.TabIndex = 0;
             // 
             // label4
             // 
@@ -723,7 +725,7 @@
             label4.Location = new Point(12, 579);
             label4.Name = "label4";
             label4.Size = new Size(96, 15);
-            label4.TabIndex = 123;
+            label4.TabIndex = 0;
             label4.Text = "Costo del Evento";
             // 
             // MontoPagado
@@ -733,7 +735,7 @@
             MontoPagado.Name = "MontoPagado";
             MontoPagado.RightToLeft = RightToLeft.Yes;
             MontoPagado.Size = new Size(100, 23);
-            MontoPagado.TabIndex = 126;
+            MontoPagado.TabIndex = 0;
             MontoPagado.Text = "0";
             // 
             // label23
@@ -742,7 +744,7 @@
             label23.Location = new Point(12, 612);
             label23.Name = "label23";
             label23.Size = new Size(86, 15);
-            label23.TabIndex = 125;
+            label23.TabIndex = 0;
             label23.Text = "Monto Pagado";
             // 
             // Calcular
@@ -763,7 +765,7 @@
             TBSubtotal.Name = "TBSubtotal";
             TBSubtotal.RightToLeft = RightToLeft.Yes;
             TBSubtotal.Size = new Size(100, 23);
-            TBSubtotal.TabIndex = 129;
+            TBSubtotal.TabIndex = 0;
             // 
             // label24
             // 
@@ -771,7 +773,7 @@
             label24.Location = new Point(59, 8);
             label24.Name = "label24";
             label24.Size = new Size(55, 15);
-            label24.TabIndex = 128;
+            label24.TabIndex = 0;
             label24.Text = "Sub Total";
             // 
             // panel1
@@ -793,7 +795,7 @@
             label25.Location = new Point(629, 649);
             label25.Name = "label25";
             label25.Size = new Size(85, 15);
-            label25.TabIndex = 131;
+            label25.TabIndex = 0;
             label25.Text = "Monto a Pagar";
             // 
             // textBox1
@@ -803,7 +805,7 @@
             textBox1.Name = "textBox1";
             textBox1.RightToLeft = RightToLeft.Yes;
             textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 132;
+            textBox1.TabIndex = 0;
             textBox1.Text = "0";
             // 
             // pictureBox3
@@ -822,9 +824,9 @@
             label26.AutoSize = true;
             label26.Location = new Point(11, 198);
             label26.Name = "label26";
-            label26.Size = new Size(44, 15);
-            label26.TabIndex = 133;
-            label26.Text = "Cliente";
+            label26.Size = new Size(93, 15);
+            label26.TabIndex = 0;
+            label26.Text = "Fecha de Evento";
             // 
             // dateTimePicker3
             // 
@@ -832,7 +834,7 @@
             dateTimePicker3.Location = new Point(142, 192);
             dateTimePicker3.Name = "dateTimePicker3";
             dateTimePicker3.Size = new Size(204, 23);
-            dateTimePicker3.TabIndex = 136;
+            dateTimePicker3.TabIndex = 0;
             // 
             // label27
             // 
@@ -851,10 +853,19 @@
             label28.Size = new Size(0, 15);
             label28.TabIndex = 138;
             // 
+            // label29
+            // 
+            label29.AutoSize = true;
+            label29.Location = new Point(566, 613);
+            label29.Name = "label29";
+            label29.Size = new Size(0, 15);
+            label29.TabIndex = 139;
+            // 
             // CPagos
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
             ClientSize = new Size(905, 740);
+            Controls.Add(label29);
             Controls.Add(label28);
             Controls.Add(label27);
             Controls.Add(dateTimePicker3);
@@ -1013,5 +1024,6 @@
         private ToolStripButton toolStripButton3;
         private Label label27;
         private Label label28;
+        private Label label29;
     }
 }

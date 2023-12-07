@@ -33,11 +33,11 @@ namespace DCCEVENTOS
         }
         private void Centroimagen()
         {
-            pictureBox1.Left = (this.ClientSize.Width - pictureBox1.Width)/2 ;
-            pictureBox1.Top = (this.ClientSize.Height- pictureBox1.Height)/2;
+            pictureBox1.Left = (this.ClientSize.Width - pictureBox1.Width) / 2;
+            pictureBox1.Top = (this.ClientSize.Height - pictureBox1.Height) / 2;
         }
         public List<Permiso> Permisos { get; set; }
-        
+
         public void ActualizarMenu(ToolStripItemCollection items)
         {
             if (Permisos != null)
@@ -209,7 +209,9 @@ namespace DCCEVENTOS
         }
         private void reportePagosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ReportePagos form = new ReportePagos();
+            //ReportePagos form = new ReportePagos();
+            //form.Show();
+            CReporte.Reportes form = new CReporte.Reportes();
             form.Show();
         }
         private void seguridadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -252,6 +254,12 @@ namespace DCCEVENTOS
                 ActualizarMenu(menuStrip1.Items);
                 panel2.Visible = false;
             }
+        }
+
+        private void reporteDePagosPorFechaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReportePagosFechas form = new ReportePagosFechas();
+            form.Show();
         }
     }
 }

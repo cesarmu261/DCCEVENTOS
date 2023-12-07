@@ -59,7 +59,6 @@ namespace DCCEVENTOS
             Coddp.Text = Convert.ToString(nPaDetalle.ObtenerDescripcionesCod()); ;
             CBPaquete.SelectedIndex = 0;
             CBEstado.SelectedIndex = 0;
-            //dataGridView1.DataSource = string.Empty;
             dataGridView1.Rows.Clear();
             toolStripGuardar.Enabled = true;
             toolStripButton1.Enabled = false;
@@ -141,29 +140,7 @@ namespace DCCEVENTOS
 
         }
         private List<int> codigosDetalle = new List<int>();
-        //private void ModificarRegistro()
-        //{
-        //    int columnaIndex = 0; // Índice de la columna que deseas recorrer
-        //    int ultimaFilaIndex = dataGridView1.Rows.Count - 1;
-        //    for (int filaIndex = 0; filaIndex <= ultimaFilaIndex; filaIndex++)
-        //    {
-        //        DataGridViewCell celda = dataGridView1[columnaIndex, filaIndex];
-        //        if (celda.Value != null)
-        //        {
-        //            string valor = celda.Value.ToString();
-        //            SaEvePaqueteDetalle concepto = new SaEvePaqueteDetalle();
-        //            concepto.CodDp = Convert.ToInt32(Coddp.Text);
-        //            concepto.CodPaquete = (int?)npaquete.ObtenerDescripcionesCod(CBPaquete.SelectedItem.ToString());
-        //            concepto.CodConceptos = Convert.ToInt32(valor);
-        //            concepto.CodEstado = nestado.ObtenerDescripcionesCod(CBEstado.SelectedItem.ToString());
-        //            InfoCompartidaCapas rGuardar = nPaDetalle.Modificar(concepto);
-        //            if (!String.IsNullOrEmpty(rGuardar.error))
-        //            {
-        //                MessageBox.Show(rGuardar.error);
-        //            }
-        //        }
-        //    }
-        //}
+        
         public void Eliminar()
         {
             try

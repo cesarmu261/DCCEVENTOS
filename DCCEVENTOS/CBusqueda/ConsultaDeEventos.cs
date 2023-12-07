@@ -231,8 +231,8 @@ namespace DCCEVENTOS.CBusqueda
         private void button4_Click(object sender, EventArgs e)
         {
 
-            RECLIE reportForm = new RECLIE(NCliente.SSCod);
-            reportForm.Show();
+            //RECLIE reportForm = new RECLIE(NCliente.SSCod);
+            //reportForm.Show();
         }
 
 
@@ -244,8 +244,8 @@ namespace DCCEVENTOS.CBusqueda
 
         private void button5_Click(object sender, EventArgs e)
         {
-            REDES reportForm = new REDES(TBDescripcion.Text);
-            reportForm.Show();
+            //REDES reportForm = new REDES(TBDescripcion.Text);
+            //reportForm.Show();
         }
 
         private void TBDescripcion_KeyPress(object sender, KeyPressEventArgs e)

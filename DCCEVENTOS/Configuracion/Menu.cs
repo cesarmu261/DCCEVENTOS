@@ -30,7 +30,6 @@ namespace DCCEVENTOS.Usuario
             InitializeComponent();
             Nmenu = new NMenu();
             CargarInformacion();
-
         }
         private void AgregarRegistro(string item)
         {

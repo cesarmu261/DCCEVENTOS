@@ -62,7 +62,7 @@
             dataGridView1.Location = new Point(22, 161);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(362, 314);
+            dataGridView1.Size = new Size(362, 328);
             dataGridView1.TabIndex = 0;
             // 
             // TBNom
@@ -89,7 +89,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripNuevo, toolStripGuardar, toolStripButton1, toolStripSeparator1, toolStripBuscar, toolStripSeparator2, toolStripSalir });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(747, 31);
+            toolStrip1.Size = new Size(761, 31);
             toolStrip1.TabIndex = 63;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -160,7 +160,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { opcionesToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(747, 24);
+            menuStrip1.Size = new Size(761, 24);
             menuStrip1.TabIndex = 62;
             menuStrip1.Text = "Opciones";
             // 
@@ -209,7 +209,7 @@
             // treeView1
             // 
             treeView1.Indent = 17;
-            treeView1.Location = new Point(404, 73);
+            treeView1.Location = new Point(411, 87);
             treeView1.Name = "treeView1";
             treeView1.Size = new Size(331, 402);
             treeView1.TabIndex = 64;
@@ -234,7 +234,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(404, 44);
+            button1.Location = new Point(411, 58);
             button1.Name = "button1";
             button1.Size = new Size(84, 23);
             button1.TabIndex = 0;
@@ -246,7 +246,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(747, 487);
+            ClientSize = new Size(761, 500);
             Controls.Add(button1);
             Controls.Add(TBNomFor);
             Controls.Add(label2);

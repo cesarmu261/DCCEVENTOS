@@ -1,6 +1,6 @@
 ﻿namespace DCCEVENTOS.Reportes
 {
-    partial class REDES
+    partial class PRECA
     {
         /// <summary>
         /// Required designer variable.
@@ -33,25 +33,27 @@
             // 
             // reportViewer1
             // 
+            reportViewer1.AutoSize = true;
             reportViewer1.Dock = DockStyle.Fill;
             reportViewer1.Location = new Point(0, 0);
             reportViewer1.Name = "ReportViewer";
             reportViewer1.ServerReport.BearerToken = null;
-            reportViewer1.Size = new Size(1174, 961);
+            reportViewer1.Size = new Size(1033, 631);
             reportViewer1.TabIndex = 0;
             // 
-            // REDES
+            // PRECA
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1174, 961);
+            ClientSize = new Size(1033, 631);
             Controls.Add(reportViewer1);
-            Name = "REDES";
+            Name = "PRECA";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "REDES";
+            Text = "Reporte";
             WindowState = FormWindowState.Maximized;
-            Load += REDES_Load;
+            Load += FRE2_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

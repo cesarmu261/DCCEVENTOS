@@ -70,6 +70,7 @@
             reportesToolStripMenuItem = new ToolStripMenuItem();
             reporteEventoToolStripMenuItem = new ToolStripMenuItem();
             reportePagosToolStripMenuItem = new ToolStripMenuItem();
+            reporteDePagosPorFechaToolStripMenuItem = new ToolStripMenuItem();
             panel1 = new Panel();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
@@ -351,7 +352,7 @@
             // 
             // reportesToolStripMenuItem
             // 
-            reportesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { reporteEventoToolStripMenuItem, reportePagosToolStripMenuItem });
+            reportesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { reporteEventoToolStripMenuItem, reportePagosToolStripMenuItem, reporteDePagosPorFechaToolStripMenuItem });
             reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             reportesToolStripMenuItem.Size = new Size(65, 22);
             reportesToolStripMenuItem.Text = "Reportes";
@@ -359,16 +360,23 @@
             // reporteEventoToolStripMenuItem
             // 
             reporteEventoToolStripMenuItem.Name = "reporteEventoToolStripMenuItem";
-            reporteEventoToolStripMenuItem.Size = new Size(154, 22);
+            reporteEventoToolStripMenuItem.Size = new Size(226, 22);
             reporteEventoToolStripMenuItem.Text = "Reporte Evento";
             reporteEventoToolStripMenuItem.Click += reporteEventoToolStripMenuItem_Click;
             // 
             // reportePagosToolStripMenuItem
             // 
             reportePagosToolStripMenuItem.Name = "reportePagosToolStripMenuItem";
-            reportePagosToolStripMenuItem.Size = new Size(154, 22);
-            reportePagosToolStripMenuItem.Text = "Reporte Pagos";
+            reportePagosToolStripMenuItem.Size = new Size(226, 22);
+            reportePagosToolStripMenuItem.Text = "Reporte de Pagos por Evento";
             reportePagosToolStripMenuItem.Click += reportePagosToolStripMenuItem_Click;
+            // 
+            // reporteDePagosPorFechaToolStripMenuItem
+            // 
+            reporteDePagosPorFechaToolStripMenuItem.Name = "reporteDePagosPorFechaToolStripMenuItem";
+            reporteDePagosPorFechaToolStripMenuItem.Size = new Size(226, 22);
+            reporteDePagosPorFechaToolStripMenuItem.Text = "Reporte de Pagos por Fecha ";
+            reporteDePagosPorFechaToolStripMenuItem.Click += reporteDePagosPorFechaToolStripMenuItem_Click;
             // 
             // panel1
             // 
@@ -468,5 +476,6 @@
         private ToolStripMenuItem cambiarContraseñToolStripMenuItem;
         private Panel panel2;
         private PictureBox pictureBox1;
+        private ToolStripMenuItem reporteDePagosPorFechaToolStripMenuItem;
     }
 }

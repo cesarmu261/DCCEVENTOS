@@ -4,7 +4,6 @@ using DCCEVENTOS.CBusqueda;
 using DCCEVENTOS.Reportes;
 using Entidades;
 using InfoCompartidaCaps;
-using Microsoft.CodeAnalysis.VisualBasic.Syntax;
 using Negocio;
 using System.Data;
 using System.Data.Odbc;
@@ -72,6 +71,7 @@ namespace DCCEVENTOS
             Penalizacion.Text = "0";
             SaldoActual.Text = string.Empty;
             panel1.Visible = false;
+            label29.Text = string.Empty;
             textBox1.Text = string.Empty;
             activar();
             CargarInformacion();
@@ -197,6 +197,7 @@ namespace DCCEVENTOS
                                 sumagarantia = montos + sumatoriaGarantia;
                                 CostoEvento.Text = resultadoFinal.ToString("N2");
                                 MontoPagado.Text = montos.ToString();
+                                label29.Text = "DEVOLUCION DE GARANTIA";
                                 SaldoPendiente.Text = (resultados > 0 ? resultados : 0).ToString(); // Actualiza el saldo pendiente
                                 Penalizacion.Text = sumatoriaPenalizacion.ToString("N2");
                                 break;
@@ -215,18 +216,15 @@ namespace DCCEVENTOS
                     }
                     else
                     {
-                        resultado = resultadoFinal;
+                        resultados = resultados - t.Montoapagar;
+                        montos = montos + t.Montoapagar;
+                        restagarantia = montos - sumatoriaGarantia;
+                        sumagarantia = resultados + sumatoriaGarantia;
                         CostoEvento.Text = resultadoFinal.ToString("N2");
-                        MontoPagado.Text = (0.00).ToString("N2");
-                        //SaldoPendiente.Text = (0.00).ToString();
-                        SaldoPendiente.Text = resultadoFinal.ToString("N2");
-                        MontoaCobrar.Text = (0.00).ToString();
-                        SaldoaFavor.Text = (0.00).ToString();
-                        //SaldoaFavor.Text = sumatoriaGarantia.ToString();
+                        resultado -= montos; // Resta el monto del anticipo
+                        MontoPagado.Text = montos.ToString();  // Actualiza el monto pagado
+                        SaldoPendiente.Text = (resultados > 0 ? resultados : 0).ToString();
                         Penalizacion.Text = sumatoriaPenalizacion.ToString("N2");
-                        TBIva.Text = (0.00).ToString();
-                        SaldoActual.Text = (0.00).ToString();
-
                     }
                 }
             }
@@ -609,19 +607,19 @@ namespace DCCEVENTOS
             {
                 decimal saldoPendiente = Convert.ToDecimal(SaldoPendiente.Text);
                 decimal restamonto = saldoPendiente == 0 ? resultado - monto : saldoPendiente - monto;
-                SaldoActual.Text = restamonto.ToString();
+                SaldoActual.Text = restamonto.ToString("N2");
                 textBox1.Text = monto.ToString("N2");
             }
             else if (CBComprante.SelectedIndex == 1 || CBTransaccion.SelectedIndex == 1)
             {
                 decimal saldoPendiente = Convert.ToDecimal(SaldoPendiente.Text);
                 decimal restamonto = saldoPendiente == 0 ? resultado - monto : saldoPendiente - monto;
-                SaldoActual.Text = restamonto.ToString();
+                SaldoActual.Text = restamonto.ToString("N2");
                 textBox1.Text = monto.ToString("N2");
             }
             else if (CBTransaccion.SelectedIndex == 1 || CBTransaccion.SelectedIndex == 2)
             {
-                SaldoActual.Text = (0.00).ToString();
+                SaldoActual.Text = (0.00).ToString("N2");
                 textBox1.Text = monto.ToString("N2");
             }
             else if (CBTransaccion.SelectedIndex == 1 || CBTransaccion.SelectedIndex == 3)
@@ -631,19 +629,20 @@ namespace DCCEVENTOS
             }
             else if (CBTransaccion.SelectedIndex == 1 || CBTransaccion.SelectedIndex == 4)
             {
-                SaldoActual.Text = (0.00).ToString();
+                SaldoActual.Text = (0.00).ToString("N2");
                 textBox1.Text = monto.ToString("N2");
             }
             else if (CBTransaccion.SelectedIndex == 1 || CBTransaccion.SelectedIndex == 5)
             {
-                SaldoActual.Text = (0.00).ToString();
+                SaldoActual.Text = (0.00).ToString("N2");
                 textBox1.Text = monto.ToString("N2");
             }
         }
         private void MontoaCobrar_KeyPress(object sender, KeyPressEventArgs e)
         {
-            System.Text.RegularExpressions.Regex er = new System.Text.RegularExpressions.Regex("^(?:\\+|-)?\\d+$");
-            if (!er.Match(MontoaCobrar.Text).Success)
+            System.Text.RegularExpressions.Regex er = new System.Text.RegularExpressions.Regex("^\\+?\\d+\\.\\d+$");
+            System.Text.RegularExpressions.Regex er2 = new System.Text.RegularExpressions.Regex("^\\+?\\d+$");
+            if (!er.Match(MontoaCobrar.Text).Success && !er2.Match(MontoaCobrar.Text).Success)
             {
                 this.label28.Text = "El campo debe ser un número entero";
                 label28.Visible = true;
@@ -656,16 +655,12 @@ namespace DCCEVENTOS
                     CalculosdePago();
                 }
             }
-
         }
         private void toolStripGuardar_Click(object sender, EventArgs e)
         {
             if (CBComprante.SelectedIndex == 0)
             {
                 AgregarInformacion();
-                //int cod = Convert.ToInt32(Npago.ObtenerDescripcionesCod());
-                //Recibo rE = new Recibo(cod);
-                //rE.Show();
                 Nuevo();
             }
             else if (CBComprante.SelectedIndex == 1)
@@ -704,7 +699,7 @@ namespace DCCEVENTOS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("POR FAVOR PRIMERO BUSQUE UN PAGO ");
+                MessageBox.Show("POR FAVOR PRIMERO BUSQUE UN PAGO");
             }
         }
         public void ObtenerTipoPago()

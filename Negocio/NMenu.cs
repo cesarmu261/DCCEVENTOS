@@ -34,6 +34,12 @@ namespace Negocio
             }
             return Table;
         }
+        public List<Menu> Obtenerparapermisos2()
+        {
+            EventosContext contexto = new EventosContext();
+            List<Menu> List = new DMMenu(contexto).Obtener();
+            return List;
+        }
         public DataTable Obtener()
         {
             EventosContext contexto = new EventosContext();
